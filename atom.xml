@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://dingdm.club/"/>
-  <updated>2021-03-27T09:36:58.864Z</updated>
+  <updated>2021-03-27T13:05:37.185Z</updated>
   <id>https://dingdm.club/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>python学习笔记(一)</title>
+    <link href="https://dingdm.club/2021/03/27/python-xue-xi-bi-ji/"/>
+    <id>https://dingdm.club/2021/03/27/python-xue-xi-bi-ji/</id>
+    <published>2021-03-27T13:04:45.000Z</published>
+    <updated>2021-03-27T13:05:37.185Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;python学习笔记-一&quot;&gt;python学习笔记(一)&lt;/h2&gt;
+&lt;h3 id=&quot;python函数&quot;&gt;python函数&lt;/h3&gt;
+&lt;p&gt;print输出函数&lt;br&gt;
+id(var) 获取对象的唯一id type(var) 获取对象的类型 var 存储的值&lt;/p&gt;
+&lt;
+      
+    
+    </summary>
+    
+    
+      <category term="后端" scheme="https://dingdm.club/categories/%E5%90%8E%E7%AB%AF/"/>
+    
+    
+      <category term="python" scheme="https://dingdm.club/tags/python/"/>
+    
+  </entry>
   
   <entry>
     <title>个人类库工具文档(持续更新)</title>
