@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>python学习笔记(一)</title>
+      <link href="/2021/03/27/python-xue-xi-bi-ji-yi/"/>
+      <url>/2021/03/27/python-xue-xi-bi-ji-yi/</url>
+      
+        <content type="html"><![CDATA[<h2 id="python学习笔记-一">python学习笔记(一)</h2><h3 id="python函数">python函数</h3><p>print输出函数<br>id(var) 获取对象的唯一id type(var) 获取对象的类型 var 存储的值</p><p>open函数 var3 = open(var1 var2) var1参数值代表输出文件路径 var2代表文件创建的形式 'a+'代表无则创建，有则追加。var3代表返回对象<br>print(var1 var2) var1代表输出内容 var2代表使用的返回参数，对于输入到文件来说，file=var3进行输入<br><strong>使用open进行输入到文件，需要关闭返回var3的对象(关闭流)</strong></p><p>chr(0b二进制) 输出对应的汉字编码对应的汉字<br>ord(字符串) 输出对应汉字的二进制编码 都需要借助print输出</p><p>var2 = input(var1) var1作为脚本提问，var2作为用户输入</p><p>bool() 获取对象的bool值。默认为False的数据结构默认值，False，0，0.0，None，’’，""，[]，list()，()，tuple()，{}，dict()，set()</p><p>var = range(stop) 默认从0开始，步长为1。给出结束<br>var = range(start,stop) 默认步长为1，给出开始与结束。<br>var = range(start,stop,step) 给出开始，结束与步长。左闭右开。<br>list® 列表输出 使用in或not in判断整数在列表中是否存在，返回bool</p><h3 id="转义字符">转义字符</h3><p>\n 换行 \t 制表符 制表符以首字母开始以四个占位为标准进行<br>\r 回车 \b 回退 撤销前一格<br>不希望转义，字符串前加r或R即可<br>三引号可以换行</p><h3 id="字符编码">字符编码</h3><p>50 2 70 F 100 d</p><h3 id="类型转换">类型转换</h3><p>直接使用数据类型，str(),int(),float()</p><h3 id="运算符">运算符</h3><p>//整除运算，取整数部分，正负整除运算，向下取整数<br>**幂运算，次方运算<br>正负取余运算时，公式为余数=被除数-除数✖️商<br>解包赋值，a,b,c = 20,30,40<br>is进行对象判断<br>python中直接使用英文and,or或not<br>字符串判断存在可以直接使用in或not in</p><h3 id="分支结构">分支结构</h3><p>if语法:<br>if 条件表达式:<br>业务逻辑<br>else:<br>业务逻辑</p><p>if 条件表达式:<br>if 条件表达式:<br>业务逻辑<br>else:<br>业务逻辑<br>else:<br>业务逻辑</p><p>(var1) if var1&gt;=var2 else (var2)  类似三元表达式，True前，False后</p><p>pass占位符，代替模糊的业务逻辑</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> 后端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> python </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>个人类库工具文档(持续更新)</title>
       <link href="/2021/03/27/ge-ren-lei-ku-gong-ju-wen-dang/"/>
       <url>/2021/03/27/ge-ren-lei-ku-gong-ju-wen-dang/</url>
