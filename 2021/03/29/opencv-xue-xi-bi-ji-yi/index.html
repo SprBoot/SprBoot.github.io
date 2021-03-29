@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="答辩知识架构及企业OA项目开发汇总, dingdm">
+    <meta name="keywords" content="opencv学习笔记一, dingdm">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>答辩知识架构及企业OA项目开发汇总 | dingdm</title>
+    <title>opencv学习笔记一 | dingdm</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -323,12 +323,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('http://dingdm.online/11.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('http://dingdm.online/3.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">答辩知识架构及企业OA项目开发汇总</h1>
+                    <h1 class="description center-align post-title">opencv学习笔记一</h1>
                 </div>
             </div>
         </div>
@@ -445,16 +445,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/vue/">
-                                <span class="chip bg-color">vue</span>
-                            </a>
-                        
-                            <a href="/tags/JWT/">
-                                <span class="chip bg-color">JWT</span>
-                            </a>
-                        
-                            <a href="/tags/Avtiviti/">
-                                <span class="chip bg-color">Avtiviti</span>
+                            <a href="/tags/OpenCV/">
+                                <span class="chip bg-color">OpenCV</span>
                             </a>
                         
                     </div>
@@ -465,12 +457,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91/" class="post-category">
-                                项目开发
-                            </a>
-                        
-                            <a href="/categories/%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91/%E7%AD%94%E8%BE%A9/" class="post-category">
-                                答辩
+                            <a href="/categories/python/" class="post-category">
+                                python
                             </a>
                         
                     </div>
@@ -482,7 +470,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-08-02
+                    2021-03-29
                 </div>
                 
 
@@ -491,14 +479,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.3k
+                    5.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    14 分
+                    21 分
                 </div>
                 
 
@@ -513,506 +501,564 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="1-Vue框架">1.Vue框架</h3>
-<p><strong>MVVM架构，model，view，viewmodel，model和view之间无法直接交互，通过viewmodel进行交互，创建新的模板，在模板中使用js函数创建监听器，使用vm_patch渲染页面完成数据模板的绑定，当数据更新时自动同步数据。view和model自动同步，开发人员只需要关注业务逻辑，而非操作dom对象。<br>
-前台使用VUE进行开发，Vue.js是一个构建数据驱动的web界面的渐进式框架。Vue的目标是通过尽可能简单API实现响应的数据绑定和组合的视图组件。核心是一个响应的数据绑定系统。即vue是单页面应用，页面局部刷新，不用每次跳转页面都去请求所有数据和dom对象，这样大大加快了访问速度和提升用户体验。而且他的第三方ui库可以节省很多不必要的开发时间。<br>
-选用Vue的原因中很重要的一点即为图中的MVVM架构，在MVVM中视图和模型是无法直接进行交互的，而他们中间存在着一个中转站，就是ViewModel。当用户对视图进行相关操作时，和视图相连的ViewModel中的一部分就会通知模型层内容的变化，同理，当模型变化时，ViewModel也可以通知试图层进行改变，这就是Vue中的双向数据绑定。类似于通知者通过关键字来通知订阅者的模式。<br>
-1.双向数据绑定实现浏览器页面的自动刷新。<br>
-2.轻量级js库，API简洁易用。<br>
-3.element-ui库</strong></p>
-<h3 id="2-springboot框架">2.springboot框架</h3>
-<p><strong>后台使用spring boot框架，spring boot 并不是用来替代 Spring 的解决方案，而是和 Spring 框架紧密结合用于提升 Spring 开发者体验的工具。同时它集成了大量常用的第三方库配置，Spring Boot应用中这些第三方库几乎可以是零配置的开箱即用（out-of-the-box），大部分的 Spring Boot 应用都只需要非常少量的配置代码（基于 Java 的配置），开发者能够更加专注于业务逻辑。<br>
-AOP为spring框架中切面编程的实现，AOP可以降低代码之间的耦合度，方便dang当前系统的扩展和代码复用，在OA系统中，我使用AOP进行日志的相关管理和操作。AOP的自定义标签从AopNamespaceHandler这个类开始解析，进入到AspectJAutoProxyBeanDefinitionParser解析器后，调用BeanDefinitionParser的parser方法将请求转交给registerAspectJAnnotationAutoProxyCreatorIfNecessary去实现。在注册或升级即registerAspectJAnnotationAutoProxyCreatorIfNecessary方法处理完成以后根据proxy-target-class的属性来确定使用什么方式的代理，最后调用registerComponentIfNecessary通知监听器。我在使用中正是运用了此流程，使用自定义的AOP注解，将注解注释在需要记录操作的接口方法上，通过通知类型来获取接口数据，进而和数据库交互存储对应的日志信息。<br>
-springboot是对spring框架的封装。<br>
-1.简化配置，无需配置xml<br>
-2.内置tomcat，可是使用maven打包成jar包之后直接在服务器上运行。<br>
-3.完美兼容当前成熟的开发组件。</strong></p>
-<h3 id="3-前后端分离">3.前后端分离</h3>
-<p><strong>前台通过ajax向后台restful风格的接口发起请求，获取json格式的数据进行解析展示。<br>
-1.前后端业务逻辑解耦。<br>
-2.分担后端服务器承受压力。<br>
-3.分开部署，解耦操作，更新方便。</strong></p>
-<h3 id="4-JWT">4.JWT</h3>
-<p><strong>由于后台管理系统采用了前后端分离开发的方式，那么就必然存在前端与后端的接口交互，于是就涉及到了安全问题，后端该如何确认收到的请求是合法的客户端发出的。普通的session中存储用户信息的方法在前后端交互中不可避免的会存在资源开销较大的问题，因此，在智慧谷OA系统的开发中，我使用了JWT来进行认证。JWT认证在用户登录时生成token，并且在下次接口请求时携带相同的token，不仅解决了资源开销的问题，而且JWT的信息使用HS256和RS256算法签名，保证了其在传输过程中的安全性。<br>
-JWT一共由三段内容组成，JWT在认证过程中，使用对称算法时，服务器端就获取到接收的JWT的前两段信息作为数据，用相同的算法和密钥进行签名，得到签名后将服务器端的签名和JWT中的第三段内容进行比较，如果相同认证即为成功。使用非对称加密算法时，由一对密钥构成，私钥由服务器端存储，公钥客户端存储，客户端进行验证的时候，用公钥解密收到的签名,得到JWT三段内容中的前两段，再用这两段内容和JWT进行比较，相同则验证成功。<br>
-由于JWT不能保证数据在传输中不被窃取，因此除了使用非对称加密算法之外，还需要在JWT的内容中设置合理的过期时间来确保数据的安全性。<br>
-session方式将用户信息存储到session中，session存储到内存中，当用户数据增多时，增大服务器的开销。<br>
-token方式将用户数据发送到服务器，服务器使用SHA256或其他算法计算token，客户端接收存储，在请求时将token存储于请求头中。</strong></p>
-<h3 id="5-Activiti">5.Activiti</h3>
-<p><img src="http://dingdm.online/9f2d207d579d4c7ea7114ab042429f0d.png" alt=""><br>
-<strong>Activiti由图中模块构成，Activiti Engine为Activiti的核心，负责数据的处理，Activiti Modeler为模型设计器，Activities Rest支持Restful风格的服务，允许以JSON的格式进行交互，支持跨语言和跨平台。<br>
-Activiti组件使用Mybatis和数据库进行交互，完全契合当前的智慧谷OA系统，且Activiti具有简单易懂的接口和全面的流程设计器，适合任何人的使用与开发。而Activiti原生支持spring这一特性大大减少了在开发过程中的难度和工作量。<br>
-引入官方依赖，使用Activiti的可视化流程编辑器整合。<br>
-编写对应的流程方法和监听器。</strong></p>
-<h3 id="前端代码">前端代码</h3>
-<pre class=" language-language-html"><code class="language-language-html">**配置**
-<!-- 开发环境 -->
-  &lt;% if (process.env.VUE_APP_NODE_ENV === 'dev') { %&gt;
-    <script>window.SITE_CONFIG['apiURL'] = 'http://127.0.0.1:8081/wisdom';</script>
-  &lt;% } %&gt;
-  <!-- 集成测试环境 -->
-  &lt;% if (process.env.VUE_APP_NODE_ENV === 'prod:sit') { %&gt;
-    <script>window.SITE_CONFIG['apiURL'] = 'http://47.100.126.191:8081/wisdom';</script>
-  &lt;% } %&gt;
-  <!-- 验收测试环境 -->
-  &lt;% if (process.env.VUE_APP_NODE_ENV === 'prod:uat') { %&gt;
-    <script>window.SITE_CONFIG['apiURL'] = 'http://47.100.126.191:8081/wisdom';</script>
-  &lt;% } %&gt;
-  <!-- 生产环境 -->
-  &lt;% if (process.env.VUE_APP_NODE_ENV === 'prod') { %&gt;
-    <script>window.SITE_CONFIG['apiURL'] = 'http://47.100.126.191:8081/wisdom';</script>
-  &lt;% } %&gt;
+                <h3 id="opencv学习笔记一">opencv学习笔记一</h3>
+<h4 id="opencv模块">opencv模块</h4>
+<p>core：实现了最核心的数据结构及其基本运算，如绘图函数，数组操作相关函数等。</p>
+<p>highgui：实现了视频与图像的读取，显示，存储等接口</p>
+<p>imgproc：实现了图像处理的基础方法，包括图像滤波，图像的几何变换，平滑，阈值分割，形态学处理，边缘检测，目标检测，运动分析和对象跟踪等等。</p>
+<p>features2d：用于提取图像特征以及特征匹配，nonfree模块实现了一些专利算法，如sift特征。<br>
+objectect：实现了一些目标检测的功能，经典的基于haar，LBP特征的人脸检测，基于HOG的行人，汽车等目标检测，分类器使用Cascade Classification(级联分类)和Latent SVM等。<br>
+stitching：实现了图像拼接功能。<br>
+FLANN：包含快速近似最近邻搜索FLANN和聚类Clustering算法<br>
+ml：机器学习模块(SVM，决策树，Boosting等等)<br>
+photo：包含图像修复和图像去噪两部分<br>
+video：针对视频处理，如背景分离，前景检测，对象跟踪等。<br>
+calib3d：即Calibration3D，这个模块主要是相机校准和三维重建相关的内容。包含了基本的多视角几何算法，单个立体摄像头标定，物体姿态估计，立体相似性算法，3D信息的重建等等。<br>
+G-API：包含超高效的图像处理pipline引擎</p>
+<h4 id="图像的基本操作">图像的基本操作</h4>
+<h5 id="读取图像">读取图像</h5>
+<p>cv.imread(var1,var2)<br>
+var1为读取图像的路径<br>
+var2：cv.IMREAD*COLOR：以彩色模式加载图像，任何图像的透明度都将被忽略。这是默认参数。var2为1<br>
+cv.IMREAD*GRAYSCALE：以灰度模式加载图像。var2为0<br>
+cv.IMREAD_UNCHANGED：包括alpha通道的加载图像模式。var2为-1</p>
+<h5 id="显示图像">显示图像</h5>
+<p>cv.imshow(var1,var2)<br>
+var1：显示图像的窗口名称，以字符串类型表示<br>
+var2：要加载的图像的代理对象<br>
+注意：在调用显示图像的API后，要调用cv.waitKey(var)给图像绘制留下时间，否则窗口会出现无响应情况，并且图像无法显示出来。</p>
+<p>plt.imshow(img,<a href="http://camp=plt.cm" target="_blank" rel="noopener">camp=plt.cm</a>.) cmap即colormaps,图谱 plt.cm是matplotlib库中内置的色彩映射函数 <a href="http://plt.cm" target="_blank" rel="noopener">plt.cm</a>.[色彩](’[数据集]’)即对[数据集]应用[色彩]<br>
+plt.show()<br>
+<img src="http://dingdm.online/%E6%88%AA%E5%B1%8F2021-03-29%20%E4%B8%8A%E5%8D%8810.36.35.png" alt=""><br>
+及其他色彩表</p>
+<h5 id="保存图像">保存图像</h5>
+<p>cv.imwrite(var1,var2)<br>
+var1：图片保存的路径<br>
+var2：保存图像的代理对象</p>
+<pre class=" language-language-python"><code class="language-language-python">import cv2 as cv
+import matplotlib.pyplot as plt
+img = cv.imread('/Users/dinggongcheng/Downloads/me.JPG', 0)
+#cv.imshow('image', img)
+#cv.waitKey(0)
+#cv.destroyAllWindows()
+#cv.waitKey(1)
+plt.imshow(img, cmap=plt.cm.gray)
+plt.show()
 </code></pre>
-<p><strong>数据接口</strong></p>
-<pre class=" language-language-javascript"><code class="language-language-javascript">export default {
-  data () {
-    /* eslint-disable */
-    return {
-      // 设置属性
-      mixinViewModuleOptions: {
-        activatedIsNeed: true,    // 此页面是否在激活（进入）时，调用查询数据列表接口？
-        getDataListURL: '',       // 数据列表接口，API地址
-        getDataListIsPage: false, // 数据列表接口，是否需要分页？
-        deleteURL: '',            // 删除接口，API地址
-        deleteIsBatch: false,     // 删除接口，是否需要批量？
-        deleteIsBatchKey: 'id',   // 删除接口，批量状态下由那个key进行标记操作？比如：pid，uid...
-        exportURL: ''             // 导出接口，API地址
-      },
-      // 默认属性
-      dataForm: {},               // 查询条件
-      dataList: [],               // 数据列表
-      order: 'desc',                  // 排序，asc／desc
-      orderField: 'create_date',             // 排序，字段
-      page: 1,                    // 当前页码
-      limit: 10,                  // 每页数
-      total: 0,                   // 总条数
-      dataListLoading: false,     // 数据列表，loading状态
-      dataListSelections: [],     // 数据列表，多选项
-      addOrUpdateVisible: false   // 新增／更新，弹窗visible状态
-    }
-    /* eslint-enable */
-  },
-  activated () {
-    if (this.mixinViewModuleOptions.activatedIsNeed) {
-      this.getDataList()
-    }
-  },
-  methods: {
-    // 获取数据列表
-    getDataList () {
-      this.dataListLoading = true
-      this.$http.get(
-        this.mixinViewModuleOptions.getDataListURL,
-        {
-          params: {
-            order: this.order,
-            orderField: this.orderField,
-            page: this.mixinViewModuleOptions.getDataListIsPage ? this.page : null,
-            limit: this.mixinViewModuleOptions.getDataListIsPage ? this.limit : null,
-            ...this.dataForm
-          }
-        }
-      ).then(({ data: res }) =&gt; {
-        this.dataListLoading = false
-        if (res.code !== 0) {
-          this.dataList = []
-          this.total = 0
-          return this.$message.error(res.msg)
-        }
-        this.dataList = this.mixinViewModuleOptions.getDataListIsPage ? res.data.list : res.data
-        this.total = this.mixinViewModuleOptions.getDataListIsPage ? res.data.total : 0
-      }).catch(() =&gt; {
-        this.dataListLoading = false
-      })
-    },
-    // 多选
-    dataListSelectionChangeHandle (val) {
-      this.dataListSelections = val
-    },
-    // 排序
-    dataListSortChangeHandle (data) {
-      if (!data.order || !data.prop) {
-        this.order = ''
-        this.orderField = ''
-        return false
-      }
-      this.order = data.order.replace(/ending$/, '')
-      this.orderField = data.prop.replace(/([A-Z])/g, '_$1').toLowerCase()
-      this.getDataList()
-    },
-    // 分页, 每页条数
-    pageSizeChangeHandle (val) {
-      this.page = 1
-      this.limit = val
-      this.getDataList()
-    },
-    // 分页, 当前页
-    pageCurrentChangeHandle (val) {
-      this.page = val
-      this.getDataList()
-    },
-    // 新增 / 修改
-    addOrUpdateHandle (id) {
-      this.addOrUpdateVisible = true
-      this.$nextTick(() =&gt; {
-        this.$refs.addOrUpdate.dataForm.id = id
-        this.$refs.addOrUpdate.init()
-      })
-    },
-    // 删除
-    deleteHandle (id) {
-      if (this.mixinViewModuleOptions.deleteIsBatch &amp;&amp; !id &amp;&amp; this.dataListSelections.length &lt;= 0) {
-        return this.$message({
-          message: this.$t('prompt.deleteBatch'),
-          type: 'warning',
-          duration: 500
-        })
-      }
-      this.$confirm(this.$t('prompt.info', { 'handle': this.$t('delete') }), this.$t('prompt.title'), {
-        confirmButtonText: this.$t('confirm'),
-        cancelButtonText: this.$t('cancel'),
-        type: 'warning'
-      }).then(() =&gt; {
-        this.$http.delete(
-          `${this.mixinViewModuleOptions.deleteURL}${this.mixinViewModuleOptions.deleteIsBatch ? '' : '/' + id}`,
-          this.mixinViewModuleOptions.deleteIsBatch ? {
-            'data': id ? [id] : this.dataListSelections.map(item =&gt; item[this.mixinViewModuleOptions.deleteIsBatchKey])
-          } : {}
-        ).then(({ data: res }) =&gt; {
-          if (res.code !== 0) {
-            return this.$message.error(res.msg)
-          }
-          this.$message({
-            message: this.$t('prompt.success'),
-            type: 'success',
-            duration: 500,
-            onClose: () =&gt; {
-              this.getDataList()
-            }
-          })
-        }).catch(() =&gt; {})
-      }).catch(() =&gt; {})
-    },
-    // 导出
-    exportHandle () {
-      var params = qs.stringify({
-        'token': Cookies.get('token'),
-        ...this.dataForm
-      })
-      window.location.href = `${window.SITE_CONFIG['apiURL']}${this.mixinViewModuleOptions.exportURL}?${params}`
-    }
-  }
+<p><img src="http://dingdm.online/%E6%88%AA%E5%B1%8F2021-03-29%20%E4%B8%8A%E5%8D%8810.42.37.png" alt=""></p>
+<h4 id="绘制几何图形">绘制几何图形</h4>
+<h5 id="绘制直线">绘制直线</h5>
+<p>cv.line(img,start,end,color,thickness)<br>
+img：要绘制直线的图像<br>
+start，end：直线的起点和终点<br>
+color：线条的颜色<br>
+thickness：线条宽度</p>
+<h5 id="绘制圆形">绘制圆形</h5>
+<p>cv.circle(img,centerpoint,r,color,thickness)<br>
+img：要绘制图形的图像<br>
+centerpoint，r：圆心和半径<br>
+color：线条的颜色<br>
+thickness：线条宽度，为-1时生成闭合图案并填充颜色</p>
+<h5 id="绘制矩形">绘制矩形</h5>
+<p>cv.rectangle(img,leftupper,rightdown,color,thickness)<br>
+img：要绘制矩形的图像<br>
+leftupper，rightdown：矩形的左上角和右下角坐标<br>
+color：线条的颜色<br>
+thickness：线条宽度</p>
+<h5 id="向图像中添加文字">向图像中添加文字</h5>
+<p>cv.putText(img,text,station,font,fontsize,color,thickness,cv.LINE_AA)<br>
+img：图像<br>
+text：要写入的文本数据<br>
+station：文本的放置位置<br>
+font：字体<br>
+fontsize：字体大小</p>
+<pre class=" language-language-python"><code class="language-language-python"># author:dinggc
+# date:2021/3/29 上午10:54
+import numpy as np
+import cv2 as cv
+import matplotlib.pyplot as plt
+# 创建一个空白的图像
+img = np.zeros((512, 512, 3), np.uint8)
+# 绘制图形
+cv.line(img, (0, 0), (511, 511), (255, 0, 0), 5)
+cv.rectangle(img, (384, 0), (510, 128), (0, 255, 0), 3)
+cv.circle(img, (447, 63), 63, (0, 0, 255), -1)
+font = cv.FONT_HERSHEY_SIMPLEX
+cv.putText(img, 'OpenCV', (10, 500), font, 4, (255, 255, 255), 2, cv.LINE_AA)
+# 图像展示
+plt.imshow(img[:, :, ::-1])
+plt.title('匹配结果'), plt.xticks([]), plt.yticks([])
+plt.show()
 </code></pre>
-<p><strong>缓存</strong></p>
-<pre class=" language-language-javascript"><code class="language-language-javascript">export default new Vuex.Store({
-  namespaced: true,
-  state: {
-    // 导航条, 布局风格, defalut(白色) / colorful(鲜艳)
-    navbarLayoutType: 'colorful',
-    // 侧边栏, 布局皮肤, default(白色) / dark(黑色)
-    sidebarLayoutSkin: 'dark',
-    // 侧边栏, 折叠状态
-    sidebarFold: false,
-    // 侧边栏, 菜单
-    sidebarMenuList: [],
-    sidebarMenuActiveName: '',
-    // 内容, 是否需要刷新
-    contentIsNeedRefresh: false,
-    ip: 'http://47.100.126.191:8081',
-    // 内容, 标签页(默认添加首页)
-    contentTabs: [
-      {
-        ...window.SITE_CONFIG['contentTabDefault'],
-        'name': 'home',
-        'title': 'home'
-      }
-    ],
-    contentTabsActiveName: 'home'
-  },
-  modules: {
-    user
-  },
-  mutations: {
-    // 重置vuex本地储存状态
-    resetStore (state) {
-      Object.keys(state).forEach((key) =&gt; {
-        state[key] = cloneDeep(window.SITE_CONFIG['storeState'][key])
-      })
-    }
-  }
-})
+<p><img src="http://dingdm.online/%E6%88%AA%E5%B1%8F2021-03-29%20%E4%B8%8A%E5%8D%8811.02.51.png" alt=""></p>
+<h4 id="获取并修改图像中的像素点">获取并修改图像中的像素点</h4>
+<p>可以通过行和列的坐标值获取该像素点的像素值。对于BGR图像，它返回一个蓝，绿，红值的数组。对于灰度图像，仅返回相应的强度值。使用相同的方法对像素值进行修改。</p>
+<pre class=" language-language-python"><code class="language-language-python">img = np.zeros((256, 256, 3), np.uint8)
+
+# 获取某个像素点的值
+px = img[100, 100]
+print(px)
+# 仅获取蓝色通道的强度值
+blue = img[100, 100, 0]
+print(blue)
+# 修改某个位置的像素值
+img[100, 100] = [255, 255, 255]
+
+plt.imshow(img[:, :, ::-1])
+plt.show()
 </code></pre>
-<p><strong>国际化</strong></p>
-<pre class=" language-language-javascript"><code class="language-language-javascript"><script>
-import Cookies from 'js-cookie'
-import { messages } from '@/i18n'
-export default {
-  watch: {
-    '$i18n.locale': 'i18nHandle'
-  },
-  created () {
-    this.i18nHandle(this.$i18n.locale)
-  },
-  methods: {
-    i18nHandle (val, oldVal) {
-      Cookies.set('language', val)
-      document.querySelector('html').setAttribute('lang', val)
-      document.title = messages[val].brand.lg
-      // 非登录页面，切换语言刷新页面
-      if (this.$route.name !== 'login' && oldVal) {
-        window.location.reload()
-      }
-    }
-  }
-}
-</script>
-
+<h4 id="获取图像的属性">获取图像的属性</h4>
+<p>图像属性包括行数，列数和通道数，图像数据类型，像素数等。</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>API</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>形状</td>
+<td>img.shape</td>
+</tr>
+<tr>
+<td>图像大小</td>
+<td>img.size</td>
+</tr>
+<tr>
+<td>数据类型</td>
+<td>img.dtype</td>
+</tr>
+</tbody>
+</table>
+<h4 id="图像通道的拆分与合并">图像通道的拆分与合并</h4>
+<p>有时需要在B，G，R通道图像上单独工作。在这种情况下，需要将BGR图像分割为单个通道。或者在其他情况下，可能需要将这些单独的通道合并到BGR图像。</p>
+<pre class=" language-language-python"><code class="language-language-python"># 通道拆分
+b,g,r = cv.split(img)
+# 通道合并
+img = cv.merge((b,g,r))
 </code></pre>
-<h3 id="后台相关代码">后台相关代码</h3>
-<p><strong>请求头token验证</strong></p>
-<pre class=" language-language-java"><code class="language-language-java">public class Oauth2Filter extends AuthenticatingFilter {
-
-    @Override
-    protected AuthenticationToken createToken(ServletRequest request, ServletResponse response) throws Exception {
-        //获取请求token
-        String token = getRequestToken((HttpServletRequest) request);
-
-        if(StringUtils.isBlank(token)){
-            return null;
-        }
-
-        return new Oauth2Token(token);
-    }
-
-    @Override
-    protected boolean isAccessAllowed(ServletRequest request, ServletResponse response, Object mappedValue) {
-        if(((HttpServletRequest) request).getMethod().equals(RequestMethod.OPTIONS.name())){
-            return true;
-        }
-
-        return false;
-    }
-
-    @Override
-    protected boolean onAccessDenied(ServletRequest request, ServletResponse response) throws Exception {
-        //获取请求token，如果token不存在，直接返回401
-        String token = getRequestToken((HttpServletRequest) request);
-        if(StringUtils.isBlank(token)){
-            HttpServletResponse httpResponse = (HttpServletResponse) response;
-            httpResponse.setContentType("application/json;charset=utf-8");
-            httpResponse.setHeader("Access-Control-Allow-Credentials", "true");
-            httpResponse.setHeader("Access-Control-Allow-Origin", HttpContextUtils.getOrigin());
-
-            String json = new Gson().toJson(new Result().error(ErrorCode.UNAUTHORIZED));
-
-            httpResponse.getWriter().print(json);
-
-            return false;
-        }
-
-        return executeLogin(request, response);
-    }
-
-    @Override
-    protected boolean onLoginFailure(AuthenticationToken token, AuthenticationException e, ServletRequest request, ServletResponse response) {
-        HttpServletResponse httpResponse = (HttpServletResponse) response;
-        httpResponse.setContentType("application/json;charset=utf-8");
-        httpResponse.setHeader("Access-Control-Allow-Credentials", "true");
-        httpResponse.setHeader("Access-Control-Allow-Origin", HttpContextUtils.getOrigin());
-        try {
-            //处理登录失败的异常
-            Throwable throwable = e.getCause() == null ? e : e.getCause();
-            Result r = new Result().error(HttpStatus.SC_UNAUTHORIZED, throwable.getMessage());
-
-            String json = new Gson().toJson(r);
-            httpResponse.getWriter().print(json);
-        } catch (IOException e1) {
-
-        }
-
-        return false;
-    }
-
-    /**
-     * 获取请求的token
-     */
-    private String getRequestToken(HttpServletRequest httpRequest){
-        //从header中获取token
-        String token = httpRequest.getHeader(Constant.TOKEN_HEADER);
-
-        //如果header中不存在token，则从参数中获取token
-        if(StringUtils.isBlank(token)){
-            token = httpRequest.getParameter(Constant.TOKEN_HEADER);
-        }
-
-        return token;
-    }
-
-}
+<h4 id="色彩空间的改变">色彩空间的改变</h4>
+<p>cv.cvtColor(input_image, flag)<br>
+input_images：进行颜色空间转换的图像<br>
+flag：转换类型<br>
+cv.COLOR_BGR2GRAY：BGR-GRAY<br>
+cv.COLOR_BGR2HSV：BGR-HSV</p>
+<h4 id="算数操作">算数操作</h4>
+<h5 id="图像的加法">图像的加法</h5>
+<p>可以使用OpenCV的cv.add()函数把两幅图像相加，或者可以简单的通过numpy操作添加两个图像，如res = img1 + img2.两个图像应该具有相同的大小和类型，或者第二个图像可以是标量值。</p>
+<p>注意：OpenCV加法和Numpy加法之间存在差异。OpenCv的加法是饱和操作，而Numpy添加是模运算。</p>
+<pre class=" language-language-python"><code class="language-language-python">&gt;&gt;&gt; x = np.uint8([250])
+&gt;&gt;&gt; y = np.uint8([10])
+&gt;&gt;&gt; print(cv.add(x,y)) # 250+10 = 260 =&gt; 255
+[[255]]
+&gt;&gt;&gt; print(x+y)  # 250+10 = 260 % 256 = 4
+[4]
 </code></pre>
-<p><strong>验证授权</strong></p>
-<pre class=" language-language-java"><code class="language-language-java">@Component
-public class Oauth2Realm extends AuthorizingRealm {
-    @Autowired
-    private ShiroService shiroService;
+<p>这种差别在你对两幅图像进行加法时会更加明显。OpenCV的结果会更好一点。所以尽量使用OpenCV中的函数。</p>
+<pre class=" language-language-python"><code class="language-language-python">import numpy as np
+import cv2 as cv
+import matplotlib.pyplot as plt
 
-    @Override
-    public boolean supports(AuthenticationToken token) {
-        return token instanceof Oauth2Token;
-    }
+# 读取图像
+img1 = cv.imread('/Users/dinggongcheng/Downloads/me.JPG')
+img2 = cv.imread('/Users/dinggongcheng/Downloads/me.JPG')
 
-    /**
-     * 授权(验证权限时调用)
-     */
-    @Override
-    protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
-        UserDetail user = (UserDetail)principals.getPrimaryPrincipal();
+# 加法操作
+img3 = cv.add(img1, img2)
+img4 = img1 + img2
 
-        //用户权限列表
-        Set<string> permsSet = shiroService.getUserPermissions(user);
-
-        SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
-        info.setStringPermissions(permsSet);
-        return info;
-    }
-
-    /**
-     * 认证(登录时调用)
-     */
-    @Override
-    protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
-        String accessToken = (String) token.getPrincipal();
-
-        //根据accessToken，查询用户信息
-        SysUserTokenEntity tokenEntity = shiroService.getByToken(accessToken);
-        //token失效
-        if(tokenEntity == null || tokenEntity.getExpireDate().getTime() &lt; System.currentTimeMillis()){
-            throw new IncorrectCredentialsException(MessageUtils.getMessage(ErrorCode.TOKEN_INVALID));
-        }
-
-        //查询用户信息
-        SysUserEntity userEntity = shiroService.getUser(tokenEntity.getUserId());
-
-        //转换成UserDetail对象
-        UserDetail userDetail = ConvertUtils.sourceToTarget(userEntity, UserDetail.class);
-
-        //获取用户对应的部门数据权限
-        List<long> deptIdList = shiroService.getDataScopeList(userDetail.getId());
-        userDetail.setDeptIdList(deptIdList);
-
-        //账号锁定
-        if(userDetail.getStatus() == 0){
-            throw new LockedAccountException(MessageUtils.getMessage(ErrorCode.ACCOUNT_LOCK));
-        }
-
-        SimpleAuthenticationInfo info = new SimpleAuthenticationInfo(userDetail, accessToken, getName());
-        return info;
-    }
-
-}
-</long></string></code></pre>
-<p><strong>token生成</strong></p>
-<pre class=" language-language-java"><code class="language-language-java">public class TokenGenerator {
-
-    public static String generateValue() {
-        return generateValue(UUID.randomUUID().toString());
-    }
-
-    private static final char[] HEX_CODE = "0123456789abcdef".toCharArray();
-
-    public static String toHexString(byte[] data) {
-        if(data == null) {
-            return null;
-        }
-        StringBuilder r = new StringBuilder(data.length*2);
-        for ( byte b : data) {
-            r.append(HEX_CODE[(b &gt;&gt; 4) &amp; 0xF]);
-            r.append(HEX_CODE[(b &amp; 0xF)]);
-        }
-        return r.toString();
-    }
-
-    public static String generateValue(String param) {
-        try {
-            MessageDigest algorithm = MessageDigest.getInstance("MD5");
-            algorithm.reset();
-            algorithm.update(param.getBytes());
-            byte[] messageDigest = algorithm.digest();
-            return toHexString(messageDigest);
-        } catch (Exception e) {
-            throw new RenException("token invalid", e);
-        }
-    }
-}
-
+# 图像显示
+plt.imshow(img3[:, :, ::-1])
+plt.imshow(img4[:, :, ::-1])
+plt.show()
 </code></pre>
-<p><strong>监听器</strong></p>
-<pre class=" language-language-java"><code class="language-language-java">public class LeaderListenImpl implements TaskListener{
-    @Override
-    public void notify(DelegateTask delegateTask) {
-        ServletRequestAttributes requestAttributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
-        HttpServletRequest request = requestAttributes.getRequest();
-        WebApplicationContext webApplicationContext = WebApplicationContextUtils.getWebApplicationContext(request.getServletContext());
-        SysUserService userService = webApplicationContext.getBean(SysUserService.class);
-        List<string> strings = new ArrayList<string>();
-        List<sysuserdto> list = userService.getUserByRole(RoleEnum.LEADER.value());
-        for (SysUserDTO user : list) {
-            strings.add(user.getUsername());
-        }
-        delegateTask.addCandidateUsers(strings);
-        ApprovalTbService approvalTbService = webApplicationContext.getBean(ApprovalTbService.class);
-        ApprovalTbDTO approvalTbDTO = (ApprovalTbDTO) delegateTask.getVariable(ActivitiEnum.APPROVAL.value());
-        approvalTbService.updateType(RoleEnum.LEADERNAME.value(),approvalTbDTO.getId());
-        if(list.size() &gt; 0){
-            Long dealId = (Long) delegateTask.getVariable(ActivitiEnum.DEALID.value());
-            UtilService utilService = webApplicationContext.getBean(UtilService.class);
-            utilService.updateDeal(dealId,list);
-        }
-    }
-}
+<p><img src="http://dingdm.online/%E6%88%AA%E5%B1%8F2021-03-29%20%E4%B8%8B%E5%8D%881.23.37.png" alt="cv相加"></p>
+<p><img src="http://dingdm.online/%E6%88%AA%E5%B1%8F2021-03-29%20%E4%B8%8B%E5%8D%881.24.06.png" alt="直接相加"></p>
+<h5 id="图像的混合">图像的混合</h5>
+<p>通过加法实现，但是不同的是两幅图像的权重不同，这就会给人一种混合或者透明的感觉。图像混合的计算公式如下：<br>
+g(x) = (1-a)f0(x) + af1(x)<br>
+通过修改a的值(0-&gt;1)，可以实现非常炫酷的混合。<br>
+现在把两幅图混合在一起。第一幅图的权重是0.7，第二幅图的权重是0.3。函数cv2.addWeighted()可以按下面的公式对图片进行混合操作。<br>
+dst = a*img1 + b*img2 + c</p>
+<pre class=" language-language-python"><code class="language-language-python"># 读取图像
+img1 = cv.imread('/Users/dinggongcheng/Downloads/me.JPG')
+img2 = cv.imread('/Users/dinggongcheng/Downloads/me.JPG')
 
-</sysuserdto></string></string></code></pre>
-<p><strong>定时任务</strong></p>
-<pre class=" language-language-java"><code class="language-language-java">@Component("downTask")
-public class DownTask implements ITask{
-	private Logger logger = LoggerFactory.getLogger(getClass());
-	@Autowired
-	private ActivityService activityService;
+# 图像混合
+img3 = cv.addWeighted(img1, 0.8, img2, 0.6, 0)
 
-	@Override
-	public void run(String params){
-		List<activitydto> allActivity = activityService.getAllActivity(ActivityEnum.DOWN.value());
-		if(allActivity.size() &gt; 0){
-			for(ActivityDTO activityDTO : allActivity){
-				activityService.changeState(activityDTO.getId());
-				logger.debug(activityDTO.getId() + "资源已释放！");
-			}
-		}
-	}
-}
-</activitydto></code></pre>
-<h3 id="企业项目淮安智慧谷OA相关文件">企业项目淮安智慧谷OA相关文件</h3>
-<h4 id="文档文件">文档文件</h4>
-<p><a href="http://dingdm.online/%E6%99%BA%E6%85%A7%E8%B0%B7OA-%E5%8E%9F%E5%A7%8B%E9%9C%80%E6%B1%8220200110.doc" target="_blank" rel="noopener">智慧谷OA-原始需求20200110.doc</a></p>
-<p><a href="http://dingdm.online/%E6%99%BA%E6%85%A7%E8%B0%B7OA-%E5%88%9D%E6%AD%A5%E9%9C%80%E6%B1%8220200112.docx" target="_blank" rel="noopener">智慧谷OA-初步需求20200112.docx</a></p>
-<p><a href="http://dingdm.online/%E7%B3%BB%E7%BB%9F%E5%AE%8C%E5%96%84%E9%9C%80%E6%B1%82.docx" target="_blank" rel="noopener">系统完善需求.doc</a></p>
-<p><a href="http://dingdm.online/%E7%B3%BB%E7%BB%9F%E5%AE%8C%E5%96%84%E9%9C%80%E6%B1%822.docx" target="_blank" rel="noopener">系统完善需求2.doc</a></p>
-<p><a href="http://dingdm.online/%E5%89%A9%E4%BD%99%E5%A4%84%E7%90%86%E9%A1%B9.docx" target="_blank" rel="noopener">剩余处理项.doc</a></p>
-<p><a href="http://dingdm.online/%E5%89%A9%E4%BD%99%E5%A4%84%E7%90%86%E9%A1%B93.docx" target="_blank" rel="noopener">剩余处理项3.doc</a></p>
-<p><a href="http://dingdm.online/%E5%89%A9%E4%BD%99%E5%A4%84%E7%90%86%E9%A1%B94.1.docx" target="_blank" rel="noopener">剩余处理项4.1.doc</a></p>
-<p><a href="http://dingdm.online/%E5%89%A9%E4%BD%99%E5%A4%84%E7%90%86%E9%A1%B95-%E6%9C%80%E6%96%B0.docx" target="_blank" rel="noopener">剩余处理项4.5-最新.doc</a></p>
-<p><a href="http://dingdm.online/%E5%89%A9%E4%BD%99%E5%A4%84%E7%90%86%E9%A1%B94.2--%E5%A4%84%E7%90%86%E7%BB%93%E6%9E%9C.docx" target="_blank" rel="noopener">剩余处理项4.2.doc</a></p>
-<p><a href="http://dingdm.online/11.27%E5%AE%8C%E5%96%84%E6%95%B4%E7%90%86.docx" target="_blank" rel="noopener">11.27完善整理.doc</a></p>
-<p><a href="http://dingdm.online/11.27%E5%AE%8C%E5%96%84%E6%95%B4%E7%90%86%20-%20%E5%8F%8D%E9%A6%88.docx" target="_blank" rel="noopener">11.27完善整理 - 反馈.doc</a></p>
-<p><a href="http://dingdm.online/1.21.docx" target="_blank" rel="noopener">1.9 后台测试反馈.doc</a></p>
-<p><a href="http://dingdm.online/1.21.docx" target="_blank" rel="noopener">1.21.doc</a></p>
-<p><a href="http://dingdm.online/%E9%A1%B9%E7%9B%AE%E4%BF%A1%E6%81%AF.xlsx" target="_blank" rel="noopener">资产管理模块需求-二期-暂时不做.docx</a></p>
-<h4 id="表单文件">表单文件</h4>
-<p><a href="http://dingdm.online/%E6%9D%A5%E8%AE%BF%E8%A1%A8%E5%8D%95.docx" target="_blank" rel="noopener">来访表单.doc</a></p>
-<p><a href="http://dingdm.online/%E6%B4%BB%E5%8A%A8%E7%94%B3%E8%AF%B7%E8%A1%A8%E5%8D%95.docx" target="_blank" rel="noopener">活动申请表单.doc</a></p>
-<h4 id="xlsx导入模板">xlsx导入模板</h4>
-<p><a href="http://dingdm.online/%E9%A1%B9%E7%9B%AE%E4%BF%A1%E6%81%AF.xlsx" target="_blank" rel="noopener">项目信息.xlsx</a></p>
-<p><a href="http://dingdm.online/%E4%BA%BA%E6%89%8D%E4%BF%A1%E6%81%AF.xlsx" target="_blank" rel="noopener">人才信息.xlsx</a></p>
+# 图像显示
+plt.figure(figsize=(8, 8))
+plt.imshow(img3[:, :, ::-1])
+plt.show()
+</code></pre>
+<h4 id="几何变换">几何变换</h4>
+<h5 id="图像缩放">图像缩放</h5>
+<p>缩放是对图像的大小进行调整<br>
+cv.resize(src,dsize,fx=0,fy=0,interpolation=cv.INTER_LINEAR)<br>
+src：输入图像<br>
+dsize：绝对尺寸，直接指定调整后图像的大小<br>
+fx，fy：相对尺寸，将dsize设置为None，然后将fx和fy设置为比例因子即可<br>
+interpolation：插值方法</p>
+<table>
+<thead>
+<tr>
+<th>插值</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cv.INTER_LINEAR</td>
+<td>双线性插值法</td>
+</tr>
+<tr>
+<td>cv.INTER_NEAREST</td>
+<td>最近邻插值</td>
+</tr>
+<tr>
+<td>cv.INTER_AREA</td>
+<td>像素区域重采样</td>
+</tr>
+<tr>
+<td>cv.INTER_CUBIC</td>
+<td>双三次插值</td>
+</tr>
+</tbody>
+</table>
+<pre class=" language-language-python"><code class="language-language-python">import cv2 as cv
+import matplotlib.pyplot as plt
+img = cv.imread("/Users/dinggongcheng/Downloads/me.JPG")
+
+# 绝对尺寸缩放
+rows, cols = img.shape[:2]
+res = cv.resize(img, (2*cols, 2*rows), interpolation=cv.INTER_CUBIC)
+
+# 相对尺寸缩放
+res1 = cv.resize(img, None, fx=0.5, fy=0.5)
+
+# 图像显示
+fig, axes = plt.subplots(nrows=1, ncols=3, figsize=(10, 8), dpi=100)
+axes[0].imshow(res[:, :, ::-1])
+axes[0].set_title("dsize big")
+axes[1].imshow(img[:, :, ::-1])
+axes[1].set_title("from")
+axes[2].imshow(res1[:, :, ::-1])
+axes[2].set_title("fx small")
+plt.show()
+</code></pre>
+<p><img src="http://dingdm.online/%E6%88%AA%E5%B1%8F2021-03-29%20%E4%B8%8B%E5%8D%881.53.24.png" alt=""></p>
+<h5 id="图像平移">图像平移</h5>
+<p>图像平移将图像按照指定方向和距离，移动到相应的位置。<br>
+cv.warpAffine(img,M,dsize)<br>
+img：输入图像<br>
+M：2*3移动矩阵，对于(x,y)处的像素点，要把它移动到(x+tx,y+ty)处时，M矩阵应如下设置：<br>
+M = 1 0 tx<br>
+0 1 ty<br>
+注意：将M设置为np.float32类型的Numpy数组<br>
+dsize：输出图像的大小<br>
+注意：输出图像的大小，它应该是(宽度，高度)的形式。请记住，width=列数，height=行数。</p>
+<pre class=" language-language-python"><code class="language-language-python">import numpy as np
+import cv2 as cv
+import matplotlib.pyplot as plt
+img = cv.imread("/Users/dinggongcheng/Downloads/me.JPG")
+
+# 图像平移
+rows, cols = img.shape[:2]
+M = np.float32([[1, 0, 100], [0, 1, 50]]) #平移矩阵
+dst = cv.warpAffine(img, M, (cols, rows))
+
+# 图像显示
+fig, axes = plt.subplots(nrows=1, ncols=2, figsize=(10, 8), dpi=100)
+axes[0].imshow(dst[:, :, ::-1])
+axes[0].set_title("move")
+axes[1].imshow(img[:, :, ::-1])
+axes[1].set_title("from")
+plt.show()
+</code></pre>
+<p><img src="http://dingdm.online/%E6%88%AA%E5%B1%8F2021-03-29%20%E4%B8%8B%E5%8D%882.07.55.png" alt=""></p>
+<h5 id="图像旋转">图像旋转</h5>
+<p>图像旋转是指图像按照某个位置转动一定角度的过程，旋转中图像仍保持原始尺寸。图像旋转后图像的水平对称轴，垂直对称轴及中心坐标原点都可能发生变换。因此需要对图像旋转中的坐标进行相应转换。<br>
+在OpenCV中图像旋转首先根据旋转角度和旋转中心获取旋转矩阵，然后根据旋转矩阵进行变换，即可实现任意角度和任意中心的旋转效果。<br>
+cv.getRotationMatrix2D(center, angle,scale)<br>
+center：旋转中心<br>
+angle：旋转角度<br>
+scale：缩放比例<br>
+返回：<br>
+M：旋转矩阵<br>
+调用cv.warpAffine完成图像的旋转</p>
+<pre class=" language-language-python"><code class="language-language-python">import numpy as np
+import cv2 as cv
+import matplotlib.pyplot as plt
+img = cv.imread("/Users/dinggongcheng/Downloads/me.JPG")
+
+# 图像旋转
+rows, cols = img.shape[:2]
+# 生成旋转矩阵
+M = cv.getRotationMatrix2D((cols/2, rows/2), 90, 1)
+# 进行旋转变换
+dst = cv.warpAffine(img, M, (cols, rows))
+
+# 图像显示
+fig, axes = plt.subplots(nrows=1, ncols=2, figsize=(10, 8), dpi=100)
+axes[0].imshow(dst[:, :, ::-1])
+axes[0].set_title("rotate")
+axes[1].imshow(img[:, :, ::-1])
+axes[1].set_title("from")
+plt.show()
+</code></pre>
+<p><img src="http://dingdm.online/%E6%88%AA%E5%B1%8F2021-03-29%20%E4%B8%8B%E5%8D%882.25.20.png" alt=""></p>
+<h5 id="仿射变换">仿射变换</h5>
+<p>图像的仿射变换涉及到图像的形状位置角度的变化，是深度学习预处理中常用到的功能，仿射变换主要是对图像的缩放，旋转，翻转和平移等操作的组合。<br>
+需要注意的是，对于图像而言，宽度方向是x，高度方向是y，坐标的顺序和图像像素对应下标一致。所以原点的位置不是左下角而是右上角，y的方向也不是向上，而是向下。<br>
+在仿射变换中，原图中所有的平行线在结果图像中同样平行。为了创建这个矩阵我们需要从原图像中找到三个点以及他们在输出图像中的位置。然后cv.getAffineTransform会创建一个2*3的矩阵，最后这个矩阵会被传给函数cv.warpAffine</p>
+<pre class=" language-language-python"><code class="language-language-python">import numpy as np
+import cv2 as cv
+import matplotlib.pyplot as plt
+img = cv.imread("/Users/dinggongcheng/Downloads/me.JPG")
+
+# 仿射变换
+rows, cols = img.shape[:2]
+
+# 创建变换矩阵
+pts1 = np.float32([[50, 50], [200, 50], [50, 200]])
+pts2 = np.float32([[100, 100], [200, 50], [100, 250]])
+M = cv.getAffineTransform(pts1, pts2)
+
+# 完成仿射变换
+
+dst = cv.warpAffine(img, M, (cols, rows))
+
+# 图像显示
+fig, axes = plt.subplots(nrows=1, ncols=2, figsize=(10, 8), dpi=100)
+axes[0].imshow(dst[:, :, ::-1])
+axes[0].set_title("affine")
+axes[1].imshow(img[:, :, ::-1])
+axes[1].set_title("from")
+plt.show()
+</code></pre>
+<p><img src="http://dingdm.online/%E6%88%AA%E5%B1%8F2021-03-29%20%E4%B8%8B%E5%8D%882.38.35.png" alt=""></p>
+<h5 id="透射变换">透射变换</h5>
+<p>透射变换是视角变换的结果，是指利用透视中心，像点，目标点三点共线的条件，按透视旋转定律使承影面绕迹线旋转某一角度，破坏原有的投影光线束，仍能保持承影面上投影几何图形不变的变换。<br>
+在OpenCV中，我们要找到四个点，其中任意三个不共线，然后获取变换矩阵T，在进行透射变换。通过函数cv.getPerspectiveTransform找到其变换矩阵，将cv.warpPerspective应用于此3*3变换矩阵。</p>
+<pre class=" language-language-python"><code class="language-language-python">import numpy as np
+import cv2 as cv
+import matplotlib.pyplot as plt
+img = cv.imread("/Users/dinggongcheng/Downloads/me.JPG")
+
+# 透射变换
+rows, cols = img.shape[:2]
+
+# 创建变换矩阵
+pts1 = np.float32([[56, 65], [368, 52], [28, 387], [389,390]])
+pts2 = np.float32([[100, 145], [300, 100], [80, 290], [310, 300]])
+T = cv.getPerspectiveTransform(pts1,pts2)
+
+# 进行变换
+dst = cv.warpPerspective(img, T, (cols, rows))
+
+# 图像显示
+fig, axes = plt.subplots(nrows=1, ncols=2, figsize=(10, 8), dpi=100)
+axes[0].imshow(dst[:, :, ::-1])
+axes[0].set_title("perspective")
+axes[1].imshow(img[:, :, ::-1])
+axes[1].set_title("from")
+plt.show()
+</code></pre>
+<p><img src="http://dingdm.online/%E6%88%AA%E5%B1%8F2021-03-29%20%E4%B8%8B%E5%8D%882.53.23.png" alt=""></p>
+<h5 id="图像金字塔">图像金字塔</h5>
+<p>图像金字塔是图像多尺度表达的一种，最主要用于图像的分割，是一种以多分辨率来解释图像的有效但概念简单的结构。<br>
+图像金字塔用于机器视觉和图像压缩，一幅图像的金字塔是一系列以金字塔形状排列的分辨率逐步降低且来源于同一张原始图的图像集合。其通过梯次向下采样获得，直到达到某个终止条件才停止采样。<br>
+金字塔的底部是待处理图像的高分辨率表示，而顶部是低分辨率的近似，层级越高，图像越小，分辨率越低。<br>
+cv.pyrUp(img) 对图像进行上采样<br>
+cv.pyrDown(img) 对图像进行下采样</p>
+<pre class=" language-language-python"><code class="language-language-python">import numpy as np
+import cv2 as cv
+import matplotlib.pyplot as plt
+img = cv.imread("/Users/dinggongcheng/Downloads/me.JPG")
+
+# 进行图像采样
+up_img = cv.pyrUp(img)
+down_img = cv.pyrDown(img)
+
+# 图像显示
+fig, axes = plt.subplots(nrows=1, ncols=2, figsize=(10, 8), dpi=100)
+axes[0].imshow(up_img[:, :, ::-1])
+axes[0].set_title("Up")
+axes[1].imshow(down_img[:, :, ::-1])
+axes[1].set_title("Down")
+plt.show()
+</code></pre>
+<p><img src="http://dingdm.online/%E6%88%AA%E5%B1%8F2021-03-29%20%E4%B8%8B%E5%8D%883.04.56.png" alt=""></p>
+<h4 id="形态学操作">形态学操作</h4>
+<h5 id="连通性">连通性</h5>
+<p>连通性是描述区域和边界的重要概念，两个像素联通的两个必要条件是：<br>
+1.两个像素的位置是否相邻<br>
+2.两个像素的灰度值是否满足特定的相似性准则</p>
+<h5 id="腐蚀和膨胀">腐蚀和膨胀</h5>
+<p>腐蚀和膨胀是最基本的形态学操作，腐蚀和膨胀都是针对白色部分(高亮部分)而言的。<br>
+膨胀就是使图像中高亮部分扩张，效果图拥有比原图更大的高亮区域；腐蚀是原图中的高亮区域被蚕食，效果图拥有比原图更小的高亮区域。膨胀是求局部最大值的操作，腐蚀是求局部最小值的操作。</p>
+<p>腐蚀的具体操作是用一个结构元素扫描图像中的每一个元素，用结构元素中的每一个像素与其覆盖的像素做与操作，如果都为1，则该像素为1，否则为0.<br>
+腐蚀的作用是消除物体边界点，使目标缩小，可以消除小于结构元素的噪声点。<br>
+cv.erode(img,kernel,iterations)<br>
+img：要处理的图像<br>
+kernel：核结构<br>
+iterations：腐蚀的次数，默认是1</p>
+<p>膨胀的具体操作是用一个结构元素扫描图像中的每一个像素，用结构元素中的每一个像素与其覆盖的像素做与操作，如果都为0，则该像素为0，否则为1.<br>
+膨胀的作用是将与物体接触的所有背景点合并到物体中，使目标增大，可添补目标中的孔洞。<br>
+cv.dilate(img,kernel,iterations)img：要处理的图像<br>
+kernel：核结构<br>
+iterations：腐蚀的次数，默认是1</p>
+<pre class=" language-language-python"><code class="language-language-python">import numpy as np
+import cv2 as cv
+import matplotlib.pyplot as plt
+# 读取图像
+img = cv.imread("/Users/dinggongcheng/Downloads/me.JPG")
+# 创建核结构
+kernel = np.ones((5, 5), np.uint8)
+
+# 图像腐蚀和膨胀
+erosion = cv.erode(img, kernel)
+dilate = cv.dilate(img, kernel)
+
+# 图像显示
+fig, axes = plt.subplots(nrows=1, ncols=3, figsize=(10, 8), dpi=100)
+axes[0].imshow(img[:, :, ::-1])
+axes[0].set_title("from")
+axes[1].imshow(erosion[:, :, ::-1])
+axes[1].set_title("erosion")
+axes[1].imshow(dilate[:, :, ::-1])
+axes[1].set_title("dilate")
+plt.show()
+</code></pre>
+<p><img src="http://dingdm.online/%E6%88%AA%E5%B1%8F2021-03-29%20%E4%B8%8B%E5%8D%883.34.21.png" alt=""></p>
+<h5 id="开闭运算">开闭运算</h5>
+<p>开运算和闭运算是将腐蚀和膨胀按照一定的次序进行处理。但这两者并不是可逆的，即先开后闭并不难得到原来的图像。<br>
+开运算是先腐蚀后膨胀，其作用是分离物体，消除小区域。消除噪点，去除小的干扰块，而不影响原来的图像。<br>
+闭运算与开运算相反，是先膨胀后腐蚀，作用是消除/闭合物体里面的孔洞。可以填充闭合区域。</p>
+<p>cv.morphologyEx(img,op,kernel)<br>
+img：要处理的图像<br>
+op：处理方式：若进行开运算，则设为cv.MORPH_OPEN，若进行闭运算，则设为cv.MORPH_CLOSE<br>
+kernel：核结构</p>
+<pre class=" language-language-python"><code class="language-language-python">import numpy as np
+import cv2 as cv
+import matplotlib.pyplot as plt
+# 读取图像
+img = cv.imread("/Users/dinggongcheng/Downloads/me.JPG")
+# 创建核结构
+kernel = np.ones((10, 10), np.uint8)
+
+# 图像的开闭运算
+cvOpen = cv.morphologyEx(img, cv.MORPH_OPEN, kernel)
+cvClose = cv.morphologyEx(img, cv.MORPH_CLOSE, kernel)
+
+# 图像显示
+fig, axes = plt.subplots(nrows=1, ncols=3, figsize=(10, 8), dpi=100)
+axes[0].imshow(img[:, :, ::-1])
+axes[0].set_title("from")
+axes[1].imshow(cvOpen[:, :, ::-1])
+axes[1].set_title("cvOpen")
+axes[1].imshow(cvClose[:, :, ::-1])
+axes[1].set_title("cvClose")
+plt.show()
+</code></pre>
+<h5 id="礼帽和黑帽">礼帽和黑帽</h5>
+<p>礼帽运算<br>
+原图像与开运算的结果图之差，如下式计算：<br>
+dst = tophat(src,element) = src - open(src,element)<br>
+因为开运算带来的结果是放大了裂缝或者局部低亮度的区域，因此，从原图中减去开运算后的图，得到的效果突出了比原图轮廓周围的区域更明亮的区域，且这一操作和选择的核的大小相关。<br>
+礼帽运算用来分离比邻近点亮一些的斑块。当一幅图像具有大幅的背景的时候，而微小物品比较有规律的情况下，可以使用礼帽运算进行背景提取。</p>
+<p>黑帽运算<br>
+为闭运算的结果图与原图像之差，数学表达式为<br>
+dst = blackout(src,element) = close(src,element) - src<br>
+黑帽运算后的效果图突出了比原图轮廓周围的区域更暗的区域，且这一操作和选择的核的大小相关。黑帽运算用来分离比邻近点暗一些的斑块。</p>
+<p>cv.morphologyEx(img,op,kernel)<br>
+img：要处理的图像<br>
+op：处理方式：若进行开运算，则设为cv.MORPH_OPEN，若进行闭运算，则设为cv.MORPH_CLOSE。若进行礼帽运算，则设为cv.MORPH_TOPHAT，若进行黑帽运算，则设为cv.MORPH_BLACKHAT。<br>
+kernel：核结构</p>
+<h4 id="图像平滑">图像平滑</h4>
+<h5 id="图像噪声">图像噪声</h5>
+<p>椒盐噪声<br>
+椒盐噪声也称为脉冲噪声，是图像中经常见到的一种噪声，它是一种随机出现的白点或者黑点，可能是亮的区域有黑色像素或是在暗的区域有白色像素。</p>
+<p>高斯噪声<br>
+噪声密度函数服从高斯分布的一类噪声。</p>
+<h5 id="图像平滑-2">图像平滑</h5>
+<h6 id="均值滤波">均值滤波</h6>
+<p>cv.blur(src,ksize,anchor,borderType)<br>
+src：输入图像<br>
+ksize：卷积核的大小<br>
+anchor：默认值(-1,-1)，表示核中心<br>
+borderType：边界类型</p>
+<pre class=" language-language-python"><code class="language-language-python">import numpy as np
+import cv2 as cv
+import matplotlib.pyplot as plt
+# 图像读取
+img = cv.imread("/Users/dinggongcheng/Downloads/me.png")
+
+# 均值滤波
+blur = cv.blur(img, (5, 5))
+
+# 图像显示
+
+plt.figure(figsize=(10, 8), dpi=100)
+plt.subplot(121), plt.imshow(img[:, :, ::-1]), plt.title('from')
+plt.xticks([]), plt.yticks([])
+plt.subplot(122), plt.imshow(blur[:, :, ::-1]), plt.title('blur')
+plt.xticks([]), plt.yticks([])
+plt.show()
+</code></pre>
+<p><img src="http://dingdm.online/%E6%88%AA%E5%B1%8F2021-03-29%20%E4%B8%8B%E5%8D%884.16.32.png" alt=""></p>
+<h6 id="高斯滤波">高斯滤波</h6>
+<p>cv.GaussianBlur(src,ksize,sigmaX,sigmaY,borderType)<br>
+src：输入图像<br>
+ksize：高斯卷积核大小，注意：卷积核的宽度和高度都应为奇数，且可以不同<br>
+sigmaX：水平方向的标准差<br>
+sigmaY：垂直方向的标准差，默认值为0，表示与sigmaX相同<br>
+borderType：填充边界类型</p>
+<pre class=" language-language-python"><code class="language-language-python">import numpy as np
+import cv2 as cv
+import matplotlib.pyplot as plt
+# 图像读取
+img = cv.imread("/Users/dinggongcheng/Downloads/me.png")
+
+# 高斯滤波
+gauss = cv.GaussianBlur(img, (3, 3), 1)
+
+# 图像显示
+
+plt.figure(figsize=(10, 8), dpi=100)
+plt.subplot(121), plt.imshow(img[:, :, ::-1]), plt.title('from')
+plt.xticks([]), plt.yticks([])
+plt.subplot(122), plt.imshow(gauss[:, :, ::-1]), plt.title('gauss')
+plt.xticks([]), plt.yticks([])
+plt.show()
+</code></pre>
+<p><img src="http://dingdm.online/%E6%88%AA%E5%B1%8F2021-03-29%20%E4%B8%8B%E5%8D%884.26.06.png" alt=""></p>
+<h6 id="中值滤波">中值滤波</h6>
+<p>中值滤波是一种典型的非线性滤波技术，基本思想适用像素点领域灰度值的中值来代替该像素点的灰度值。中值滤波对椒盐噪声来说尤其有用，因为它不依赖于领域内那些与典型值差别很大的值。<br>
+cv.medianBlur(src,ksize)<br>
+src：输入图像<br>
+ksize：卷积核的大小</p>
+<pre class=" language-language-python"><code class="language-language-python">import numpy as np
+import cv2 as cv
+import matplotlib.pyplot as plt
+# 图像读取
+img = cv.imread("/Users/dinggongcheng/Downloads/me.png")
+
+# 中值滤波
+media = cv.medianBlur(img, 5)
+
+# 图像显示
+
+plt.figure(figsize=(10, 8), dpi=100)
+plt.subplot(121), plt.imshow(img[:, :, ::-1]), plt.title('from')
+plt.xticks([]), plt.yticks([])
+plt.subplot(122), plt.imshow(media[:, :, ::-1]), plt.title('media')
+plt.xticks([]), plt.yticks([])
+plt.show()
+</code></pre>
+<p><img src="http://dingdm.online/%E6%88%AA%E5%B1%8F2021-03-29%20%E4%B8%8B%E5%8D%884.30.18.png" alt=""></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -1056,7 +1102,7 @@ public class DownTask implements ITask{
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://dingdm.club/2020/08/02/da-bian-zhi-shi-jia-gou-ji-qi-ye-oa-xiang-mu-kai-fa-hui-zong/">https://dingdm.club/2020/08/02/da-bian-zhi-shi-jia-gou-ji-qi-ye-oa-xiang-mu-kai-fa-hui-zong/</a>
+                    <a href="https://dingdm.club/2021/03/29/opencv-xue-xi-bi-ji-yi/">https://dingdm.club/2021/03/29/opencv-xue-xi-bi-ji-yi/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1094,16 +1140,8 @@ public class DownTask implements ITask{
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/vue/">
-                                    <span class="chip bg-color">vue</span>
-                                </a>
-                            
-                                <a href="/tags/JWT/">
-                                    <span class="chip bg-color">JWT</span>
-                                </a>
-                            
-                                <a href="/tags/Avtiviti/">
-                                    <span class="chip bg-color">Avtiviti</span>
+                                <a href="/tags/OpenCV/">
+                                    <span class="chip bg-color">OpenCV</span>
                                 </a>
                             
                         </div>
@@ -1408,60 +1446,52 @@ public class DownTask implements ITask{
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/08/05/win10-xi-tong-de-zhuo-mian-mei-hua/">
+                <a href="/2021/03/29/opencv-xue-xi-bi-ji-yi/">
                     <div class="card-image">
                         
                         
-                        <img src="http://dingdm.online/19.jpg" class="responsive-img" alt="win10系统的桌面美化">
+                        <img src="http://dingdm.online/3.jpg" class="responsive-img" alt="opencv学习笔记一">
                         
-                        <span class="card-title">win10系统的桌面美化</span>
+                        <span class="card-title">opencv学习笔记一</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            win10系统的桌面美化
-首先放个人桌面和开始菜单的预览图。
-
-
-桌面美化的部分网络实时数据，应用图标美化，任务栏透明图标居中，开始菜单以及鼠标美化。
-美化软件以及相关文件
-实时数据软件
-任务栏软件
-应用设置软件
-图标及开始程序按钮美化包
-
+                            opencv学习笔记一
+opencv模块
+core：实现了最核心的数据结构及其基本运算，如绘图函数，数组操作相关函数等。
+highgui：实现了视频与图像的读取，显示，存储等接口
+imgproc：实现了图像处理的基础方法，包括图像滤波，图像
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-08-05
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-29
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%BE%8E%E5%8C%96/" class="post-category">
-                                    美化
-                                </a>
-                            
-                            <a href="/categories/%E7%BE%8E%E5%8C%96/%E5%A3%81%E7%BA%B8/" class="post-category">
-                                    壁纸
+                            <a href="/categories/python/" class="post-category">
+                                    python
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/win10/">
-                        <span class="chip bg-color">win10</span>
+                    <a href="/tags/OpenCV/">
+                        <span class="chip bg-color">OpenCV</span>
                     </a>
                     
                 </div>
@@ -1475,33 +1505,35 @@ public class DownTask implements ITask{
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/08/01/hong-hei-shu/">
+                <a href="/2021/03/27/python-xue-xi-bi-ji/">
                     <div class="card-image">
                         
                         
-                        <img src="http://dingdm.online/2.jpg" class="responsive-img" alt="红黑树">
+                        <img src="http://dingdm.online/23.jpg" class="responsive-img" alt="python学习笔记(一)">
                         
-                        <span class="card-title">红黑树</span>
+                        <span class="card-title">python学习笔记(一)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            为什么要使用红黑树
-当冲突的链表长度超过8个时，链表结构就会转为红黑树结构，这样做的好处是避免在极端条件的情况下冲突链表过长而导致查询效率非常慢
-红黑树是一种近似平衡的二叉查找树，其主要的优点就是平衡，即左右子树高度几乎一致，以此来防止树退
+                            python学习笔记(一)
+python函数
+print输出函数
+id(var) 获取对象的唯一id type(var) 获取对象的类型 var 存储的值
+open函数 var3 = open(var1 var2) var1参数值代表输出文
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-27
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                    算法
+                            <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category">
+                                    后端
                                 </a>
                             
                             
@@ -1511,12 +1543,8 @@ public class DownTask implements ITask{
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/HashMap/">
-                        <span class="chip bg-color">HashMap</span>
-                    </a>
-                    
-                    <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/">
-                        <span class="chip bg-color">二叉树</span>
+                    <a href="/tags/python/">
+                        <span class="chip bg-color">python</span>
                     </a>
                     
                 </div>
