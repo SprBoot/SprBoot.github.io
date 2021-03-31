@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://dingdm.club/"/>
-  <updated>2021-03-30T11:54:57.349Z</updated>
+  <updated>2021-03-31T11:48:15.052Z</updated>
   <id>https://dingdm.club/</id>
   
   <author>
@@ -17,36 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Spring boot相关知识点</title>
-    <link href="https://dingdm.club/2021/03/30/springboot-xiang-guan-zhi-shi-dian/"/>
-    <id>https://dingdm.club/2021/03/30/springboot-xiang-guan-zhi-shi-dian/</id>
-    <published>2021-03-30T11:55:12.000Z</published>
-    <updated>2021-03-30T11:54:57.349Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;Springboot中如何解决跨域问题？&quot;&gt;Springboot中如何解决跨域问题？&lt;/h3&gt;
-&lt;p&gt;在脚本进行http请求的时候要满足同源协议，即url的协议，域名和端口要相同才能才能发起请求。浏览器在脚本发出跨域请求后，会拦截返回的结果，所以需要配置跨域。&lt;/
-      
-    
-    </summary>
-    
-    
-      <category term="面试题" scheme="https://dingdm.club/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
-    
-    
-      <category term="Spring Boot" scheme="https://dingdm.club/tags/Spring-Boot/"/>
-    
-  </entry>
-  
-  <entry>
     <title>个人类库工具文档(持续更新)</title>
-    <link href="https://dingdm.club/2021/03/30/ge-ren-lei-ku-gong-ju-wen-dang/"/>
-    <id>https://dingdm.club/2021/03/30/ge-ren-lei-ku-gong-ju-wen-dang/</id>
-    <published>2021-03-30T09:32:29.000Z</published>
-    <updated>2021-03-30T09:47:04.331Z</updated>
+    <link href="https://dingdm.club/2021/03/31/ge-ren-lei-ku-gong-ju-wen-dang/"/>
+    <id>https://dingdm.club/2021/03/31/ge-ren-lei-ku-gong-ju-wen-dang/</id>
+    <published>2021-03-31T11:47:29.000Z</published>
+    <updated>2021-03-31T11:48:15.052Z</updated>
     
     <summary type="html">
     
@@ -70,6 +45,31 @@
     
     
       <category term="jar" scheme="https://dingdm.club/tags/jar/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Spring boot相关知识点</title>
+    <link href="https://dingdm.club/2021/03/30/springboot-xiang-guan-zhi-shi-dian/"/>
+    <id>https://dingdm.club/2021/03/30/springboot-xiang-guan-zhi-shi-dian/</id>
+    <published>2021-03-30T11:55:12.000Z</published>
+    <updated>2021-03-30T11:54:57.349Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;Springboot中如何解决跨域问题？&quot;&gt;Springboot中如何解决跨域问题？&lt;/h3&gt;
+&lt;p&gt;在脚本进行http请求的时候要满足同源协议，即url的协议，域名和端口要相同才能才能发起请求。浏览器在脚本发出跨域请求后，会拦截返回的结果，所以需要配置跨域。&lt;/
+      
+    
+    </summary>
+    
+    
+      <category term="面试题" scheme="https://dingdm.club/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+    
+      <category term="Spring Boot" scheme="https://dingdm.club/tags/Spring-Boot/"/>
     
   </entry>
   
