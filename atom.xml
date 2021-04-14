@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://dingdm.club/"/>
-  <updated>2021-04-14T09:26:11.775Z</updated>
+  <updated>2021-04-14T10:33:46.812Z</updated>
   <id>https://dingdm.club/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>记一次查漏补缺一</title>
+    <link href="https://dingdm.club/2021/04/14/ji-yi-ci-cha-lou-bu-que-yi/"/>
+    <id>https://dingdm.club/2021/04/14/ji-yi-ci-cha-lou-bu-que-yi/</id>
+    <published>2021-04-14T10:33:12.000Z</published>
+    <updated>2021-04-14T10:33:46.812Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;记一次查漏补缺一&quot;&gt;记一次查漏补缺一&lt;/h3&gt;
+&lt;h4 id=&quot;业务功能：不使用mysql或oracle实现持续签到领奖&quot;&gt;业务功能：不使用mysql或oracle实现持续签到领奖&lt;/h4&gt;
+&lt;p&gt;技术实现：使用redis的bitmap实现&lt;/p&gt;
+&lt;p&gt;bitm
+      
+    
+    </summary>
+    
+    
+      <category term="后端" scheme="https://dingdm.club/categories/%E5%90%8E%E7%AB%AF/"/>
+    
+    
+      <category term="redis" scheme="https://dingdm.club/tags/redis/"/>
+    
+  </entry>
   
   <entry>
     <title>python学习笔记二</title>
