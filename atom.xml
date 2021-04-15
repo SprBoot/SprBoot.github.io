@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://dingdm.club/"/>
-  <updated>2021-04-14T10:33:46.812Z</updated>
+  <updated>2021-04-15T08:10:11.008Z</updated>
   <id>https://dingdm.club/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>深度学习笔记一</title>
+    <link href="https://dingdm.club/2021/04/15/shen-du-xue-xi-bi-ji-yi/"/>
+    <id>https://dingdm.club/2021/04/15/shen-du-xue-xi-bi-ji-yi/</id>
+    <published>2021-04-15T09:21:40.000Z</published>
+    <updated>2021-04-15T08:10:11.008Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;深度学习笔记一&quot;&gt;深度学习笔记一&lt;/h3&gt;
+&lt;h4 id=&quot;名词&quot;&gt;名词&lt;/h4&gt;
+&lt;p&gt;函数的Loss：深度学习的错误率&lt;br&gt;
+Regression：回归算法，找到一个函数 function，通过输入特征 x ，输出一个数值 Scalar 。与其他任务不同的是
+      
+    
+    </summary>
+    
+    
+      <category term="深度学习" scheme="https://dingdm.club/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="线性回归" scheme="https://dingdm.club/tags/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/"/>
+    
+  </entry>
   
   <entry>
     <title>记一次查漏补缺一</title>
