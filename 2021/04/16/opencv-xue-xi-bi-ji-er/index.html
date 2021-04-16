@@ -479,14 +479,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    6.1k
+                    6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    24 分
+                    23 分
                 </div>
                 
 
@@ -536,7 +536,7 @@ plt.plot(histr)
 plt.grid()
 plt.show()
 </code></pre>
-<p><img src="http://dingdm.online/%E6%88%AA%E5%B1%8F2021-04-16%20%E4%B8%8B%E5%8D%881.10.54.png" alt=""></p>
+<p><img src="http://dingdm.online/4161.png" alt=""></p>
 <h5 id="掩膜的应用">掩膜的应用</h5>
 <p>掩膜是用选定的图像，图形或物体，对要处理的图像进行遮挡，来控制图像处理的区域。</p>
 <p>在数字图像处理中，我们通常使用二维矩阵数组进行掩膜，掩膜是由0和1组成一个二进制图像，利用该掩膜图像要处理的图像进行掩膜，其中1值的区域被处理，0值区域被屏蔽，不会处理。</p>
@@ -573,7 +573,7 @@ axes[1, 1].grid()
 axes[1, 1].set_title("gray")
 plt.show()
 </code></pre>
-<p>![](<a href="http://dingdm.online/%E6%88%AA%E5%B1%8F2021-04-16" target="_blank" rel="noopener">http://dingdm.online/截屏2021-04-16</a> 下午1.38.02.png)</p>
+<p><img src="http://dingdm.online/4162.png" alt=""></p>
 <h5 id="直方图均衡化">直方图均衡化</h5>
 <p>如果一幅图像中的大多数像素点的像素值都集中在某一个小的灰度值范围之内，一幅图像整体很亮，那所有的像素值的取值个数应该都会很高。所以应该把它的直方图做一个横向拉伸，就可以扩大图像像素值的分布范围，提高图像的对比度，这就是直方图均衡化要做的事情。</p>
 <p>直方图均衡化是把原始图像的灰度直方图从比较密集的某个灰度区间变成在更广泛灰度范围内的分布。直方图均衡化就是对图像进行非线形拉伸，重新分配图像像素值，使一定灰度范围内的像素数量大致相同。</p>
@@ -599,7 +599,7 @@ axes[0, 1].imshow(dst, cmap=plt.cm.gray)
 axes[0, 1].set_title("equalize")
 plt.show()
 </code></pre>
-<p>![](<a href="http://dingdm.online/%E6%88%AA%E5%B1%8F2021-04-16" target="_blank" rel="noopener">http://dingdm.online/截屏2021-04-16</a> 下午1.52.57.png)</p>
+<p><img src="http://dingdm.online/4163.png" alt=""></p>
 <h5 id="自适应的直方图均衡化">自适应的直方图均衡化</h5>
 <p>上述的直方图均衡，我们考虑的是图像的全局对比度。的确在进行完直方图均衡化后，图片背景的对比度被改变了，但在某个局部太暗，丢失了很多信息，所以在很多情况下，这样做的效果并不好。为了解决这个问题，需要使用自适应的直方图均衡化。此时，整幅图像会被分成很多小块，这些小块被称为“tiles”(在OpenCV中tiles的大小默认为8*8)。如果有噪声的话，噪声会被放大。为了避免这种情况的出现要使用对比度限制。对于每个小块来说，如果直方图中的bin超过对比度的上限的话，就把其中的像素点均匀分散到其他bins中，然后在进行直方图均衡化。</p>
 <p>最后为了去除每一个小块之间的边界，在使用双线性差值，对每一小块进行拼接。</p>
@@ -625,7 +625,7 @@ axes[0, 1].imshow(cl1, cmap=plt.cm.gray)
 axes[0, 1].set_title("clahe")
 plt.show()
 </code></pre>
-<p>![](<a href="http://dingdm.online/%E6%88%AA%E5%B1%8F2021-04-16" target="_blank" rel="noopener">http://dingdm.online/截屏2021-04-16</a> 下午2.02.19.png)</p>
+<p><img src="http://dingdm.online/4164.png" alt=""></p>
 <h5 id="边缘检测">边缘检测</h5>
 <p>原理：</p>
 <p>边缘检测是图像处理和计算机视觉中的基本问题，边缘检测的目的是标识数字图像中亮度变化明显的点。图像属性中的显著变化通常反映了属性的重要事件和变化。</p>
@@ -675,7 +675,7 @@ plt.subplot(122), plt.imshow(result, cmap=plt.cm.gray), plt.title("result")
 plt.xticks([]), plt.yticks([])
 plt.show()
 </code></pre>
-<p>![](<a href="http://dingdm.online/%E6%88%AA%E5%B1%8F2021-04-16" target="_blank" rel="noopener">http://dingdm.online/截屏2021-04-16</a> 下午2.35.28.png)</p>
+<p><img src="http://dingdm.online/4165.png" alt=""></p>
 <h5 id="Laplacian算子">Laplacian算子</h5>
 <p><img src="http://dingdm.online/lp.PNG" alt=""></p>
 <p>API：</p>
@@ -701,7 +701,7 @@ plt.subplot(122), plt.imshow(Scale_abs, cmap=plt.cm.gray), plt.title("laplacian"
 plt.xticks([]), plt.yticks([])
 plt.show()
 </code></pre>
-<p>![](<a href="http://dingdm.online/%E6%88%AA%E5%B1%8F2021-04-16" target="_blank" rel="noopener">http://dingdm.online/截屏2021-04-16</a> 下午2.43.17.png)</p>
+<p><img src="http://dingdm.online/4166.png" alt=""></p>
 <h5 id="Canny边缘检测">Canny边缘检测</h5>
 <p>canny边缘检测算法是一种非常流行的边缘检测算法，被认为是最优的边缘检测算法。</p>
 <p>原理：</p>
@@ -740,7 +740,7 @@ plt.subplot(122), plt.imshow(canny, cmap=plt.cm.gray), plt.title("canny")
 plt.xticks([]), plt.yticks([])
 plt.show()
 </code></pre>
-<p>![](<a href="http://dingdm.online/%E6%88%AA%E5%B1%8F2021-04-16" target="_blank" rel="noopener">http://dingdm.online/截屏2021-04-16</a> 下午2.58.06.png)</p>
+<p><img src="http://dingdm.online/4167.png" alt=""></p>
 <h5 id="模板匹配和霍夫变换">模板匹配和霍夫变换</h5>
 <p>模板匹配</p>
 <p>原理：</p>
@@ -784,7 +784,7 @@ plt.imshow(img[:, :, ::-1])
 plt.title("result"), plt.xticks([]), plt.yticks([])
 plt.show()
 </code></pre>
-<p>![](<a href="http://dingdm.online/%E6%88%AA%E5%B1%8F2021-04-16" target="_blank" rel="noopener">http://dingdm.online/截屏2021-04-16</a> 下午3.26.54.png)</p>
+<p><img src="http://dingdm.online/4168.png" alt=""></p>
 <p>扩展：模板匹配不适用尺度变换，视角变幻后的图像，这时我们就要使用关键点匹配算法，比较经典的关键点检测算法包括SIFT和SURF等，主要的思路是首先通过关键点检测算法获取模板和测试图片中的关键点；然后使用关键点匹配算法处理即可，这些关键点可以很好的处理尺度变化、视角变换、旋转变换、光照变换等，具有很好的不变性。</p>
 <h5 id="霍夫变换">霍夫变换</h5>
 <p>原理：</p>
@@ -834,7 +834,7 @@ plt.imshow(img[:, :, ::-1])
 plt.title("houghlines"), plt.xticks([]), plt.yticks([])
 plt.show()
 </code></pre>
-<p>![](<a href="http://dingdm.online/%E6%88%AA%E5%B1%8F2021-04-16" target="_blank" rel="noopener">http://dingdm.online/截屏2021-04-16</a> 下午4.09.31.png)</p>
+<p><img src="http://dingdm.online/4169.png" alt=""></p>
 <h5 id="霍夫圆检测">霍夫圆检测</h5>
 <p>原理：</p>
 <p>圆的表示是(x-a)²+(y-b)²=r²，其中a和b表示圆心坐标，r表示圆半径，因此标准的霍夫圆检测就是在这三个参数组成的三位空间累加器上进行圆形检测，此时效率就会很低，所以OpenCV中使用霍夫梯度法进行圆形的检测。</p>
@@ -875,7 +875,7 @@ plt.imshow(plants[:, :, ::-1])
 plt.title("houghCircle"), plt.xticks([]), plt.yticks([])
 plt.show()
 </code></pre>
-<p>![](<a href="http://dingdm.online/%E6%88%AA%E5%B1%8F2021-04-16" target="_blank" rel="noopener">http://dingdm.online/截屏2021-04-16</a> 下午4.42.20.png)</p>
+<p><img src="http://dingdm.online/41610.png" alt=""></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -1548,7 +1548,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">50k</span>&nbsp;字
+                class="white-color">36.6k</span>&nbsp;字
             
             
             

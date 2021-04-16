@@ -483,14 +483,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.1k
+                    1.8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    9 分
+                    7 分
                 </div>
                 
 
@@ -633,7 +633,7 @@ org.admin.starter.test.listener.StarterApplicationListener
 		StopWatch stopWatch = new StopWatch();
 		stopWatch.start();
 		ConfigurableApplicationContext context = null;
-		Collection<SpringBootExceptionReporter> exceptionReporters = new ArrayList<>();
+		Collection<springbootexceptionreporter> exceptionReporters = new ArrayList&lt;&gt;();
         // 设置环境变量
         configureHeadlessProperty();
         // 获取事件监听器SpringApplicationRunListener类型，并且执行starting()方法
@@ -680,7 +680,7 @@ org.admin.starter.test.listener.StarterApplicationListener
 		listeners.running(context);
 		return context;
 	}
-</code></pre>
+</springbootexceptionreporter></code></pre>
 <p><strong>根据项目类型创建上下文，并且注入几个核心组件类。</strong><br>
 <img src="http://dingdm.online/chuangjianshangxiawen.png" alt="创建上下文" title="创建上下文"><br>
 <strong>refreshContext(context)方法启动spring的代码加载了bean，还启动了内置web容器</strong><br>
@@ -734,21 +734,21 @@ org.admin.starter.test.listener.StarterApplicationListener
 <img src="http://dingdm.online/leixinxiliebiao.png" alt="类信息列表" title="类信息列表"><br>
 <strong>该方法在springboot启动流程——bean实例化前被执行，返回要实例化的类信息列表。我们知道，如果获取到类信息，spring自然可以通过类加载器将类加载到jvm中，现在我们已经通过spring-boot的starter依赖方式依赖了我们需要的组件，那么这些组建的类信息在select方法中也是可以被获取到的</strong><br>
 <strong>方法中的getCandidateConfigurations方法，通过方法注释了解到，其返回一个自动配置类的类名列表，方法调用了loadFactoryNames方法</strong></p>
-<pre class=" language-language-java"><code class="language-language-java">    protected List<String> getCandidateConfigurations(AnnotationMetadata metadata, AnnotationAttributes attributes) {
-        List<String> configurations = SpringFactoriesLoader.loadFactoryNames(this.getSpringFactoriesLoaderFactoryClass(), this.getBeanClassLoader());
+<pre class=" language-language-java"><code class="language-language-java">    protected List<string> getCandidateConfigurations(AnnotationMetadata metadata, AnnotationAttributes attributes) {
+        List<string> configurations = SpringFactoriesLoader.loadFactoryNames(this.getSpringFactoriesLoaderFactoryClass(), this.getBeanClassLoader());
         Assert.notEmpty(configurations, "No auto configuration classes found in META-INF/spring.factories. If you are using a custom packaging, make sure that file is correct.");
         return configurations;
     }
-</code></pre>
+</string></string></code></pre>
 <p><strong>自动配置器会根据传入的factoryClass.getName()到项目系统路径下所有的spring.factories文件中找到相应的key，从而加载里面的类</strong><br>
 <img src="http://dingdm.online/jiazailei.png" alt="加载类" title="加载类"></p>
-<pre class=" language-language-java"><code class="language-language-java">private static Map<String, List<String>> loadSpringFactories(@Nullable ClassLoader classLoader) {
-        MultiValueMap<String, String> result = (MultiValueMap)cache.get(classLoader);
+<pre class=" language-language-java"><code class="language-language-java">private static Map<string, list<string="">&gt; loadSpringFactories(@Nullable ClassLoader classLoader) {
+        MultiValueMap<string, string=""> result = (MultiValueMap)cache.get(classLoader);
         if (result != null) {
             return result;
         } else {
             try {
-                Enumeration<URL> urls = classLoader != null ? classLoader.getResources("META-INF/spring.factories") : ClassLoader.getSystemResources("META-INF/spring.factories");
+                Enumeration<url> urls = classLoader != null ? classLoader.getResources("META-INF/spring.factories") : ClassLoader.getSystemResources("META-INF/spring.factories");
                 LinkedMultiValueMap result = new LinkedMultiValueMap();
 
                 while(urls.hasMoreElements()) {
@@ -758,8 +758,8 @@ org.admin.starter.test.listener.StarterApplicationListener
                     Iterator var6 = properties.entrySet().iterator();
 
                     while(var6.hasNext()) {
-                        Entry<?, ?> entry = (Entry)var6.next();
-                        List<String> factoryClassNames = Arrays.asList(StringUtils.commaDelimitedListToStringArray((String)entry.getValue()));
+                        Entry<!--?, ?--> entry = (Entry)var6.next();
+                        List<string> factoryClassNames = Arrays.asList(StringUtils.commaDelimitedListToStringArray((String)entry.getValue()));
                         result.addAll((String)entry.getKey(), factoryClassNames);
                     }
                 }
@@ -771,7 +771,7 @@ org.admin.starter.test.listener.StarterApplicationListener
             }
         }
     }
-</code></pre>
+</string></url></string,></string,></code></pre>
 <p><strong>自动配置</strong><br>
 <img src="http://dingdm.online/zidongpeizhi2.png" alt="自动配置" title="自动配置"></p>
 <pre class=" language-language-java"><code class="language-language-java">@Configuration
@@ -1511,7 +1511,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">50k</span>&nbsp;字
+                class="white-color">36.6k</span>&nbsp;字
             
             
             
