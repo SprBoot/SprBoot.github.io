@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://dingdm.club/"/>
-  <updated>2021-04-15T10:08:14.786Z</updated>
+  <updated>2021-04-16T08:45:04.650Z</updated>
   <id>https://dingdm.club/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>OpenCV学习笔记二</title>
+    <link href="https://dingdm.club/2021/04/16/opencv-xue-xi-bi-ji-er/"/>
+    <id>https://dingdm.club/2021/04/16/opencv-xue-xi-bi-ji-er/</id>
+    <published>2021-04-16T08:45:20.000Z</published>
+    <updated>2021-04-16T08:45:04.650Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;OpenCV学习笔记二&quot;&gt;OpenCV学习笔记二&lt;/h3&gt;
+&lt;h4 id=&quot;图像处理&quot;&gt;图像处理&lt;/h4&gt;
+&lt;h5 id=&quot;直方图&quot;&gt;直方图&lt;/h5&gt;
+&lt;p&gt;直方图是对数据进行统计的一种方法，并且将统计值组织到一系列实现定义好的bin中。其中，bin为直方图中经常
+      
+    
+    </summary>
+    
+    
+      <category term="图像处理" scheme="https://dingdm.club/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
+    
+    
+      <category term="OpenCV" scheme="https://dingdm.club/tags/OpenCV/"/>
+    
+  </entry>
   
   <entry>
     <title>深度学习笔记一</title>
@@ -163,7 +190,7 @@ print(a)&lt;br&gt;
     <link href="https://dingdm.club/2021/03/29/opencv-xue-xi-bi-ji-yi/"/>
     <id>https://dingdm.club/2021/03/29/opencv-xue-xi-bi-ji-yi/</id>
     <published>2021-03-29T08:33:32.000Z</published>
-    <updated>2021-03-29T08:33:35.552Z</updated>
+    <updated>2021-04-16T08:45:20.904Z</updated>
     
     <summary type="html">
     
@@ -178,7 +205,7 @@ print(a)&lt;br&gt;
     </summary>
     
     
-      <category term="python" scheme="https://dingdm.club/categories/python/"/>
+      <category term="图像处理" scheme="https://dingdm.club/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
     
     
       <category term="OpenCV" scheme="https://dingdm.club/tags/OpenCV/"/>
