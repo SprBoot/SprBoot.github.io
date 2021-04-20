@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://dingdm.club/"/>
-  <updated>2021-04-16T09:08:35.772Z</updated>
+  <updated>2021-04-20T12:39:27.357Z</updated>
   <id>https://dingdm.club/</id>
   
   <author>
@@ -15,6 +15,59 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>python学习笔记三</title>
+    <link href="https://dingdm.club/2021/04/20/python-xue-xi-bi-ji-san/"/>
+    <id>https://dingdm.club/2021/04/20/python-xue-xi-bi-ji-san/</id>
+    <published>2021-04-20T12:39:21.000Z</published>
+    <updated>2021-04-20T12:39:27.357Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;python学习笔记三&quot;&gt;python学习笔记三&lt;/h3&gt;
+&lt;h4 id=&quot;类与对象&quot;&gt;类与对象&lt;/h4&gt;
+&lt;p&gt;语法：&lt;/p&gt;
+&lt;pre class=&quot; language-language-python&quot;&gt;&lt;code class=&quot;language-langua
+      
+    
+    </summary>
+    
+    
+      <category term="后端" scheme="https://dingdm.club/categories/%E5%90%8E%E7%AB%AF/"/>
+    
+    
+      <category term="python" scheme="https://dingdm.club/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>OpenCV学习笔记三</title>
+    <link href="https://dingdm.club/2021/04/20/opencv-xue-xi-bi-ji-san/"/>
+    <id>https://dingdm.club/2021/04/20/opencv-xue-xi-bi-ji-san/</id>
+    <published>2021-04-20T09:23:12.000Z</published>
+    <updated>2021-04-20T12:37:55.924Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;OpenCV学习笔记三&quot;&gt;OpenCV学习笔记三&lt;/h3&gt;
+&lt;h4 id=&quot;角点特征&quot;&gt;角点特征&lt;/h4&gt;
+&lt;p&gt;角点是图像很重要的特征，对图像图形的理解和分析有着很重要的作用。角点在三维场景重建运动估计，目标跟踪、目标识别、图像配准与匹配等计算机视觉领域起着非常
+      
+    
+    </summary>
+    
+    
+      <category term="图像处理" scheme="https://dingdm.club/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
+    
+    
+      <category term="OpenCV" scheme="https://dingdm.club/tags/OpenCV/"/>
+    
+  </entry>
   
   <entry>
     <title>OpenCV学习笔记二</title>
@@ -526,65 +579,6 @@ id(var) 获取对象的唯一id type(var) 获取对象的类型 var 存储的值
       <category term="ubuntu" scheme="https://dingdm.club/tags/ubuntu/"/>
     
       <category term="docker" scheme="https://dingdm.club/tags/docker/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>springboot的启动流程</title>
-    <link href="https://dingdm.club/2020/07/28/springboot-de-qi-dong-liu-cheng/"/>
-    <id>https://dingdm.club/2020/07/28/springboot-de-qi-dong-liu-cheng/</id>
-    <published>2020-07-28T10:11:00.000Z</published>
-    <updated>2021-03-21T14:25:10.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;spring-boot的启动流程图&quot;&gt;spring boot的启动流程图&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;http://dingdm.online/qidongliucheng.png&quot; alt=&quot;启动流程图&quot; title=&quot;启动流程图&quot;&gt;&lt;br&gt;
-&lt;stro
-      
-    
-    </summary>
-    
-    
-      <category term="后端" scheme="https://dingdm.club/categories/%E5%90%8E%E7%AB%AF/"/>
-    
-    
-      <category term="springboot" scheme="https://dingdm.club/tags/springboot/"/>
-    
-      <category term="tomcat" scheme="https://dingdm.club/tags/tomcat/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>计算机网络</title>
-    <link href="https://dingdm.club/2020/05/08/ji-suan-ji-wang-luo/"/>
-    <id>https://dingdm.club/2020/05/08/ji-suan-ji-wang-luo/</id>
-    <published>2020-05-08T08:42:12.000Z</published>
-    <updated>2021-03-21T14:25:12.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;应用进程跨越网络的通信&quot;&gt;应用进程跨越网络的通信&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;解决的问题&lt;/strong&gt;：一些特定的应用需要互联网但是不能使用标准化的互联网应用协议&lt;br&gt;
-系统调用：&lt;br&gt;
-流程：应用进程启动系统调用，控制进程传递给了系统调用接口，接口将
-      
-    
-    </summary>
-    
-    
-      <category term="计算机网络" scheme="https://dingdm.club/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
-    
-      <category term="加密算法" scheme="https://dingdm.club/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/"/>
-    
-    
-      <category term="HTTP" scheme="https://dingdm.club/tags/HTTP/"/>
-    
-      <category term="TCP" scheme="https://dingdm.club/tags/TCP/"/>
     
   </entry>
   
