@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="记一次服务器部署内容, dingdm">
+    <meta name="keywords" content="OpenCV学习笔记四, dingdm">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>记一次服务器部署内容 | dingdm</title>
+    <title>OpenCV学习笔记四 | dingdm</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -323,12 +323,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('http://dingdm.online/7.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('http://dingdm.online/16.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">记一次服务器部署内容</h1>
+                    <h1 class="description center-align post-title">OpenCV学习笔记四</h1>
                 </div>
             </div>
         </div>
@@ -445,16 +445,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/nginx/">
-                                <span class="chip bg-color">nginx</span>
-                            </a>
-                        
-                            <a href="/tags/ubuntu/">
-                                <span class="chip bg-color">ubuntu</span>
-                            </a>
-                        
-                            <a href="/tags/docker/">
-                                <span class="chip bg-color">docker</span>
+                            <a href="/tags/OpenCV/">
+                                <span class="chip bg-color">OpenCV</span>
                             </a>
                         
                     </div>
@@ -465,8 +457,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E8%BF%90%E7%BB%B4/" class="post-category">
-                                运维
+                            <a href="/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" class="post-category">
+                                图像处理
                             </a>
                         
                     </div>
@@ -478,7 +470,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-07-28
+                    2021-04-21
                 </div>
                 
 
@@ -487,14 +479,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.6k
+                    4.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    6 分
+                    18 分
                 </div>
                 
 
@@ -509,163 +501,345 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <hr>
-<p><strong>由于目前国内的域名需要备案，因此购买国外的域名，同时由于国外的域名解析到国内的服务器也需要备案，因此服务器也使用国外的，当然，需要一个备案的国内域名用于七牛CDN使用。</strong></p>
-<h1>1.服务器域名选择</h1>
-<p><strong>之前一直用的搬瓦工的服务器，但是现在搬瓦工的服务器配置高了，价格很贵，不是很划算，于是就用了vultr的服务器，五美元一个月，价格还可以，除了建站之外，当作梯子也是划算的。<br>
-vultr的平台需要先充值，最低额度十美元，支持支付宝付款还是可以的。</strong></p>
-<h2 id="1-1-服务器购买">1.1 服务器购买</h2>
-<p><img src="http://dingdm.online/%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%80%89%E6%8B%A9.png" alt=""><br>
-<strong>服务器类型选择Cloud Compute就可以，用来个人需求绰绰有余。</strong><br>
-<img src="http://dingdm.online/fuwuqixuanze" alt=""><br>
-<strong>国家及城市根据自己需求选择就可以。<br>
-服务器操作系统我推荐Ubuntu16.04</strong><br>
-<img src="http://dingdm.online/QQ%E6%88%AA%E5%9B%BE20200624211528.png" alt=""><br>
-<strong>其他默认就好，购买完成就会看到自己的服务器</strong></p>
-<h3 id="1-1-1">1.1.1</h3>
-<p><strong>这里推荐两个软件，smarrty用于远程连接，Filezilla用于向服务器传输文件。<br>
-安装包我放在资源里面，可以在下载中自行下载。</strong></p>
-<h2 id="1-2-域名购买">1.2 域名购买</h2>
-<p><strong>域名购买我推荐nameSilo，不必要购买特别贵的，自己可以使用的就好<br>
-购买时挂梯子应该打开会快一点</strong><br>
-<strong>官方网址<br>
-<a href="https://www.namesilo.com/" target="_blank" rel="noopener">https://www.namesilo.com/</a><br>
-搜索自己想要的域名，然后进行购买</strong><br>
-<img src="http://dingdm.online/QQ%E6%88%AA%E5%9B%BE20200624220852.png" alt=""><br>
-<strong>选择第一个就可以了</strong><br>
-<img src="http://dingdm.online/QQ%E6%88%AA%E5%9B%BE20200624220934.png" alt=""><br>
-<strong>选择对应的配置和优惠码，优惠码百度一下，很多的，基本都是减一美元</strong><br>
-<img src="http://dingdm.online/QQ%E6%88%AA%E5%9B%BE20200624221137.png" alt=""></p>
-<h3 id="1-2-1-域名解析">1.2.1 域名解析</h3>
-<p><strong>域名购买完成之后，点击manage my domains进入自己的域名管理页面</strong><br>
-<img src="http://dingdm.online/QQ%E6%88%AA%E5%9B%BE20200624221243.png" alt=""><br>
-<strong>下面显示的就是你刚刚购买的域名，然后点击蓝色的小球，dns设置</strong><br>
-<img src="http://dingdm.online/QQ%E6%88%AA%E5%9B%BE20200624221256.png" alt=""><br>
-<strong>进入到域名解析页面你会看到五条记录，将第三条和第四条删掉，然后编辑第一条和第二条。<br>
-第一条编辑的时候在ipv4栏输入你的服务器ip地址<br>
-第二条编辑的时候在1的基础上还要在hostname输入www</strong><br>
-<img src="http://dingdm.online/QQ%E6%88%AA%E5%9B%BE20200624221324.png" alt=""></p>
-<p><img src="http://dingdm.online/QQ%E6%88%AA%E5%9B%BE20200624221337.png" alt=""></p>
-<h1>2.服务器配置及部署</h1>
-<h2 id="2-1-服务器配置">2.1 服务器配置</h2>
-<h3 id="2-1-1-java环境安装">2.1.1 java环境安装</h3>
-<p><strong>由于我的项目是基于java开发的，所以安装Java环境。</strong><br>
-<strong>首先卸载之前安装或参与的项，如果没有请忽略</strong><br>
-<code>apt-get remove openjdk</code><br>
-<strong>可以通过Oracle官网下载对应的jdk和在线安装两种方式进行安装</strong><br>
-<strong>可以通过<code>apt install openjdk-8-jdk</code>的方式在线安装<br>
-也可以通过https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html<br>
-官网下载对应的版本的jdk进行解压安装</strong></p>
-<h4 id="2-1-1-1-配置环境变量">2.1.1.1 配置环境变量</h4>
-<p><code>vim  ~/.bashrc</code><strong>也可以使用nano或vi 如果未安装vim</strong><br>
-<strong>文件末尾添加以下内容</strong></p>
-<pre class=" language-language-shell"><code class="language-language-shell">export JAVA_HOME=/usr/local/jdk1.8.0_211
-export JRE_HOME=${JAVA_HOME}/jre
-export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib
-export PATH=.:${JAVA_HOME}/bin:$PATH
+                <h3 id="OpenCV学习笔记四">OpenCV学习笔记四</h3>
+<h4 id="Fast和ORB算法">Fast和ORB算法</h4>
+<h5 id="Fast算法">Fast算法</h5>
+<p><strong>原理：</strong></p>
+<p>Fast是一种用于角点检测的算法，该算法的原理是取图像中检测点，以该点为圆心的周围邻域内像素点判断检测点是否为角点，通俗的讲就是若一个像素周围有一定数量的像素与该点像素值不同，则认为其为角点。</p>
+<p><strong>基本流程：</strong></p>
+<p>1.在图像中选取一个像素点p，来判断它是不是关键点。Ip等于像素点p的灰度值。<br>
+2.以r为半径画圆，覆盖p点周围的M个像素，通常情况下，设置r=3，则M=16。<br>
+3.设置一个阈值t，如果在这16个像素点中存在n个连续像素点的灰度值都高于Ip+t，或者低于Ip-t，那么像素点p就被认为是一个角点。<br>
+4.由于在检测特征点时是需要对图像中所有的像素点进行检测，然后图像中的绝大多数点都不是特征点，如果对每个像素点都进行上述的检测过程，那显然会浪费许多时间，因此采用一种进行非特征点判别的方法：首先对候选点的周围每个90度的点：1，9，5，13进行测试。如果p是角点，那么这四个点中至少有3个要符合阈值要求，否则直接剔除。对保留下来的点在继续进行测试。</p>
+<p>虽然这个检测器的效率很高，但它有以下几条缺点：</p>
+<p>获得的候选点比较多。<br>
+特征点的选取不是最优的，因为它的效果取决于要解决的问题和角点的分布情况。<br>
+进行非特征点判别时大量的点被丢弃。<br>
+检测到的很多特征点都是相邻的。</p>
+<p>前三个问题可以通过机器学习的方法解决，最后一个问题可以使用非最大值抑制的方法解决。</p>
+<p><strong>机器学习的角点检测器</strong></p>
+<p>1.选择一组训练图片<br>
+2.使用Fast算法找出每幅图像的特征点，将其周围的16个像素存储构成一个向量p。<br>
+3.每一个特征点的16个像素点都属于下列三类中的一种<br>
+<img src="http://dingdm.online/sab.PNG" alt=""><br>
+4.根据这些像素点的分类，特征向量p也被分为3个子集：Pd，Ps，Pb<br>
+5.定义一个新的布尔变量Kp，如果p是角点就设置为True，如果不是就设置为false。<br>
+6.利用特征值向量p，目标值是$K_p$，训练ID3树。<br>
+7.将构建好的决策树运用于其他图像的快速检测。</p>
+<p><strong>非极大值抑制</strong></p>
+<p>在筛选出来的候选角点中有很多是紧挨在一起的，需要通过非极大值抑制来消除这种影响。</p>
+<p>为所有的候选角点都确定一个打分函数V，V的值可这样计算：先分别计算Ip于圆上16个点的像素值差值，取绝对值，再将这16个绝对值相加，就得到了V的值。最后比较毗邻候选角点的V值，把V值较小的候选点pass掉。</p>
+<p>Fast算法的思想与我们对角点的直观认识非常接近，化繁为简。Fast算法比其他角点的检测算法快，但是在噪声较高时不够稳定，这需要设置合适的阈值。</p>
+<p>API：</p>
+<pre class=" language-language-python"><code class="language-language-python"># 实例化fast
+fast = cv.FastFeatureDetector_create(threshlod,nonmaxSuppression)
+# 利用fast.detect检测关键点，没有对应的关键点描述
+kp = fast.detect(grayImg,None)
+# 将关键点检测结果绘制在图像上，与在sift中是一样的
+cv.drawKeypoints(image,keypoints,outputimages,color,flags)
 </code></pre>
-<p><strong>记得更换为自己文件所在的路径</strong><br>
-<strong>保存变量并更新应用</strong><br>
-<code>source ~/.bashrc</code><br>
-<strong>使用</strong><code>java -version</code><strong>查看自己的java版本即可</strong></p>
-<h3 id="2-1-2-docker安装">2.1.2 docker安装</h3>
-<p><strong>由于项目使用到的redis，rabbitmq，mongodb都是基于docker容器的，因此先进行配置。</strong><br>
-<strong>卸载存在的docker的旧版本</strong><br>
-<code>apt-get remove docker docker-engine docker-ce docker.io</code><br>
-<strong>更新apt包</strong><br>
-<code>apt-get update</code><br>
-<strong>安装以下包通过https使用存储库</strong><br>
-<code>apt-get install -y apt-transport-https ca-certificates curl software-properties-common</code><br>
-<strong>添加docker的GPG密钥</strong><br>
-<code>curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -</code><br>
-<strong>设置stable存储库</strong><br>
-<code>add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"</code><br>
-<strong>更新apt包</strong><br>
-<code>apt-get update</code><br>
-<strong>安装docker</strong><br>
-<code>apt-get install -y docker-ce</code><br>
-<strong>验证服务是否启动</strong><br>
-<code>systemctl status docker</code><br>
-<strong>docker未启动，则手动启动docker</strong><br>
-<code>systemctl start docker</code><br>
-<strong>docker安装完成</strong></p>
-<h4 id="2-1-2-1-docker安装mongodb">2.1.2.1 docker安装mongodb</h4>
-<p><strong>下载镜像</strong><br>
-<code>docker pull registry.docker-cn.com/library/mongo</code><br>
-<strong>创建数据文件夹</strong><br>
-<code>mkdir /data/mongodb0</code><br>
-<strong>启动容器</strong><br>
-<code>docker run --name mongodb-server0 -v /data/mongodb0:/data/db -p 27017:27017 -d 镜像ID --auth</code><br>
-<strong>-v后面的参数表示把数据文件挂载到宿主机的路径<br>
--p把mongo端口映射到宿主机的指定端口<br>
-–auth表示连接mongodb需要授权</strong></p>
-<h4 id="2-1-2-2-docker安装redis">2.1.2.2 docker安装redis</h4>
-<p><strong>拉取镜像</strong><br>
-<code>docker pull redis</code><br>
-<strong>启动镜像</strong><br>
-<code>docker run -p 6379:6379 -d redis:latest redis-server</code><br>
-<strong>-p 6379:6379 : 将容器的6379端口映射到主机的6379端口<br>
--v $PWD/data:/data : 将主机中当前目录下的data挂载到容器的/data<br>
-redis-server --appendonly yes : 在容器执行redis-server启动命令，并打开redis持久化配置</strong><br>
-<strong>docker的相关命令在其他笔记中已经说明过</strong><br>
-<strong>redis的操作软件在附件中也已经上传，可以自行下载</strong></p>
-<h4 id="2-1-2-3-docker安装rabbitMq">2.1.2.3 docker安装rabbitMq</h4>
-<p><strong>拉取镜像</strong><br>
-<code>docker pull rabbitmq:management</code><br>
-<strong>运行镜像</strong><br>
-<code>docker run -d -p 5672:5672 -p 15672:15672 --name rabbitmq rabbitmq:management</code><br>
-<strong>访问管理页面<br>
-http://[宿主机IP]:15672</strong></p>
-<h3 id="2-1-3-nginx安装">2.1.3 nginx安装</h3>
-<p><strong>因为我使用了两个域名，一个为8080端口，一个为8060端口，因此需要使用nginx来进行端口的转发。</strong><br>
-安装nginx<br>
-<code>apt-get install nginx</code><br>
-<strong>安装好以后，nginx默认安装位置在etc目录下，这里我在使用的时候出现了nginx文件限制的问题，因此在这里统一进行说明。<br>
-在nginx下的nginx.conf配置文件中的http段对文件大小进行设置。</strong><br>
-<code>client_max_body_size 100m;</code><br>
-<strong>在sites-available下进行对应的端口转发配置</strong></p>
-<pre class=" language-language-shell"><code class="language-language-shell">server {
-	listen 80 default_server;
-	listen [::]:80 default_server;
-	root /var/www/html;
-	index index.html index.htm index.nginx-debian.html;
-
-	server_name dinggc.info;
-
-location / {
-      proxy_set_header   X-Real-IP        $remote_addr;
-      proxy_set_header   X-Forwarded-For  $proxy_add_x_forwarded_for;
-      proxy_set_header   Host             $http_host;
-      proxy_set_header   Upgrade          $http_upgrade;
-      proxy_set_header   X-NginX-Proxy    true;
-      proxy_set_header   Connection "upgrade";
-      proxy_http_version 1.1;
-      proxy_pass         http://localhost:8080;
-   }
-}
+<p>threshold：阈值t，有默认值10<br>
+nonmaxSuppression：是否进行非极大值抑制，默认值true<br>
+grayImg：进行关键点检测的图像，注意是灰度图像</p>
+<pre class=" language-language-python"><code class="language-language-python">import cv2 as cv
+import numpy as np
+import  matplotlib.pyplot as plt
+# 读取图像，并转换为灰度图像
+img = cv.imread('/Users/dinggongcheng/Downloads/lou.jpeg')
+# fast角点检测
+# 创建一个Fast对象，传入阈值，注意：可以处理彩色空间图像
+fast = cv.FastFeatureDetector_create(threshold=30)
+# 检测图像上的关键点
+kp = fast.detect(img,None)
+# 在图像上绘制关键点
+img2 = cv.drawKeypoints(img,kp,None,color=(0,0,255))
+# 输出默认参数
+print("threshold:{}".format(fast.getThreshold()))
+print("nonmaxSuppression:{}".format(fast.getNonmaxSuppression()))
+print("neighborhood:{}".format(fast.getType()))
+print("Total Keypoints with nonmaxSuppression:{}".format(len(kp)))
+# 关闭非极大值抑制
+fast.setNonmaxSuppression(0)
+kp = fast.detect(img,None)
+print("Total Keypoints with nonmaxSuppression:{}".format(len(kp)))
+# 绘制为进行非极大值抑制的结果
+img3 = cv.drawKeypoints(img,kp,None,color=(0,0,255))
+# 绘制图像
+fig,axes = plt.subplots(nrows=1,ncols=2,figsize=(10,8),dpi=100)
+axes[0].imshow(img2[:,:,::-1])
+axes[0].set_title("setMax")
+axes[1].imshow(img3[:,:,::-1])
+axes[1].set_title("removeNonMax")
+plt.show()
 </code></pre>
-<pre class=" language-language-shell"><code class="language-language-shell">server {
-	listen 80;
-   # 修改为你的域名
-   server_name dinggc.online;
-
-   location / {
-      proxy_set_header   X-Real-IP        $remote_addr;
-      proxy_set_header   X-Forwarded-For  $proxy_add_x_forwarded_for;
-      proxy_set_header   Host             $http_host;
-      proxy_set_header   Upgrade          $http_upgrade;
-      proxy_set_header   X-NginX-Proxy    true;
-      proxy_set_header   Connection "upgrade";
-      proxy_http_version 1.1;
-      proxy_pass         http://localhost:8060;
-   }
-}
+<pre class=" language-language-bash"><code class="language-language-bash">threshold:30
+nonmaxSuppression:True
+neighborhood:2
+Total Keypoints with nonmaxSuppression:4194
+Total Keypoints with nonmaxSuppression:8710
 </code></pre>
-<p><strong>使用</strong><code>/etc/init.d/nginx configtest</code><strong>进行配置测试如果成功则使用</strong><code>/etc/init.d/nginx reload</code><strong>重启nginx即可</strong><br>
-<strong>至此，相关的服务器配置安装完成。</strong></p>
-<h1>3 项目部署</h1>
-<p><strong>使用filezilla软件将相关文件上传到服务器之后在线运行即可。<br>
-若使用nohup后台运行的话，注意不要直接关掉smartty，而应该使用exit命令退出命令行。</strong></p>
+<p><img src="http://dingdm.online/fast.png" alt=""></p>
+<h5 id="ORB算法">ORB算法</h5>
+<p><strong>原理：</strong></p>
+<p>SIFT和SURF算法是受专利保护的，在使用它们时是要付费的，但是ORB不需要，它可以用来对图像中的关键点快速创建特征向量，并用这些特征向量来识别图像中的对象。</p>
+<p><strong>ORB算法流程</strong></p>
+<p>ORB算法结合了Fast和Brief算法，提出了构造金字塔，为Fast特征点添加了方向，从而使得关键点具有了尺度不变性和旋转不变性。具体流程为：</p>
+<p>构造尺度金字塔，金字塔共有n层，与SIFT不同的是，每一层仅有一幅图像。第s层的尺度为σs = σs0。σ0是初始尺度，默认为1.2，原图在第0层。</p>
+<p>第s层图像的大小：</p>
+<p><img src="http://dingdm.online/s1.PNG" alt=""></p>
+<p>在不同的尺度上利用Fast算法检测特征点，采用Harris角点响应函数，根据角点的响应值排序，选取前N个特征点，作为本尺度的特征点。<br>
+计算特征点的主方向，计算以特征点为圆心，半径为r的圆形邻域内的灰度质心位置，将从特征点位置到质心位置的方向做特征点的主方向。</p>
+<p>计算方法如下：</p>
+<p><img src="http://dingdm.online/s2.PNG" alt=""></p>
+<p>质心位置：</p>
+<p><img src="http://dingdm.online/s3.PNG" alt=""></p>
+<p>主方向：</p>
+<p><img src="http://dingdm.online/s4.PNG" alt=""></p>
+<p>为了解决旋转不变性，将特征点的邻域旋转到主方向上利用Brief算法构建特征描述符，至此就得到了ORB的特征描述向量。</p>
+<p><strong>BRIEF算法</strong></p>
+<p>BRIEF算法是一种特征描述子提取算法，并非特征点的提取算法，一种生成二值化描述子的算法，不提取代价低，匹配只需要使用简单的汉明距离利用比特之间的异或操作就可以完成。因此，时间代价低，空间代价低，效果还挺好是最大的优点。</p>
+<p>算法的步骤如下：</p>
+<p>1.图像滤波：原始图像中存在噪声时，会对结果产生影响，所以需要对图像进行滤波，去除部分噪声。<br>
+2.选取点对：以特征点为中心，区S*S的领域窗口，在窗口内随机选取N组点对，一般N=128，256，512，默认是256，关于如何选取随机点对，提供了五种形式，结果如下<br>
+x，y方向平均分布采样<br>
+x，y均服从Gauss(0,S^2/25)各向同性采样<br>
+x服从Gauss(0,S^2/25)，y服从Gauss(0,S^2/100)<br>
+x，y从网格中随机获取<br>
+x一直在(0,0)，y从网格中随机选取<br>
+3.构建描述符：假设x，y是某个点对的两个端点，px和py是两点对应的像素值，则<br>
+<img src="http://dingdm.online/byt.PNG" alt=""><br>
+对每一个点对都进行上述的二进制赋值，形成BRIEF的关键点的描述特征向量，该向量一般为128-512位的字符串，其中仅包含1和0。</p>
+<p>API：</p>
+<pre class=" language-language-python"><code class="language-language-python"># 1.实例化orb
+orb = cv.xfeatures2d.orb_create(nfeatures)
+# 2.利用orb.detectAndCompute()检测关键点并计算
+kp,des = orb.detectAndCompute(gray,None)
+# 3.将关键点检测结果绘制在图像上
+cv.drawKeypoints(image,keypoints,outputimages,color,flags)
+</code></pre>
+<p>gray：进行关键点检测的图像，注意是灰度图像</p>
+<pre class=" language-language-python"><code class="language-language-python">import cv2 as cv
+import numpy as np
+import matplotlib.pyplot as plt
+# 读取图像
+img = cv.imread('/Users/dinggongcheng/Downloads/lou.jpeg')
+# ORB角点检测
+# 实例化ORB对象
+orb = cv.ORB_create(nfeatures=5000)
+# 检测关键点，并计算特征描述符
+kp,des = orb.detectAndCompute(img,None)
+print(des.shape)
+# 将关键点绘制在图像上
+img2 = cv.drawKeypoints(img,kp,None,flags=0)
+# 绘制图像
+plt.figure(figsize=(10,8),dpi=100)
+plt.imshow(img2[:,:,::-1])
+plt.xticks([]),plt.yticks([])
+plt.show()
+</code></pre>
+<p><img src="http://dingdm.online/orb.png" alt=""></p>
+<h4 id="视频读写">视频读写</h4>
+<h5 id="从文件中读取视频并播放">从文件中读取视频并播放</h5>
+<p>在OpenCV中我们要获取一个视频，需要创建一个VideoCapture对象，指定你要读取的视频文件：</p>
+<p>API：</p>
+<pre class=" language-language-python"><code class="language-language-python"># 1.创建读取视频的对象
+cap = cv.VideoCapture(filepath)
+# 2.获取视频的某些属性
+retval = cap.get(propId)
+# 3.修改视频的属性信息
+cap.set(propId,value)
+# 4.判断图像是否读取成功
+isornot = cap.isOpened()
+# 5.获取视频的一帧图像
+ret,frame = cap.read()
+# 6.调用cv.imshow()显示图像，在显示图像时使用cv.waitkey()设置适当的持续时间，如果太低视频会播放的非常快，如果太高就会播放的非常慢，通常情况下设置25ms
+# 7.释放视频
+cap.realease()
+</code></pre>
+<p>filepath：视频文件路径<br>
+propId：从0到18的数字，每个数字表示视频的属性</p>
+<pre class=" language-language-python"><code class="language-language-python">import numpy as np
+import cv2 as cv
+# 1.获取视频对象
+cap = cv.VideoCapture('/Users/dinggongcheng/Downloads/1.mp4')
+# 2.判断是否读取成功
+while(cap.isOpened()):
+    # 3.获取每一帧图像
+    ret,frame = cap.read()
+    # 4.获取成功显示图像
+    if ret == True:
+        cv.imshow('frame',frame)
+    # 5.每一帧间隔为25ms
+    if cv.waitKey(25) & 0xFF == ord('q'):
+        break
+# 6.释放视频对象
+cap.release()
+cv.destroyAllWindows()
+</code></pre>
+<h5 id="保存视频">保存视频</h5>
+<p>在OpenCV中我们保存视频使用的是VideoWriter对象，在其中指定输出文件的名称。</p>
+<pre class=" language-language-python"><code class="language-language-python">out = cv2.VideoWriter(filename,fourcc,fps,framesize)
+</code></pre>
+<p>filename：视频保存的位置<br>
+fourcc：指定视频编解码的4字节代码<br>
+fps：帧率<br>
+framesize：帧大小</p>
+<pre class=" language-language-python"><code class="language-language-python">import cv2 as cv
+import numpy as np
+# 1.读取视频
+cap = cv.VideoCapture('/Users/dinggongcheng/Downloads/1.mp4')
+# 2.获取图像的属性，并将其转换为整数
+frame_width = int(cap.get(3))
+frame_height = int(cap.get(4))
+# 3.创建保存视频的对象，设置编码格式，帧率，图像的宽高等
+out = cv.VideoWriter('/Users/dinggongcheng/Downloads/output.mp4',cv.VideoWriter_fourcc('M','J','P','G'),10,(frame_width,frame_height))
+while(True):
+  # 4.获取视频中的每一帧图像
+  ret,frame = cap.read()
+  if ret == True:
+    # 5.将每一帧图像写入到输出文件中
+    out.write(frame)
+  else:
+    break
+# 6.释放资源
+cap.release()
+out.release()
+cv.destoryAllWindows()
+</code></pre>
+<h4 id="视频追踪">视频追踪</h4>
+<h5 id="meanshift">meanshift</h5>
+<p><strong>原理</strong></p>
+<p>meanshift算法的原理很简单。假设你有一堆点集，还有一个小的窗口，这个窗口可能是圆形的，现在你可能要移动这个窗口到点集密度最大的区域当中。</p>
+<p><img src="http://dingdm.online/c1.PNG" alt=""></p>
+<p>最开始的窗口是蓝色圆环的区域，命名为C1。蓝色圆环的圆心用一个蓝色的矩形标注，命名为C1_o。而窗口中所有点的点集构成的质心在蓝色圆形点C1_r处，显然圆环的形心和质心并不重合。所以，移动蓝色的窗口，使得形心与之前得到的质心重合。在新移动后的圆环区域当中再次寻找圆环所包围点集的质心，然后再次移动，通常情况下，形心和质心是不重合的。不断执行上面的移动过程，直到形心和质心大致重合结束。这样，最后圆形的窗口会落到像素分布最大的地方，也就是图中的绿色圆圈，命名为C2.</p>
+<p>meanshift算法除了应用在视频追踪当中，在聚类，平滑等等各种涉及到数据以及非监督学习的场合当中均有重要应用，是一个应用广泛的算法。</p>
+<p>图像是一个矩阵信息，如果在一个视频当中使用meanshift算法来追踪一个运动的物体呢？<br>
+1.首先在图像上选定一个目标区域<br>
+2.计算选定区域的直方图分布，一般是HSV色彩空间的直方图。<br>
+3.对下一帧图像b同样计算直方图分布。<br>
+4.计算图像b当中与选定区域直方图分布最为相似的区域，使用meanshift算法将选定区域沿着最为相似的部分进行移动，直到找到最相似的区域，便完成了在图像b中的目标追踪。<br>
+5.重复3到4的过程，就完成整个视频目标追踪。</p>
+<p>通常情况下我们使用直方图反向投影得到的图像和第一帧目标对象的起始位置，当目标对象的移动会反映到直方图反向投影图中，meanshift算法就把我们的窗口移动到反向投影图像中灰度密度最大的区域了。</p>
+<p>直方图反向投影的流程是：</p>
+<p>1.从输入图像的左上角(0,0)开始，切割一块(0,0)到(10,10)的临时图像<br>
+2.生成临时图像的直方图<br>
+3.用临时图像的直方图和模板图像的直方图对比，对比结果记为c<br>
+4.直方图对比结果c，就是结果图像(0,0)处的像素值<br>
+5.切割输入图像从(0,1)至(10,11)的临时图像，对比直方图，并记录到结果图像<br>
+6.重复1-5步知道输入图像的右下角，就形成了直方图的反向投影。</p>
+<p>API：</p>
+<pre class=" language-language-python"><code class="language-language-python">cv.meanShift(probImage,window,criteria)
+</code></pre>
+<p>probImage：ROI区域，即目标的直方图的反向投影<br>
+window：初始搜索窗口，就是定义ROI的rect<br>
+criteria：确定窗口搜索停止的准则，主要有迭代次数达到设置的最大值，窗口中心的漂移值大于某个设定的限制等。</p>
+<p>实现meanShift的主要流程</p>
+<p>1.读取视频文件<br>
+2.感兴趣区域设置：获取第一帧图像，并设置目标区域，即感兴趣区域<br>
+3.计算直方图：计算感兴趣区域的HSV直方图，并进行归一化<br>
+4.目标追踪：设置窗口搜索停止条件，直方图反向投影，进行目标追踪，并在目标位置绘制矩阵框。</p>
+<pre class=" language-language-python"><code class="language-language-python">import numpy as np
+import cv2 as cv
+# 1.获取视频对象
+cap = cv.VideoCapture('/Users/dinggongcheng/Downloads/1.mp4')
+# 2.获取第一帧图像，并指定目标位置
+ret,frame = cap.read()
+# 2.1 目标位置
+r,h,c,w = 197,141,0,208
+track_window = (c,r,w,h)
+# 2.2 指定目标的感兴趣区域
+roi = frame[r:r+h,c:c+w]
+# 3.计算直方图
+# 3.1 转换色彩空间
+hsv_roi = cv.cvtColor(roi,cv.COLOR_BGR2HSV)
+# 3.2 去除低亮度的值
+# 3.3 计算直方图
+roi_hist = cv.calcHist([hsv_roi],[0],None,[180],[0,180])
+# 3.4 归一化
+cv.normalize(roi_hist,roi_hist,0,255,cv.NORM_MINMAX)
+# 4.目标追踪
+# 4.1 设置查窗口搜索终止条件：最大迭代次数，窗口中心漂移最小值
+term_crit = (cv.TERM_CRITERIA_EPS | cv.TERM_CRITERIA_COUNT,10,1)
+while(True):
+    # 4.2 获取每一帧图像
+    ret,frame = cap.read()
+    if ret == True:
+        # 4.3 计算直方图的反向投影
+        hsv = cv.cvtColor(frame,cv.COLOR_BGR2HSV)
+        dst = cv.calcBackProject([hsv],[0],roi_hist,[0,180],1)
+        # 4.4 进行meanshift追踪
+        ret,track_window = cv.meanShift(dst,track_window,term_crit)
+        # 4.5 将追踪的位置绘制在视频上，并进行显示
+        x,y,w,h = track_window
+        img2 = cv.rectangle(frame,(x,y),(x+w,y+h),255,2)
+        cv.imshow('frame',img2)
+        if cv.waitKey(60) & 0xFF == ord('q'):
+            break
+    else:
+        break
+# 5.释放资源
+cap.release()
+cv.destroyAllWindows()
+</code></pre>
+<p><img src="http://dingdm.online/mean.png" alt=""></p>
+<h5 id="Camshift">Camshift</h5>
+<p>camshift算法是对meanshift算法的改进算法，可随着跟踪目标的大小变化实时调整搜索窗口的大小，具有较好的跟踪效果。Camshift算法首先应用meanshift，一旦meanshift收敛，他就会更新窗口的大小，还计算最佳拟合椭圆的方向，从而根据目标的位置和大小更新搜索窗口。</p>
+<pre class=" language-language-python"><code class="language-language-python">				# 4.4 进行camshift追踪
+        ret,track_window = cv.CamShift(dst,track_window,term_crit)
+        # 4.5 将追踪的位置绘制在视频上，并进行显示
+        pts = cv.boxPoints(ret)
+        pts = np.int0(pts)
+        img2 = cv.polylines(frame,[pts],True,255,2)
+</code></pre>
+<h4 id="人脸检测">人脸检测</h4>
+<p><strong>基础：</strong></p>
+<p>我们使用机器学习的方法完成人脸检测，首先需要大量的正样本图像和负样本图像来训练分类器。我们需要从其中提取特征。下图中的Haar特征会被使用，就像我们的卷积核，每一个特征是一个值，这个值等于黑色矩形中的像素值之后减去白色矩形中的像素值之和。</p>
+<p><img src="http://dingdm.online/re.PNG" alt=""></p>
+<p>Haar特征值反映了图像的灰度变化情况。例如：脸部的一些特征能由矩阵特征简单的描述，眼睛要比脸颊颜色更深，鼻梁两侧比鼻梁颜色要深，嘴巴比周围颜色要深等。</p>
+<p>Haar特征可用于图像任意位置，大小也可以任意改变，所以矩形特征值是矩形模板类别、矩形位置和矩形大小这三个因素的函数。故类别、大小和位置的变化，使得很小的检测窗口含有非常多的矩形特征。</p>
+<p>API：</p>
+<pre class=" language-language-python"><code class="language-language-python"># 1.读取图片，并转换为灰度图
+# 2.实例化人脸和眼睛检测的分类对象
+# 实例化级联分类器
+classifier = cv.CascadeClassifier("haarcascade_frontalface_default.xml")
+# 加载分类器
+classifier.load('haarcascade_frontalface_default.xml')
+# 3.进行人脸和眼睛的检测
+rect = classifier.detectMultiScale(gray,scaleFactor,minNeighbors,minSize,maxSize)
+</code></pre>
+<p>gray：要进行检测的人脸图像<br>
+scaleFactor：前后两次扫描中，搜索窗口的比例系数<br>
+minneighbors：目标至少被检测到minNeighbors次才会被认为是目标<br>
+minSize和maxSize：目标的最小尺寸和最大尺寸</p>
+<pre class=" language-language-python"><code class="language-language-python">import matplotlib.pyplot as plt
+import cv2 as cv
+# 1.以灰度图的形式读取图片
+img = cv.imread('/Users/dinggongcheng/Downloads/pepole.jpeg')
+gray = cv.cvtColor(img,cv.COLOR_BGR2GRAY)
+# 2.实例化OpenCV人脸和眼睛识别的分类器
+face_cas  = cv.CascadeClassifier("/Users/dinggongcheng/Downloads/haarcascade_frontalface_default.xml")
+face_cas.load('/Users/dinggongcheng/Downloads/haarcascade_frontalface_default.xml')
+eyes_cas = cv.CascadeClassifier("/Users/dinggongcheng/Downloads/haarcascade_eye.xml")
+eyes_cas.load('/Users/dinggongcheng/Downloads/haarcascade_eye.xml')
+# 3.调用识别人脸
+faceRects = face_cas.detectMultiScale(gray,scaleFactor=1.5,minNeighbors=3,minSize=(50,50))
+for faceRect in faceRects:
+    x,y,w,h = faceRect
+    # 框出人脸
+    cv.rectangle(img,(x,y),(x+h,y+w),(0,255,0),3)
+    # 4.在识别出的人脸中进行眼睛的检测
+    roi_color = img[y:y+h,x:x+w]
+    roi_gray = gray[y:y+h,x:x+w]
+    eyes = eyes_cas.detectMultiScale(roi_gray,scaleFactor=1.3)
+    for (ex,ey,ew,eh) in eyes:
+        cv.rectangle(roi_color,(ex,ey),(ex+ew,ey+eh),(0,0,255),1)
+# 5.检测结果的绘制
+plt.figure(figsize=(8,6),dpi=100)
+plt.imshow(img[:,:,::-1]),plt.title('result')
+plt.xticks([]),plt.yticks([])
+plt.show()
+</code></pre>
+<p><img src="http://dingdm.online/pepole.png" alt=""></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -709,7 +883,7 @@ location / {
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://dingdm.club/2020/07/28/ji-yi-ci-fu-wu-qi-bu-shu-nei-rong/">https://dingdm.club/2020/07/28/ji-yi-ci-fu-wu-qi-bu-shu-nei-rong/</a>
+                    <a href="https://dingdm.club/2021/04/21/opencv-xue-xi-bi-ji-si/">https://dingdm.club/2021/04/21/opencv-xue-xi-bi-ji-si/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -747,16 +921,8 @@ location / {
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/nginx/">
-                                    <span class="chip bg-color">nginx</span>
-                                </a>
-                            
-                                <a href="/tags/ubuntu/">
-                                    <span class="chip bg-color">ubuntu</span>
-                                </a>
-                            
-                                <a href="/tags/docker/">
-                                    <span class="chip bg-color">docker</span>
+                                <a href="/tags/OpenCV/">
+                                    <span class="chip bg-color">OpenCV</span>
                                 </a>
                             
                         </div>
@@ -1061,58 +1227,52 @@ location / {
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/07/30/yi-ci-steam-ge-ren-zi-liao-dong-tai-she-zhi/">
+                <a href="/2021/04/21/opencv-xue-xi-bi-ji-si/">
                     <div class="card-image">
                         
                         
-                        <img src="http://dingdm.online/19.jpg" class="responsive-img" alt="一次steam个人资料动态设置">
+                        <img src="http://dingdm.online/16.jpg" class="responsive-img" alt="OpenCV学习笔记四">
                         
-                        <span class="card-title">一次steam个人资料动态设置</span>
+                        <span class="card-title">OpenCV学习笔记四</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            首先放上预览图
-https://steamcommunity.com/profiles/76561198366411843
-资料背景设置
-需要steam等级到达十级，拥有自己的艺术展柜。
-首先需要在steam的社区-市场购买自己想要的个人资
+                            OpenCV学习笔记四
+Fast和ORB算法
+Fast算法
+原理：
+Fast是一种用于角点检测的算法，该算法的原理是取图像中检测点，以该点为圆心的周围邻域内像素点判断检测点是否为角点，通俗的讲就是若一个像素周围有一定数量的像素与该点像素值不
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-30
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-21
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%B8%B8%E6%88%8F/" class="post-category">
-                                    游戏
-                                </a>
-                            
-                            <a href="/categories/%E6%B8%B8%E6%88%8F/%E7%BE%8E%E5%8C%96/" class="post-category">
-                                    美化
+                            <a href="/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" class="post-category">
+                                    图像处理
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/steam/">
-                        <span class="chip bg-color">steam</span>
-                    </a>
-                    
-                    <a href="/tags/ps/">
-                        <span class="chip bg-color">ps</span>
+                    <a href="/tags/OpenCV/">
+                        <span class="chip bg-color">OpenCV</span>
                     </a>
                     
                 </div>
@@ -1126,31 +1286,31 @@ https://steamcommunity.com/profiles/76561198366411843
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/07/28/springboot-de-qi-dong-liu-cheng/">
+                <a href="/2021/04/20/python-xue-xi-bi-ji-san/">
                     <div class="card-image">
                         
                         
-                        <img src="http://dingdm.online/0.jpg" class="responsive-img" alt="springboot的启动流程">
+                        <img src="http://dingdm.online/17.jpg" class="responsive-img" alt="python学习笔记三">
                         
-                        <span class="card-title">springboot的启动流程</span>
+                        <span class="card-title">python学习笔记三</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            spring boot的启动流程图
-
-springboot的流程启动主要为三个部分
-
-SpringApplication的初始化，配置基础的环境变量，构造器，监听器等。
-流程启动，主要为启动流程的监听，加载配置环境，创建上下文
-自动化配置
-
+                            python学习笔记三
+类与对象
+语法：
+class Student:
+  native_plcae = '江苏'
+  def __int__(self,name,age)
+  	self.name = name
+    self.age 
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-28
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-20
                             </span>
                         <span class="publish-author">
                             
@@ -1167,12 +1327,8 @@ SpringApplication的初始化，配置基础的环境变量，构造器，监听
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/springboot/">
-                        <span class="chip bg-color">springboot</span>
-                    </a>
-                    
-                    <a href="/tags/tomcat/">
-                        <span class="chip bg-color">tomcat</span>
+                    <a href="/tags/python/">
+                        <span class="chip bg-color">python</span>
                     </a>
                     
                 </div>
