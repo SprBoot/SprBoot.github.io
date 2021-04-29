@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://dingdm.club/"/>
-  <updated>2021-04-21T11:23:12.581Z</updated>
+  <updated>2021-04-29T07:10:07.129Z</updated>
   <id>https://dingdm.club/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>深度学习第一次学习编码</title>
+    <link href="https://dingdm.club/2021/04/29/shen-du-xue-xi-di-yi-ci-xue-xi-bian-ma/"/>
+    <id>https://dingdm.club/2021/04/29/shen-du-xue-xi-di-yi-ci-xue-xi-bian-ma/</id>
+    <published>2021-04-29T07:09:31.000Z</published>
+    <updated>2021-04-29T07:10:07.129Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;深度学习第一次学习编码&quot;&gt;深度学习第一次学习编码&lt;/h3&gt;
+&lt;p&gt;由于受到硬件设备的缘故，故得出的结果并不准确，开学之后再测，本次记录仅仅对之前学习内容的总结和编码。&lt;/p&gt;
+&lt;h4 id=&quot;通过韩服lol15分钟经济差预测本场时长&quot;&gt;通过韩服lol15分钟经济差
+      
+    
+    </summary>
+    
+    
+      <category term="深度学习" scheme="https://dingdm.club/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="线性回归" scheme="https://dingdm.club/tags/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/"/>
+    
+  </entry>
   
   <entry>
     <title>OpenCV学习笔记四</title>
@@ -547,35 +573,6 @@ id(var) 获取对象的唯一id type(var) 获取对象的类型 var 存储的值
       <category term="git" scheme="https://dingdm.club/tags/git/"/>
     
       <category term="hexo" scheme="https://dingdm.club/tags/hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>一次steam个人资料动态设置</title>
-    <link href="https://dingdm.club/2020/07/30/yi-ci-steam-ge-ren-zi-liao-dong-tai-she-zhi/"/>
-    <id>https://dingdm.club/2020/07/30/yi-ci-steam-ge-ren-zi-liao-dong-tai-she-zhi/</id>
-    <published>2020-07-30T01:23:32.000Z</published>
-    <updated>2021-04-14T10:56:11.350Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;首先放上预览图&quot;&gt;首先放上预览图&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&quot;https://steamcommunity.com/profiles/76561198366411843&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://stea
-      
-    
-    </summary>
-    
-    
-      <category term="游戏" scheme="https://dingdm.club/categories/%E6%B8%B8%E6%88%8F/"/>
-    
-      <category term="美化" scheme="https://dingdm.club/categories/%E6%B8%B8%E6%88%8F/%E7%BE%8E%E5%8C%96/"/>
-    
-    
-      <category term="steam" scheme="https://dingdm.club/tags/steam/"/>
-    
-      <category term="ps" scheme="https://dingdm.club/tags/ps/"/>
     
   </entry>
   
