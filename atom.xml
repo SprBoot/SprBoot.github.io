@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://dingdm.club/"/>
-  <updated>2021-05-19T05:35:28.562Z</updated>
+  <updated>2021-05-19T08:47:48.159Z</updated>
   <id>https://dingdm.club/</id>
   
   <author>
@@ -20,8 +20,8 @@
     <title>深度学习笔记二</title>
     <link href="https://dingdm.club/2021/05/19/shen-du-xue-xi-bi-ji-er/"/>
     <id>https://dingdm.club/2021/05/19/shen-du-xue-xi-bi-ji-er/</id>
-    <published>2021-05-19T05:35:30.000Z</published>
-    <updated>2021-05-19T05:35:28.562Z</updated>
+    <published>2021-05-19T09:35:30.000Z</published>
+    <updated>2021-05-19T08:47:48.159Z</updated>
     
     <summary type="html">
     
@@ -38,7 +38,7 @@
       <category term="深度学习" scheme="https://dingdm.club/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
     
-      <category term="优化" scheme="https://dingdm.club/tags/%E4%BC%98%E5%8C%96/"/>
+      <category term="逻辑回归" scheme="https://dingdm.club/tags/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/"/>
     
   </entry>
   

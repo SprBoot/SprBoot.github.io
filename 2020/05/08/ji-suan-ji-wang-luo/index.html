@@ -487,7 +487,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.6k
+                    1.5k
                 </div>
                 
 
@@ -529,17 +529,17 @@ public class AboutSplit {
      * 关于limit：limit决定数组的长度 
      * 当limit为0时数组长度不受限制,并且将剔除尾部空串 
      * 当limit为负时数组长度不受限制 
-     * 当limit长度大于0，数组长度将&lt;=limit，而且数组的最后一个元素将包含匹配符后面的所有字符 
+     * 当limit长度大于0，数组长度将<=limit，而且数组的最后一个元素将包含匹配符后面的所有字符 
      */  
     public String[] split(CharSequence input, int limit) {  
         int index = 0;  
-        boolean matchLimited = limit &gt; 0;  
-        ArrayList<string> matchList = new ArrayList<string>();  
+        boolean matchLimited = limit > 0;  
+        ArrayList<String> matchList = new ArrayList<String>();  
         Matcher m = Pattern.matcher(input); //此pattern为Pattern.compile(regex)返回的Pattern对象  
   
         // Add segments before each match found  
         while(m.find()) {  
-            if (!matchLimited || matchList.size() &lt; limit - 1) { //默认limit为0  
+            if (!matchLimited || matchList.size() < limit - 1) { //默认limit为0  
                 String match = input.subSequence(index, m.start()).toString();  //比如a:b:c，返回a。m.start()返回第一个匹配字符的索引即1  
                 matchList.add(match);   //存入List  
                 index = m.end();    //返回最后一个匹配字符的后一个字符的索引，这里是2  
@@ -556,19 +556,19 @@ public class AboutSplit {
             return new String[] {input.toString()};  
   
         // 把最后一部分的片段添加进来  
-        if (!matchLimited || matchList.size() &lt; limit)  
+        if (!matchLimited || matchList.size() < limit)  
             matchList.add(input.subSequence(index, input.length()).toString());  
   
         // Construct result  
         int resultSize = matchList.size();  
         if (limit == 0) //如果limit为0  
-            while (resultSize &gt; 0 &amp;&amp; matchList.get(resultSize-1).equals(""))  
+            while (resultSize > 0 && matchList.get(resultSize-1).equals(""))  
                 resultSize--;   //剔除尾部空串  
         String[] result = new String[resultSize];  
         return matchList.subList(0, resultSize).toArray(result);  
     }  
 }  
-</string></string></code></pre>
+</code></pre>
 <p>目前的应用编程接口API：套接字接口(插口接口)<br>
 这里需要注意一点，websocket在连接的时候有一个握手阶段，但是这和TCP的三次握手又是不一样的。TCP的三次握手是为了保证连接可靠，当TCP三次握手成功的时候，websocket的握手阶段才真正开始。TCP三次握手传送的是TCP报文，而websocket的握手传送的是HTTP报文，这个是不太一样的地方。</p>
 <p>握手开始的时候，我们需要现发送一个HTTP 1.1的请求头部：</p>
@@ -718,12 +718,44 @@ if __name__ == '__main__':
         long []groups=null;//每个小组(64字节)再细分后的16个小组(4字节)
 
         //处理每一个完整 分组
-        for(int step=0;step<groupcount;step++){ groups="divGroup(inputBytes,step*64);" trans(groups);="" 处理分组，核心算法="" }="" 处理完整分组后的尾巴="" int="" rest="byteLen%64;//512位分组后的余数" byte="" []="" tempbytes="new" byte[64];="" if(rest<="56){" for(int="" i="0;i<rest;i++)" tempbytes[i]="inputBytes[byteLen-rest+i];" if(rest<56){="" tempbytes[rest]="(byte)(1<<7);" tempbytes[rest+i]="0;" long="" len="(long)(byteLen<<3);" tempbytes[56+i]="(byte)(len&amp;0xFFL);">&gt;8;
+        for(int step=0;step<groupCount;step++){
+            groups=divGroup(inputBytes,step*64);
+            trans(groups);//处理分组，核心算法
+        }
+
+        //处理完整分组后的尾巴
+        int rest=byteLen%64;//512位分组后的余数
+        byte [] tempBytes=new byte[64];
+        if(rest<=56){
+            for(int i=0;i<rest;i++)
+                tempBytes[i]=inputBytes[byteLen-rest+i];
+            if(rest<56){
+                tempBytes[rest]=(byte)(1<<7);
+                for(int i=1;i<56-rest;i++)
+                    tempBytes[rest+i]=0;
+            }
+            long len=(long)(byteLen<<3);
+            for(int i=0;i<8;i++){
+                tempBytes[56+i]=(byte)(len&0xFFL);
+                len=len>>8;
             }
             groups=divGroup(tempBytes,0);
             trans(groups);//处理分组
         }else{
-            for(int i=0;i<rest;i++) tempbytes[i]="inputBytes[byteLen-rest+i];" tempbytes[rest]="(byte)(1<<7);" for(int="" i="rest+1;i<64;i++)" groups="divGroup(tempBytes,0);" trans(groups);="" 处理分组="" long="" len="(long)(byteLen<<3);" tempbytes[56+i]="(byte)(len&amp;0xFFL);">&gt;8;
+            for(int i=0;i<rest;i++)
+                tempBytes[i]=inputBytes[byteLen-rest+i];
+            tempBytes[rest]=(byte)(1<<7);
+            for(int i=rest+1;i<64;i++)
+                tempBytes[i]=0;
+            groups=divGroup(tempBytes,0);
+            trans(groups);//处理分组
+
+            for(int i=0;i<56;i++)
+                tempBytes[i]=0;
+            long len=(long)(byteLen<<3);
+            for(int i=0;i<8;i++){
+                tempBytes[56+i]=(byte)(len&0xFFL);
+                len=len>>8;
             }
             groups=divGroup(tempBytes,0);
             trans(groups);//处理分组
@@ -732,14 +764,14 @@ if __name__ == '__main__':
         //将Hash值转换成十六进制的字符串
         String resStr="";
         long temp=0;
-        for(int i=0;i&lt;4;i++){
-            for(int j=0;j&lt;4;j++){
-                temp=result[i]&amp;0x0FL;
+        for(int i=0;i<4;i++){
+            for(int j=0;j<4;j++){
+                temp=result[i]&0x0FL;
                 String a=hexs[(int)(temp)];
-                result[i]=result[i]&gt;&gt;4;
-                temp=result[i]&amp;0x0FL;
+                result[i]=result[i]>>4;
+                temp=result[i]&0x0FL;
                 resStr+=hexs[(int)(temp)]+a;
-                result[i]=result[i]&gt;&gt;4;
+                result[i]=result[i]>>4;
             }
         }
         return resStr;
@@ -754,11 +786,11 @@ if __name__ == '__main__':
      */
     private static long[] divGroup(byte[] inputBytes,int index){
         long [] temp=new long[16];
-        for(int i=0;i&lt;16;i++){
+        for(int i=0;i<16;i++){
             temp[i]=b2iu(inputBytes[4*i+index])|
-                (b2iu(inputBytes[4*i+1+index]))&lt;&lt;8|
-                (b2iu(inputBytes[4*i+2+index]))&lt;&lt;16|
-                (b2iu(inputBytes[4*i+3+index]))&lt;&lt;24;
+                (b2iu(inputBytes[4*i+1+index]))<<8|
+                (b2iu(inputBytes[4*i+2+index]))<<16|
+                (b2iu(inputBytes[4*i+3+index]))<<24;
         }
         return temp;
     }
@@ -769,7 +801,7 @@ if __name__ == '__main__':
      * @return
      */
     public static long b2iu(byte b){
-        return b &lt; 0 ? b &amp; 0x7F + 128 : b;
+        return b < 0 ? b & 0x7F + 128 : b;
      }
 
     /**
@@ -855,21 +887,21 @@ if __name__ == '__main__':
         result[1] += b;
         result[2] += c;
         result[3] += d;
-        result[0]=result[0]&amp;0xFFFFFFFFL;
-        result[1]=result[1]&amp;0xFFFFFFFFL;
-        result[2]=result[2]&amp;0xFFFFFFFFL;
-        result[3]=result[3]&amp;0xFFFFFFFFL;
+        result[0]=result[0]&0xFFFFFFFFL;
+        result[1]=result[1]&0xFFFFFFFFL;
+        result[2]=result[2]&0xFFFFFFFFL;
+        result[3]=result[3]&0xFFFFFFFFL;
     }
 
     /**
      * 下面是处理要用到的线性函数
      */
     private static long F(long x, long y, long z) {
-        return (x &amp; y) | ((~x) &amp; z);
+        return (x & y) | ((~x) & z);
     }
 
     private static long G(long x, long y, long z) {
-        return (x &amp; z) | (y &amp; (~z));
+        return (x & z) | (y & (~z));
     }
 
     private static long H(long x, long y, long z) {
@@ -882,37 +914,37 @@ if __name__ == '__main__':
 
     private static long FF(long a, long b, long c, long d, long x, long s,
             long ac) {
-        a += (F(b, c, d)&amp;0xFFFFFFFFL) + x + ac;
-        a = ((a&amp;0xFFFFFFFFL)&lt;&lt; s) | ((a&amp;0xFFFFFFFFL) &gt;&gt;&gt; (32 - s));
+        a += (F(b, c, d)&0xFFFFFFFFL) + x + ac;
+        a = ((a&0xFFFFFFFFL)<< s) | ((a&0xFFFFFFFFL) >>> (32 - s));
         a += b;
-        return (a&amp;0xFFFFFFFFL);
+        return (a&0xFFFFFFFFL);
     }
 
     private static long GG(long a, long b, long c, long d, long x, long s,
             long ac) {
-        a += (G(b, c, d)&amp;0xFFFFFFFFL) + x + ac;
-        a = ((a&amp;0xFFFFFFFFL) &lt;&lt; s) | ((a&amp;0xFFFFFFFFL) &gt;&gt;&gt; (32 - s));
+        a += (G(b, c, d)&0xFFFFFFFFL) + x + ac;
+        a = ((a&0xFFFFFFFFL) << s) | ((a&0xFFFFFFFFL) >>> (32 - s));
         a += b;
-        return (a&amp;0xFFFFFFFFL);
+        return (a&0xFFFFFFFFL);
     }
 
     private static long HH(long a, long b, long c, long d, long x, long s,
             long ac) {
-        a += (H(b, c, d)&amp;0xFFFFFFFFL) + x + ac;
-        a = ((a&amp;0xFFFFFFFFL) &lt;&lt; s) | ((a&amp;0xFFFFFFFFL) &gt;&gt;&gt; (32 - s));
+        a += (H(b, c, d)&0xFFFFFFFFL) + x + ac;
+        a = ((a&0xFFFFFFFFL) << s) | ((a&0xFFFFFFFFL) >>> (32 - s));
         a += b;
-        return (a&amp;0xFFFFFFFFL);
+        return (a&0xFFFFFFFFL);
     }
 
     private static long II(long a, long b, long c, long d, long x, long s,
             long ac) {
-        a += (I(b, c, d)&amp;0xFFFFFFFFL) + x + ac;
-        a = ((a&amp;0xFFFFFFFFL) &lt;&lt; s) | ((a&amp;0xFFFFFFFFL) &gt;&gt;&gt; (32 - s));
+        a += (I(b, c, d)&0xFFFFFFFFL) + x + ac;
+        a = ((a&0xFFFFFFFFL) << s) | ((a&0xFFFFFFFFL) >>> (32 - s));
         a += b;
-        return (a&amp;0xFFFFFFFFL);
+        return (a&0xFFFFFFFFL);
     }
 }
-</rest;i++)></groupcount;step++){></code></pre>
+</code></pre>
 <h4 id="报文鉴别使用散列函数">报文鉴别使用散列函数</h4>
 <hr>
 <ul>
@@ -1664,7 +1696,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">49.7k</span>&nbsp;字
+                class="white-color">63.2k</span>&nbsp;字
             
             
             

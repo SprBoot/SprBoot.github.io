@@ -445,8 +445,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E4%BC%98%E5%8C%96/">
-                                <span class="chip bg-color">优化</span>
+                            <a href="/tags/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/">
+                                <span class="chip bg-color">逻辑回归</span>
                             </a>
                         
                     </div>
@@ -479,14 +479,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    468
+                    743
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    3 分
                 </div>
                 
 
@@ -535,6 +535,33 @@ Off-line：pour all into the model(全输入)</p>
 <p><img src="http://dingdm.online/nadam.png" alt=""></p>
 <p>Adamw and SGDW：</p>
 <p><img src="http://dingdm.online/w.png" alt=""></p>
+<h4 id="Classification：Probabilistic-Generative-Model">Classification：Probabilistic Generative Model</h4>
+<p>案例：对于明日方舟干员属性预测分类</p>
+<p>Training data for Classification：夕之前的干员</p>
+<h5 id="Ideal-Alternatives">Ideal Alternatives</h5>
+<p>function：对于训练得到的g函数进行预测，g(x) &gt; 0 输出class1，反之输出class2<br>
+Loss function：</p>
+<p><img src="http://dingdm.online/loss.png" alt=""></p>
+<p>Find the best function</p>
+<h5 id="Generative-model">Generative model</h5>
+<p>概率问题，即输入的值为从预测结果中提取的概率。对于二元分类，即训练每个单元的概率和从单元中提取输入值x的概率。</p>
+<p>方舟干员的各项属性作为feature。</p>
+<p>从训练数据中训练得到高斯分布的μ和ε。根据输入的特征x通过高斯计算得出机率。</p>
+<h5 id="Maximum-Likelihood">Maximum Likelihood</h5>
+<p>根据给定的μ和ε在训练数据上计算高斯分布的最大可能性。</p>
+<p><img src="http://dingdm.online/likelihood.png" alt=""></p>
+<p>找出最合适的μ和ε。</p>
+<p><img src="http://dingdm.online/maxium.png" alt=""></p>
+<p><img src="http://dingdm.online/gailv.png" alt=""></p>
+<p>根据概率公式以及求的的高斯分布进行计算。</p>
+<h5 id="优化">优化</h5>
+<p>不同的高斯分布选用同样的ε，因为当特征较多时，计算的结果较大，容易产生过拟合。</p>
+<p>Loss function</p>
+<p><img src="http://dingdm.online/newLoss.png" alt=""></p>
+<h5 id="选用同样的ε呈现线性分界的数学原理">选用同样的ε呈现线性分界的数学原理</h5>
+<p><img src="http://dingdm.online/math1.png" alt=""></p>
+<p><img src="http://dingdm.online/math2.png" alt=""></p>
+<p><img src="http://dingdm.online/math3.png" alt=""></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -616,8 +643,8 @@ Off-line：pour all into the model(全输入)</p>
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E4%BC%98%E5%8C%96/">
-                                    <span class="chip bg-color">优化</span>
+                                <a href="/tags/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/">
+                                    <span class="chip bg-color">逻辑回归</span>
                                 </a>
                             
                         </div>
@@ -965,8 +992,8 @@ Off-line：pour all into the m
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E4%BC%98%E5%8C%96/">
-                        <span class="chip bg-color">优化</span>
+                    <a href="/tags/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/">
+                        <span class="chip bg-color">逻辑回归</span>
                     </a>
                     
                 </div>
@@ -1206,7 +1233,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">49.7k</span>&nbsp;字
+                class="white-color">63.2k</span>&nbsp;字
             
             
             
