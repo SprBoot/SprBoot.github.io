@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://dingdm.club/"/>
-  <updated>2021-04-29T07:10:07.129Z</updated>
+  <updated>2021-05-19T05:35:28.562Z</updated>
   <id>https://dingdm.club/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>深度学习笔记二</title>
+    <link href="https://dingdm.club/2021/05/19/shen-du-xue-xi-bi-ji-er/"/>
+    <id>https://dingdm.club/2021/05/19/shen-du-xue-xi-bi-ji-er/</id>
+    <published>2021-05-19T05:35:30.000Z</published>
+    <updated>2021-05-19T05:35:28.562Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;深度学习笔记二&quot;&gt;深度学习笔记二&lt;/h3&gt;
+&lt;h4 id=&quot;New-Optimization-for-Deep-Learning&quot;&gt;New Optimization for Deep Learning&lt;/h4&gt;
+&lt;p&gt;On-line：one pair of (xt
+      
+    
+    </summary>
+    
+    
+      <category term="深度学习" scheme="https://dingdm.club/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="优化" scheme="https://dingdm.club/tags/%E4%BC%98%E5%8C%96/"/>
+    
+  </entry>
   
   <entry>
     <title>深度学习第一次学习编码</title>
@@ -542,37 +568,6 @@ id(var) 获取对象的唯一id type(var) 获取对象的类型 var 存储的值
       <category term="HashMap" scheme="https://dingdm.club/tags/HashMap/"/>
     
       <category term="二叉树" scheme="https://dingdm.club/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>hexo插件及优化</title>
-    <link href="https://dingdm.club/2020/07/31/hexo-cha-jian-tui-jian/"/>
-    <id>https://dingdm.club/2020/07/31/hexo-cha-jian-tui-jian/</id>
-    <published>2020-07-31T06:38:00.000Z</published>
-    <updated>2021-04-14T10:49:59.174Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;hexo常用插件及优化&quot;&gt;hexo常用插件及优化&lt;/h3&gt;
-&lt;p&gt;这里使用的主题为matery，闪烁之狐，matery主题的&lt;a href=&quot;https://github.com/blinkfox/hexo-theme-matery&quot; target=&quot;_blank
-      
-    
-    </summary>
-    
-    
-      <category term="运维" scheme="https://dingdm.club/categories/%E8%BF%90%E7%BB%B4/"/>
-    
-      <category term="美化" scheme="https://dingdm.club/categories/%E8%BF%90%E7%BB%B4/%E7%BE%8E%E5%8C%96/"/>
-    
-    
-      <category term="nginx" scheme="https://dingdm.club/tags/nginx/"/>
-    
-      <category term="git" scheme="https://dingdm.club/tags/git/"/>
-    
-      <category term="hexo" scheme="https://dingdm.club/tags/hexo/"/>
     
   </entry>
   

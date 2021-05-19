@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>深度学习笔记二</title>
+      <link href="/2021/05/19/shen-du-xue-xi-bi-ji-er/"/>
+      <url>/2021/05/19/shen-du-xue-xi-bi-ji-er/</url>
+      
+        <content type="html"><![CDATA[<h3 id="深度学习笔记二">深度学习笔记二</h3><h4 id="New-Optimization-for-Deep-Learning">New Optimization for Deep Learning</h4><p>On-line：one pair of (xt,yt) at a time step (单输入)<br>Off-line：pour all into the model(全输入)</p><p>SGD：选取初始位置，计算gradient，根据结果向更低的loss方向走，迭代计算最低的loss值</p><p>SGDM：计算移动的距离加v，v0 = 0。较为稳定。</p><p><img src="http://dingdm.online/step.png" alt=""></p><p>使用v的作用防止θ计算的结果为0，不再移动和有更低的点防止不再向前移动。</p><p>Adagrad：</p><p><img src="http://dingdm.online/adagrad.png" alt=""></p><p>分母为之前计算的所有gradient的平方和，即走的比较急的时候gradient比较大，走的时候使用较小的learning rate，而走的比较小的时候使用较大的learning rate。</p><p>RMSProp：</p><p><img src="http://dingdm.online/rmsprop.png" alt=""></p><p>在adagrad中如果gradient较大，那么计算的分母较小，下降很慢，而rmsprop保证不会因过大的gradient而下降过慢。而为了防止不再移动和向前移动的问题，可以结合SGDM使用，即Adam。</p><p>Adam：训练较快。</p><p><img src="http://dingdm.online/adam.png" alt=""></p><p>SWATS：begin with Adam，end with SGDM</p><p>Towards improving Adam：AMSGrad 只考虑了learning rate较大的情况</p><p>当gradient未突变或gradient一直较小时，移动的距离很慢，移动方向不定，直到gradient突变，才会确定方向。vt =  max(vt-1,vt)，选取最大的gradient即可(记住过去较大的gradient)。也会走回头路。</p><p>Towards improving Adam：AdaBound</p><p><img src="http://dingdm.online/adabound.png" alt=""></p><p>Towards improving SGDM：LR range test，Cyclical LR，SGDR，One-cycle LR</p><p>Adam with warm-up：RAdam</p><p>即在方向不确定即vt不确定时，移动的距离短，当vt确定平缓时，移动的距离大。使用rt来判断方向情况。rt与gradient无关。先SGDM在Radam。</p><p><img src="http://dingdm.online/radam1.png" alt=""></p><p><img src="http://dingdm.online/radam2.png" alt=""></p><p>Lookahead：universal wrapper for all optimizers 每k步回退检查</p><p><img src="http://dingdm.online/look.png" alt=""></p><p>Look into the future：NAG</p><p><img src="http://dingdm.online/nag.png" alt=""></p><p>Nadam：预测</p><p><img src="http://dingdm.online/nadam.png" alt=""></p><p>Adamw and SGDW：</p><p><img src="http://dingdm.online/w.png" alt=""></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> 深度学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 优化 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>深度学习第一次学习编码</title>
       <link href="/2021/04/29/shen-du-xue-xi-di-yi-ci-xue-xi-bian-ma/"/>
       <url>/2021/04/29/shen-du-xue-xi-di-yi-ci-xue-xi-bian-ma/</url>

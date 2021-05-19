@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="深度学习第一次学习编码, dingdm">
+    <meta name="keywords" content="深度学习笔记二, dingdm">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>深度学习第一次学习编码 | dingdm</title>
+    <title>深度学习笔记二 | dingdm</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -323,12 +323,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('http://dingdm.online/5.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('http://dingdm.online/7.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">深度学习第一次学习编码</h1>
+                    <h1 class="description center-align post-title">深度学习笔记二</h1>
                 </div>
             </div>
         </div>
@@ -445,8 +445,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/">
-                                <span class="chip bg-color">线性回归</span>
+                            <a href="/tags/%E4%BC%98%E5%8C%96/">
+                                <span class="chip bg-color">优化</span>
                             </a>
                         
                     </div>
@@ -470,7 +470,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-04-29
+                    2021-05-19
                 </div>
                 
 
@@ -479,14 +479,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.6k
+                    468
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    8 分
+                    2 分
                 </div>
                 
 
@@ -501,187 +501,40 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="深度学习第一次学习编码">深度学习第一次学习编码</h3>
-<p>由于受到硬件设备的缘故，故得出的结果并不准确，开学之后再测，本次记录仅仅对之前学习内容的总结和编码。</p>
-<h4 id="通过韩服lol15分钟经济差预测本场时长">通过韩服lol15分钟经济差预测本场时长</h4>
-<p>本来应该使用正规比赛数据，但是我没找到接口。于是使用rank的接口来编码一下整个线性回归的计算过程。最近很忙，因此只是计算了rank的15分钟经济差的一次和二次型，对于更高次或者其他特征(英雄，熟练度，小龙等)以后有时间再补。</p>
-<h5 id="整理的十场数据">整理的十场数据</h5>
-<pre class=" language-language-python"><code class="language-language-python"># 使用数据(15分钟经济差)
-# 1.8755 1123    2.1955 1682    3.8538 1151   4.2793 1518   5.13468 928   6.7521 913   7.11818 1118   8.12918 928   9.1842 1671   10.2795 1535
-</code></pre>
-<h5 id="根据数据估计权重和偏差得到function函数">根据数据估计权重和偏差得到function函数</h5>
-<pre class=" language-language-python"><code class="language-language-python"># 可能得到的函数 将时长放大10倍便于计算
-# min W -1.4270724029380903 max W -0.6708197905381004
-# min B 17224.94131455399 max B 19338.66736621196
-</code></pre>
-<h5 id="计算一次型Loss">计算一次型Loss</h5>
-<pre class=" language-language-python"><code class="language-language-python">ca.calLoss([16710,16820,15180,15350,9130,11510,11230,11180,9280,9280],-1.42,18338,[1842,1955,2793,2795,7521,8538,8755,11818,12918,13468],[],[],0.01,1800,342903024,0)
-</code></pre>
-<pre class=" language-language-python"><code class="language-language-python">def calLoss(list,w,b,list2,listW,listB,step,stepB,oldLoss,number):
-    loss = 0
-    for (m,n) in zip(list,list2):
-      loss = ma.pow((m - (b + w * n)),2) + loss
-    print("----------------------------------------------Loss的值{}".format(loss))
-    print("W的值{}".format(w))
-    print("B的值{}".format(b))
-    resultW = 0
-    resultB = 0
-    stW = 0
-    stB = 0
-    for (i,z) in zip(list,list2):
-      resultW = 2 * (i - (b + w * z)) * (-1) * (z) + resultW
-      resultB = 2 * (i - (b + w * z)) * (-1) + resultB
-    listW.append(resultW)
-    listB.append(resultB)
-    for j in listW:
-      stW = stW + pow(j,2)
-    for k in listB:
-      stB = stB + pow(k,2)
-    print("偏微分W的值{}".format(resultW))
-    print("偏微分B的值{}".format(resultB))
-    print("w的学习率{}".format(((step/ma.sqrt(len(listW))) / ma.sqrt(stW / len(listW)))))
-    print("b的学习率{}".format(((stepB/ma.sqrt(len(listB))) / ma.sqrt(stB / len(listB)))))
-    number = number + 1
-    print("----------------------------------------------递归次数{}".format(number))
-    if loss < oldLoss:
-      calLoss(list, (w - ((step / ma.sqrt(len(listW))) / ma.sqrt(stW / len(listW))) * resultW),
-        (b - ((stepB / ma.sqrt(len(listB))) / ma.sqrt(stB / len(listB))) * resultB), list2, listW, listB, step,stepB,loss,number)
-</code></pre>
-<p><strong>硬件限制下的结果</strong></p>
-<pre class=" language-language-python"><code class="language-language-python"># w -0.6160429356395202 b 17027.335670323457 递归次数27295
-</code></pre>
-<h5 id="计算二次型Loss">计算二次型Loss</h5>
-<pre class=" language-language-python"><code class="language-language-python">ca.calSecondLoss([16710,16820,15180,15350,9130,11510,11230,11180,9280,9280],-2.2399005635135905,0.001108632563302861,20274,[1842,1955,2793,2795,7521,8538,8755,11818,12918,13468],[],[],[],0.1,0.001,1800,937810727010,0)
-</code></pre>
-<pre class=" language-language-python"><code class="language-language-python">def calSecondLoss(list,w1,w2,b,list2,listW1,listW2,listB,step,step2,stepB,oldLoss,number):
-    loss = 0
-    for (m,n) in zip(list,list2):
-      loss = ma.pow((m - (b + w1 * n + w2 * ma.pow(n,2))),2) + loss
-    print("----------------------------------------------Loss的值{}".format(loss))
-    print("W1的值{}".format(w1))
-    print("W2的值{}".format(w2))
-    print("B的值{}".format(b))
-    resultW1 = 0
-    resultW2 = 0
-    resultB = 0
-    stW1 = 0
-    stW2 = 0
-    stB = 0
-    for (i,z) in zip(list,list2):
-      resultW1 = 2 * (i - (b + w1 * z + w2 * ma.pow(z,2))) * (-1) * z + resultW1
-      resultW2 = 2 * (i - (b + w1 * z + w2 * ma.pow(z, 2))) * (-1) * (ma.pow(z, 2)) + resultW2
-      resultB = 2 * (i - (b + w1 * z + w2 * ma.pow(z, 2))) * (-1) + resultB
-    listW1.append(resultW1)
-    listW2.append(resultW2)
-    listB.append(resultB)
-    for j in listW1:
-      stW1 = stW1 + pow(j,2)
-    for p in listW2:
-      stW2 = stW2 + pow(p,2)
-    for k in listB:
-      stB = stB + pow(k,2)
-    print("偏微分W1的值{}".format(resultW1))
-    print("偏微分W2的值{}".format(resultW2))
-    print("偏微分B的值{}".format(resultB))
-    print("w1的学习率{}".format(((step/ma.sqrt(len(listW1))) / ma.sqrt(stW1 / len(listW1)))))
-    print("w2的学习率{}".format(((step2/ma.sqrt(len(listW2))) / ma.sqrt(stW2 / len(listW2)))))
-    print("b的学习率{}".format(((stepB/ma.sqrt(len(listB))) / ma.sqrt(stB / len(listB)))))
-    print(w1 - ((step / ma.sqrt(len(listW1))) / ma.sqrt(stW1 / len(listW1))))
-    print(w2 - ((step2 / ma.sqrt(len(listW2))) / ma.sqrt(stW2 / len(listW2))))
-    number = number + 1
-    print("----------------------------------------------递归次数{}".format(number))
-    if loss < oldLoss:
-      calSecondLoss(list, (w1 - ((step / ma.sqrt(len(listW1))) / ma.sqrt(stW1 / len(listW1))) * resultW1),(w2 - ((step2 / ma.sqrt(len(listW2))) / ma.sqrt(stW2 / len(listW2))) * resultW2),
-        (b - ((stepB / ma.sqrt(len(listB))) / ma.sqrt(stB / len(listB))) * resultB), list2, listW1,listW2, listB,step,step2,stepB,loss,number)
-</code></pre>
-<p><strong>硬件限制下的结果</strong></p>
-<pre class=" language-language-python"><code class="language-language-python"> w1 -1.5788327598874479 w2 0.00006534227083065703 b 19239.004622493012 递归 20404
-</code></pre>
-<h5 id="Regularization">Regularization</h5>
-<pre class=" language-language-python"><code class="language-language-python">ca.calSecondLossWithExtraParam([16710,16820,15180,15350,9130,11510,11230,11180,9280,9280],-2.2399005635135905,0.001108632563302861,1,20274,[1842,1955,2793,2795,7521,8538,8755,11818,12918,13468],[],[],[],0.1,0.001,1800,937810727010,0)
-</code></pre>
-<pre class=" language-language-python"><code class="language-language-python">def calSecondLossWithExtraParam(list,w1,w2,b,λ,list2,listW1,listW2,listB,step,step2,stepB,oldLoss,number):
-    loss = 0
-    for (m,n) in zip(list,list2):
-      loss = ma.pow((m - (b + w1 * n + w2 * ma.pow(n,2))),2) + λ * (pow(w1,2) + pow(w2,2)) + loss
-    print("----------------------------------------------Loss的值{}".format(loss))
-    print("W1的值{}".format(w1))
-    print("W2的值{}".format(w2))
-    print("B的值{}".format(b))
-    resultW1 = 0
-    resultW2 = 0
-    resultB = 0
-    stW1 = 0
-    stW2 = 0
-    stB = 0
-    for (i,z) in zip(list,list2):
-      resultW1 = 2 * (i - (b + w1 * z + w2 * ma.pow(z,2))) * (-1) * z + 2 * λ * w1 + resultW1
-      resultW2 = 2 * (i - (b + w1 * z + w2 * ma.pow(z, 2))) * (-1) * (ma.pow(z, 2)) + 2 * λ * w2 + resultW2
-      resultB = 2 * (i - (b + w1 * z + w2 * ma.pow(z, 2))) * (-1) + resultB
-    listW1.append(resultW1)
-    listW2.append(resultW2)
-    listB.append(resultB)
-    for j in listW1:
-      stW1 = stW1 + pow(j,2)
-    for p in listW2:
-      stW2 = stW2 + pow(p,2)
-    for k in listB:
-      stB = stB + pow(k,2)
-    print("偏微分W1的值{}".format(resultW1))
-    print("偏微分W2的值{}".format(resultW2))
-    print("偏微分B的值{}".format(resultB))
-    print("w1的学习率{}".format(((step/ma.sqrt(len(listW1))) / ma.sqrt(stW1 / len(listW1)))))
-    print("w2的学习率{}".format(((step2/ma.sqrt(len(listW2))) / ma.sqrt(stW2 / len(listW2)))))
-    print("b的学习率{}".format(((stepB/ma.sqrt(len(listB))) / ma.sqrt(stB / len(listB)))))
-    number = number + 1
-    print("----------------------------------------------递归次数{}".format(number))
-    if loss < oldLoss:
-      calSecondLossWithExtraParam(list, (w1 - ((step / ma.sqrt(len(listW1))) / ma.sqrt(stW1 / len(listW1))) * resultW1),(w2 - ((step2 / ma.sqrt(len(listW2))) / ma.sqrt(stW2 / len(listW2))) * resultW2),
-        (b - ((stepB / ma.sqrt(len(listB))) / ma.sqrt(stB / len(listB))) * resultB),1, list2, listW1,listW2, listB,step,step2,stepB,loss,number)
-</code></pre>
-<p><strong>硬件限制下的结果</strong></p>
-<pre class=" language-language-python"><code class="language-language-python">w1 -1.4104840997551048 w2 0.000006414564199538763 B 18875.117024219377
-</code></pre>
-<h5 id="测试数据">测试数据</h5>
-<pre class=" language-language-python"><code class="language-language-python"># 第二组测试数据
-# 1.5256 1135    2.846 1184     3.6595 1180   4.6920 922    5.3711 2107   6.2434 1340  7.6908 963     8.3249 1343   9.4805 1688   10.2670 1568
-</code></pre>
-<pre class=" language-language-python"><code class="language-language-python">first erro:281.1950413121548
-second erro:261.33671410611953
-regular erroe:239.89150059024587
-</code></pre>
-<h5 id="额外计算方法">额外计算方法</h5>
-<pre class=" language-language-python"><code class="language-language-python">def calcFirstTest(list,list2,w,b):
-    sum = 0
-    for (i,j) in zip(list,list2):
-        sum = sum + abs((w * i + b) / 10 - j)
-    print("first erroecode:{}".format(sum / len(list)))
-def calcSecondTest(list,list2,w1,w2,b):
-    sum = 0
-    for (i,j) in zip(list,list2):
-        sum = sum + abs((w2 * ma.pow(i,2) + w1 * i + b) / 10 - j)
-    print("second erroecode:{}".format(sum / len(list)))
-def calSecond(list1,list2,list3):
-    number1 = ma.pow(list3[0],2) / ma.pow(list2[0],2)
-    list2[1] = list2[1] * number1
-    first = list2[0] * number1
-    tAT = list2[1] - list3[1]
-    tATF = first - list3[0]
-    tATB = number1 - 1
-    number2 = ma.pow(list3[0],2) / ma.pow(list1[0],2)
-    list1[1] = list1[1] * number2
-    second = list1[0] * number2
-    oAT = list1[1] - list3[1]
-    oATF = second - list3[0]
-    oATB = number2 - 1
-    number3 = oATF / tATF
-    last = tAT * number3 - oAT
-    c = last / ((tATB * number3) - oATB)
-    b = (oAT - (oATB * c)) / oATF
-    a = (list3[1] - c - list3[0] * b) / pow(list3[0],2)
-    print("{0}x2 + {1}x + {2}".format(a,b,c))
-
-</code></pre>
+                <h3 id="深度学习笔记二">深度学习笔记二</h3>
+<h4 id="New-Optimization-for-Deep-Learning">New Optimization for Deep Learning</h4>
+<p>On-line：one pair of (xt,yt) at a time step (单输入)<br>
+Off-line：pour all into the model(全输入)</p>
+<p>SGD：选取初始位置，计算gradient，根据结果向更低的loss方向走，迭代计算最低的loss值</p>
+<p>SGDM：计算移动的距离加v，v0 = 0。较为稳定。</p>
+<p><img src="http://dingdm.online/step.png" alt=""></p>
+<p>使用v的作用防止θ计算的结果为0，不再移动和有更低的点防止不再向前移动。</p>
+<p>Adagrad：</p>
+<p><img src="http://dingdm.online/adagrad.png" alt=""></p>
+<p>分母为之前计算的所有gradient的平方和，即走的比较急的时候gradient比较大，走的时候使用较小的learning rate，而走的比较小的时候使用较大的learning rate。</p>
+<p>RMSProp：</p>
+<p><img src="http://dingdm.online/rmsprop.png" alt=""></p>
+<p>在adagrad中如果gradient较大，那么计算的分母较小，下降很慢，而rmsprop保证不会因过大的gradient而下降过慢。而为了防止不再移动和向前移动的问题，可以结合SGDM使用，即Adam。</p>
+<p>Adam：训练较快。</p>
+<p><img src="http://dingdm.online/adam.png" alt=""></p>
+<p>SWATS：begin with Adam，end with SGDM</p>
+<p>Towards improving Adam：AMSGrad 只考虑了learning rate较大的情况</p>
+<p>当gradient未突变或gradient一直较小时，移动的距离很慢，移动方向不定，直到gradient突变，才会确定方向。vt =  max(vt-1,vt)，选取最大的gradient即可(记住过去较大的gradient)。也会走回头路。</p>
+<p>Towards improving Adam：AdaBound</p>
+<p><img src="http://dingdm.online/adabound.png" alt=""></p>
+<p>Towards improving SGDM：LR range test，Cyclical LR，SGDR，One-cycle LR</p>
+<p>Adam with warm-up：RAdam</p>
+<p>即在方向不确定即vt不确定时，移动的距离短，当vt确定平缓时，移动的距离大。使用rt来判断方向情况。rt与gradient无关。先SGDM在Radam。</p>
+<p><img src="http://dingdm.online/radam1.png" alt=""></p>
+<p><img src="http://dingdm.online/radam2.png" alt=""></p>
+<p>Lookahead：universal wrapper for all optimizers 每k步回退检查</p>
+<p><img src="http://dingdm.online/look.png" alt=""></p>
+<p>Look into the future：NAG</p>
+<p><img src="http://dingdm.online/nag.png" alt=""></p>
+<p>Nadam：预测</p>
+<p><img src="http://dingdm.online/nadam.png" alt=""></p>
+<p>Adamw and SGDW：</p>
+<p><img src="http://dingdm.online/w.png" alt=""></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -725,7 +578,7 @@ def calSecond(list1,list2,list3):
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://dingdm.club/2021/04/29/shen-du-xue-xi-di-yi-ci-xue-xi-bian-ma/">https://dingdm.club/2021/04/29/shen-du-xue-xi-di-yi-ci-xue-xi-bian-ma/</a>
+                    <a href="https://dingdm.club/2021/05/19/shen-du-xue-xi-bi-ji-er/">https://dingdm.club/2021/05/19/shen-du-xue-xi-bi-ji-er/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -763,8 +616,8 @@ def calSecond(list1,list2,list3):
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/">
-                                    <span class="chip bg-color">线性回归</span>
+                                <a href="/tags/%E4%BC%98%E5%8C%96/">
+                                    <span class="chip bg-color">优化</span>
                                 </a>
                             
                         </div>
@@ -1069,9 +922,10 @@ def calSecond(list1,list2,list3):
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2021/05/19/shen-du-xue-xi-bi-ji-er/">
                     <div class="card-image">
@@ -1092,9 +946,9 @@ Off-line：pour all into the m
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-05-19
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-19
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1107,6 +961,7 @@ Off-line：pour all into the m
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1125,35 +980,34 @@ Off-line：pour all into the m
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/04/21/opencv-xue-xi-bi-ji-si/">
+                <a href="/2021/04/29/shen-du-xue-xi-di-yi-ci-xue-xi-bian-ma/">
                     <div class="card-image">
                         
                         
-                        <img src="http://dingdm.online/16.jpg" class="responsive-img" alt="OpenCV学习笔记四">
+                        <img src="http://dingdm.online/5.jpg" class="responsive-img" alt="深度学习第一次学习编码">
                         
-                        <span class="card-title">OpenCV学习笔记四</span>
+                        <span class="card-title">深度学习第一次学习编码</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            OpenCV学习笔记四
-Fast和ORB算法
-Fast算法
-原理：
-Fast是一种用于角点检测的算法，该算法的原理是取图像中检测点，以该点为圆心的周围邻域内像素点判断检测点是否为角点，通俗的讲就是若一个像素周围有一定数量的像素与该点像素值不
+                            深度学习第一次学习编码
+由于受到硬件设备的缘故，故得出的结果并不准确，开学之后再测，本次记录仅仅对之前学习内容的总结和编码。
+通过韩服lol15分钟经济差预测本场时长
+本来应该使用正规比赛数据，但是我没找到接口。于是使用rank的接口来编码
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-21
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-29
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" class="post-category">
-                                    图像处理
+                            <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    深度学习
                                 </a>
                             
                             
@@ -1163,8 +1017,8 @@ Fast是一种用于角点检测的算法，该算法的原理是取图像中检�
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/OpenCV/">
-                        <span class="chip bg-color">OpenCV</span>
+                    <a href="/tags/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/">
+                        <span class="chip bg-color">线性回归</span>
                     </a>
                     
                 </div>
