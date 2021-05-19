@@ -29,8 +29,8 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><link rel="alternate" href="/atom.xml" title="dingdm" type="application/atom+xml">
-</head>
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="dingdm" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -511,12 +511,12 @@
 jedis.setbit(getKey(userId,keyDate), dayDate, true);
 //获取签到情况
 //获取位于偏移量 0 上的 monthDayLength 位长无符号数
-List<Long> list = jedis.bitfield(getKey(userId,keyDate), "GET", monthDayLength, "0");
+List<long> list = jedis.bitfield(getKey(userId,keyDate), "GET", monthDayLength, "0");
 //业务逻辑处理断签
 ...
 //统计签到次数
 jedis.bitcount(getKey(userId,keyDate))
-</code></pre>
+</long></code></pre>
 <p>redis的接口文档地址：<a href="http://redisdoc.com/bitmap/index.html" target="_blank" rel="noopener">http://redisdoc.com/bitmap/index.html</a></p>
 <script>
         document.querySelectorAll('.github-emoji')
@@ -1195,7 +1195,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">62.9k</span>&nbsp;字
+                class="white-color">49.7k</span>&nbsp;字
             
             
             

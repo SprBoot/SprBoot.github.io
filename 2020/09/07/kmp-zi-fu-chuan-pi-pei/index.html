@@ -29,8 +29,8 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><link rel="alternate" href="/atom.xml" title="dingdm" type="application/atom+xml">
-</head>
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="dingdm" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -479,7 +479,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    276
+                    330
                 </div>
                 
 
@@ -519,14 +519,14 @@ public class KMP {
     public static String [] ptr = new String[]{"a","b","a","b"};
 
     public static void main(String []args) {
-        List<Integer> array = getPtrArray(ptr);
+        List<integer> array = getPtrArray(ptr);
         ifEquals(0,0,array);
     }
 
     //递归判断字符串比较
-    public static void ifEquals(int i,int j,List<Integer> array){
-        if(i < str.length){
-            if(j < ptr.length){
+    public static void ifEquals(int i,int j,List<integer> array){
+        if(i &lt; str.length){
+            if(j &lt; ptr.length){
                 if(str[i].equals(ptr[j])){
                     i++;
                     j++;
@@ -554,42 +554,31 @@ public class KMP {
     }
 
     //获取前缀后缀数组中的长度
-    public static int getArrayValue(int j,List<Integer> array){
+    public static int getArrayValue(int j,List<integer> array){
         return array.get(j-1);
     }
 
     //获取比较字符串的前缀后缀数组
-    public static List<Integer> getPtrArray(String []str){
+    public static List<integer> getPtrArray(String []str){
         int j = 1;
-        List<Integer> array = new ArrayList<Integer>();
-        while(j <= str.length){
-            List<String> nStr = new ArrayList<String>();
-            for(int i=0;i<j;i++){
-                nStr.add(str[i]);
-            }
-            int number = getNStrNumber(nStr);
-            array.add(number);
-            j++;
-        }
-        return array;
-    }
-
-    //获取当前列表字符串的前缀后缀个数
-    public static int getNStrNumber(List<String> nStr){
+        List<integer> array = new ArrayList<integer>();
+        while(j &lt;= str.length){
+            List<string> nStr = new ArrayList<string>();
+            for(int i=0;i<j;i++){ nstr.add(str[i]);="" }="" int="" number="getNStrNumber(nStr);" array.add(number);="" j++;="" return="" array;="" 获取当前列表字符串的前缀后缀个数="" public="" static="" getnstrnumber(list<string=""> nStr){
         int length = 0;
         if(nStr.size() == 1){
             length = 0;
         }else{
             int i = nStr.size();
             boolean flag = true;
-            while(i > 0 && flag){
+            while(i &gt; 0 &amp;&amp; flag){
                 i--;
                 StringBuilder str = new StringBuilder();
                 StringBuilder ptr = new StringBuilder();
-                for(int index = 0;index < i;index++){
+                for(int index = 0;index &lt; i;index++){
                     str.append(nStr.get(index));
                 }
-                for(int lIndex=(nStr.size() - i);lIndex < nStr.size();lIndex++){
+                for(int lIndex=(nStr.size() - i);lIndex &lt; nStr.size();lIndex++){
                     ptr.append(nStr.get(lIndex));
                 }
                 if(str.toString().equals(ptr.toString())){
@@ -601,7 +590,7 @@ public class KMP {
         return length;
     }
 }
-</code></pre>
+</j;i++){></string></string></integer></integer></integer></integer></integer></integer></code></pre>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -1289,7 +1278,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">62.9k</span>&nbsp;字
+                class="white-color">49.7k</span>&nbsp;字
             
             
             
