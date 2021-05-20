@@ -670,7 +670,7 @@ while(cap.isOpened()):
     if ret == True:
         cv.imshow('frame',frame)
     # 5.每一帧间隔为25ms
-    if cv.waitKey(25) &amp; 0xFF == ord('q'):
+    if cv.waitKey(25) & 0xFF == ord('q'):
         break
 # 6.释放视频对象
 cap.release()
@@ -773,7 +773,7 @@ while(True):
         x,y,w,h = track_window
         img2 = cv.rectangle(frame,(x,y),(x+w,y+h),255,2)
         cv.imshow('frame',img2)
-        if cv.waitKey(60) &amp; 0xFF == ord('q'):
+        if cv.waitKey(60) & 0xFF == ord('q'):
             break
     else:
         break
@@ -1513,7 +1513,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">51.5k</span>&nbsp;字
+                class="white-color">64.7k</span>&nbsp;字
             
             
             
