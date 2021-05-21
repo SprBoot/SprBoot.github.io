@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://dingdm.club/"/>
-  <updated>2021-05-20T12:14:13.743Z</updated>
+  <updated>2021-05-21T07:18:52.336Z</updated>
   <id>https://dingdm.club/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>深度学习笔记三</title>
+    <link href="https://dingdm.club/2021/05/21/shen-du-xue-xi-bi-ji-san/"/>
+    <id>https://dingdm.club/2021/05/21/shen-du-xue-xi-bi-ji-san/</id>
+    <published>2021-05-21T07:17:30.000Z</published>
+    <updated>2021-05-21T07:18:52.336Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;深度学习笔记三&quot;&gt;深度学习笔记三&lt;/h3&gt;
+&lt;h4 id=&quot;逻辑回归的计算过程-Discriminative&quot;&gt;逻辑回归的计算过程 Discriminative&lt;/h4&gt;
+&lt;h5 id=&quot;Step1-选取Loss-function&quot;&gt;Step1 选取Loss fu
+      
+    
+    </summary>
+    
+    
+      <category term="深度学习" scheme="https://dingdm.club/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="逻辑回归" scheme="https://dingdm.club/tags/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/"/>
+    
+  </entry>
   
   <entry>
     <title>深度学习第二次编码</title>
@@ -535,37 +561,6 @@ id(var) 获取对象的唯一id type(var) 获取对象的类型 var 存储的值
     
     
       <category term="win10" scheme="https://dingdm.club/tags/win10/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>答辩知识架构及企业OA项目开发汇总</title>
-    <link href="https://dingdm.club/2020/08/02/da-bian-zhi-shi-jia-gou-ji-qi-ye-oa-xiang-mu-kai-fa-hui-zong/"/>
-    <id>https://dingdm.club/2020/08/02/da-bian-zhi-shi-jia-gou-ji-qi-ye-oa-xiang-mu-kai-fa-hui-zong/</id>
-    <published>2020-08-02T03:56:32.000Z</published>
-    <updated>2021-03-21T14:25:14.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;1-Vue框架&quot;&gt;1.Vue框架&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;MVVM架构，model，view，viewmodel，model和view之间无法直接交互，通过viewmodel进行交互，创建新的模板，在模板中使用js函数创建监听器，使用vm_patch渲染页
-      
-    
-    </summary>
-    
-    
-      <category term="项目开发" scheme="https://dingdm.club/categories/%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91/"/>
-    
-      <category term="答辩" scheme="https://dingdm.club/categories/%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91/%E7%AD%94%E8%BE%A9/"/>
-    
-    
-      <category term="vue" scheme="https://dingdm.club/tags/vue/"/>
-    
-      <category term="JWT" scheme="https://dingdm.club/tags/JWT/"/>
-    
-      <category term="Avtiviti" scheme="https://dingdm.club/tags/Avtiviti/"/>
     
   </entry>
   

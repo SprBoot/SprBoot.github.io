@@ -29,8 +29,8 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="dingdm" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><link rel="alternate" href="/atom.xml" title="dingdm" type="application/atom+xml">
+</head>
 
 
 <body>
@@ -525,7 +525,7 @@ conn = pymysql.Connect(host='127.0.0.1',
 cursor = conn.cursor(pymysql.cursors.DictCursor)
 # 插入数据语句
 query = """SELECT arknights.life,
-        arknights.attack,arknights.defense,arknights.resistance,arknights.profession FROM arknights WHERE id < 978"""
+        arknights.attack,arknights.defense,arknights.resistance,arknights.profession FROM arknights WHERE id &lt; 978"""
 cursor.execute(query)
 list = cursor.fetchall()
 # 计算重装和其他数目
@@ -570,7 +570,7 @@ print(gd.calε(list,μStarO,oCount))
 # 计算高斯分布并计算准确率
 # 测试数据中的数据为7,预测应该有的数据为19,正确率为36.84210526315789%
 queryTest = """SELECT arknights.initial,arknights.perfect,arknights.life,
-        arknights.attack,arknights.defense,arknights.resistance,arknights.profession FROM arknights WHERE id > 977"""
+        arknights.attack,arknights.defense,arknights.resistance,arknights.profession FROM arknights WHERE id &gt; 977"""
 cursor.execute(queryTest)
 test = cursor.fetchall()
 # print(gd.calcResult(μStarZ,εStarZ,μStarO,εStarO,pZ,pO,test))
@@ -607,7 +607,7 @@ def getData(src):
     cursor = conn.cursor()
     # 插入数据语句
     query = """insert into arknights (initial,perfect,life,attack,defense,resistance,username,profession) values (%s,%s,%s,%s,%s,%s,%s,%s)"""
-    html = requests.get(src).content    # requests.get(src)返回的是状态码<Response [200]>，加上.content以字节形式（二进制返回数据。   和前端一样，分为get post等
+    html = requests.get(src).content    # requests.get(src)返回的是状态码<response [200]="">，加上.content以字节形式（二进制返回数据。   和前端一样，分为get post等
     soup = bs(html,'lxml')   # lxml解析器解析字节形式的数据，得到完整的类似页面的html代码结构的数据
     introductions = soup.find_all("tr", class_="divsort")
     for introduction in introductions:
@@ -674,7 +674,7 @@ def calcResult(μStarZ,εStarZ,μStarO,εStarO,pZ,pO,test):
       result = (resultZ * pZ) / (resultZ * pZ + resultO + pO)
       if(item['profession'] == '重装'):
         sum = sum + 1
-      if(result > 0.5):
+      if(result &gt; 0.5):
         right = right + 1
     return '测试数据中的数据为{0},预测应该有的数据为{1},正确率为{2}{3}'.format(sum,right,sum / right * 100,'%')
 
@@ -708,7 +708,7 @@ def OneMult(list1,list2):
 
 def calcSame(list,p):
     return np.multiply(list,np.array([[p,p,p,p],[p,p,p,p],[p,p,p,p],[p,p,p,p]]))
-</code></pre>
+</response></code></pre>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -1096,37 +1096,35 @@ def calcSame(list,p):
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/05/20/shen-du-xue-xi-di-er-ci-bian-ma/">
+                <a href="/2021/05/21/shen-du-xue-xi-bi-ji-san/">
                     <div class="card-image">
                         
                         
-                        <img src="http://dingdm.online/13.jpg" class="responsive-img" alt="深度学习第二次编码">
+                        <img src="http://dingdm.online/18.jpg" class="responsive-img" alt="深度学习笔记三">
                         
-                        <span class="card-title">深度学习第二次编码</span>
+                        <span class="card-title">深度学习笔记三</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            深度学习第二次编码
-使用爬虫爬取明日方舟干员属性，进行逻辑回归预测
-# author:dinggc
-# date:2021/5/20 下午12:03
+                            深度学习笔记三
+逻辑回归的计算过程 Discriminative
+Step1 选取Loss function
 
-import data as gd
+Step2 选取变量计算最小值
 
-# w之前的所有干员的数据 分类为重装和其他职业 
+为了方便gradient计算最小值，将w，b的最大值公式转换为最小值进行计算。对functio
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-20
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-05-21
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1139,7 +1137,6 @@ import data as gd
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -1384,7 +1381,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">64.7k</span>&nbsp;字
+                class="white-color">51.9k</span>&nbsp;字
             
             
             

@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="OpenCV学习笔记二, dingdm">
+    <meta name="keywords" content="深度学习笔记三, dingdm">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>OpenCV学习笔记二 | dingdm</title>
+    <title>深度学习笔记三 | dingdm</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -323,12 +323,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('http://dingdm.online/7.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('http://dingdm.online/18.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">OpenCV学习笔记二</h1>
+                    <h1 class="description center-align post-title">深度学习笔记三</h1>
                 </div>
             </div>
         </div>
@@ -445,8 +445,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/OpenCV/">
-                                <span class="chip bg-color">OpenCV</span>
+                            <a href="/tags/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/">
+                                <span class="chip bg-color">逻辑回归</span>
                             </a>
                         
                     </div>
@@ -457,8 +457,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" class="post-category">
-                                图像处理
+                            <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                深度学习
                             </a>
                         
                     </div>
@@ -470,7 +470,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-04-16
+                    2021-05-21
                 </div>
                 
 
@@ -479,14 +479,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    6k
+                    441
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    23 分
+                    1 分
                 </div>
                 
 
@@ -501,381 +501,33 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="OpenCV学习笔记二">OpenCV学习笔记二</h3>
-<h4 id="图像处理">图像处理</h4>
-<h5 id="直方图">直方图</h5>
-<p>直方图是对数据进行统计的一种方法，并且将统计值组织到一系列实现定义好的bin中。其中，bin为直方图中经常用到的一个概念，可以译为直条或组距，其数值是从数据中计算出的特征统计量，这些数据可以是诸如梯度、方向、色彩或任何其他特征。</p>
-<p>图像直方图适用以表示数字图像中亮度分布的直方图，标绘了图像中每个亮度值的像素个数。这种直方图中，横坐标的左侧为较暗的区域，而右侧为较亮的区域。因此一张较暗图片的直方图中的数据多集中于左侧和中间部分，而整体明亮，只有少量阴影的图像则相反。</p>
-<p>注意：直方图是根据灰度图进行绘制的，而不是彩色图像。</p>
-<p>绘制原理：将图像的信息(灰度值 0-255)，已知数字的范围包含256个值，于是可以按一定规律将这个范围分割成子区域(bins)。</p>
-<p><img src="http://dingdm.online/huidu.PNG" alt=""></p>
-<p>dims：需要统计的特征数目。图中dims = 1，因为仅仅统计了灰度值。<br>
-bins：每个特征空间子区段的数目，可译为直条或组距，在图中，bins = 16。<br>
-range：要统计特征的取值范围。图中range = [0，255]。</p>
-<p>直方图是图像中像素强度分布的图形表达方式。它统计了每一个强度值所具有的像素个数，不同的图像的直方图可能是相同的。</p>
-<p>API：</p>
-<pre class=" language-language-python"><code class="language-language-python">cv2.calcHist(images,channels,mask,histSize,ranges[,hist[,accumlate]])
-</code></pre>
-<p>images：原图像，当传入函数时应该用中括号[]括起来，如[img]<br>
-channels：如果输入图像是灰度图，他的值就是[0]；如果是彩色图像的话，传入的参数可以是[0],[1],[2]，它们分别对应着通道B，G，R。<br>
-mask：掩膜图像，要统计整幅图像的直方图就把它设为None，但是如果想统计图像的某一部分的直方图的话，你就需要制作一个掩膜图像并使用它。<br>
-hitSize：bin的数目。也应该用中括号括起来，即[256]。<br>
-ranges：像素值范围，通常为[0，256]</p>
-<p><img src="http://dingdm.online/pythondemo.jpeg" alt=""></p>
-<pre class=" language-language-python"><code class="language-language-python">import numpy as np
-import cv2 as cv
-from matplotlib import pyplot as plt
-
-# 直接以灰度图的方式读入
-img = cv.imread('/Users/dinggongcheng/Downloads/pythondemo.jpeg', 0)
-# 统计灰度图
-histr = cv.calcHist([img], [0], None, [256], [0,256])
-# 绘制灰度图
-plt.figure(figsize=(10, 6) ,dpi=100)
-plt.plot(histr)
-plt.grid()
-plt.show()
-</code></pre>
-<p><img src="http://dingdm.online/4161.png" alt=""></p>
-<h5 id="掩膜的应用">掩膜的应用</h5>
-<p>掩膜是用选定的图像，图形或物体，对要处理的图像进行遮挡，来控制图像处理的区域。</p>
-<p>在数字图像处理中，我们通常使用二维矩阵数组进行掩膜，掩膜是由0和1组成一个二进制图像，利用该掩膜图像要处理的图像进行掩膜，其中1值的区域被处理，0值区域被屏蔽，不会处理。</p>
-<p>掩膜的主要用途是：<br>
-提取感兴趣区域：用预先制作的感兴趣区掩膜与待处理图像进行与操作，得到感兴趣区图像，感兴趣区内图像值保持不变，而区外图像值都为0。<br>
-屏蔽作用：用掩膜对图像上某些区域作屏蔽，使其不参加处理或不参加处理参数的计算，或仅对屏蔽区作处理或统计。<br>
-结构特征提取：用相似性变量或图像匹配方法检测和提取图像中与掩膜相似的结构特征。<br>
-特殊形状图像制作</p>
-<p>掩膜在遥感影像处理中使用较多，当提取道路或者河流，或者房屋时，通常一个掩膜矩阵来对图像进行像素过滤，然后将我们需要的地物或者标志突出显示出来。</p>
-<p>我们使用cv.calcHist()来查找完整图像的直方图。如果要查找图像的某些区域的直方图，只需在要查找直方图的区域上创建一个白色的掩膜图像，否则创建黑色，然后将其作为掩码mask传递即可。</p>
-<pre class=" language-language-python"><code class="language-language-python">import numpy as np
-import cv2 as cv
-from matplotlib import pyplot as plt
-
-# 直接以灰度图的方式读入
-img = cv.imread('/Users/dinggongcheng/Downloads/pythondemo.jpeg', 0)
-# 创建蒙板
-mask = np.zeros(img.shape[:2], np.uint8)
-mask[400:650, 200:500] = 255
-# 掩膜
-masked_img = cv.bitwise_and(img, img, mask = mask)
-# 统计掩膜后图像的灰度图
-mask_histr = cv.calcHist([img], [0], mask, [256], [0, 256])
-# 图像演示
-fig, axes = plt.subplots(nrows=2, ncols=2, figsize=(10, 8))
-axes[0, 0].imshow(img, cmap=plt.cm.gray)
-axes[0, 0].set_title("from")
-axes[0, 1].imshow(mask, cmap=plt.cm.gray)
-axes[0, 1].set_title("mask")
-axes[1, 0].imshow(masked_img, cmap=plt.cm.gray)
-axes[1, 0].set_title("mask_data")
-axes[1, 1].plot(mask_histr)
-axes[1, 1].grid()
-axes[1, 1].set_title("gray")
-plt.show()
-</code></pre>
-<p><img src="http://dingdm.online/4162.png" alt=""></p>
-<h5 id="直方图均衡化">直方图均衡化</h5>
-<p>如果一幅图像中的大多数像素点的像素值都集中在某一个小的灰度值范围之内，一幅图像整体很亮，那所有的像素值的取值个数应该都会很高。所以应该把它的直方图做一个横向拉伸，就可以扩大图像像素值的分布范围，提高图像的对比度，这就是直方图均衡化要做的事情。</p>
-<p>直方图均衡化是把原始图像的灰度直方图从比较密集的某个灰度区间变成在更广泛灰度范围内的分布。直方图均衡化就是对图像进行非线形拉伸，重新分配图像像素值，使一定灰度范围内的像素数量大致相同。</p>
-<p>这种方法提高图像整体的对比度，特别是有用数据的像素值分布比较接近时，在x光图像中使用广泛，可以提高骨架结构的显示，另外在曝光过度或不足的图像中可以更好的突出细节。</p>
-<p>API：</p>
-<pre class=" language-language-python"><code class="language-language-python">dst = cv.equalizeHist(img)
-</code></pre>
-<p>img：灰度图像<br>
-dst：均衡化后的结果</p>
-<pre class=" language-language-python"><code class="language-language-python">import numpy as np
-import cv2 as cv
-from matplotlib import pyplot as plt
-
-# 直接以灰度图的方式读入
-img = cv.imread('/Users/dinggongcheng/Downloads/pythondemo.jpeg', 0)
-# 均衡化处理
-dst = cv.equalizeHist(img)
-# 结果显示
-fig, axes = plt.subplots(nrows=2, ncols=2, figsize=(10, 8), dpi=100)
-axes[0, 0].imshow(img, cmap=plt.cm.gray)
-axes[0, 0].set_title("from")
-axes[0, 1].imshow(dst, cmap=plt.cm.gray)
-axes[0, 1].set_title("equalize")
-plt.show()
-</code></pre>
-<p><img src="http://dingdm.online/4163.png" alt=""></p>
-<h5 id="自适应的直方图均衡化">自适应的直方图均衡化</h5>
-<p>上述的直方图均衡，我们考虑的是图像的全局对比度。的确在进行完直方图均衡化后，图片背景的对比度被改变了，但在某个局部太暗，丢失了很多信息，所以在很多情况下，这样做的效果并不好。为了解决这个问题，需要使用自适应的直方图均衡化。此时，整幅图像会被分成很多小块，这些小块被称为“tiles”(在OpenCV中tiles的大小默认为8*8)。如果有噪声的话，噪声会被放大。为了避免这种情况的出现要使用对比度限制。对于每个小块来说，如果直方图中的bin超过对比度的上限的话，就把其中的像素点均匀分散到其他bins中，然后在进行直方图均衡化。</p>
-<p>最后为了去除每一个小块之间的边界，在使用双线性差值，对每一小块进行拼接。</p>
-<p>API：</p>
-<pre class=" language-language-python"><code class="language-language-python">cv.createCLAHE(clipLimit, tileGridSize)
-</code></pre>
-<p>clipLimit：对比度限制，默认为40<br>
-tileGridsize：分块的大小，默认为8*8</p>
-<pre class=" language-language-python"><code class="language-language-python">import numpy as np
-import cv2 as cv
-from matplotlib import pyplot as plt
-
-# 直接以灰度图的方式读入
-img = cv.imread('/Users/dinggongcheng/Downloads/pythondemo.jpeg', 0)
-# 创建一个自适应均衡化的对象，并应用于图像
-clahe = cv.createCLAHE(clipLimit=2.0, tileGridSize=(8, 8))
-cl1 = clahe.apply(img)
-# 结果显示
-fig, axes = plt.subplots(nrows=2, ncols=2, figsize=(10, 8), dpi=100)
-axes[0, 0].imshow(img, cmap=plt.cm.gray)
-axes[0, 0].set_title("from")
-axes[0, 1].imshow(cl1, cmap=plt.cm.gray)
-axes[0, 1].set_title("clahe")
-plt.show()
-</code></pre>
-<p><img src="http://dingdm.online/4164.png" alt=""></p>
-<h5 id="边缘检测">边缘检测</h5>
-<p>原理：</p>
-<p>边缘检测是图像处理和计算机视觉中的基本问题，边缘检测的目的是标识数字图像中亮度变化明显的点。图像属性中的显著变化通常反映了属性的重要事件和变化。</p>
-<p>图像边缘检测大幅度的减少了数据量，并且剔除了可以认为不相关的信息，保留了图像重要的结构属性。有许多方法用于边缘检测，它们的绝大部分可以划分为两类：基于搜索和基于零穿越。</p>
-<p>基于搜索：通过寻找图像一阶导数中的最大值来检测边界，然后利用计算结果估计边缘的局部方向，通常采用梯度的方向，并利用此方向找到局部最大梯度模的最大值，代表算法是Sobel算子和Scharr算子。<br>
-<img src="http://dingdm.online/sousuo.PNG" alt=""></p>
-<p>基于零穿越：通过寻找图像二阶导数零穿越来寻找边界，代表算法是Laplacian算子<br>
-<img src="http://dingdm.online/lapu.PNG" alt=""></p>
-<h5 id="Sobel检测算子">Sobel检测算子</h5>
-<p>Sobel检测算法比较简单，实际应用中效率比canny边缘检测效率要高，但是边缘不如Canny检测的准确，但是很多实际应用的场合，sobel边缘却是首选，Sobel算子是高斯平滑与微分操作的结合体，所以其抗噪声能力很强，用途较多。尤其是效率要求较高，而对纹理不太关心的时候。</p>
-<p><img src="http://dingdm.online/sobel.PNG" alt=""></p>
-<p>注意：当内核大小为3时，以上Sobel内核可能产生比较明显的误差，为解决这一问题，我们使用Scharr函数，但该函数仅作用于大小为3的内核。该函数的运算与Sobel函数一样快，但结果却更加精确。</p>
-<p><img src="http://dingdm.online/schar.PNG" alt=""></p>
-<p>Sobel API：</p>
-<pre class=" language-language-python"><code class="language-language-python">Sobel_x_or_y = cv2.Sobel(src,ddepth,dx,dy,dst,ksize,scale,delta,borderType)
-</code></pre>
-<p>src：传入的图像<br>
-ddepth：图像的深度<br>
-dx和dy：指求导的阶数，0表示这个方向上没有求导，取值为0，1。<br>
-ksize：是Sobel算子的大小，即卷积核的大小，必须为奇数1、3、5、7，默认为3。注意：如果ksize为-1，就演变为3*3的Scharr算子。<br>
-scale：缩放导数的比例常数，默认情况为没有伸缩系数。<br>
-borderType：图像边界的模式，默认值为cv2.BORDER_DEFAULT。</p>
-<p>Sobel函数求完导数后会有负值，还会有大于255的值。而原图像是uint8，即8位无符号数，所以Sobel建立的图像位数不够，会有截断。因此要使用16位有符号的数据类型，即cv2.CV_16S。处理完图像后，在使用cv2.convertScaleAbs()函数将其转回原来的uint8格式，否则图像无法显示。</p>
-<p>Sobel算子是在两个方向计算的，最后还需要用cv2.addWieghted()函数将其组合起来。</p>
-<pre class=" language-language-python"><code class="language-language-python">Scale_abs = cv2.convertScaleAbs(x)
-result = cv2.addWeighted(src1, alpha, src2, beta)
-</code></pre>
-<pre class=" language-language-python"><code class="language-language-python">import cv2 as cv
-import  numpy as np
-from matplotlib import pyplot as plt
-
-# 读取图像
-img = cv.imread('/Users/dinggongcheng/Downloads/pythondemo.jpeg', 0)
-# 计算Sobel卷积结果
-x = cv.Sobel(img, cv.CV_16S, 1, 0)
-y = cv.Sobel(img, cv.CV_16S, 0, 1)
-# 将数据进行转换
-Scale_absX = cv.convertScaleAbs(x)
-Scale_absY = cv.convertScaleAbs(y)
-# 结果合成
-result = cv.addWeighted(Scale_absX, 0.5, Scale_absY, 0.5, 0)
-# 图像显示
-plt.figure(figsize=(10, 8), dpi=100)
-plt.subplot(121), plt.imshow(img, cmap=plt.cm.gray), plt.title("from")
-plt.xticks([]), plt.yticks([])
-plt.subplot(122), plt.imshow(result, cmap=plt.cm.gray), plt.title("result")
-plt.xticks([]), plt.yticks([])
-plt.show()
-</code></pre>
-<p><img src="http://dingdm.online/4165.png" alt=""></p>
-<h5 id="Laplacian算子">Laplacian算子</h5>
-<p><img src="http://dingdm.online/lp.PNG" alt=""></p>
-<p>API：</p>
-<pre class=" language-language-python"><code class="language-language-python">laplacian = cv2.Laplacian(src,ddepth,dst,ksize,scale,delta,borderType)
-</code></pre>
-<p>src：需要处理的图像。<br>
-ddepth：图像的深度，-1表示采用的是原图像相同的深度，目标图像的深度必须大于等于原图像的深度。<br>
-ksize：算子的大小，即卷积核的大小，必须为1、3、5、7。</p>
-<pre class=" language-language-python"><code class="language-language-python">import cv2 as cv
-import  numpy as np
-from matplotlib import pyplot as plt
-
-# 读取图像
-img = cv.imread('/Users/dinggongcheng/Downloads/pythondemo.jpeg', 0)
-# laplacian转换
-result = cv.Laplacian(img, cv.CV_16S)
-Scale_abs = cv.convertScaleAbs(result)
-# 图像显示
-plt.figure(figsize=(10, 8), dpi=100)
-plt.subplot(121), plt.imshow(img, cmap=plt.cm.gray), plt.title("from")
-plt.xticks([]), plt.yticks([])
-plt.subplot(122), plt.imshow(Scale_abs, cmap=plt.cm.gray), plt.title("laplacian")
-plt.xticks([]), plt.yticks([])
-plt.show()
-</code></pre>
-<p><img src="http://dingdm.online/4166.png" alt=""></p>
-<h5 id="Canny边缘检测">Canny边缘检测</h5>
-<p>canny边缘检测算法是一种非常流行的边缘检测算法，被认为是最优的边缘检测算法。</p>
-<p>原理：</p>
-<p>第一步：噪声去除<br>
-由于边缘检测很容易受到噪声的影响，所以首先用5*5的高斯滤波器去除噪声。<br>
-第二步：计算图像梯度<br>
-对平滑后的图像使用Sobel算子计算水平方向和竖直方向的一阶导数，根据得到的这两幅梯度图找到边界的梯度和方向。如果某个像素点是边缘，则其梯度方向总是与边缘垂直。梯度方向被归为四类：垂直、水平、和两个对角线方向。<br>
-第三步：非极大值抑制<br>
-在获得梯度的方向和大小之后，对整幅图像进行扫描，去除非边界上的点。对每一个像素进行检查，看这个点的梯度是不是周围具有相同梯度方向的点中最大的。<br>
-<img src="http://dingdm.online/cann.PNG" alt=""></p>
-<p>A点位于图像的边缘，在其梯度变化方向，选择像素点B和C，用来检验A点的梯度是否为极大值，若为极大值，则进行保留，否则A点被抑制，最终的结果是具有细边的二进制图像。<br>
-第四步：滞后阈值<br>
-<img src="http://dingdm.online/yu.PNG" alt=""></p>
-<p>现在要确定真正的边界。我们设置两个阈值：minVal和maxVal。当图像的灰度梯度高于maxVal时被认为是真的边界，低于minVal的边界会被抛弃。如果介于两者之间的话，就要看这个点是否与某个被确定为真正的边界点相连，如果是就认为它也是边界点，如果不是就抛弃。</p>
-<p>API：</p>
-<pre class=" language-language-python"><code class="language-language-python">canny = cv2.Canny(image,threshold1,threshold2)
-</code></pre>
-<p>image：灰度图。<br>
-threshold1：minVal，较小的阈值将间断的边缘连接起来<br>
-threshold2：maxVal，较大的阈值将检测图像中明显的边缘</p>
-<pre class=" language-language-python"><code class="language-language-python">import cv2 as cv
-import  numpy as np
-from matplotlib import pyplot as plt
-
-# 读取图像
-img = cv.imread('/Users/dinggongcheng/Downloads/pythondemo.jpeg', 0)
-# canny边缘检测
-lowThreshold = 0
-max_lowThreshold = 100
-canny = cv.Canny(img, lowThreshold, max_lowThreshold)
-# 图像显示
-plt.figure(figsize=(10, 8), dpi=100)
-plt.subplot(121), plt.imshow(img, cmap=plt.cm.gray), plt.title("from")
-plt.xticks([]), plt.yticks([])
-plt.subplot(122), plt.imshow(canny, cmap=plt.cm.gray), plt.title("canny")
-plt.xticks([]), plt.yticks([])
-plt.show()
-</code></pre>
-<p><img src="http://dingdm.online/4167.png" alt=""></p>
-<h5 id="模板匹配和霍夫变换">模板匹配和霍夫变换</h5>
-<p>模板匹配</p>
-<p>原理：</p>
-<p>所谓模板匹配，就是给定的图片中查找和模板最相似的区域，该算法的输入包括模板和图片，整个任务的思路就是按照滑窗的思路不断的移动模板图片，计算其与图像中对应区域的匹配度，最终将匹配度最好的区域选择为最终的结果。</p>
-<p>实现流程：<br>
-准备两幅图像：<br>
-1.原图像：在这幅图中，找到与模板相匹配的区域<br>
-2.模板：与原图像进行对比的图像块</p>
-<p>滑动模板图像和原图像进行比对：<br>
-将模板块每次移动一个像素(从左往右，从上往下)，在每一个位置，都计算与模板图像的相似程度。<br>
-对于每一个位置将计算的相似结果保存在结果矩阵R中，如果输入图像的大小为W*H，而模板图像的大小为w*h，则输出矩阵R的大小为(W-w+ 1，H-h+1)将R显示为图像。<br>
-获取上述图像后，查找最大值所在的位置，那么该位置对应的区域就被认定是最匹配的。对应的区域就是以该点为顶点，长宽和模板图像一样大小的矩阵。</p>
-<p>API：</p>
-<pre class=" language-language-python"><code class="language-language-python">res = cv2.matchTemplate(img,template,method)
-</code></pre>
-<p>img：要进行模板匹配的对象<br>
-template：模板<br>
-method：实现模板匹配的算法，主要有：<br>
-1.平方差匹配(CV_TM_SQDIFF)：利用模板和图像之间的平方差进行匹配，最好的匹配是0，匹配越差，匹配的值越大。<br>
-2.相关匹配(CV_TM_CCORR)：利用模板与图像间的乘法进行匹配，数值越大表示匹配程度越高，越小表示匹配效果越差。<br>
-3.利用相关系数匹配(CV_TM_CCOEFF)：利用模板与图像间的相关系数匹配，1表示完美的匹配，-1表示最差的匹配。</p>
-<p>完成匹配后，使用cv.minMaxLoc()方法查找最大值所在的位置即可。如果使用平方差作为比较方法，则最小值位置是最佳匹配位置。</p>
-<pre class=" language-language-python"><code class="language-language-python">import cv2 as cv
-import  numpy as np
-from matplotlib import pyplot as plt
-
-# 图像和模板读取
-img = cv.imread('/Users/dinggongcheng/Downloads/pythondemo.jpeg')
-template = cv.imread('/Users/dinggongcheng/Downloads/template.PNG')
-h, w, l = template.shape
-# 模板匹配
-res = cv.matchTemplate(img, template, cv.TM_CCOEFF)
-# 返回图像中最匹配的位置，确定左上角的坐标，并将匹配位置绘制在图像上
-min_val, max_val, min_loc, max_loc = cv.minMaxLoc(res)
-# 使用平方差时最小值为最佳匹配位置
-top_left = max_loc
-bottom_right = (top_left[0] + w, top_left[1] + h)
-cv.rectangle(img, top_left, bottom_right, (0, 255, 0), 2)
-# 图像显示
-plt.imshow(img[:, :, ::-1])
-plt.title("result"), plt.xticks([]), plt.yticks([])
-plt.show()
-</code></pre>
-<p><img src="http://dingdm.online/4168.png" alt=""></p>
-<p>扩展：模板匹配不适用尺度变换，视角变幻后的图像，这时我们就要使用关键点匹配算法，比较经典的关键点检测算法包括SIFT和SURF等，主要的思路是首先通过关键点检测算法获取模板和测试图片中的关键点；然后使用关键点匹配算法处理即可，这些关键点可以很好的处理尺度变化、视角变换、旋转变换、光照变换等，具有很好的不变性。</p>
-<h5 id="霍夫变换">霍夫变换</h5>
-<p>原理：</p>
-<p><img src="http://dingdm.online/hu.PNG" alt=""></p>
-<p>变换后的空间我们叫做霍夫空间。即：笛卡尔坐标系中的一条直线，对应于霍夫空间中的一个点。反过来，同样成立，霍夫空间中的一条线，对应笛卡尔坐标中的一个点。</p>
-<p>如果在笛卡尔坐标系的点共线，那么这些点在霍夫空间中对应直线交于一点。</p>
-<p>如果不止存在一条直线时，我们选择尽可能多的直线汇成的点。当点的横坐标相同时，将笛卡尔坐标系转换为极坐标，在极坐标下是一样的，极坐标中的点对应于霍夫空间的线，这时的霍夫空间不再是参数(k,q)的空间，而是极坐标的空间，分别为原点到直线的垂直距离和直线的垂线与横轴顺时针方向的夹角，垂直线的角度为0度，水平线的角度是180度。</p>
-<p><img src="http://dingdm.online/ji.PNG" alt=""></p>
-<p>我们只要求得霍夫空间中的交点的位置，即可得到原坐标系下的直线。</p>
-<p>实现流程：</p>
-<p>假设有一个大小为100*100的图片，使用霍夫变换检测图中的直线，则步骤如下：</p>
-<p>直线都可以使用极坐标系表示，首先创建一个2D数组，我们叫做累加器，初始化所有值为0，行表示ρ，列表示θ。该数组的大小决定了结果的准确性，若希望角度的精度为1度，那就需要180列。对于ρ，最大值为图片对角线的距离，如果希望精度达到像素级别，行数应该与图像的对角线的距离相等。<br>
-取直线上的第一个点(x,y)，将其带入直线在极坐标中的公式，然后遍历θ的取值：0、1、2、…、180，分别求出对应的ρ值，如果这个数值在你上述累加器中存在相应的位置，则在该位置上加1。<br>
-取直线上的第二个点，重复上述步骤，更新累加器中的值。对图像中的直线上的每个点执行以上步骤，每次更新累加器中的值。<br>
-搜索累加器中的最大值，并找到其对应的(ρ,θ)，就可将图像中的直线表示出来。</p>
-<h5 id="霍夫线检测">霍夫线检测</h5>
-<pre class=" language-language-python"><code class="language-language-python">cv.Houghlines(img,rho,theta,threshold)
-</code></pre>
-<p>img：检测的图像，要求是二值化的图像，所以在调用霍夫变换之前首先要进行二值化，或者进行canny边缘检测。<br>
-rho，theta：ρ和θ的精确度。<br>
-threshold：阈值，只有累加器中的值高于该阈值时才被认定是直线。</p>
-<pre class=" language-language-python"><code class="language-language-python">import cv2 as cv
-import  numpy as np
-from matplotlib import pyplot as plt
-
-# 加载图片，转为二值图
-img = cv.imread('/Users/dinggongcheng/Downloads/lineandcircle.PNG')
-gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
-edges = cv.Canny(gray, 50, 150)
-# 霍夫曼直线变换
-lines = cv.HoughLines(edges, 0.8, np.pi / 180, 150)
-# 将检测的线绘制在图像上
-for line in lines:
-    rho, theta = line[0]
-    a = np.cos(theta)
-    b = np.sin(theta)
-    x0 = a * rho
-    y0 = b * rho
-    x1 = int(x0 + 1000 * (-b))
-    y1 = int(y0 + 1000 * a)
-    x2 = int(x0 - 1000 * (-b))
-    y2 = int(y0 - 1000 * a)
-    cv.line(img, (x1, y1), (x2,y2), (0, 255, 0))
-# 图像显示
-plt.figure(figsize=(10, 8), dpi=100)
-plt.imshow(img[:, :, ::-1])
-plt.title("houghlines"), plt.xticks([]), plt.yticks([])
-plt.show()
-</code></pre>
-<p><img src="http://dingdm.online/4169.png" alt=""></p>
-<h5 id="霍夫圆检测">霍夫圆检测</h5>
-<p>原理：</p>
-<p>圆的表示是(x-a)²+(y-b)²=r²，其中a和b表示圆心坐标，r表示圆半径，因此标准的霍夫圆检测就是在这三个参数组成的三位空间累加器上进行圆形检测，此时效率就会很低，所以OpenCV中使用霍夫梯度法进行圆形的检测。</p>
-<p>霍夫梯度法将霍夫圆检测范围分为两个阶段，第一阶段检测圆心，第二阶段利用圆心推导出圆半径。<br>
-圆心检测的原理：圆心是圆周法线的交汇处，设置一个阈值，在某店的相交的直线的条数大于这个阈值就认为该交汇点为圆心。<br>
-圆半径确定原理：圆心到圆周上的距离是相同的，确定一个阈值，只要相同距离的数量大于该阈值，就认为该距离是该圆心的半径。</p>
-<p>原则上霍夫变换可以检测任何形状，但复杂的形状需要的参数就多，霍夫空间的维数就多，因此在程序实现上所需要的内存空间以及运行效率上都不利于把标准霍夫变换应用于实际复杂图形的检测中。霍夫梯度法是霍夫变换的改进，它的目的是减小霍夫空间的维度，提高效率。</p>
-<p>API：</p>
-<pre class=" language-language-python"><code class="language-language-python">circles = cv.HoughCircles(images,method,dp,minDist,param1=100,param2=100,minRadius=0,maxRadius=0)
-</code></pre>
-<p>images：输入图像，应输入灰度图像<br>
-method：使用霍夫变换圆检测的算法，它的参数是CV_HOUGH_GRADIENT<br>
-dp：霍夫空间的分辨率，dp=1时表示霍夫空间与输入图像空间的大小一致，dp=2时霍夫空间时输入图像空间的一半<br>
-minDist：为圆心之间的最小距离，如果检测到的两个圆心之间距离小于该值，则认为它们是同一个圆心<br>
-param1：边缘检测时使用canny算子的高阈值，低阈值是高阈值的一半<br>
-param2：检测圆心和确定半径时所共用的阈值<br>
-minRadius和maxRadius：所检测到的圆半径的最小值和最大值</p>
-<pre class=" language-language-python"><code class="language-language-python">import cv2 as cv
-import  numpy as np
-from matplotlib import pyplot as plt
-
-# 加载图片，转为灰度图
-plants = cv.imread('/Users/dinggongcheng/Downloads/lineandcircle.PNG')
-gray_img = cv.cvtColor(plants, cv.COLOR_BGR2GRAY)
-# 进行中值模糊，去燥点
-img = cv.medianBlur(gray_img, 7)
-# 霍夫圆检测
-circles = cv.HoughCircles(img, cv.HOUGH_GRADIENT, 1, 20, param1=100, param2=30, minRadius=0, maxRadius=100)
-# 将检测结果绘制在图像上
-for i in circles[0, :]:
-    # 绘制圆形
-    cv.circle(plants, (i[0], i[1]), int(i[2]), (0, 255, 0), 2)
-    # 绘制圆心
-    cv.circle(plants, (i[0], i[1]), 2, (0, 255, 0), -1)
-# 图像显示
-plt.figure(figsize=(10, 8), dpi=100)
-plt.imshow(plants[:, :, ::-1])
-plt.title("houghCircle"), plt.xticks([]), plt.yticks([])
-plt.show()
-</code></pre>
-<p><img src="http://dingdm.online/41610.png" alt=""></p>
+                <h3 id="深度学习笔记三">深度学习笔记三</h3>
+<h4 id="逻辑回归的计算过程-Discriminative">逻辑回归的计算过程 Discriminative</h4>
+<h5 id="Step1-选取Loss-function">Step1 选取Loss function</h5>
+<p><img src="http://dingdm.online/step1loss.png" alt=""></p>
+<h5 id="Step2-选取变量计算最小值">Step2 选取变量计算最小值</h5>
+<p><img src="http://dingdm.online/step2min.png" alt=""></p>
+<p>为了方便gradient计算最小值，将w，b的最大值公式转换为最小值进行计算。对function进行ln化。</p>
+<p><img src="http://dingdm.online/step2ln.png" alt=""></p>
+<p>以yhat进行区分分类并对ln的function进行交叉熵。</p>
+<h5 id="Step3-gradient">Step3 gradient</h5>
+<p>对w进行微分，其中w由上篇笔记分析线性回归而来。</p>
+<p><img src="http://dingdm.online/step3w.png" alt=""></p>
+<p>微分后对w进行gradient的公式为</p>
+<p><img src="http://dingdm.online/step3gradient.png" alt=""></p>
+<h5 id="区分">区分</h5>
+<p>在使用逻辑回归时，yhat与预测的值的最大差距来计算较为合理。</p>
+<p><img src="http://dingdm.online/step3class.png" alt=""></p>
+<p>而square对于yhat和预测的差距在误差较大时仍为0，导致得到的loss function较为平缓，在进行gradient时下降较慢。</p>
+<p>判别模型对于数据的量的敏感度较高，而生成模型对于数据量的敏感度不高。</p>
+<h4 id="Multi-class-Classification-3-classes">Multi-class Classification(3 classes)</h4>
+<p><img src="http://dingdm.online/moreclass.png" alt=""></p>
+<p>计算交叉熵</p>
+<p><img src="http://dingdm.online/jiaocha.png" alt=""></p>
+<h4 id="逻辑回归的限制">逻辑回归的限制</h4>
+<p>对于预测的数据在回归预测中处于对角线时，逻辑回归就无法进行预测，取不到合适的值来进行区分。</p>
+<p>对于这种方法可以通过合适的函数或者方法进行数学计算，将对角线的处的输入值进行分类到相似区域。但是函数的获取较难，机器学习无法产生或产生的代价过高。</p>
+<p>可以通过对输入特征串联的方法得到新的输入特征，新的输入特征可以在相似区域的情况下在进行逻辑回归。</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -919,7 +571,7 @@ plt.show()
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://dingdm.club/2021/04/16/opencv-xue-xi-bi-ji-er/">https://dingdm.club/2021/04/16/opencv-xue-xi-bi-ji-er/</a>
+                    <a href="https://dingdm.club/2021/05/21/shen-du-xue-xi-bi-ji-san/">https://dingdm.club/2021/05/21/shen-du-xue-xi-bi-ji-san/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -957,8 +609,8 @@ plt.show()
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/OpenCV/">
-                                    <span class="chip bg-color">OpenCV</span>
+                                <a href="/tags/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/">
+                                    <span class="chip bg-color">逻辑回归</span>
                                 </a>
                             
                         </div>
@@ -1263,48 +915,54 @@ plt.show()
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/04/20/opencv-xue-xi-bi-ji-san/">
+                <a href="/2021/05/21/shen-du-xue-xi-bi-ji-san/">
                     <div class="card-image">
                         
                         
-                        <img src="http://dingdm.online/18.jpg" class="responsive-img" alt="OpenCV学习笔记三">
+                        <img src="http://dingdm.online/18.jpg" class="responsive-img" alt="深度学习笔记三">
                         
-                        <span class="card-title">OpenCV学习笔记三</span>
+                        <span class="card-title">深度学习笔记三</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            OpenCV学习笔记三
-角点特征
-角点是图像很重要的特征，对图像图形的理解和分析有着很重要的作用。角点在三维场景重建运动估计，目标跟踪、目标识别、图像配准与匹配等计算机视觉领域起着非常重要的作用。在现实世界中，角点对应于物体的拐角，道路的十
+                            深度学习笔记三
+逻辑回归的计算过程 Discriminative
+Step1 选取Loss function
+
+Step2 选取变量计算最小值
+
+为了方便gradient计算最小值，将w，b的最大值公式转换为最小值进行计算。对functio
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-04-20
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-21
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" class="post-category">
-                                    图像处理
+                            <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    深度学习
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/OpenCV/">
-                        <span class="chip bg-color">OpenCV</span>
+                    <a href="/tags/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/">
+                        <span class="chip bg-color">逻辑回归</span>
                     </a>
                     
                 </div>
@@ -1318,28 +976,31 @@ plt.show()
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/04/15/shen-du-xue-xi-bi-ji-yi/">
+                <a href="/2021/05/20/shen-du-xue-xi-di-er-ci-bian-ma/">
                     <div class="card-image">
                         
                         
-                        <img src="http://dingdm.online/3.jpg" class="responsive-img" alt="深度学习笔记一">
+                        <img src="http://dingdm.online/13.jpg" class="responsive-img" alt="深度学习第二次编码">
                         
-                        <span class="card-title">深度学习笔记一</span>
+                        <span class="card-title">深度学习第二次编码</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            深度学习笔记一
-名词
-函数的Loss：深度学习的错误率
-Regression：回归算法，找到一个函数 function，通过输入特征 x ，输出一个数值 Scalar 。与其他任务不同的是输出一个数值
-Classification：分类，输
+                            深度学习第二次编码
+使用爬虫爬取明日方舟干员属性，进行逻辑回归预测
+# author:dinggc
+# date:2021/5/20 下午12:03
+
+import data as gd
+
+# w之前的所有干员的数据 分类为重装和其他职业 
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-15
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-20
                             </span>
                         <span class="publish-author">
                             
@@ -1356,8 +1017,8 @@ Classification：分类，输
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/">
-                        <span class="chip bg-color">线性回归</span>
+                    <a href="/tags/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/">
+                        <span class="chip bg-color">逻辑回归</span>
                     </a>
                     
                 </div>
