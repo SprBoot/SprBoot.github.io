@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="记一次查漏补缺一, dingdm">
+    <meta name="keywords" content="青春纪念册, dingdm">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>记一次查漏补缺一 | dingdm</title>
+    <title>青春纪念册 | dingdm</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -323,12 +323,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('http://dingdm.online/16.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('http://dingdm.online/10.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">记一次查漏补缺一</h1>
+                    <h1 class="description center-align post-title">青春纪念册</h1>
                 </div>
             </div>
         </div>
@@ -445,8 +445,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/redis/">
-                                <span class="chip bg-color">redis</span>
+                            <a href="/tags/%E8%80%81%E5%8F%8B%E8%AE%B0/">
+                                <span class="chip bg-color">老友记</span>
                             </a>
                         
                     </div>
@@ -457,8 +457,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category">
-                                后端
+                            <a href="/categories/%E5%BD%B1%E8%A7%86/" class="post-category">
+                                影视
                             </a>
                         
                     </div>
@@ -470,7 +470,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-04-14
+                    2021-05-28
                 </div>
                 
 
@@ -479,7 +479,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    240
+                    86
                 </div>
                 
 
@@ -501,23 +501,11 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="记一次查漏补缺一">记一次查漏补缺一</h3>
-<h4 id="业务功能：不使用mysql或oracle实现持续签到领奖">业务功能：不使用mysql或oracle实现持续签到领奖</h4>
-<p>技术实现：使用redis的bitmap实现</p>
-<p>bitmap基于最小的单位bit进行存储，设置时候时间复杂度O(1)、读取时候时间复杂度O(n)，方便扩容。</p>
-<p>签到信息以用户id和年数月数为key，所在天数为偏移值进行签到，1为签到，0为未签到。</p>
-<p>伪代码实现</p>
-<pre class=" language-language-java"><code class="language-language-java">//签到
-jedis.setbit(getKey(userId,keyDate), dayDate, true);
-//获取签到情况
-//获取位于偏移量 0 上的 monthDayLength 位长无符号数
-List<Long> list = jedis.bitfield(getKey(userId,keyDate), "GET", monthDayLength, "0");
-//业务逻辑处理断签
-...
-//统计签到次数
-jedis.bitcount(getKey(userId,keyDate))
-</code></pre>
-<p>redis的接口文档地址：<a href="http://redisdoc.com/bitmap/index.html" target="_blank" rel="noopener">http://redisdoc.com/bitmap/index.html</a></p>
+                <h3 id="青春纪念册">青春纪念册</h3>
+<video id="video" controls="" preload="none">
+    <source id="mp4" src="http://dingdm.online/%E9%9D%92%E6%98%A5%E7%BA%AA%E5%BF%B5%E5%86%8C.mp4" type="video/mp4">
+</video>
+<p>视频来源自https://www.bilibili.com/video/BV19K4y1G759?t=6189，防止和谐，自己缓存留作纪念以后重温。</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -561,7 +549,7 @@ jedis.bitcount(getKey(userId,keyDate))
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://dingdm.club/2021/04/14/ji-yi-ci-cha-lou-bu-que-yi/">https://dingdm.club/2021/04/14/ji-yi-ci-cha-lou-bu-que-yi/</a>
+                    <a href="https://dingdm.club/2021/05/28/qing-chun-ji-nian-ce/">https://dingdm.club/2021/05/28/qing-chun-ji-nian-ce/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -599,8 +587,8 @@ jedis.bitcount(getKey(userId,keyDate))
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/redis/">
-                                    <span class="chip bg-color">redis</span>
+                                <a href="/tags/%E8%80%81%E5%8F%8B%E8%AE%B0/">
+                                    <span class="chip bg-color">老友记</span>
                                 </a>
                             
                         </div>
@@ -905,33 +893,92 @@ jedis.bitcount(getKey(userId,keyDate))
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/04/15/shen-du-xue-xi-bi-ji-yi/">
+                <a href="/2021/05/28/qing-chun-ji-nian-ce/">
                     <div class="card-image">
                         
                         
-                        <img src="http://dingdm.online/3.jpg" class="responsive-img" alt="深度学习笔记一">
+                        <img src="http://dingdm.online/10.jpg" class="responsive-img" alt="青春纪念册">
                         
-                        <span class="card-title">深度学习笔记一</span>
+                        <span class="card-title">青春纪念册</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            深度学习笔记一
-名词
-函数的Loss：深度学习的错误率
-Regression：回归算法，找到一个函数 function，通过输入特征 x ，输出一个数值 Scalar 。与其他任务不同的是输出一个数值
-Classification：分类，输
+                            青春纪念册
+
+    
+
+视频来源自https://www.bilibili.com/video/BV19K4y1G759?t=6189，防止和谐，自己缓存留作纪念以后重温。
+
+        document.querySelectorA
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-04-15
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-28
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%BD%B1%E8%A7%86/" class="post-category">
+                                    影视
+                                </a>
+                            
+                            
                         </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%80%81%E5%8F%8B%E8%AE%B0/">
+                        <span class="chip bg-color">老友记</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/05/21/shen-du-xue-xi-bi-ji-san/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="http://dingdm.online/18.jpg" class="responsive-img" alt="深度学习笔记三">
+                        
+                        <span class="card-title">深度学习笔记三</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            深度学习笔记三
+逻辑回归的计算过程 Discriminative
+Step1 选取Loss function
+
+Step2 选取变量计算最小值
+
+为了方便gradient计算最小值，将w，b的最大值公式转换为最小值进行计算。对functio
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-21
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -947,67 +994,8 @@ Classification：分类，输
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/">
-                        <span class="chip bg-color">线性回归</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2021/04/14/python-xue-xi-bi-ji-er/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="http://dingdm.online/6.jpg" class="responsive-img" alt="python学习笔记二">
-                        
-                        <span class="card-title">python学习笔记二</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            python学习笔记二
-循环结构
-语法：
-while a &gt; 0:
-print(a)
-for a in list:
-print(a)
-对于for in循环，不需要使用到自定义变量，可将自定义变量写为_
-列表
-语法：
-list = [“
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-14
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category">
-                                    后端
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/python/">
-                        <span class="chip bg-color">python</span>
+                    <a href="/tags/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/">
+                        <span class="chip bg-color">逻辑回归</span>
                     </a>
                     
                 </div>

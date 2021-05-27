@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://dingdm.club/"/>
-  <updated>2021-05-21T07:18:52.336Z</updated>
+  <updated>2021-05-27T18:06:23.304Z</updated>
   <id>https://dingdm.club/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>青春纪念册</title>
+    <link href="https://dingdm.club/2021/05/28/qing-chun-ji-nian-ce/"/>
+    <id>https://dingdm.club/2021/05/28/qing-chun-ji-nian-ce/</id>
+    <published>2021-05-27T17:52:30.000Z</published>
+    <updated>2021-05-27T18:06:23.304Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;青春纪念册&quot;&gt;青春纪念册&lt;/h3&gt;
+&lt;video id=&quot;video&quot; controls=&quot;&quot; preload=&quot;none&quot;&gt;
+    &lt;source id=&quot;mp4&quot; src=&quot;http://dingdm.online/%E9%9D%92%E6%98%A5%E7
+      
+    
+    </summary>
+    
+    
+      <category term="影视" scheme="https://dingdm.club/categories/%E5%BD%B1%E8%A7%86/"/>
+    
+    
+      <category term="老友记" scheme="https://dingdm.club/tags/%E8%80%81%E5%8F%8B%E8%AE%B0/"/>
+    
+  </entry>
   
   <entry>
     <title>深度学习笔记三</title>
@@ -533,34 +559,6 @@ id(var) 获取对象的唯一id type(var) 获取对象的类型 var 存储的值
       <category term="steam" scheme="https://dingdm.club/tags/steam/"/>
     
       <category term="epic" scheme="https://dingdm.club/tags/epic/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>win10系统的桌面美化</title>
-    <link href="https://dingdm.club/2020/08/05/win10-xi-tong-de-zhuo-mian-mei-hua/"/>
-    <id>https://dingdm.club/2020/08/05/win10-xi-tong-de-zhuo-mian-mei-hua/</id>
-    <published>2020-08-05T07:45:22.000Z</published>
-    <updated>2021-03-21T14:25:12.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;win10系统的桌面美化&quot;&gt;win10系统的桌面美化&lt;/h3&gt;
-&lt;p&gt;首先放个人桌面和开始菜单的预览图。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://dingdm.online/QQ%E6%88%AA%E5%9B%BE20200805114944.png&quot; a
-      
-    
-    </summary>
-    
-    
-      <category term="美化" scheme="https://dingdm.club/categories/%E7%BE%8E%E5%8C%96/"/>
-    
-      <category term="壁纸" scheme="https://dingdm.club/categories/%E7%BE%8E%E5%8C%96/%E5%A3%81%E7%BA%B8/"/>
-    
-    
-      <category term="win10" scheme="https://dingdm.club/tags/win10/"/>
     
   </entry>
   
