@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://dingdm.club/"/>
-  <updated>2021-05-27T18:06:23.304Z</updated>
+  <updated>2021-06-03T13:16:51.584Z</updated>
   <id>https://dingdm.club/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>模拟器后台挂机刷图小提示</title>
+    <link href="https://dingdm.club/2021/06/03/mo-ni-qi-hou-tai-gua-ji-shua-tu-xiao-ti-shi/"/>
+    <id>https://dingdm.club/2021/06/03/mo-ni-qi-hou-tai-gua-ji-shua-tu-xiao-ti-shi/</id>
+    <published>2021-06-03T13:11:12.000Z</published>
+    <updated>2021-06-03T13:16:51.584Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;模拟器后台挂机刷图小提示&quot;&gt;模拟器后台挂机刷图小提示&lt;/h3&gt;
+&lt;h4 id=&quot;使用Spy-获取后台窗口类和标题名称，根据句柄信息对窗口进行截图。&quot;&gt;使用Spy++获取后台窗口类和标题名称，根据句柄信息对窗口进行截图。&lt;/h4&gt;
+&lt;pre class=&quot; lang
+      
+    
+    </summary>
+    
+    
+      <category term="脚本" scheme="https://dingdm.club/categories/%E8%84%9A%E6%9C%AC/"/>
+    
+    
+      <category term="python" scheme="https://dingdm.club/tags/python/"/>
+    
+  </entry>
   
   <entry>
     <title>青春纪念册</title>
@@ -528,37 +554,6 @@ id(var) 获取对象的唯一id type(var) 获取对象的类型 var 存储的值
     
     
       <category term="KMP" scheme="https://dingdm.club/tags/KMP/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>steam及其他免费游戏白嫖(更新)</title>
-    <link href="https://dingdm.club/2020/08/08/steam-ji-qi-ta-mian-fei-you-xi-bai-piao-geng-xin/"/>
-    <id>https://dingdm.club/2020/08/08/steam-ji-qi-ta-mian-fei-you-xi-bai-piao-geng-xin/</id>
-    <published>2020-08-08T14:12:12.000Z</published>
-    <updated>2021-04-14T10:55:55.064Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;steam及其他免费游戏白嫖-更新&quot;&gt;steam及其他免费游戏白嫖(更新)&lt;/h3&gt;
-&lt;h4 id=&quot;2020-11-05&quot;&gt;2020-11-05&lt;/h4&gt;
-&lt;p&gt;无主之地3 61元&lt;br&gt;
-&lt;a href=&quot;https://www.greenmangaming.
-      
-    
-    </summary>
-    
-    
-      <category term="游戏" scheme="https://dingdm.club/categories/%E6%B8%B8%E6%88%8F/"/>
-    
-      <category term="白嫖" scheme="https://dingdm.club/categories/%E6%B8%B8%E6%88%8F/%E7%99%BD%E5%AB%96/"/>
-    
-    
-      <category term="steam" scheme="https://dingdm.club/tags/steam/"/>
-    
-      <category term="epic" scheme="https://dingdm.club/tags/epic/"/>
     
   </entry>
   

@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>模拟器后台挂机刷图小提示</title>
+      <link href="/2021/06/03/mo-ni-qi-hou-tai-gua-ji-shua-tu-xiao-ti-shi/"/>
+      <url>/2021/06/03/mo-ni-qi-hou-tai-gua-ji-shua-tu-xiao-ti-shi/</url>
+      
+        <content type="html"><![CDATA[<h3 id="模拟器后台挂机刷图小提示">模拟器后台挂机刷图小提示</h3><h4 id="使用Spy-获取后台窗口类和标题名称，根据句柄信息对窗口进行截图。">使用Spy++获取后台窗口类和标题名称，根据句柄信息对窗口进行截图。</h4><pre class=" language-language-python"><code class="language-language-python">    # 获取后台窗口的句柄，注意后台窗口不能最小化    hWnd = win32gui.FindWindow(cls,name)    # 获取句柄窗口的大小信息    left, top, right, bot = win32gui.GetWindowRect(hWnd)    width = right - left    height = bot - top    hWndDC = win32gui.GetWindowDC(hWnd)    # 创建设备描述表    mfcDC = win32ui.CreateDCFromHandle(hWndDC)    # 创建内存设备描述表    saveDC = mfcDC.CreateCompatibleDC()    # 创建位图对象准备保存图片    saveBitMap = win32ui.CreateBitmap()    # 为bitmap开辟存储空间    saveBitMap.CreateCompatibleBitmap(mfcDC, width, height)    # 将截图保存到saveBitMap中    saveDC.SelectObject(saveBitMap)    # 保存bitmap到内存设备描述表    saveDC.BitBlt((0, 0), (width, height), mfcDC, (0, 0), win32con.SRCCOPY)    signedIntsArray = saveBitMap.GetBitmapBits(True)    im_opencv = numpy.frombuffer(signedIntsArray, dtype='uint8')    im_opencv.shape = (height, width, 4)    cv2.cvtColor(im_opencv, cv2.COLOR_BGRA2RGB)</code></pre><h4 id="模板图像与当前获取的截图进行相似度匹配，匹配成功进行刷图完成提示">模板图像与当前获取的截图进行相似度匹配，匹配成功进行刷图完成提示</h4><pre class=" language-language-python"><code class="language-language-python">    template = cv2.imread(path)    H1 = cv2.calcHist([im_opencv], [1], None, [256], [0, 256])    H1 = cv2.normalize(H1, H1, 0, 1, cv2.NORM_MINMAX, -1)    H2 = cv2.calcHist([template], [1], None, [256], [0, 256])    H2 = cv2.normalize(H2, H2, 0, 1, cv2.NORM_MINMAX, -1)    # 利用compareHist（）进行比较相似度    similarity = cv2.compareHist(H1, H2, 0)</code></pre><h4 id="首次进行循环不断截图获取刷图的时长，根据时长进行优化截图匹配时间段">首次进行循环不断截图获取刷图的时长，根据时长进行优化截图匹配时间段</h4><pre class=" language-language-python"><code class="language-language-python">def getStep(cls,name,path):    step = 0    flag = True    while(flag):        similarity = img(cls,name,path)        if(similarity > 0.9):            flag = False            print(1)        else:            step = step + 1    return step</code></pre><h4 id="根据首次时间段运行当前代码进行提示">根据首次时间段运行当前代码进行提示</h4><pre class=" language-language-python"><code class="language-language-python">def turn(cls,name,path):    similarity = img(cls, name, path)    if(similarity > 0.9):        print(1)</code></pre><h4 id="完整代码">完整代码</h4><pre class=" language-language-python"><code class="language-language-python">#对后台窗口截图import win32gui, win32ui, win32conimport cv2import numpydef img(cls,name,path):    # 获取后台窗口的句柄，注意后台窗口不能最小化    hWnd = win32gui.FindWindow(cls,name)    # 获取句柄窗口的大小信息    left, top, right, bot = win32gui.GetWindowRect(hWnd)    width = right - left    height = bot - top    hWndDC = win32gui.GetWindowDC(hWnd)    # 创建设备描述表    mfcDC = win32ui.CreateDCFromHandle(hWndDC)    # 创建内存设备描述表    saveDC = mfcDC.CreateCompatibleDC()    # 创建位图对象准备保存图片    saveBitMap = win32ui.CreateBitmap()    # 为bitmap开辟存储空间    saveBitMap.CreateCompatibleBitmap(mfcDC, width, height)    # 将截图保存到saveBitMap中    saveDC.SelectObject(saveBitMap)    # 保存bitmap到内存设备描述表    saveDC.BitBlt((0, 0), (width, height), mfcDC, (0, 0), win32con.SRCCOPY)    signedIntsArray = saveBitMap.GetBitmapBits(True)    im_opencv = numpy.frombuffer(signedIntsArray, dtype='uint8')    im_opencv.shape = (height, width, 4)    cv2.cvtColor(im_opencv, cv2.COLOR_BGRA2RGB)    # cv2.imwrite("im_opencv.jpg",im_opencv,[int(cv2.IMWRITE_JPEG_QUALITY), 100]) #保存    # cv2.namedWindow('im_opencv') #命名窗口    # cv2.imshow("im_opencv",im_opencv) #显示    template = cv2.imread(path)    H1 = cv2.calcHist([im_opencv], [1], None, [256], [0, 256])    H1 = cv2.normalize(H1, H1, 0, 1, cv2.NORM_MINMAX, -1)  #    H2 = cv2.calcHist([template], [1], None, [256], [0, 256])    H2 = cv2.normalize(H2, H2, 0, 1, cv2.NORM_MINMAX, -1)    # 利用compareHist（）进行比较相似度    similarity = cv2.compareHist(H1, H2, 0)    cv2.waitKey(0)    cv2.destroyAllWindows()    # 内存释放    win32gui.DeleteObject(saveBitMap.GetHandle())    saveDC.DeleteDC()    mfcDC.DeleteDC()    win32gui.ReleaseDC(hWnd, hWndDC)    return similaritydef getStep(cls,name,path):    step = 0    flag = True    while(flag):        similarity = img(cls,name,path)        if(similarity > 0.9):            flag = False            print(1)        else:            step = step + 1    return stepdef turn(cls,name,path):    similarity = img(cls, name, path)    if(similarity > 0.9):        print(1)</code></pre><h4 id="后续补充完善">后续补充完善</h4><p>根据不同的关卡设置不同的时间段。根据不同游戏和玩法选择对应的模板。补上语音提示。</p><p>简单加一个刷图完成模拟鼠标点击操作，如果不封我，我就直接写脚本，如果封我，那我就不写了。</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> 脚本 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> python </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>青春纪念册</title>
       <link href="/2021/05/28/qing-chun-ji-nian-ce/"/>
       <url>/2021/05/28/qing-chun-ji-nian-ce/</url>
