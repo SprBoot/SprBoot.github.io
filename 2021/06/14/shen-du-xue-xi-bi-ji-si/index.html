@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="记一次服务器部署内容, dingdm">
+    <meta name="keywords" content="深度学习笔记四, dingdm">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>记一次服务器部署内容 | dingdm</title>
+    <title>深度学习笔记四 | dingdm</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -323,12 +323,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('http://dingdm.online/7.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('http://dingdm.online/16.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">记一次服务器部署内容</h1>
+                    <h1 class="description center-align post-title">深度学习笔记四</h1>
                 </div>
             </div>
         </div>
@@ -445,16 +445,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/nginx/">
-                                <span class="chip bg-color">nginx</span>
-                            </a>
-                        
-                            <a href="/tags/ubuntu/">
-                                <span class="chip bg-color">ubuntu</span>
-                            </a>
-                        
-                            <a href="/tags/docker/">
-                                <span class="chip bg-color">docker</span>
+                            <a href="/tags/%E7%A5%9E%E7%BB%8F%E5%85%83%E7%BD%91%E7%BB%9C/">
+                                <span class="chip bg-color">神经元网络</span>
                             </a>
                         
                     </div>
@@ -465,8 +457,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E8%BF%90%E7%BB%B4/" class="post-category">
-                                运维
+                            <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                深度学习
                             </a>
                         
                     </div>
@@ -478,7 +470,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-07-28
+                    2021-06-14
                 </div>
                 
 
@@ -487,14 +479,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.6k
+                    888
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    6 分
+                    3 分
                 </div>
                 
 
@@ -509,163 +501,73 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <hr>
-<p><strong>由于目前国内的域名需要备案，因此购买国外的域名，同时由于国外的域名解析到国内的服务器也需要备案，因此服务器也使用国外的，当然，需要一个备案的国内域名用于七牛CDN使用。</strong></p>
-<h1>1.服务器域名选择</h1>
-<p><strong>之前一直用的搬瓦工的服务器，但是现在搬瓦工的服务器配置高了，价格很贵，不是很划算，于是就用了vultr的服务器，五美元一个月，价格还可以，除了建站之外，当作梯子也是划算的。<br>
-vultr的平台需要先充值，最低额度十美元，支持支付宝付款还是可以的。</strong></p>
-<h2 id="1-1-服务器购买">1.1 服务器购买</h2>
-<p><img src="http://dingdm.online/%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%80%89%E6%8B%A9.png" alt=""><br>
-<strong>服务器类型选择Cloud Compute就可以，用来个人需求绰绰有余。</strong><br>
-<img src="http://dingdm.online/fuwuqixuanze" alt=""><br>
-<strong>国家及城市根据自己需求选择就可以。<br>
-服务器操作系统我推荐Ubuntu16.04</strong><br>
-<img src="http://dingdm.online/QQ%E6%88%AA%E5%9B%BE20200624211528.png" alt=""><br>
-<strong>其他默认就好，购买完成就会看到自己的服务器</strong></p>
-<h3 id="1-1-1">1.1.1</h3>
-<p><strong>这里推荐两个软件，smarrty用于远程连接，Filezilla用于向服务器传输文件。<br>
-安装包我放在资源里面，可以在下载中自行下载。</strong></p>
-<h2 id="1-2-域名购买">1.2 域名购买</h2>
-<p><strong>域名购买我推荐nameSilo，不必要购买特别贵的，自己可以使用的就好<br>
-购买时挂梯子应该打开会快一点</strong><br>
-<strong>官方网址<br>
-<a href="https://www.namesilo.com/" target="_blank" rel="noopener">https://www.namesilo.com/</a><br>
-搜索自己想要的域名，然后进行购买</strong><br>
-<img src="http://dingdm.online/QQ%E6%88%AA%E5%9B%BE20200624220852.png" alt=""><br>
-<strong>选择第一个就可以了</strong><br>
-<img src="http://dingdm.online/QQ%E6%88%AA%E5%9B%BE20200624220934.png" alt=""><br>
-<strong>选择对应的配置和优惠码，优惠码百度一下，很多的，基本都是减一美元</strong><br>
-<img src="http://dingdm.online/QQ%E6%88%AA%E5%9B%BE20200624221137.png" alt=""></p>
-<h3 id="1-2-1-域名解析">1.2.1 域名解析</h3>
-<p><strong>域名购买完成之后，点击manage my domains进入自己的域名管理页面</strong><br>
-<img src="http://dingdm.online/QQ%E6%88%AA%E5%9B%BE20200624221243.png" alt=""><br>
-<strong>下面显示的就是你刚刚购买的域名，然后点击蓝色的小球，dns设置</strong><br>
-<img src="http://dingdm.online/QQ%E6%88%AA%E5%9B%BE20200624221256.png" alt=""><br>
-<strong>进入到域名解析页面你会看到五条记录，将第三条和第四条删掉，然后编辑第一条和第二条。<br>
-第一条编辑的时候在ipv4栏输入你的服务器ip地址<br>
-第二条编辑的时候在1的基础上还要在hostname输入www</strong><br>
-<img src="http://dingdm.online/QQ%E6%88%AA%E5%9B%BE20200624221324.png" alt=""></p>
-<p><img src="http://dingdm.online/QQ%E6%88%AA%E5%9B%BE20200624221337.png" alt=""></p>
-<h1>2.服务器配置及部署</h1>
-<h2 id="2-1-服务器配置">2.1 服务器配置</h2>
-<h3 id="2-1-1-java环境安装">2.1.1 java环境安装</h3>
-<p><strong>由于我的项目是基于java开发的，所以安装Java环境。</strong><br>
-<strong>首先卸载之前安装或参与的项，如果没有请忽略</strong><br>
-<code>apt-get remove openjdk</code><br>
-<strong>可以通过Oracle官网下载对应的jdk和在线安装两种方式进行安装</strong><br>
-<strong>可以通过<code>apt install openjdk-8-jdk</code>的方式在线安装<br>
-也可以通过https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html<br>
-官网下载对应的版本的jdk进行解压安装</strong></p>
-<h4 id="2-1-1-1-配置环境变量">2.1.1.1 配置环境变量</h4>
-<p><code>vim  ~/.bashrc</code><strong>也可以使用nano或vi 如果未安装vim</strong><br>
-<strong>文件末尾添加以下内容</strong></p>
-<pre class=" language-language-shell"><code class="language-language-shell">export JAVA_HOME=/usr/local/jdk1.8.0_211
-export JRE_HOME=${JAVA_HOME}/jre
-export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib
-export PATH=.:${JAVA_HOME}/bin:$PATH
-</code></pre>
-<p><strong>记得更换为自己文件所在的路径</strong><br>
-<strong>保存变量并更新应用</strong><br>
-<code>source ~/.bashrc</code><br>
-<strong>使用</strong><code>java -version</code><strong>查看自己的java版本即可</strong></p>
-<h3 id="2-1-2-docker安装">2.1.2 docker安装</h3>
-<p><strong>由于项目使用到的redis，rabbitmq，mongodb都是基于docker容器的，因此先进行配置。</strong><br>
-<strong>卸载存在的docker的旧版本</strong><br>
-<code>apt-get remove docker docker-engine docker-ce docker.io</code><br>
-<strong>更新apt包</strong><br>
-<code>apt-get update</code><br>
-<strong>安装以下包通过https使用存储库</strong><br>
-<code>apt-get install -y apt-transport-https ca-certificates curl software-properties-common</code><br>
-<strong>添加docker的GPG密钥</strong><br>
-<code>curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -</code><br>
-<strong>设置stable存储库</strong><br>
-<code>add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"</code><br>
-<strong>更新apt包</strong><br>
-<code>apt-get update</code><br>
-<strong>安装docker</strong><br>
-<code>apt-get install -y docker-ce</code><br>
-<strong>验证服务是否启动</strong><br>
-<code>systemctl status docker</code><br>
-<strong>docker未启动，则手动启动docker</strong><br>
-<code>systemctl start docker</code><br>
-<strong>docker安装完成</strong></p>
-<h4 id="2-1-2-1-docker安装mongodb">2.1.2.1 docker安装mongodb</h4>
-<p><strong>下载镜像</strong><br>
-<code>docker pull registry.docker-cn.com/library/mongo</code><br>
-<strong>创建数据文件夹</strong><br>
-<code>mkdir /data/mongodb0</code><br>
-<strong>启动容器</strong><br>
-<code>docker run --name mongodb-server0 -v /data/mongodb0:/data/db -p 27017:27017 -d 镜像ID --auth</code><br>
-<strong>-v后面的参数表示把数据文件挂载到宿主机的路径<br>
--p把mongo端口映射到宿主机的指定端口<br>
-–auth表示连接mongodb需要授权</strong></p>
-<h4 id="2-1-2-2-docker安装redis">2.1.2.2 docker安装redis</h4>
-<p><strong>拉取镜像</strong><br>
-<code>docker pull redis</code><br>
-<strong>启动镜像</strong><br>
-<code>docker run -p 6379:6379 -d redis:latest redis-server</code><br>
-<strong>-p 6379:6379 : 将容器的6379端口映射到主机的6379端口<br>
--v $PWD/data:/data : 将主机中当前目录下的data挂载到容器的/data<br>
-redis-server --appendonly yes : 在容器执行redis-server启动命令，并打开redis持久化配置</strong><br>
-<strong>docker的相关命令在其他笔记中已经说明过</strong><br>
-<strong>redis的操作软件在附件中也已经上传，可以自行下载</strong></p>
-<h4 id="2-1-2-3-docker安装rabbitMq">2.1.2.3 docker安装rabbitMq</h4>
-<p><strong>拉取镜像</strong><br>
-<code>docker pull rabbitmq:management</code><br>
-<strong>运行镜像</strong><br>
-<code>docker run -d -p 5672:5672 -p 15672:15672 --name rabbitmq rabbitmq:management</code><br>
-<strong>访问管理页面<br>
-http://[宿主机IP]:15672</strong></p>
-<h3 id="2-1-3-nginx安装">2.1.3 nginx安装</h3>
-<p><strong>因为我使用了两个域名，一个为8080端口，一个为8060端口，因此需要使用nginx来进行端口的转发。</strong><br>
-安装nginx<br>
-<code>apt-get install nginx</code><br>
-<strong>安装好以后，nginx默认安装位置在etc目录下，这里我在使用的时候出现了nginx文件限制的问题，因此在这里统一进行说明。<br>
-在nginx下的nginx.conf配置文件中的http段对文件大小进行设置。</strong><br>
-<code>client_max_body_size 100m;</code><br>
-<strong>在sites-available下进行对应的端口转发配置</strong></p>
-<pre class=" language-language-shell"><code class="language-language-shell">server {
-	listen 80 default_server;
-	listen [::]:80 default_server;
-	root /var/www/html;
-	index index.html index.htm index.nginx-debian.html;
-
-	server_name dinggc.info;
-
-location / {
-      proxy_set_header   X-Real-IP        $remote_addr;
-      proxy_set_header   X-Forwarded-For  $proxy_add_x_forwarded_for;
-      proxy_set_header   Host             $http_host;
-      proxy_set_header   Upgrade          $http_upgrade;
-      proxy_set_header   X-NginX-Proxy    true;
-      proxy_set_header   Connection "upgrade";
-      proxy_http_version 1.1;
-      proxy_pass         http://localhost:8080;
-   }
-}
-</code></pre>
-<pre class=" language-language-shell"><code class="language-language-shell">server {
-	listen 80;
-   # 修改为你的域名
-   server_name dinggc.online;
-
-   location / {
-      proxy_set_header   X-Real-IP        $remote_addr;
-      proxy_set_header   X-Forwarded-For  $proxy_add_x_forwarded_for;
-      proxy_set_header   Host             $http_host;
-      proxy_set_header   Upgrade          $http_upgrade;
-      proxy_set_header   X-NginX-Proxy    true;
-      proxy_set_header   Connection "upgrade";
-      proxy_http_version 1.1;
-      proxy_pass         http://localhost:8060;
-   }
-}
-</code></pre>
-<p><strong>使用</strong><code>/etc/init.d/nginx configtest</code><strong>进行配置测试如果成功则使用</strong><code>/etc/init.d/nginx reload</code><strong>重启nginx即可</strong><br>
-<strong>至此，相关的服务器配置安装完成。</strong></p>
-<h1>3 项目部署</h1>
-<p><strong>使用filezilla软件将相关文件上传到服务器之后在线运行即可。<br>
-若使用nohup后台运行的话，注意不要直接关掉smartty，而应该使用exit命令退出命令行。</strong></p>
+                <h3 id="深度学习笔记四">深度学习笔记四</h3>
+<h4 id="Deep-Learning">Deep Learning</h4>
+<h5 id="深度学习的network">深度学习的network</h5>
+<p><img src="http://dingdm.online/dee.jpg" alt=""></p>
+<p>神经元的权重和偏差可以视为矩阵运算。即得到激活函数(activation function)。将激活函数进行sigmoid得到最终结果。将上方的网络用该种形式进行计算即为</p>
+<p><img src="http://dingdm.online/dee2.jpg" alt=""></p>
+<p>通过矩阵运行交由GPU加快运算过程。</p>
+<h5 id="神经元网络的选取">神经元网络的选取</h5>
+<p><img src="http://dingdm.online/cry.jpg" alt=""></p>
+<p>通过神经元网络计算得到的输入矩阵和根据图像得到的target矩阵进行交叉熵计算结果，调整参数使得最后计算得到的交叉熵最小以确定最优的神经元网络函数。</p>
+<p>通过不同组的数据进行训练得到所有的交叉熵进行累加，使用gradient descent获取w与b。</p>
+<h5 id="gradient-descent">gradient descent</h5>
+<p><img src="http://dingdm.online/grad.jpg" alt=""></p>
+<h4 id="Backpropagation">Backpropagation</h4>
+<p>帮助计算gradient descent中的参数的偏微分。</p>
+<h5 id="chain-rule">chain rule</h5>
+<p>即复合函数的微分过程。</p>
+<p><img src="http://dingdm.online/we.jpg" alt=""></p>
+<p>C为最后的交叉熵。</p>
+<p>z对于w求偏微分，z对于哪一个w求微分，得到的即为w对应的输入数据。</p>
+<p>C对于z求偏微分。</p>
+<p><img src="http://dingdm.online/Cw.jpg" alt=""></p>
+<p><img src="http://dingdm.online/ch.jpg" alt=""></p>
+<h5 id="Backward-pass">Backward pass</h5>
+<p>以未知的两项作为输入，得出的最终结果为输出。</p>
+<p><img src="http://dingdm.online/fa2.jpg" alt=""></p>
+<p>具体的放大倍率即为对应z的sigmoid的求导。反求通过已知的C即可快速计算。</p>
+<h4 id="Recipe-OF-Deep-Learning">Recipe OF Deep Learning</h4>
+<p>对于得到神经元网络应先应用于训练数据判断是否合适，防止直接运用于测试数据出现的非过拟合现象。</p>
+<h5 id="New-activation-function">New activation function</h5>
+<p>vanishing gradient problem</p>
+<p>靠近输入的神经元gradient参数的更新速度较慢或靠近输入的神经元gradient参数更新较大。</p>
+<p>使用sigmoid时，较大的输入经过sigmoid后会进行衰减，越深的层数对最后的C的结果的影响就越小。</p>
+<h6 id="ReLU">ReLU</h6>
+<p>更改激活函数，当输入小于0时，输出为0，当输入大于0时，输出等于输入。</p>
+<p>当神经元的输出为0时，不会影响整个神经元网络，可以直接去掉。而输入等于输出不会产生递减问题。</p>
+<p><img src="http://dingdm.online/rejy.jpg" alt=""></p>
+<h6 id="maxout">maxout</h6>
+<p>每层神经元的输出为分组中的最大值。</p>
+<p>maxout也可以使用ReLU，即某个参数始终为0，其他参数为线性函数，即选取最大时满足ReLU。</p>
+<p><img src="http://dingdm.online/bax.jpg" alt=""></p>
+<h6 id="Maxout-training">Maxout training</h6>
+<p>选取的最大值为最终的输出值，最终简化神经元网络。</p>
+<h5 id="Adaptive-Learning-Rate">Adaptive Learning Rate</h5>
+<p>使用adagrad</p>
+<p><img src="http://dingdm.online/adagrad.png" alt=""></p>
+<h6 id="RMSProp">RMSProp</h6>
+<p>防止在某个变量变化的过程中出现的变化较小和变化较大同时存在的情况。</p>
+<p><img src="http://dingdm.online/TRB.jpg" alt=""></p>
+<h6 id="Momentum">Momentum</h6>
+<p>利用惯性继续向前移动。</p>
+<p>使用V记录移动距离。</p>
+<p><img src="http://dingdm.online/MVE.jpg" alt=""></p>
+<h6 id="Adam">Adam</h6>
+<p>RMSProp + Momentum</p>
+<p><img src="http://dingdm.online/adam.png" alt=""></p>
+<h5 id="Early-Stopping">Early Stopping</h5>
+<p>在error上升前停住，即一个if判断即可。</p>
+<h5 id="Regularization">Regularization</h5>
+<p><img src="http://dingdm.online/reg.jpg" alt=""></p>
+<h5 id="DropOut">DropOut</h5>
+<p><img src="http://dingdm.online/st1.jpg" alt=""></p>
+<p>在新的神经元网络上进行训练。表现的结果可能变差。</p>
+<p><img src="http://dingdm.online/sy2.jpg" alt=""></p>
+<p>训练时使用所有的神经元，而在测试时需要去掉不合理的神经元。</p>
+<p>训练数据时使用dropout，而测试时不需要dropout，因此对于所有的输入没有dropout，需要使用(1-p)%。</p>
+<p>在训练时对于每组不同的数据会得到较多的神经元网络，而在测试时对于测试数据应用于所有的神经元网络不现实，因此采用了(1-p)%的方式进行计算，而得到的结果与前种方式得到的结果是相似的。</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -709,7 +611,7 @@ location / {
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://dingdm.club/2020/07/28/ji-yi-ci-fu-wu-qi-bu-shu-nei-rong/">https://dingdm.club/2020/07/28/ji-yi-ci-fu-wu-qi-bu-shu-nei-rong/</a>
+                    <a href="https://dingdm.club/2021/06/14/shen-du-xue-xi-bi-ji-si/">https://dingdm.club/2021/06/14/shen-du-xue-xi-bi-ji-si/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -747,16 +649,8 @@ location / {
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/nginx/">
-                                    <span class="chip bg-color">nginx</span>
-                                </a>
-                            
-                                <a href="/tags/ubuntu/">
-                                    <span class="chip bg-color">ubuntu</span>
-                                </a>
-                            
-                                <a href="/tags/docker/">
-                                    <span class="chip bg-color">docker</span>
+                                <a href="/tags/%E7%A5%9E%E7%BB%8F%E5%85%83%E7%BD%91%E7%BB%9C/">
+                                    <span class="chip bg-color">神经元网络</span>
                                 </a>
                             
                         </div>
@@ -1061,58 +955,52 @@ location / {
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/07/30/yi-ci-steam-ge-ren-zi-liao-dong-tai-she-zhi/">
+                <a href="/2021/06/14/shen-du-xue-xi-bi-ji-si/">
                     <div class="card-image">
                         
                         
-                        <img src="http://dingdm.online/19.jpg" class="responsive-img" alt="一次steam个人资料动态设置">
+                        <img src="http://dingdm.online/16.jpg" class="responsive-img" alt="深度学习笔记四">
                         
-                        <span class="card-title">一次steam个人资料动态设置</span>
+                        <span class="card-title">深度学习笔记四</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            首先放上预览图
-https://steamcommunity.com/profiles/76561198366411843
-资料背景设置
-需要steam等级到达十级，拥有自己的艺术展柜。
-首先需要在steam的社区-市场购买自己想要的个人资
+                            深度学习笔记四
+Deep Learning
+深度学习的network
+
+神经元的权重和偏差可以视为矩阵运算。即得到激活函数(activation function)。将激活函数进行sigmoid得到最终结果。将上方的网络用该种形式进行计算即
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-30
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-14
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%B8%B8%E6%88%8F/" class="post-category">
-                                    游戏
-                                </a>
-                            
-                            <a href="/categories/%E6%B8%B8%E6%88%8F/%E7%BE%8E%E5%8C%96/" class="post-category">
-                                    美化
+                            <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    深度学习
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/steam/">
-                        <span class="chip bg-color">steam</span>
-                    </a>
-                    
-                    <a href="/tags/ps/">
-                        <span class="chip bg-color">ps</span>
+                    <a href="/tags/%E7%A5%9E%E7%BB%8F%E5%85%83%E7%BD%91%E7%BB%9C/">
+                        <span class="chip bg-color">神经元网络</span>
                     </a>
                     
                 </div>
@@ -1126,38 +1014,35 @@ https://steamcommunity.com/profiles/76561198366411843
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/07/28/springboot-de-qi-dong-liu-cheng/">
+                <a href="/2021/06/03/mo-ni-qi-hou-tai-gua-ji-shua-tu-xiao-ti-shi/">
                     <div class="card-image">
                         
                         
-                        <img src="http://dingdm.online/0.jpg" class="responsive-img" alt="springboot的启动流程">
+                        <img src="http://dingdm.online/18.jpg" class="responsive-img" alt="模拟器后台挂机刷图小提示">
                         
-                        <span class="card-title">springboot的启动流程</span>
+                        <span class="card-title">模拟器后台挂机刷图小提示</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            spring boot的启动流程图
-
-springboot的流程启动主要为三个部分
-
-SpringApplication的初始化，配置基础的环境变量，构造器，监听器等。
-流程启动，主要为启动流程的监听，加载配置环境，创建上下文
-自动化配置
-
+                            模拟器后台挂机刷图小提示
+使用Spy++获取后台窗口类和标题名称，根据句柄信息对窗口进行截图。
+    # 获取后台窗口的句柄，注意后台窗口不能最小化
+    hWnd = win32gui.FindWindow(cls,name)
+   
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-28
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-03
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category">
-                                    后端
+                            <a href="/categories/%E8%84%9A%E6%9C%AC/" class="post-category">
+                                    脚本
                                 </a>
                             
                             
@@ -1167,12 +1052,8 @@ SpringApplication的初始化，配置基础的环境变量，构造器，监听
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/springboot/">
-                        <span class="chip bg-color">springboot</span>
-                    </a>
-                    
-                    <a href="/tags/tomcat/">
-                        <span class="chip bg-color">tomcat</span>
+                    <a href="/tags/python/">
+                        <span class="chip bg-color">python</span>
                     </a>
                     
                 </div>
