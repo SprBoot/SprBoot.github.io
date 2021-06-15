@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="hexo插件及优化, dingdm">
+    <meta name="keywords" content="论文阅读一, dingdm">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>hexo插件及优化 | dingdm</title>
+    <title>论文阅读一 | dingdm</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -323,12 +323,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('http://dingdm.online/8.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('http://dingdm.online/3.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">hexo插件及优化</h1>
+                    <h1 class="description center-align post-title">论文阅读一</h1>
                 </div>
             </div>
         </div>
@@ -445,16 +445,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/nginx/">
-                                <span class="chip bg-color">nginx</span>
-                            </a>
-                        
-                            <a href="/tags/git/">
-                                <span class="chip bg-color">git</span>
-                            </a>
-                        
-                            <a href="/tags/hexo/">
-                                <span class="chip bg-color">hexo</span>
+                            <a href="/tags/%E5%81%8F%E6%A0%87%E8%AE%B0%E5%AD%A6%E4%B9%A0/">
+                                <span class="chip bg-color">偏标记学习</span>
                             </a>
                         
                     </div>
@@ -465,12 +457,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E8%BF%90%E7%BB%B4/" class="post-category">
-                                运维
-                            </a>
-                        
-                            <a href="/categories/%E8%BF%90%E7%BB%B4/%E7%BE%8E%E5%8C%96/" class="post-category">
-                                美化
+                            <a href="/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" class="post-category">
+                                论文阅读
                             </a>
                         
                     </div>
@@ -482,7 +470,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-07-31
+                    2021-06-14
                 </div>
                 
 
@@ -491,14 +479,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.4k
+                    2.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    10 分
+                    7 分
                 </div>
                 
 
@@ -513,235 +501,45 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="hexo常用插件及优化">hexo常用插件及优化</h3>
-<p>这里使用的主题为matery，闪烁之狐，matery主题的<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank" rel="noopener">github</a>仓库，作者提供的文档里已经给出了像代码高亮，拼音转换等插件，所以本文介绍的是除了作者提供的之外的其他简约插件。</p>
-<h4 id="matery使用需知">matery使用需知</h4>
-<h5 id="背景粒子和彩带设置">背景粒子和彩带设置</h5>
-<p>matery的主题提供了这几项功能，但是默认是没有开启的，因此使用该主题需要手动开启，在themes/hexo-theme-matery目录下的_config.yml配置文件中修改以下几项。</p>
-<pre class=" language-language-yml"><code class="language-language-yml">#背景canvas-nest
-canvas_nest:
-  enable: true
-  color: 0,0,255 # 线条颜色, 默认: '0,0,0' ；三个数字分别为(R,G,B)，注意用,分$
-  pointColor: 0,0,255 # 交点颜色, 默认: '0,0,0' ；三个数字分别为(R,G,B)，注意$
-  opacity: 0.7 # 线条透明度（0~1）, 默认: 0.5
-  zIndex: -1 # 背景的 z-index 属性，css 属性用于控制所在层的位置, 默认: -1.
-  count: 99 # 线条的总数量, 默认: 99
-  
-# 背景静止彩带.
-ribbon:
-  enable: true
-  size: 150 # 彩带大小, 默认: 90.
-  alpha: 0.6 # 彩带透明度 (0 ~ 1), 默认: 0.6.
-  zIndex: -1 # 背景的z-index属性，css属性用于控制所在层的位置, 默认: -1.
-  clickChange: false  # 设置是否每次点击都更换彩带.
-
-# 背景动态彩带.
-ribbon_dynamic:
-  enable: true
-</code></pre>
-<p>enable选项设置为true即可。</p>
-<p>因为我这里的hexo博客是放在我的阿里云服务器上的，因此如果要修改内容我推荐smartty软件进行远程并修改文件相对方便。</p>
-<h5 id="导航栏以及底部的配色修改">导航栏以及底部的配色修改</h5>
-<p>matery的自带的导航栏鲜艳的配色有点问题，所以这里可以自己修改一下。</p>
-<p>在主题下source下的css目录下，修改matery.css。分别修改第268和280行。</p>
-<pre class=" language-language-css"><code class="language-language-css">.bg-color {
-    background-image: linear-gradient(to right, #4cbf30 0%, #0f9d58 100%);
-}
-
-.progress-bar {
-    height: 4px;
-    position: fixed;
-    bottom: 0;
-    z-index: 300;
-    background: linear-gradient(to right, #4cbf30 0%, #0f9d58 100%);
-    opacity: 0.8;
-}
-</code></pre>
-<p>我这里修改为#4cbf30 0%, #0f9d58 100%</p>
-<p><img src="http://dingdm.online/%E6%B8%90%E5%8F%98.png" alt=""></p>
-<p>你也可以修改为自己看着好看的颜色，我这里放上几个配色的网站，可以由自己选择。</p>
-<p><a href="https://coolors.co/" target="_blank" rel="noopener">https://coolors.co/</a></p>
-<p><a href="http://www.materialpalette.com/" target="_blank" rel="noopener">http://www.materialpalette.com/</a></p>
-<h5 id="轮播图和笔记展示图">轮播图和笔记展示图</h5>
-<p>如果你在写笔记的时候不想自己上传封面的话而使用默认的图片的话，这里可以对封面的图片进行重新上传，选择好看的即可。</p>
-<p>分别替换掉主题下source下medias中的banner和featureimages这两个文件夹下的图片即可。</p>
-<p>同时如果想要增加featureimages下的图片，还需同步更改主题下_config.yml配置文件里的featureImages模块</p>
-<pre class=" language-language-yml"><code class="language-language-yml"># The post featured images that needs to be displayed when there is no image.
-# 无文章特色图片时需要显示的文章特色图片.
-featureImages:
-- /medias/featureimages/0.jpg
-- /medias/featureimages/1.jpg
-- /medias/featureimages/2.jpg
-- /medias/featureimages/3.jpg
-- /medias/featureimages/4.jpg
-- /medias/featureimages/5.jpg
-- /medias/featureimages/6.jpg
-- /medias/featureimages/7.jpg
-- /medias/featureimages/8.jpg
-- /medias/featureimages/9.jpg
-- /medias/featureimages/10.jpg
-- /medias/featureimages/11.jpg
-- /medias/featureimages/12.jpg
-- /medias/featureimages/13.jpg
-- /medias/featureimages/14.jpg
-- /medias/featureimages/15.jpg
-- /medias/featureimages/16.jpg
-- /medias/featureimages/17.jpg
-- /medias/featureimages/18.jpg
-- /medias/featureimages/19.jpg
-- /medias/featureimages/20.jpg
-- /medias/featureimages/21.jpg
-- /medias/featureimages/22.jpg
-- /medias/featureimages/23.jpg
-
-</code></pre>
-<p>同样，这里提供几个图片网站。替换图片时，图片的分辨率无需修改。</p>
-<p><a href="https://wallhaven.cc/(%E8%B6%85%E6%A3%92)" target="_blank" rel="noopener">https://wallhaven.cc/(超棒)</a></p>
-<p><a href="https://konachan.net/post" target="_blank" rel="noopener">https://konachan.net/post</a></p>
-<h3 id="看板娘插件">看板娘插件</h3>
-<p>注：如果你使用了matery的卜算子来统计数据的话，官方的helper-live的看板娘插件会使卜算子失效，同时官方提供的插件功能也较少，我这里推荐使用<a href="https://github.com/stevenjoezhang/live2d-widget" target="_blank" rel="noopener">该插件</a>。</p>
-<p>如果是新手可以直接使用作者提供的js即可。</p>
-<p><a href="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js" target="_blank" rel="noopener">https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js</a></p>
-<p>如果使用这个插件，会覆盖原matery主题的吸底模式的音乐播放插件。这里提供两种方式解决。</p>
-<h4 id="fork新的仓库">fork新的仓库</h4>
-<p>通过fork作者新的仓库，修改对应的css和js文件，这里在作者的github仓库下有对应的介绍，因此不再赘述。</p>
-<p><img src="http://dingdm.online/fork.png" alt=""></p>
-<p>修改适合自己的css和js文件后，发布新的版本，使用github的cdn加速获取js即可。</p>
-<p>src=“<a href="https://cdn.jsdelivr.net/gh/username/live2d-widget@latest/autoload.js" target="_blank" rel="noopener">https://cdn.jsdelivr.net/gh/username/live2d-widget@latest/autoload.js</a>”</p>
-<p>将这里的用户名替换自己的即可。若直接访问js文件访问失败403的话，因为缓存的原因可能不能显示，但是在自己的博客使用没有问题。</p>
-<h4 id="修改吸底模式的音乐插件。">修改吸底模式的音乐插件。</h4>
-<p>因为修改看板娘的文件之后还要修改回到顶端插件，如果你设置了在线聊天也要修改。如果你这里不想麻烦的话，直接将音乐插件的吸底模式取消即可。</p>
-<p>在主题下的_config.yml配置文件中，修改music模块。将吸底模式关闭即可。</p>
-<pre class=" language-language-yml"><code class="language-language-yml"># Whether to display the musics.
-# 是否在首页显示音乐.
-music:
-  enable: true
-  title: #非吸底模式有效
-    enable: true
-    show: 听听音乐
-  autoHide: true    # hide automaticaly
-  server: netease   #require	music platform: netease, tencent, kugou, xiami, baidu
-  type: playlist    #require song, playlist, album, search, artist
-  id: 503838841     #require	song id / playlist id / album id / search keyword
-  fixed: false       # 开启吸底模式
-  autoplay: false   # 是否自动播放
-  theme: '#42b983'
-  loop: 'all'       # 音频循环播放, 可选值: 'all', 'one', 'none'
-  order: 'random'   # 音频循环顺序, 可选值: 'list', 'random'
-  preload: 'auto'   # 预加载，可选值: 'none', 'metadata', 'auto'
-  volume: 0.7       # 默认音量，请注意播放器会记忆用户设置，用户手动设置音量后默认音量即失效
-  listFolded: true  # 列表默认折叠
-  hideLrc: true     # 隐藏歌词
-</code></pre>
-<h3 id="小地球插件">小地球插件</h3>
-<p>小地球插件的地址<br>
-<a href="https://www.revolvermaps.com/?target=setupgl">https://www.revolvermaps.com/?target=setupgl</a></p>
-<p><img src="http://dingdm.online/%E5%B0%8F%E5%9C%B0%E7%90%83.png" alt=""></p>
-<p>复制上面的srcipt标签放在自己的博客中合适的位置即可。</p>
-<h3 id="天气插件">天气插件</h3>
-<p>生成js地址</p>
-<p><a href="https://cj.weather.com.cn/plugin/index" target="_blank" rel="noopener">https://cj.weather.com.cn/plugin/index</a></p>
-<p>根据自己的需求选择对应的插件即可，我这里选择的是简约插件，UI比较漂亮</p>
-<p><img src="http://dingdm.online/%E6%A0%B9%E6%8D%AE%E8%87%AA%E5%B7%B1%E9%80%89%E6%8B%A9%E5%AF%B9%E5%BA%94%E6%A8%A1%E5%9D%97.png" alt=""></p>
-<p>选择对应的选项，在下方生成对应的js文件即可。</p>
-<p><img src="http://dingdm.online/%E7%94%9F%E6%88%90js.png" alt=""></p>
-<p>复制你的js文件放到你的主题下的相应的文件里即可，这里不对主题的文件进行介绍了，有一些vue基础就可以看懂了。</p>
-<h3 id="阿里云部署博客">阿里云部署博客</h3>
-<p>如果使用github来部署的话访问较慢，所以我这里推荐阿里云服务器部署，学生机10块钱一个月很便宜。如果是上班族的话，找个亲戚或朋友家的大学生不是计算机专业的认证一下就好。</p>
-<h4 id="安装node-以ubuntu16-04为例">安装node(以ubuntu16.04为例)</h4>
-<p>更新一下服务器的源</p>
-<pre><code>apt-get update
-apt-get install -y python-software-properties software-properties-common
-add-apt-repository ppa:chris-lea/node.js
-apt-get update
-</code></pre>
-<p>node安装</p>
-<pre><code>apt-get install nodejs
-apt install nodejs-legacy
-apt install npm
-</code></pre>
-<p>将npm的源设置为淘宝源，下载加速。</p>
-<pre><code>npm config set registry https://registry.npm.taobao.org
-npm config list
-</code></pre>
-<p>安装版本管理器</p>
-<pre><code>npm install n -g
-</code></pre>
-<h4 id="安装git">安装git</h4>
-<pre><code>apt-get install git
-</code></pre>
-<p>配置用户名和邮箱</p>
-<pre><code>git config --global user.name "你的用户名"
-git config --global user.email "你的注册邮箱"
-</code></pre>
-<h4 id="安装nginx">安装nginx</h4>
-<pre><code>apt-get install nginx
-</code></pre>
-<p>安装完nginx后，这里以ubuntu16.04为例，nginx的目录为/ect/nginx。我们修改配置文件只需要修改sites-available下的default即可。我这里在之前学习的时候都是不一样的路径，所以我这里以ubuntu为例。</p>
-<pre><code>server {
-        listen 80 default_server;
-        listen [::]:80 default_server;
-        listen 443 ssl;
-        ssl off;
-        ssl_certificate cert/4287626_www.dingdm.club.pem;
-        ssl_certificate_key cert/4287626_www.dingdm.club.key;
-        ssl_session_timeout 5m;
-        #ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aN$
-        ssl_ciphers ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA:ECDHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA256:DHE-RSA-AES256-SHA:ECDHE-ECDSA-DES-CBC3-SHA:ECDHE-RSA-DES-CBC3-SHA:EDH-RSA-DES-CBC3-SHA:AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-SHA256:AES256-SHA256:AES128-SHA:AES256-SHA:DES-CBC3-SHA:!DSS;
-        ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
-        ssl_prefer_server_ciphers on;
-
-        root /home/www/hexo;
-
-        server_name dingdm.club;
-}
-</code></pre>
-<p>server_name为你的域名，root为你的静态网站所在的路径，可以自己创建，<strong>注意这里的路径不是你的hexo博客的路径，如果你在服务器上创建博客的话</strong>。</p>
-<p>ssl的配置为开启https的配置，这里先不赘述，不需要的话可以将ssl相关的配置注释掉即可。</p>
-<h4 id="初始化git仓库">初始化git仓库</h4>
-<p>添加git用户，使用root账户也可以。</p>
-<pre><code>adduser git
-</code></pre>
-<p>修改文件内容赋予权限</p>
-<pre><code>chmod 740 /etc/sudoers
-nano /etc/sudoers
-</code></pre>
-<p>找到root用户那，在下方添加一条</p>
-<pre><code>git ALL=(ALL) ALL
-</code></pre>
-<p>将文件权限恢复</p>
-<pre><code>chmod 400 /etc/sudoers
-</code></pre>
-<p>切换到git用户，并创建ssh文件夹</p>
-<pre><code>su git
-cd ~
-mkdir .ssh
-cd .ssh
-</code></pre>
-<p>生成密钥公钥并配置</p>
-<pre><code>ssh-keygen
-cp id_rsa.pub authorized_keys
-chmod 600 ~/.ssh/authorized_keys
-chmod 700 ~/.ssh
-</code></pre>
-<p>配置完成之后可以使用<code>ssh -v git@ip</code>连接测试</p>
-<p>新建仓库并设置钩子脚本</p>
-<pre><code>cd ~
-git init --bare blog.git
-nano ~/blog.git/hooks/post-receive
-</code></pre>
-<p>输入以下内容</p>
-<pre><code>git --work-tree=/home/www/hexo --git-dir=/home/git/blog.git checkout -f
-</code></pre>
-<p>/home/www/hexo为你刚刚在nginx的配置文件里的root路径，/home/git/blog.git为你的仓库地址</p>
-<h4 id="hexo部署">hexo部署</h4>
-<p>在你的hexo博客下的_config.yml配置文件中修改deploy模块</p>
-<pre class=" language-language-yml"><code class="language-language-yml">deploy:
-  type: git
-  repo: git@公网IP:/home/git/blog.git    
-</code></pre>
-<p>修改完成之后运行<code>hexo clean &amp;&amp; hexo deploy</code>部署你的hexo博客即可。</p>
-<p>部署完成之后，使用/etc/init.d/nginx configtest检查一下nginx的配置是否有问题，如果没问题，运行<code>/etc/init.d/nginx restart</code>重启nginx服务即可。</p>
+                <h3 id="Learning-a-Deep-ConvNet-for-Multi-label-Classification-with-Partial-Labels论文阅读">Learning a Deep ConvNet for Multi-label Classification with Partial Labels论文阅读</h3>
+<h4 id="知识储备">知识储备</h4>
+<h5 id="Partial-Multi-Label-Learning">Partial Multi-Label Learning</h5>
+<p>在多分类标记中，存在一种情况即在对图片中的物体进行标记时会出现难以标记的情况，图片中较明显的事物可以很容易的标记，而对于较为模糊的事物在标记者知识不足的情况下可能无法进行标记，或者当前图片中的事物过于抽象而无法确定所属。被称为偏标记学习。</p>
+<p>在不确定的情况下，可以选择不标注、或者随机标注。但是不标注意味着我们丢失了所有信息，随机标注意味着可能带来噪声，对学习的影响更大。所以PML选择的是让标注者提供所有可能的标签，当然加了一个较强的假设：所有的标签都应该被包含在候选标签集中。</p>
+<h5 id="Curriculum-Learning">Curriculum Learning</h5>
+<p><strong>主张让模型先从容易的样本开始学习，并逐渐进阶到复杂的样本和知识。</strong></p>
+<p>在以后的学习中进一步深入学习，目前仅限于了解即可。</p>
+<h5 id="crowdsourcing">crowdsourcing</h5>
+<p>互联网带来的新的生产组织形式。连线(Wired)杂志2006年发明的一个专业术语，用来描述一种新的商业模式，即企业利用互联网来将工作分配出去、发现创意或解决技术问题。通过互联网控制，这些组织可以利用志愿员工大军的创意和能力——这些志愿员工具备完成任务的技能，愿意利用业余时间工作，满足于对其服务收取小额报酬，或者暂时并无报酬，仅仅满足于未来获得更多报酬的前景。尤其对于软件业和服务业，这提供了一种组织劳动力的全新方式</p>
+<h5 id="归一化">归一化</h5>
+<p>归一化方法有两种形式，一种是把数变为（0，1）之间的<a href="https://baike.baidu.com/item/%E5%B0%8F%E6%95%B0/2172615" target="_blank" rel="noopener">小数</a>，一种是把有量纲表达式变为无量纲表达式。主要是为了<a href="https://baike.baidu.com/item/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/944504" target="_blank" rel="noopener">数据处理</a>方便提出来的，把数据<a href="https://baike.baidu.com/item/%E6%98%A0%E5%B0%84/20402621" target="_blank" rel="noopener">映射</a>到0～1范围之内处理，更加<a href="https://baike.baidu.com/item/%E4%BE%BF%E6%8D%B7/2966338" target="_blank" rel="noopener">便捷</a>快速</p>
+<h5 id="GNN">GNN</h5>
+<p>图神经网络是一种直接作用于图结构上的神经网络。GNN的一个典型应用是节点分类,本质上，图中的每个节点都与一个标签相关联，我们希望预测未标记节点的标签。</p>
+<p>在节点分类问题中，每个节点v都可以用其特征x_v表示并且与已标记的标签t_v相关联。给定部分标记的图G，目标是利用这些标记的节点来预测未标记的节点标签。它通过学习得到每个节点的d维向量（状态）表示为h_v，同时包含其相邻节点的信息。</p>
+<p><img src="http://dingdm.online/GNN.png" alt=""></p>
+<h4 id="论文的研究步骤或过程情况">论文的研究步骤或过程情况</h4>
+<p>目前imageNet的单标签注释忽略了图像固有的多标签性质，所以导致目前的较为先进的分类器在imageNet上的表现不佳。而MS COCO和Open Images提供复杂的图片可以满足作者的需求，因此作者选择了这两个数据集。</p>
+<p>在收集多标签注释上的难度是要大于单标签注释的，因此作者选择使用偏标记学习，通过众包平台收集偏标记标签是比较容易和扩展的。作者选择了两种策略来提升图片分类的表现，设计更好的模型架构和通过大量的标签数据进行学习。在收集多标签注释时由于难度大，因此作者使用了网络监督的方式自动生成标签，而这种方式生成的标签由于噪音和不详细的影响，会导致比较差的分类表现。因此需要对噪音进行学习。</p>
+<p>在当前已存的方法对于大规模的数据集上不可扩展且无法微调卷机神经网络的情况下，论文提出了一种新的loss函数和方法来修补缺失的标签。第一步作者发现通过给定一个固定的标签预算，实验表明，部分注释所有图像比完全注释一个小子集要好。第二步论文中引入了一个损失函数，它通过利用标签比例信息来概括标准二元交叉熵损失。这个损失函数可以自动适应每张图片中已知标签的比例，并且在学习所有的标签时可以使用同样的训练设置。第三步则是预测丢失的标签，由于卷机神经网络对噪音非常敏感，所以模型的预测准确性较好，作者使用了一种基于GNNS的方法来明确模型在不同类别中的相关性。</p>
+<p>作者说明了几种方法来进行丢失标签的学习，首先是在网络监督学习中广泛运用的比较简单的方法，将丢失的标签作为负面标签，这种方法的标准假设是查询的类别存在图像中而其他类别不存在，由于在初始化时许多正面标签被标记为负面标签导致这种方法的表现较差。第二种方法是使用二元关联，把每一个标签作为一个独立的二元分类器，但是这种方法当分类的数量增加时是不易扩展的，而且它忽视了标签和实例之间的相关性。第三种则是利用训练数据中标签的相关性将已提供标签信息转移到缺失的标签中，使用矩阵补全算法来填充缺失的标签，这种方法利用了标签和实例之间的相关性对标签矩阵进行低秩正则化来完成实例标签矩阵。引入了低秩经验风险最小化，使用了混合图来对标签依赖网络进行编码，学习分类之间的相关性来预测丢失的标签。</p>
+<p>这几种方法都是不适用于深度卷机网络的，它们需要内村中的训练集来解决优化问题，所以不可能使用一种小批量策略来微调模型，而微调对于转移先前的预测训练架构又是至关重要的且一些方法是不可扩展的，因为他们需要解决大规模数据集难以处理的凸二次优化问题。因此作者提出了自己的模型来解决该问题。</p>
+<h4 id="算法内容">算法内容</h4>
+<h5 id="符号说明">符号说明</h5>
+<p>C：分类的数量	N：训练样本的数量</p>
+<p><img src="http://dingdm.online/D.png" alt=""></p>
+<p>I (i)为第i张图片，y (i) = [y (i) 1 , . . . , y (i) C ] 为第i张图片的C个分类</p>
+<p>y (i) c = 1 (resp. −1 and 0) 1为确定，-1为丢失，0为未知</p>
+<p>[y (1); . . . ; y (N) ] 为训练集的标签矩阵</p>
+<p>fw为权重，x (i) = [x (i) 1 , . . . , x (i) C ] = fw(I (i) )为未sigmoid之前的第i张图片的输出</p>
+<h5 id="Binary-cross-entropy-for-partial-labels">Binary cross-entropy for partial labels</h5>
+<p>为了与类别数量无关，BCE 损失由类别数量归一化，导致了反向传播的梯度较小，通过对已知标签比例的标准化，作者提出了一种部分BCE损失。</p>
+<p><img src="http://dingdm.online/parBCE.png" alt=""></p>
+<p>py ∈ [0, 1]是y中已知标签的比例，实例独立于已知标签数量，当图像标签的比例不固定时比较有用。</p>
+<p>正规化函数g设计</p>
+<p>通过标签比例标准化部分BCE的Loss函数，当全部标签显示时，为了使部分BCE和BCE的变现相同，作者提出了g函数</p>
+<p><img src="http://dingdm.online/G.png" alt=""></p>
+<p>通过给定 γ 值和给定比例的权重，可以找到对应的α 和β满足约束。γ 控制关于标签比例的归一化行为，对应的每个参数说明在后文。</p>
+<h4 id="后续的阅读和编码在系统性学习玩GNN后进行。">后续的阅读和编码在系统性学习玩GNN后进行。</h4>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -785,7 +583,7 @@ nano ~/blog.git/hooks/post-receive
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://dingdm.club/2020/07/31/hexo-cha-jian-tui-jian/">https://dingdm.club/2020/07/31/hexo-cha-jian-tui-jian/</a>
+                    <a href="https://dingdm.club/2021/06/14/lun-wen-yue-du-yi/">https://dingdm.club/2021/06/14/lun-wen-yue-du-yi/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -823,16 +621,8 @@ nano ~/blog.git/hooks/post-receive
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/nginx/">
-                                    <span class="chip bg-color">nginx</span>
-                                </a>
-                            
-                                <a href="/tags/git/">
-                                    <span class="chip bg-color">git</span>
-                                </a>
-                            
-                                <a href="/tags/hexo/">
-                                    <span class="chip bg-color">hexo</span>
+                                <a href="/tags/%E5%81%8F%E6%A0%87%E8%AE%B0%E5%AD%A6%E4%B9%A0/">
+                                    <span class="chip bg-color">偏标记学习</span>
                                 </a>
                             
                         </div>
@@ -1137,52 +927,51 @@ nano ~/blog.git/hooks/post-receive
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/08/01/hong-hei-shu/">
+                <a href="/2021/06/14/lun-wen-yue-du-yi/">
                     <div class="card-image">
                         
                         
-                        <img src="http://dingdm.online/2.jpg" class="responsive-img" alt="红黑树">
+                        <img src="http://dingdm.online/3.jpg" class="responsive-img" alt="论文阅读一">
                         
-                        <span class="card-title">红黑树</span>
+                        <span class="card-title">论文阅读一</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            为什么要使用红黑树
-当冲突的链表长度超过8个时，链表结构就会转为红黑树结构，这样做的好处是避免在极端条件的情况下冲突链表过长而导致查询效率非常慢
-红黑树是一种近似平衡的二叉查找树，其主要的优点就是平衡，即左右子树高度几乎一致，以此来防止树退
+                            Learning a Deep ConvNet for Multi-label Classification with Partial Labels论文阅读
+知识储备
+Partial Multi-Label Learning
+在多分类标记中
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-08-01
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-14
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                    算法
+                            <a href="/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" class="post-category">
+                                    论文阅读
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/HashMap/">
-                        <span class="chip bg-color">HashMap</span>
-                    </a>
-                    
-                    <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/">
-                        <span class="chip bg-color">二叉树</span>
+                    <a href="/tags/%E5%81%8F%E6%A0%87%E8%AE%B0%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">偏标记学习</span>
                     </a>
                     
                 </div>
@@ -1196,39 +985,35 @@ nano ~/blog.git/hooks/post-receive
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/07/30/yi-ci-steam-ge-ren-zi-liao-dong-tai-she-zhi/">
+                <a href="/2021/06/14/shen-du-xue-xi-bi-ji-si/">
                     <div class="card-image">
                         
                         
-                        <img src="http://dingdm.online/19.jpg" class="responsive-img" alt="一次steam个人资料动态设置">
+                        <img src="http://dingdm.online/16.jpg" class="responsive-img" alt="深度学习笔记四">
                         
-                        <span class="card-title">一次steam个人资料动态设置</span>
+                        <span class="card-title">深度学习笔记四</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            首先放上预览图
-https://steamcommunity.com/profiles/76561198366411843
-资料背景设置
-需要steam等级到达十级，拥有自己的艺术展柜。
-首先需要在steam的社区-市场购买自己想要的个人资
+                            深度学习笔记四
+Deep Learning
+深度学习的network
+
+神经元的权重和偏差可以视为矩阵运算。即得到激活函数(activation function)。将激活函数进行sigmoid得到最终结果。将上方的网络用该种形式进行计算即
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-30
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-14
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%B8%B8%E6%88%8F/" class="post-category">
-                                    游戏
-                                </a>
-                            
-                            <a href="/categories/%E6%B8%B8%E6%88%8F/%E7%BE%8E%E5%8C%96/" class="post-category">
-                                    美化
+                            <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    深度学习
                                 </a>
                             
                             
@@ -1238,12 +1023,8 @@ https://steamcommunity.com/profiles/76561198366411843
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/steam/">
-                        <span class="chip bg-color">steam</span>
-                    </a>
-                    
-                    <a href="/tags/ps/">
-                        <span class="chip bg-color">ps</span>
+                    <a href="/tags/%E7%A5%9E%E7%BB%8F%E5%85%83%E7%BD%91%E7%BB%9C/">
+                        <span class="chip bg-color">神经元网络</span>
                     </a>
                     
                 </div>
