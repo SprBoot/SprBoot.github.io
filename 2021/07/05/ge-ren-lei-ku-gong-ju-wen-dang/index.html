@@ -470,7 +470,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-03-31
+                    2021-07-05
                 </div>
                 
 
@@ -479,14 +479,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.6k
+                    1.8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    6 分
+                    7 分
                 </div>
                 
 
@@ -502,7 +502,7 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h3 id="个人类库工具文档-持续更新">个人类库工具文档(持续更新)</h3>
-<h4 id="文件操作类">文件操作类</h4>
+<h4 id="文件操作类-FileUtils">文件操作类(FileUtils)</h4>
 <table>
 <thead>
 <tr>
@@ -549,7 +549,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="日期操作类">日期操作类</h4>
+<h4 id="日期操作类-DateUtils">日期操作类(DateUtils)</h4>
 <table>
 <thead>
 <tr>
@@ -716,7 +716,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="Word导出类">Word导出类</h4>
+<h4 id="Word导出类-WordUtils">Word导出类(WordUtils)</h4>
 <table>
 <thead>
 <tr>
@@ -771,7 +771,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="Spring容器类">Spring容器类</h4>
+<h4 id="Spring容器类-SpringContextUtils">Spring容器类(SpringContextUtils)</h4>
 <table>
 <thead>
 <tr>
@@ -834,7 +834,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="Excel工具类">Excel工具类</h4>
+<h4 id="Excel工具类-ExcelUtils">Excel工具类(ExcelUtils)</h4>
 <table>
 <thead>
 <tr>
@@ -889,7 +889,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="个人邮件类">个人邮件类</h4>
+<h4 id="个人邮件类-MailUtils">个人邮件类(MailUtils)</h4>
 <table>
 <thead>
 <tr>
@@ -983,7 +983,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="Ip工具类">Ip工具类</h4>
+<h4 id="Ip工具类-IpUtils">Ip工具类(IpUtils)</h4>
 <table>
 <thead>
 <tr>
@@ -1006,7 +1006,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="加密工具类">加密工具类</h4>
+<h4 id="加密工具类-MD5Utils">加密工具类(MD5Utils)</h4>
 <table>
 <thead>
 <tr>
@@ -1029,7 +1029,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="类型转换工具类">类型转换工具类</h4>
+<h4 id="类型转换工具类-TransformUtils-XmlUtils">类型转换工具类(TransformUtils,XmlUtils)</h4>
 <table>
 <thead>
 <tr>
@@ -1060,7 +1060,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="支付工具类">支付工具类</h4>
+<h4 id="支付工具类-AliPayUtils-WxPayUtils">支付工具类(AliPayUtils,WxPayUtils)</h4>
 <p>创建代理对象</p>
 <table>
 <thead>
@@ -1336,8 +1336,70 @@
 </tr>
 </tbody>
 </table>
+<h4 id="七牛云文件上传工具类-QiniuUtils">七牛云文件上传工具类(QiniuUtils)</h4>
+<table>
+<thead>
+<tr>
+<th>方法名称</th>
+<th>方法注释</th>
+<th>传入参数</th>
+<th>参数注释</th>
+<th>返回结果</th>
+<th>结果注释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>QiniuUtils.uploadQiniu()</td>
+<td>上传文件到七牛云</td>
+<td>MultipartFile</td>
+<td>@RequestParam(“file”)：文件</td>
+<td>String</td>
+<td>返回的七牛云链接</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>Map&lt;String,String&gt;</td>
+<td>key说明：QiniuAccessKey：公钥，QiniuSecretKey：私钥，QiniuBucketName：空间名，QiniuDomain：域名，QiniuPrefix：文件分组辨识前缀</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="阿里云短信发送工具类-SmsUtils">阿里云短信发送工具类(SmsUtils)</h4>
+<table>
+<thead>
+<tr>
+<th>方法名称</th>
+<th>方法注释</th>
+<th>传入参数</th>
+<th>参数注释</th>
+<th>返回结果</th>
+<th>结果注释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SmsUtils.sendSms()</td>
+<td>阿里云发送短信</td>
+<td>Map&lt;String,String&gt;</td>
+<td>阿里云短信配置map。key说明：time：超时时间，accessKeyId，accessKeySecret：短信个人配置信息，sign：短信签名</td>
+<td>int</td>
+<td>1为成功，0为失败</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>Map&lt;String,String&gt;</td>
+<td>阿里云短信个人信息map。key说明：mobile：接收手机号，template：短信模板，json：变量替换JSON串,如模板内容为"亲爱的用户,您的验证码为${code}“时,此处的json值为”{“code”:"" + code + “”}"，outId：提供给业务方扩展字段,最终在短信回执消息中将此值带回给调用者</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <h3 id="类库文件">类库文件</h3>
-<p><a href="http://dingdm.online/dingdm-1.0-SNAPSHOT.jar" target="_blank" rel="noopener">http://dingdm.online/dingdm-1.0-SNAPSHOT.jar</a></p>
+<p><a href="http://dingdm.online/dingdm-1.0.jar" target="_blank" rel="noopener">http://dingdm.online/dingdm-1.0.jar</a></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -1381,7 +1443,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://dingdm.club/2021/03/31/ge-ren-lei-ku-gong-ju-wen-dang/">https://dingdm.club/2021/03/31/ge-ren-lei-ku-gong-ju-wen-dang/</a>
+                    <a href="https://dingdm.club/2021/07/05/ge-ren-lei-ku-gong-ju-wen-dang/">https://dingdm.club/2021/07/05/ge-ren-lei-ku-gong-ju-wen-dang/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1725,39 +1787,48 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/04/14/python-xue-xi-bi-ji-er/">
+                <a href="/2021/07/05/ge-ren-lei-ku-gong-ju-wen-dang/">
                     <div class="card-image">
                         
                         
-                        <img src="http://dingdm.online/6.jpg" class="responsive-img" alt="python学习笔记二">
+                        <img src="http://dingdm.online/23.jpg" class="responsive-img" alt="个人类库工具文档(持续更新)">
                         
-                        <span class="card-title">python学习笔记二</span>
+                        <span class="card-title">个人类库工具文档(持续更新)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            python学习笔记二
-循环结构
-语法：
-while a &gt; 0:
-print(a)
-for a in list:
-print(a)
-对于for in循环，不需要使用到自定义变量，可将自定义变量写为_
-列表
-语法：
-list = [“
+                            个人类库工具文档(持续更新)
+文件操作类(FileUtils)
+
+
+
+方法名称
+方法注释
+传入参数
+参数注释
+返回结果
+结果注释
+
+
+
+
+FileUtils.ImgUpload()
+文件上传工具类
+file
+MultipartFile文件类
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-04-14
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-05
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1770,11 +1841,12 @@ list = [“
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/python/">
-                        <span class="chip bg-color">python</span>
+                    <a href="/tags/jar/">
+                        <span class="chip bg-color">jar</span>
                     </a>
                     
                 </div>
@@ -1788,33 +1860,38 @@ list = [“
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/03/30/springboot-xiang-guan-zhi-shi-dian/">
+                <a href="/2021/06/20/jie-fang-shuang-shou-cong-wo-zuo-qi/">
                     <div class="card-image">
                         
                         
-                        <img src="http://dingdm.online/16.jpg" class="responsive-img" alt="Spring boot相关知识点">
+                        <img src="http://dingdm.online/22.jpg" class="responsive-img" alt="解放双手，从我做起">
                         
-                        <span class="card-title">Spring boot相关知识点</span>
+                        <span class="card-title">解放双手，从我做起</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Springboot中如何解决跨域问题？
-在脚本进行http请求的时候要满足同源协议，即url的协议，域名和端口要相同才能才能发起请求。浏览器在脚本发出跨域请求后，会拦截返回的结果，所以需要配置跨域。
-当用户退出或者token过期时，拦截器
+                            解放双手，从我做起
+有爱自取
+明日方舟
+https://github.com/SprBoot/arknight
+import util
+import time
+import random
+total = int(input("请输入当前总体
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-30
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-20
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/" class="post-category">
-                                    面试题
+                            <a href="/categories/Python/" class="post-category">
+                                    Python
                                 </a>
                             
                             
@@ -1824,8 +1901,8 @@ list = [“
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Spring-Boot/">
-                        <span class="chip bg-color">Spring Boot</span>
+                    <a href="/tags/%E8%84%9A%E6%9C%AC/">
+                        <span class="chip bg-color">脚本</span>
                     </a>
                     
                 </div>
@@ -2013,7 +2090,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">71.3k</span>&nbsp;字
+                class="white-color">71.6k</span>&nbsp;字
             
             
             
