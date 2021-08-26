@@ -11,6 +11,18 @@
         <content type="html"><![CDATA[<h3 id="基于云服务器的远程连接搭建">基于云服务器的远程连接搭建</h3><p>本来打算直接路由器的，但是梅林的frpc要虚拟内存，而我手上又没有好的u盘，所以先用最直接的吧。</p><h4 id="域名解析">域名解析</h4><p><img src="http://dingdm.online/yuming.png" alt=""></p><h4 id="服务器端frpc设置">服务器端frpc设置</h4><p>下载自己对应服务器系统的文件，使用filezilla进行上传。我这里的服务器的系统为ubuntu。</p><p><a href="https://github.com/fatedier/frp/releases/download/v0.37.1/frp_0.37.1_linux_amd64.tar.gz" target="_blank" rel="noopener">frp_0.37.1_linux_amd64.tar.gz</a></p><p>解压后修改配置文件frpc.ini中的common部分，设置端口为7000。</p><pre class=" language-language-ini"><code class="language-language-ini">[common]bind_port = 7000</code></pre><p><strong>注意：需要在服务器的安全组中放行7000和3389远程连接端口，使用其他端口则放行其他端口。</strong></p><pre class=" language-language-shell"><code class="language-language-shell">nohup ./frps -c frps.ini &</code></pre><p>后台启动服务器端frpc服务，exit退出ssh即可。</p><h4 id="客户端frpc设置">客户端frpc设置</h4><p><a href="https://github.com/fatedier/frp/releases/download/v0.37.1/frp_0.37.1_windows_386.zip" target="_blank" rel="noopener">frp_0.37.1_windows_386.zip</a></p><p>个人的客户端为windows</p><p>解压后修改配置文件frpc.ini的common部分，并添加远程连接配置信息</p><pre class=" language-language-ini"><code class="language-language-ini">[common]server_addr = 自己的ip地址server_port = 7000 #自己使用的端口号</code></pre><p>添加的配置</p><pre class=" language-language-ini"><code class="language-language-ini">[dinggc] 一个描述符号 自定义type = tcplocal_ip = 127.0.0.1local_port = 3389 #远程控制的端口remote_port = 3389 #自定义端口，用于后期远程控制使用</code></pre><h5 id="使用winsw将客户端frpc注册为服务自启动">使用winsw将客户端frpc注册为服务自启动</h5><p><a href="https://github.com/winsw/winsw/releases/download/v3.0.0-alpha.10/WinSW-x64.exe" target="_blank" rel="noopener">WinSW-x64.exe</a></p><p>创建与exe同名同目录的配置文件xml</p><pre class=" language-language-xml"><code class="language-language-xml"><service><!-- 该服务的唯一标识 -->    <id>frp</id>    <!-- 该服务的名称 -->    <name>frp_0.37.1_windows_386.zip</name>    <!-- 该服务的描述 -->    <description>frpc客户端服务</description>    <!-- 要运行的程序路径 -->    <executable>D:\frpc\frpc.exe</executable>    <!-- 携带的参数 -->    <arguments>-c frpc.ini</arguments>    <!-- 第一次启动失败 60秒重启 -->    <onfailure action="restart" delay="60 sec"/>    <!-- 第二次启动失败 120秒后重启 -->    <onfailure action="restart" delay="120 sec"/>    <!-- 日志模式 -->    <logmode>append</logmode>    <!-- 指定日志文件目录(相对于executable配置的路径) -->    <logpath>logs</logpath></service></code></pre><p>注册服务即可</p><pre class=" language-language-shell"><code class="language-language-shell">winsw.exe install</code></pre><p>通过控制台即可ctrl+f即可搜索frpc服务。</p><h4 id="远程访问">远程访问</h4><p>使用域名+端口的形式即可远程访问自己的电脑。我这垃圾1M的服务器卡死我了。等开学买u盘用路由器内网穿透吧。</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
       
       
+      <categories>
+          
+          <category> 运维 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> frpc </tag>
+            
+        </tags>
       
     </entry>
     
@@ -67,31 +79,6 @@
     
     
     <entry>
-      <title>深度学习笔记四</title>
-      <link href="/2021/06/14/shen-du-xue-xi-bi-ji-si/"/>
-      <url>/2021/06/14/shen-du-xue-xi-bi-ji-si/</url>
-      
-        <content type="html"><![CDATA[<h3 id="深度学习笔记四">深度学习笔记四</h3><h4 id="Deep-Learning">Deep Learning</h4><h5 id="深度学习的network">深度学习的network</h5><p><img src="http://dingdm.online/dee.jpg" alt=""></p><p>神经元的权重和偏差可以视为矩阵运算。即得到激活函数(activation function)。将激活函数进行sigmoid得到最终结果。将上方的网络用该种形式进行计算即为</p><p><img src="http://dingdm.online/dee2.jpg" alt=""></p><p>通过矩阵运行交由GPU加快运算过程。</p><h5 id="神经元网络的选取">神经元网络的选取</h5><p><img src="http://dingdm.online/cry.jpg" alt=""></p><p>通过神经元网络计算得到的输入矩阵和根据图像得到的target矩阵进行交叉熵计算结果，调整参数使得最后计算得到的交叉熵最小以确定最优的神经元网络函数。</p><p>通过不同组的数据进行训练得到所有的交叉熵进行累加，使用gradient descent获取w与b。</p><h5 id="gradient-descent">gradient descent</h5><p><img src="http://dingdm.online/grad.jpg" alt=""></p><h4 id="Backpropagation">Backpropagation</h4><p>帮助计算gradient descent中的参数的偏微分。</p><h5 id="chain-rule">chain rule</h5><p>即复合函数的微分过程。</p><p><img src="http://dingdm.online/we.jpg" alt=""></p><p>C为最后的交叉熵。</p><p>z对于w求偏微分，z对于哪一个w求微分，得到的即为w对应的输入数据。</p><p>C对于z求偏微分。</p><p><img src="http://dingdm.online/Cw.jpg" alt=""></p><p><img src="http://dingdm.online/ch.jpg" alt=""></p><h5 id="Backward-pass">Backward pass</h5><p>以未知的两项作为输入，得出的最终结果为输出。</p><p><img src="http://dingdm.online/fa2.jpg" alt=""></p><p>具体的放大倍率即为对应z的sigmoid的求导。反求通过已知的C即可快速计算。</p><h4 id="Recipe-OF-Deep-Learning">Recipe OF Deep Learning</h4><p>对于得到神经元网络应先应用于训练数据判断是否合适，防止直接运用于测试数据出现的非过拟合现象。</p><h5 id="New-activation-function">New activation function</h5><p>vanishing gradient problem</p><p>靠近输入的神经元gradient参数的更新速度较慢或靠近输入的神经元gradient参数更新较大。</p><p>使用sigmoid时，较大的输入经过sigmoid后会进行衰减，越深的层数对最后的C的结果的影响就越小。</p><h6 id="ReLU">ReLU</h6><p>更改激活函数，当输入小于0时，输出为0，当输入大于0时，输出等于输入。</p><p>当神经元的输出为0时，不会影响整个神经元网络，可以直接去掉。而输入等于输出不会产生递减问题。</p><p><img src="http://dingdm.online/rejy.jpg" alt=""></p><h6 id="maxout">maxout</h6><p>每层神经元的输出为分组中的最大值。</p><p>maxout也可以使用ReLU，即某个参数始终为0，其他参数为线性函数，即选取最大时满足ReLU。</p><p><img src="http://dingdm.online/bax.jpg" alt=""></p><h6 id="Maxout-training">Maxout training</h6><p>选取的最大值为最终的输出值，最终简化神经元网络。</p><h5 id="Adaptive-Learning-Rate">Adaptive Learning Rate</h5><p>使用adagrad</p><p><img src="http://dingdm.online/adagrad.png" alt=""></p><h6 id="RMSProp">RMSProp</h6><p>防止在某个变量变化的过程中出现的变化较小和变化较大同时存在的情况。</p><p><img src="http://dingdm.online/TRB.jpg" alt=""></p><h6 id="Momentum">Momentum</h6><p>利用惯性继续向前移动。</p><p>使用V记录移动距离。</p><p><img src="http://dingdm.online/MVE.jpg" alt=""></p><h6 id="Adam">Adam</h6><p>RMSProp + Momentum</p><p><img src="http://dingdm.online/adam.png" alt=""></p><h5 id="Early-Stopping">Early Stopping</h5><p>在error上升前停住，即一个if判断即可。</p><h5 id="Regularization">Regularization</h5><p><img src="http://dingdm.online/reg.jpg" alt=""></p><h5 id="DropOut">DropOut</h5><p><img src="http://dingdm.online/st1.jpg" alt=""></p><p>在新的神经元网络上进行训练。表现的结果可能变差。</p><p><img src="http://dingdm.online/sy2.jpg" alt=""></p><p>训练时使用所有的神经元，而在测试时需要去掉不合理的神经元。</p><p>训练数据时使用dropout，而测试时不需要dropout，因此对于所有的输入没有dropout，需要使用(1-p)%。</p><p>在训练时对于每组不同的数据会得到较多的神经元网络，而在测试时对于测试数据应用于所有的神经元网络不现实，因此采用了(1-p)%的方式进行计算，而得到的结果与前种方式得到的结果是相似的。</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
-      
-      
-      <categories>
-          
-          <category> 深度学习 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 神经元网络 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>论文阅读一</title>
       <link href="/2021/06/14/lun-wen-yue-du-yi/"/>
       <url>/2021/06/14/lun-wen-yue-du-yi/</url>
@@ -109,6 +96,31 @@
         <tags>
             
             <tag> 偏标记学习 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>深度学习笔记四</title>
+      <link href="/2021/06/14/shen-du-xue-xi-bi-ji-si/"/>
+      <url>/2021/06/14/shen-du-xue-xi-bi-ji-si/</url>
+      
+        <content type="html"><![CDATA[<h3 id="深度学习笔记四">深度学习笔记四</h3><h4 id="Deep-Learning">Deep Learning</h4><h5 id="深度学习的network">深度学习的network</h5><p><img src="http://dingdm.online/dee.jpg" alt=""></p><p>神经元的权重和偏差可以视为矩阵运算。即得到激活函数(activation function)。将激活函数进行sigmoid得到最终结果。将上方的网络用该种形式进行计算即为</p><p><img src="http://dingdm.online/dee2.jpg" alt=""></p><p>通过矩阵运行交由GPU加快运算过程。</p><h5 id="神经元网络的选取">神经元网络的选取</h5><p><img src="http://dingdm.online/cry.jpg" alt=""></p><p>通过神经元网络计算得到的输入矩阵和根据图像得到的target矩阵进行交叉熵计算结果，调整参数使得最后计算得到的交叉熵最小以确定最优的神经元网络函数。</p><p>通过不同组的数据进行训练得到所有的交叉熵进行累加，使用gradient descent获取w与b。</p><h5 id="gradient-descent">gradient descent</h5><p><img src="http://dingdm.online/grad.jpg" alt=""></p><h4 id="Backpropagation">Backpropagation</h4><p>帮助计算gradient descent中的参数的偏微分。</p><h5 id="chain-rule">chain rule</h5><p>即复合函数的微分过程。</p><p><img src="http://dingdm.online/we.jpg" alt=""></p><p>C为最后的交叉熵。</p><p>z对于w求偏微分，z对于哪一个w求微分，得到的即为w对应的输入数据。</p><p>C对于z求偏微分。</p><p><img src="http://dingdm.online/Cw.jpg" alt=""></p><p><img src="http://dingdm.online/ch.jpg" alt=""></p><h5 id="Backward-pass">Backward pass</h5><p>以未知的两项作为输入，得出的最终结果为输出。</p><p><img src="http://dingdm.online/fa2.jpg" alt=""></p><p>具体的放大倍率即为对应z的sigmoid的求导。反求通过已知的C即可快速计算。</p><h4 id="Recipe-OF-Deep-Learning">Recipe OF Deep Learning</h4><p>对于得到神经元网络应先应用于训练数据判断是否合适，防止直接运用于测试数据出现的非过拟合现象。</p><h5 id="New-activation-function">New activation function</h5><p>vanishing gradient problem</p><p>靠近输入的神经元gradient参数的更新速度较慢或靠近输入的神经元gradient参数更新较大。</p><p>使用sigmoid时，较大的输入经过sigmoid后会进行衰减，越深的层数对最后的C的结果的影响就越小。</p><h6 id="ReLU">ReLU</h6><p>更改激活函数，当输入小于0时，输出为0，当输入大于0时，输出等于输入。</p><p>当神经元的输出为0时，不会影响整个神经元网络，可以直接去掉。而输入等于输出不会产生递减问题。</p><p><img src="http://dingdm.online/rejy.jpg" alt=""></p><h6 id="maxout">maxout</h6><p>每层神经元的输出为分组中的最大值。</p><p>maxout也可以使用ReLU，即某个参数始终为0，其他参数为线性函数，即选取最大时满足ReLU。</p><p><img src="http://dingdm.online/bax.jpg" alt=""></p><h6 id="Maxout-training">Maxout training</h6><p>选取的最大值为最终的输出值，最终简化神经元网络。</p><h5 id="Adaptive-Learning-Rate">Adaptive Learning Rate</h5><p>使用adagrad</p><p><img src="http://dingdm.online/adagrad.png" alt=""></p><h6 id="RMSProp">RMSProp</h6><p>防止在某个变量变化的过程中出现的变化较小和变化较大同时存在的情况。</p><p><img src="http://dingdm.online/TRB.jpg" alt=""></p><h6 id="Momentum">Momentum</h6><p>利用惯性继续向前移动。</p><p>使用V记录移动距离。</p><p><img src="http://dingdm.online/MVE.jpg" alt=""></p><h6 id="Adam">Adam</h6><p>RMSProp + Momentum</p><p><img src="http://dingdm.online/adam.png" alt=""></p><h5 id="Early-Stopping">Early Stopping</h5><p>在error上升前停住，即一个if判断即可。</p><h5 id="Regularization">Regularization</h5><p><img src="http://dingdm.online/reg.jpg" alt=""></p><h5 id="DropOut">DropOut</h5><p><img src="http://dingdm.online/st1.jpg" alt=""></p><p>在新的神经元网络上进行训练。表现的结果可能变差。</p><p><img src="http://dingdm.online/sy2.jpg" alt=""></p><p>训练时使用所有的神经元，而在测试时需要去掉不合理的神经元。</p><p>训练数据时使用dropout，而测试时不需要dropout，因此对于所有的输入没有dropout，需要使用(1-p)%。</p><p>在训练时对于每组不同的数据会得到较多的神经元网络，而在测试时对于测试数据应用于所有的神经元网络不现实，因此采用了(1-p)%的方式进行计算，而得到的结果与前种方式得到的结果是相似的。</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> 深度学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 神经元网络 </tag>
             
         </tags>
       
