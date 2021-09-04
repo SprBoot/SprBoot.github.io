@@ -29,8 +29,8 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="dingdm" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><link rel="alternate" href="/atom.xml" title="dingdm" type="application/atom+xml">
+</head>
 
 
 <body>
@@ -470,7 +470,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-07-05
+                    2021-09-04
                 </div>
                 
 
@@ -479,14 +479,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.8k
+                    2.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    7 分
+                    8 分
                 </div>
                 
 
@@ -1398,8 +1398,119 @@
 </tr>
 </tbody>
 </table>
+<h4 id="集合第三方qq登录工具类-QQLoginUtils">集合第三方qq登录工具类(QQLoginUtils)</h4>
+<p>创建代理对象</p>
+<table>
+<thead>
+<tr>
+<th>方法名称</th>
+<th>方法注释</th>
+<th>传入参数</th>
+<th>参数注释</th>
+<th>返回结果</th>
+<th>结果注释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>new QQHttpClient(String APPID,String APPKEY);</td>
+<td>创建QQ配置对象</td>
+<td>APPID</td>
+<td>qq互联平台应用id</td>
+<td>client</td>
+<td>QQHttpClient对象</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>APPKEY</td>
+<td>qq互联平台应用key</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>登录方法</p>
+<table>
+<thead>
+<tr>
+<th>方法名称</th>
+<th>方法注释</th>
+<th>传入参数</th>
+<th>参数注释</th>
+<th>返回结果</th>
+<th>结果注释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>QQLoginUtils.getBackUrl(String domain, QQHttpClient qqHttpClient);</td>
+<td>获取登录返回链接</td>
+<td>String</td>
+<td>应用配置域名</td>
+<td>Map&lt;String,String&gt;</td>
+<td>key说明：url：返回的链接；state：用于第三方应用防止CSRF攻击的uuid</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>QQHttpClient</td>
+<td>QQHttpClient配置对象</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>QQLoginUtils.qqCallBack(Map&lt;String,String&gt; map,String backUrlState,String domain,QQHttpClient client);</td>
+<td>qq回调函数</td>
+<td>Map&lt;String,String&gt;</td>
+<td>request获取的qq信息携带参数的map集合。key说明：code：<em>Authorization Code</em>；state：uuid；注意：数据获取来自qq返回的信息</td>
+<td>Map&lt;String,String&gt;</td>
+<td>key说明：openid：用户唯一标识；nickname：qq用户名；figureurl_qq_2：100*100像素头像链接</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>String</td>
+<td>获取登录链接方法中创建的uuid</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>String</td>
+<td>应用配置的域名</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>QQHttpClient</td>
+<td>QQHttpClient配置对象</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <h3 id="类库文件">类库文件</h3>
-<p><a href="http://dingdm.online/dingdm-1.0.jar" target="_blank" rel="noopener">http://dingdm.online/dingdm-1.0.jar</a></p>
+<p><a href="https://dingdm.online/dingdm-1.1.jar" target="_blank" rel="noopener">https://dingdm.online/dingdm-1.1.jar</a></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -1443,7 +1554,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://dingdm.club/2021/07/05/ge-ren-lei-ku-gong-ju-wen-dang/">https://dingdm.club/2021/07/05/ge-ren-lei-ku-gong-ju-wen-dang/</a>
+                    <a href="https://dingdm.club/2021/09/04/ge-ren-lei-ku-gong-ju-wen-dang/">https://dingdm.club/2021/09/04/ge-ren-lei-ku-gong-ju-wen-dang/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1787,9 +1898,78 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2021/09/04/ge-ren-lei-ku-gong-ju-wen-dang/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="http://dingdm.online/23.jpg" class="responsive-img" alt="个人类库工具文档(持续更新)">
+                        
+                        <span class="card-title">个人类库工具文档(持续更新)</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            个人类库工具文档(持续更新)
+文件操作类(FileUtils)
+
+
+
+方法名称
+方法注释
+传入参数
+参数注释
+返回结果
+结果注释
+
+
+
+
+FileUtils.ImgUpload()
+文件上传工具类
+file
+MultipartFile文件类
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-09-04
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category">
+                                    后端
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/jar/">
+                        <span class="chip bg-color">jar</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/2021/08/26/ji-yu-yun-fu-wu-qi-de-yuan-cheng-lian-jie-da-jian/">
                     <div class="card-image">
@@ -1812,9 +1992,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-08-26
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-26
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1832,62 +2012,6 @@
                     
                     <a href="/tags/frpc/">
                         <span class="chip bg-color">frpc</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2021/06/20/jie-fang-shuang-shou-cong-wo-zuo-qi/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="http://dingdm.online/22.jpg" class="responsive-img" alt="解放双手，从我做起">
-                        
-                        <span class="card-title">解放双手，从我做起</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            解放双手，从我做起
-有爱自取
-明日方舟
-https://github.com/SprBoot/arknight
-import util
-import time
-import random
-total = int(input("请输入当前总体
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-20
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Python/" class="post-category">
-                                    Python
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E8%84%9A%E6%9C%AC/">
-                        <span class="chip bg-color">脚本</span>
                     </a>
                     
                 </div>
@@ -2075,7 +2199,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">72.1k</span>&nbsp;字
+                class="white-color">72.3k</span>&nbsp;字
             
             
             
