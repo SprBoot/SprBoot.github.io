@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://dingdm.club/"/>
-  <updated>2021-09-04T13:06:18.052Z</updated>
+  <updated>2021-09-12T11:48:04.624Z</updated>
   <id>https://dingdm.club/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>图像全景拼接</title>
+    <link href="https://dingdm.club/2021/09/12/tu-xiang-pin-jie-ru-men/"/>
+    <id>https://dingdm.club/2021/09/12/tu-xiang-pin-jie-ru-men/</id>
+    <published>2021-09-12T11:47:30.000Z</published>
+    <updated>2021-09-12T11:48:04.624Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;图像全景拼接&quot;&gt;图像全景拼接&lt;/h4&gt;
+&lt;h5 id=&quot;前提知识&quot;&gt;前提知识&lt;/h5&gt;
+&lt;h6 id=&quot;泰勒公式&quot;&gt;泰勒公式&lt;/h6&gt;
+&lt;p&gt;使用多次多项式来近似表达原函数f(x)。&lt;/p&gt;
+&lt;p&gt;对于一个函数，在某一点处可以找到一个函数的值与它相同，但是在该点的
+      
+    
+    </summary>
+    
+    
+      <category term="图像处理" scheme="https://dingdm.club/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
+    
+    
+      <category term="图像拼接" scheme="https://dingdm.club/tags/%E5%9B%BE%E5%83%8F%E6%8B%BC%E6%8E%A5/"/>
+    
+  </entry>
   
   <entry>
     <title>个人类库工具文档(持续更新)</title>
@@ -523,33 +551,6 @@ print(a)&lt;br&gt;
     
     
       <category term="Spring Boot" scheme="https://dingdm.club/tags/Spring-Boot/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>opencv学习笔记一</title>
-    <link href="https://dingdm.club/2021/03/29/opencv-xue-xi-bi-ji-yi/"/>
-    <id>https://dingdm.club/2021/03/29/opencv-xue-xi-bi-ji-yi/</id>
-    <published>2021-03-29T08:33:32.000Z</published>
-    <updated>2021-04-16T08:45:20.904Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;opencv学习笔记一&quot;&gt;opencv学习笔记一&lt;/h3&gt;
-&lt;h4 id=&quot;opencv模块&quot;&gt;opencv模块&lt;/h4&gt;
-&lt;p&gt;core：实现了最核心的数据结构及其基本运算，如绘图函数，数组操作相关函数等。&lt;/p&gt;
-&lt;p&gt;highgui：实现了视频与图像的读取，
-      
-    
-    </summary>
-    
-    
-      <category term="图像处理" scheme="https://dingdm.club/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
-    
-    
-      <category term="OpenCV" scheme="https://dingdm.club/tags/OpenCV/"/>
     
   </entry>
   
