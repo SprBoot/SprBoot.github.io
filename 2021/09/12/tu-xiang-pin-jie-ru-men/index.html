@@ -479,14 +479,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3k
+                    3.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    11 分
+                    13 分
                 </div>
                 
 
@@ -519,7 +519,7 @@
 <p>3、将矩形模板（紫色）从左上角（0，0）开始，逐像素向右滑动，到达行末时，矩形移动到下一行的开头（0，1），如此反复，每移动到一个新位置时，计算矩形内的像素和，保存在数组A中。以(0,0)位置为例进行说明：首先将绿色矩形内的每一列像素求和，结果放在buff内（红色方块），再对蓝色矩形内的像素求和，结果即为紫色特征矩形内的像素和，把它存放到数组A中，如此便完成了第一次求和运算。</p>
 <p>4、每次紫色矩形向右移动时，实际上就是求对应的蓝色矩形的像素和，此时只要把上一次的求和结果减去蓝色矩形内的第一个红色块，再加上它右面的一个红色块，就是当前位置的和了，用公式表示 sum[i] = sum[i-1] - buff[x-1] + buff[x+m-1]</p>
 <p>5、当紫色矩形移动到行末时，需要对buff进行更新。因为整个绿色矩形下移了一个像素，所以对于每个buff[i], 需要加上一个新进来的像素，再减去一个出去的像素，然后便开始新的一行的计算了。</p>
-<h5 id="算法步骤">算法步骤</h5>
+<h5 id="SURF算法步骤">SURF算法步骤</h5>
 <h6 id="对图像进行高斯滤波，构造黑塞矩阵">对图像进行高斯滤波，构造黑塞矩阵</h6>
 <p>通过前提知识通过黑塞矩阵找到像素极值。</p>
 <h6 id="特征点过滤">特征点过滤</h6>
@@ -530,15 +530,16 @@
 <p><strong>提取特征点周围4×4×4个矩形区域块，所取得矩形区域方向是沿着特征点的主方向，</strong></p>
 <p><strong>每个子区域统计25个像素点水平方向和垂直方向的Haar小波特征。</strong></p>
 <p><strong>该Harr小波特征为水平方向值之和、垂直方向值之和、水平方向值绝对值之和以及垂直方向绝对之和4个方向。把这4个值作为每个子块区域的特征向量，所以一共有4×4×4=64维向量作为SURF特征的描述子。</strong></p>
-<pre class=" language-language-python"><code class="language-language-python">    left = cv2.imread('/Users/dinggongcheng/Downloads/1/4.jpeg')
+<pre class=" language-language-python"><code class="language-language-python">    starttime = time.clock()
+    left = cv2.imread('/Users/dinggongcheng/Downloads/1/left.jpeg')
     # left=cv2.resize(left,dsize=(512,512))
     left_gray = cv2.cvtColor(left, cv2.COLOR_BGR2GRAY)
-    right = cv2.imread('/Users/dinggongcheng/Downloads/1/3.jpeg')
+    right = cv2.imread('/Users/dinggongcheng/Downloads/1/right.jpeg')
     # right=cv2.resize(right,dsize=(512,512))
     right_gray = cv2.cvtColor(right, cv2.COLOR_BGR2GRAY)
 
-    # 提取左右图像的ORB特征点
-    detector = cv2.ORB.create()
+    # 提取左右图像的surf特征点
+    detector = cv2.xfeatures2d_SURF.create(hessianThreshold=400)
     left_kps, left_dess = detector.detectAndCompute(left_gray, None)
     right_kps, right_dess = detector.detectAndCompute(right_gray, None)
 </code></pre>
@@ -558,9 +559,9 @@
 <p>从上面的描述可以看出，KD树划分后可以大大减少无效的最近邻搜索，很多样本点由于所在的超矩形体和超球体不相交，根本不需要计算距离。大大节省了计算时间。</p>
 <p>我们用建立的KD树，来看对点(2,4.5)找最近邻的过程。</p>
 <p>先进行二叉查找，先从（7,2）查找到（5,4）节点，在进行查找时是由y = 4为分割超平面的，由于查找点为y值为4.5，因此进入右子空间查找到（4,7），形成搜索路径&lt;(7,2)，(5,4)，(4,7)&gt;，但 （4,7）与目标查找点的距离为3.202，而（5,4）与查找点之间的距离为3.041，所以（5,4）为查询点的最近点； 以（2，4.5）为圆心，以3.041为半径作圆，如下图所示。可见该圆和y = 4超平面交割，所以需要进入（5,4）左子空间进行查找，也就是将（2,3）节点加入搜索路径中得&lt;(7,2)，(2,3)&gt;；于是接着搜索至（2,3）叶子节点，（2,3）距离（2,4.5）比（5,4）要近，所以最近邻点更新为（2，3），最近距离更新为1.5；回溯查找至（5,4），直到最后回溯到根结点（7,2）的时候，以（2,4.5）为圆心1.5为半径作圆，并不和x = 7分割超平面交割，如下图所示。至此，搜索路径回溯完，返回最近邻点（2,3），最近距离1.5。</p>
-<pre class=" language-language-python"><code class="language-language-python"># 利用knn对左右图像的特征点进行匹配
-bf = cv2.BFMatcher(cv2.NORM_HAMMING, crossCheck=False)
-knn_matchers = bf.knnMatch(left_dess, right_dess, k=2)
+<pre class=" language-language-python"><code class="language-language-python">    # 利用knn对左右图像的特征点进行匹配
+    matcher = cv2.FlannBasedMatcher_create()
+    knn_matchers = matcher.knnMatch(left_dess, right_dess, 2)
 </code></pre>
 <h5 id="RANSAC算法">RANSAC算法</h5>
 <p>ransac算法去除特征点匹配的噪声印象。</p>
@@ -578,18 +579,20 @@ knn_matchers = bf.knnMatch(left_dess, right_dess, k=2)
 <p>这里 zz一般要求满足大于95%即可。</p>
 <p>通过四对匹配点还原H矩阵。</p>
 <p><img src="https://dingdm.online/hm.png" alt=""></p>
-<pre class=" language-language-python"><code class="language-language-python">    knn_matchers = [x for x in knn_matchers if x]
-    # 挑出好的匹配点
-    for m in range(len(knn_matchers) - 1):
-        if knn_matchers[m][0].distance < 0.5 * knn_matchers[m][1].distance:
-            good_keypoints.append(knn_matchers[m])
+<pre class=" language-language-python"><code class="language-language-python">    # 挑出好的匹配点
+    for m, n in knn_matchers:
+        if m.distance < 0.5 * n.distance:
+            good_keypoints.append(m)
     left_points = np.zeros(shape=(len(good_keypoints), 2), dtype=np.float32)
     right_points = np.zeros(shape=(len(good_keypoints), 2), dtype=np.float32)
+    outimg = cv2.drawMatches(left, left_kps, right, right_kps, good_keypoints,None)
+    #cv2.imshow('knn',outimg)
+    #cv2.waitKey(0)
     for i in range(len(good_keypoints)):
-        left_points[i][0] = left_kps[good_keypoints[i][0].queryIdx].pt[0]
-        left_points[i][1] = left_kps[good_keypoints[i][1].queryIdx].pt[1]
-        right_points[i][0] = right_kps[good_keypoints[i][0].trainIdx].pt[0]
-        right_points[i][1] = right_kps[good_keypoints[i][1].trainIdx].pt[1]
+        left_points[i][0] = left_kps[good_keypoints[i].queryIdx].pt[0]
+        left_points[i][1] = left_kps[good_keypoints[i].queryIdx].pt[1]
+        right_points[i][0] = right_kps[good_keypoints[i].trainIdx].pt[0]
+        right_points[i][1] = right_kps[good_keypoints[i].trainIdx].pt[1]
 
     # 求取单应矩阵
     H, _ = cv2.findHomography(right_points, left_points)
@@ -599,6 +602,58 @@ knn_matchers = bf.knnMatch(left_dess, right_dess, k=2)
 warp_point = warp_corner(H, right)
 # 求出右图像的透视变化图像
 imagewarp = cv2.warpPerspective(right, H, (left.shape[1] + right.shape[1], left.shape[0]))
+</code></pre>
+<h5 id="opencv-stitcher-api使用">opencv stitcher api使用</h5>
+<pre class=" language-language-python"><code class="language-language-python">import cv2
+import time
+
+start = time.clock()
+st = time.time()
+img1 = cv2.imread('/Users/dinggongcheng/Downloads/1/4.jpeg')
+img2 = cv2.imread('/Users/dinggongcheng/Downloads/1/3.jpeg')
+stitcher = cv2.createStitcher(True)
+(_result, pano) = stitcher.stitch((img1, img2))
+end = time.clock()
+et = time.time()
+print(et - st)
+print(end - start)
+cv2.imshow('pic',pano)
+cv2.waitKey(0)
+</code></pre>
+<h5 id="ORB算法步骤">ORB算法步骤</h5>
+<h6 id="FAST具体计算过程">FAST具体计算过程</h6>
+<ol>
+<li>从图片中选取一个像素点P，判断它是否是一个特征点。我们首先把它的密度（即灰度值）设为Ip。</li>
+<li>设定一个合适的阙值t ：当2个点的灰度值之差的绝对值大于t时，我们认为这2个点不相同。</li>
+<li>考虑该像素点周围的16个像素。</li>
+<li>现在如果这16个点中有连续的n个点都和选定的像素点不同，那么它就是一个角点。 这里n设定为12。</li>
+<li>我们现在提出一个高效的测试，来快速排除一大部分非特征点的点。该测试仅仅检查在位置1、9、5和13四个位置的像素（首先检查1和9，看它们是否和点相同。如果是，再检查5和13）。如果是一个角点，那么上述四个像素点中至少有3个应该和点相同。如果都不满足，那么不可能是一个角点。</li>
+</ol>
+<p>fast算法的数学解析</p>
+<p><a href="https://blog.csdn.net/qq_37764129/article/details/80970032" target="_blank" rel="noopener">https://blog.csdn.net/qq_37764129/article/details/80970032</a></p>
+<h6 id="特征点描述">特征点描述</h6>
+<p>1.以关键点P为圆心，以d为半径做圆O。</p>
+<p>2.在圆O内某一模式选取N个点对。这里为方便说明，N=4，实际应用中N可以取512.</p>
+<p>假设当前选取的4个点对如上图所示分别标记为：p1(A,B) p2(A,B) p3(A,B) p4(A,B)</p>
+<p>3.定义操作T</p>
+<p>A点的灰度值大于B点，T为1，反之为0；</p>
+<p>4.分别对已选取的点对进行T操作，将得到的结果进行组合。最终得到对应的二进制编码来表示特征点。</p>
+<p>BRISK算法数学解析</p>
+<p><a href="https://blog.csdn.net/weixin_40196271/article/details/84143545" target="_blank" rel="noopener">https://blog.csdn.net/weixin_40196271/article/details/84143545</a></p>
+<p>ORB的相似度为90%</p>
+<pre class=" language-language-python"><code class="language-language-python">    # 提取左右图像的ORB特征点
+    detector = cv2.ORB.create()
+    left_kps, left_dess = detector.detectAndCompute(left_gray, None)
+    right_kps, right_dess = detector.detectAndCompute(right_gray, None)
+</code></pre>
+<pre class=" language-language-python"><code class="language-language-python">    # 利用knn对左右图像的特征点进行匹配
+    bf = cv2.BFMatcher(cv2.NORM_HAMMING, crossCheck=False)
+    knn_matchers = bf.knnMatch(left_dess, right_dess, k=2)
+</code></pre>
+<pre class=" language-language-python"><code class="language-language-python">    # 挑出好的匹配点
+    for m in range(len(knn_matchers) - 1):
+        if knn_matchers[m][0].distance < 0.9 * knn_matchers[m][1].distance:
+            good_keypoints.append(knn_matchers[m])
 </code></pre>
 <script>
         document.querySelectorAll('.github-emoji')
@@ -1287,7 +1342,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">75.3k</span>&nbsp;字
+                class="white-color">75.9k</span>&nbsp;字
             
             
             
