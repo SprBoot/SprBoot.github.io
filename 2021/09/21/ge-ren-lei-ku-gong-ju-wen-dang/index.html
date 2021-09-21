@@ -470,7 +470,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-09-04
+                    2021-09-21
                 </div>
                 
 
@@ -479,14 +479,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.1k
+                    3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    8 分
+                    12 分
                 </div>
                 
 
@@ -1493,8 +1493,271 @@
 </tr>
 </tbody>
 </table>
+<h4 id="redis工具类-RedisUtils">redis工具类(RedisUtils)</h4>
+<table>
+<thead>
+<tr>
+<th>方法名称</th>
+<th>方法注释</th>
+<th>传入参数</th>
+<th>参数注释</th>
+<th>返回结果</th>
+<th>结果注释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>expire(key,time)</td>
+<td>指定缓存失效时间</td>
+<td>String,long</td>
+<td>键，时间</td>
+<td>boolean</td>
+<td>true：成功，false：失败</td>
+</tr>
+<tr>
+<td>getExpire(key)</td>
+<td>获取key的过期时间</td>
+<td>String</td>
+<td>键</td>
+<td>long</td>
+<td>返回过期时间，若为0则永久有效</td>
+</tr>
+<tr>
+<td>hasKey(key)</td>
+<td>判断key是否存在</td>
+<td>String</td>
+<td>键</td>
+<td>boolean</td>
+<td>true：存在，false：不存在</td>
+</tr>
+<tr>
+<td>del(key)</td>
+<td>删除缓存</td>
+<td>String/String []</td>
+<td>单键，键数组</td>
+<td>void</td>
+<td>无返回结果</td>
+</tr>
+<tr>
+<td>get(key)</td>
+<td>获取缓存值</td>
+<td>String</td>
+<td>键</td>
+<td>Object</td>
+<td>缓存值</td>
+</tr>
+<tr>
+<td>set(key,value)</td>
+<td>存放缓存</td>
+<td>String,Object</td>
+<td>键，值</td>
+<td>boolean</td>
+<td>true：成功，false：失败</td>
+</tr>
+<tr>
+<td>set(key,value,time)</td>
+<td>存放缓存并设置失效时间</td>
+<td>String,Object,long</td>
+<td>键，值，失效时间(当time小于等于0时，键永久有效)</td>
+<td>boolean</td>
+<td>true：成功，false：失败</td>
+</tr>
+<tr>
+<td>hmset(key,map)</td>
+<td>存放Map类型键值对</td>
+<td>String,Map&lt;String,Object&gt;</td>
+<td>键，Map数据值</td>
+<td>boolean</td>
+<td>true：成功，false：失败</td>
+</tr>
+<tr>
+<td>hmset(key,map,time)</td>
+<td>存放Map类型键值对并设置过期时间</td>
+<td>String,Map&lt;String,Object&gt;,long</td>
+<td>键，Map数据值，过期时间(当time小于等于0时，键永久有效)</td>
+<td>boolean</td>
+<td>true：成功，false：失败</td>
+</tr>
+<tr>
+<td>hmget(key)</td>
+<td>获取key对应的Map键值</td>
+<td>String</td>
+<td>键</td>
+<td>Map&lt;Object,Object&gt;</td>
+<td>Map键值对</td>
+</tr>
+<tr>
+<td>hget(key,item)</td>
+<td>获取key对应的map键的值</td>
+<td>String,String</td>
+<td>键，map键</td>
+<td>Object</td>
+<td>map值</td>
+</tr>
+<tr>
+<td>hset(key,item,value)</td>
+<td>向hash表中存放数据，如果不存在则创建</td>
+<td>String,String,Object</td>
+<td>键，项，值</td>
+<td>boolean</td>
+<td>true：成功，false：失败</td>
+</tr>
+<tr>
+<td>hset(key,item,value,time)</td>
+<td>向hash表中存放数据，如果不存在则创建</td>
+<td>String,String,Object,long</td>
+<td>键，项，值，时间(如果已存在的hash表有时间,这里将会替换原有的时间)</td>
+<td>boolean</td>
+<td>true：成功，false：失败</td>
+</tr>
+<tr>
+<td>hdel(key,item)</td>
+<td>删除hash表中的值</td>
+<td>String,String/String []</td>
+<td>键，单项或项数组</td>
+<td>void</td>
+<td>无返回结果</td>
+</tr>
+<tr>
+<td>hHasKey(key,item)</td>
+<td>判断hash表中是否有项的值</td>
+<td>String,String</td>
+<td>键，项</td>
+<td>boolean</td>
+<td>true：存在，false：不存在</td>
+</tr>
+<tr>
+<td>sSet(key,values)</td>
+<td>将数据放入set缓存</td>
+<td>String,Object/Object []</td>
+<td>键，值</td>
+<td>long</td>
+<td>返回成功的个数</td>
+</tr>
+<tr>
+<td>sSetAndTime(key,time,values)</td>
+<td>将数据放入set缓存并设置过期时间</td>
+<td>String,time,Object/Object []</td>
+<td>键，时间，值</td>
+<td>long</td>
+<td>返回成功个数</td>
+</tr>
+<tr>
+<td>sHasKey(key,value)</td>
+<td>判断set中的value是否存在</td>
+<td>String,Object</td>
+<td>键，值</td>
+<td>boolean</td>
+<td>true：存在，false：不存在</td>
+</tr>
+<tr>
+<td>sGet(key)</td>
+<td>根据key获取Set中的所有值</td>
+<td>String</td>
+<td>键</td>
+<td>Set<object></object></td>
+<td>set值</td>
+</tr>
+<tr>
+<td>sGetSetSize(key)</td>
+<td>获取set缓存长度</td>
+<td>String</td>
+<td>键</td>
+<td>long</td>
+<td>缓存长度</td>
+</tr>
+<tr>
+<td>setRemove(key,values)</td>
+<td>移除set缓存中值为values的</td>
+<td>String,Object/Object p[]</td>
+<td>键，值/值数组</td>
+<td>long</td>
+<td>返回移除的个数</td>
+</tr>
+<tr>
+<td>lSet(key,value)</td>
+<td>向list中存放缓存</td>
+<td>String,Object</td>
+<td>键，值</td>
+<td>boolean</td>
+<td>true：成功，false：失败</td>
+</tr>
+<tr>
+<td>lSet(key, value,time)</td>
+<td>向list中存放缓存并设置缓存时间</td>
+<td>String,Object,long</td>
+<td>键，值，时间(time小于等于0为永久有效)</td>
+<td>boolean</td>
+<td>true：成功，false：失败</td>
+</tr>
+<tr>
+<td>lSet(key,value)</td>
+<td>向list中存放缓存，值为list</td>
+<td>String,List<object></object></td>
+<td>键，值</td>
+<td>boolean</td>
+<td>true：成功，false：失败</td>
+</tr>
+<tr>
+<td>lSet(key, value,time)</td>
+<td>向list中存放缓存，值为list并设置缓存时间</td>
+<td>String,List<object>,long</object></td>
+<td>键，值，时间(time小于等于0为永久有效)</td>
+<td>boolean</td>
+<td>rue：成功，false：失败</td>
+</tr>
+<tr>
+<td>lGet(key, start,end)</td>
+<td>获取list缓存的内容</td>
+<td>String,long,long</td>
+<td>键，开始，结束(0 到 -1代表所有值)</td>
+<td>List<object></object></td>
+<td>获取的缓存值</td>
+</tr>
+<tr>
+<td>lGetListSize(key)</td>
+<td>获取list缓存的长度</td>
+<td>String</td>
+<td>键</td>
+<td>long</td>
+<td>缓存长度</td>
+</tr>
+<tr>
+<td>lGetIndex(key,index)</td>
+<td>通过索引获取list中的缓存值</td>
+<td>String,long</td>
+<td>键，索引(索引 index&gt;=0时， 0 表头，1 第二个元素，依次类推；index&lt;0时，-1，表尾，-2倒数第二个元素，依次类推)</td>
+<td>Object</td>
+<td>缓存值</td>
+</tr>
+<tr>
+<td>lUpdateIndex(key, index,value)</td>
+<td>修改list中索引对应的值</td>
+<td>String,long,Object</td>
+<td>键，索引，值</td>
+<td>boolean</td>
+<td>true：成功，false：失败</td>
+</tr>
+<tr>
+<td>lRemove(key, count,value)</td>
+<td>移除list缓存中值为value的n个缓存</td>
+<td>String,long,Object</td>
+<td>键，个数，值</td>
+<td>long</td>
+<td>移除的个数</td>
+</tr>
+<tr>
+<td>removeAll(keyPrefix)</td>
+<td>删除指定前缀的一系列key</td>
+<td>String</td>
+<td>键前缀</td>
+<td>void</td>
+<td>无返回结果</td>
+</tr>
+</tbody>
+</table>
 <h3 id="类库文件">类库文件</h3>
-<p><a href="https://dingdm.online/dingdm-1.1.jar" target="_blank" rel="noopener">https://dingdm.online/dingdm-1.1.jar</a></p>
+<p><a href="https://dingdm.online/dingdm-1.2.jar" target="_blank" rel="noopener">https://dingdm.online/dingdm-1.2.jar</a></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -1538,7 +1801,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://dingdm.club/2021/09/04/ge-ren-lei-ku-gong-ju-wen-dang/">https://dingdm.club/2021/09/04/ge-ren-lei-ku-gong-ju-wen-dang/</a>
+                    <a href="https://dingdm.club/2021/09/21/ge-ren-lei-ku-gong-ju-wen-dang/">https://dingdm.club/2021/09/21/ge-ren-lei-ku-gong-ju-wen-dang/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1882,9 +2145,78 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2021/09/21/ge-ren-lei-ku-gong-ju-wen-dang/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="http://dingdm.online/23.jpg" class="responsive-img" alt="个人类库工具文档(持续更新)">
+                        
+                        <span class="card-title">个人类库工具文档(持续更新)</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            个人类库工具文档(持续更新)
+文件操作类(FileUtils)
+
+
+
+方法名称
+方法注释
+传入参数
+参数注释
+返回结果
+结果注释
+
+
+
+
+FileUtils.ImgUpload()
+文件上传工具类
+file
+MultipartFile文件类
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-09-21
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category">
+                                    后端
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/jar/">
+                        <span class="chip bg-color">jar</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/2021/09/12/tu-xiang-pin-jie-ru-men/">
                     <div class="card-image">
@@ -1906,9 +2238,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-09-12
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-09-12
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1926,60 +2258,6 @@
                     
                     <a href="/tags/%E5%9B%BE%E5%83%8F%E6%8B%BC%E6%8E%A5/">
                         <span class="chip bg-color">图像拼接</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2021/08/26/ji-yu-yun-fu-wu-qi-de-yuan-cheng-lian-jie-da-jian/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="http://dingdm.online/16.jpg" class="responsive-img" alt="基于云服务器的远程连接搭建">
-                        
-                        <span class="card-title">基于云服务器的远程连接搭建</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            基于云服务器的远程连接搭建
-本来打算直接路由器的，但是梅林的frpc要虚拟内存，而我手上又没有好的u盘，所以先用最直接的吧。
-域名解析
-
-服务器端frpc设置
-下载自己对应服务器系统的文件，使用filezilla进行上传。我这里的服务器的系
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-26
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E8%BF%90%E7%BB%B4/" class="post-category">
-                                    运维
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/frpc/">
-                        <span class="chip bg-color">frpc</span>
                     </a>
                     
                 </div>
@@ -2167,7 +2445,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">75.9k</span>&nbsp;字
+                class="white-color">76.8k</span>&nbsp;字
             
             
             
