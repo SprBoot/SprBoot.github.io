@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://dingdm.club/"/>
-  <updated>2021-09-21T03:10:41.131Z</updated>
+  <updated>2021-09-27T08:37:27.476Z</updated>
   <id>https://dingdm.club/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>yolov5源码解析一</title>
+    <link href="https://dingdm.club/2021/09/27/yolov5-yuan-ma-jie-xi/"/>
+    <id>https://dingdm.club/2021/09/27/yolov5-yuan-ma-jie-xi/</id>
+    <published>2021-09-27T08:36:40.000Z</published>
+    <updated>2021-09-27T08:37:27.476Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;yolov5源码解析一&quot;&gt;yolov5源码解析一&lt;/h3&gt;
+&lt;h5 id=&quot;yolov5模型&quot;&gt;yolov5模型&lt;/h5&gt;
+&lt;p&gt;&lt;img src=&quot;https://dingdm.online/yolov5.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;**（1）输入端
+      
+    
+    </summary>
+    
+    
+      <category term="深度学习" scheme="https://dingdm.club/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="算法" scheme="https://dingdm.club/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
   
   <entry>
     <title>个人类库工具文档(持续更新)</title>
@@ -130,30 +157,6 @@
   </entry>
   
   <entry>
-    <title>论文阅读一</title>
-    <link href="https://dingdm.club/2021/06/14/lun-wen-yue-du-yi/"/>
-    <id>https://dingdm.club/2021/06/14/lun-wen-yue-du-yi/</id>
-    <published>2021-06-14T09:18:30.000Z</published>
-    <updated>2021-06-15T08:09:10.229Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;Learning-a-Deep-ConvNet-for-Multi-label-Classification-with-Partial-Labels论文阅读&quot;&gt;Learning a Deep ConvNet for Multi-label Classificati
-      
-    
-    </summary>
-    
-    
-      <category term="论文阅读" scheme="https://dingdm.club/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/"/>
-    
-    
-      <category term="偏标记学习" scheme="https://dingdm.club/tags/%E5%81%8F%E6%A0%87%E8%AE%B0%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
     <title>深度学习笔记四</title>
     <link href="https://dingdm.club/2021/06/14/shen-du-xue-xi-bi-ji-si/"/>
     <id>https://dingdm.club/2021/06/14/shen-du-xue-xi-bi-ji-si/</id>
@@ -177,6 +180,30 @@
     
     
       <category term="神经元网络" scheme="https://dingdm.club/tags/%E7%A5%9E%E7%BB%8F%E5%85%83%E7%BD%91%E7%BB%9C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>论文阅读一</title>
+    <link href="https://dingdm.club/2021/06/14/lun-wen-yue-du-yi/"/>
+    <id>https://dingdm.club/2021/06/14/lun-wen-yue-du-yi/</id>
+    <published>2021-06-14T09:18:30.000Z</published>
+    <updated>2021-06-15T08:09:10.229Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;Learning-a-Deep-ConvNet-for-Multi-label-Classification-with-Partial-Labels论文阅读&quot;&gt;Learning a Deep ConvNet for Multi-label Classificati
+      
+    
+    </summary>
+    
+    
+      <category term="论文阅读" scheme="https://dingdm.club/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/"/>
+    
+    
+      <category term="偏标记学习" scheme="https://dingdm.club/tags/%E5%81%8F%E6%A0%87%E8%AE%B0%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
@@ -526,31 +553,6 @@ print(a)&lt;br&gt;
     
     
       <category term="python" scheme="https://dingdm.club/tags/python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Spring boot相关知识点</title>
-    <link href="https://dingdm.club/2021/03/30/springboot-xiang-guan-zhi-shi-dian/"/>
-    <id>https://dingdm.club/2021/03/30/springboot-xiang-guan-zhi-shi-dian/</id>
-    <published>2021-03-30T11:55:12.000Z</published>
-    <updated>2021-03-30T11:54:57.349Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;Springboot中如何解决跨域问题？&quot;&gt;Springboot中如何解决跨域问题？&lt;/h3&gt;
-&lt;p&gt;在脚本进行http请求的时候要满足同源协议，即url的协议，域名和端口要相同才能才能发起请求。浏览器在脚本发出跨域请求后，会拦截返回的结果，所以需要配置跨域。&lt;/
-      
-    
-    </summary>
-    
-    
-      <category term="面试题" scheme="https://dingdm.club/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
-    
-    
-      <category term="Spring Boot" scheme="https://dingdm.club/tags/Spring-Boot/"/>
     
   </entry>
   
