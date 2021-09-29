@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="论文阅读一, dingdm">
+    <meta name="keywords" content="论文阅读第一部分, dingdm">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>论文阅读一 | dingdm</title>
+    <title>论文阅读第一部分 | dingdm</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -323,12 +323,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('http://dingdm.online/3.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('http://dingdm.online/5.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">论文阅读一</h1>
+                    <h1 class="description center-align post-title">论文阅读第一部分</h1>
                 </div>
             </div>
         </div>
@@ -445,8 +445,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E5%81%8F%E6%A0%87%E8%AE%B0%E5%AD%A6%E4%B9%A0/">
-                                <span class="chip bg-color">偏标记学习</span>
+                            <a href="/tags/%E8%AE%BA%E6%96%87/">
+                                <span class="chip bg-color">论文</span>
                             </a>
                         
                     </div>
@@ -457,8 +457,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" class="post-category">
-                                论文阅读
+                            <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                深度学习
                             </a>
                         
                     </div>
@@ -470,7 +470,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-06-14
+                    2021-09-29
                 </div>
                 
 
@@ -479,14 +479,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.1k
+                    3.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    7 分
+                    11 分
                 </div>
                 
 
@@ -501,45 +501,86 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="Learning-a-Deep-ConvNet-for-Multi-label-Classification-with-Partial-Labels论文阅读">Learning a Deep ConvNet for Multi-label Classification with Partial Labels论文阅读</h3>
-<h4 id="知识储备">知识储备</h4>
-<h5 id="Partial-Multi-Label-Learning">Partial Multi-Label Learning</h5>
-<p>在多分类标记中，存在一种情况即在对图片中的物体进行标记时会出现难以标记的情况，图片中较明显的事物可以很容易的标记，而对于较为模糊的事物在标记者知识不足的情况下可能无法进行标记，或者当前图片中的事物过于抽象而无法确定所属。被称为偏标记学习。</p>
-<p>在不确定的情况下，可以选择不标注、或者随机标注。但是不标注意味着我们丢失了所有信息，随机标注意味着可能带来噪声，对学习的影响更大。所以PML选择的是让标注者提供所有可能的标签，当然加了一个较强的假设：所有的标签都应该被包含在候选标签集中。</p>
-<h5 id="Curriculum-Learning">Curriculum Learning</h5>
-<p><strong>主张让模型先从容易的样本开始学习，并逐渐进阶到复杂的样本和知识。</strong></p>
-<p>在以后的学习中进一步深入学习，目前仅限于了解即可。</p>
-<h5 id="crowdsourcing">crowdsourcing</h5>
-<p>互联网带来的新的生产组织形式。连线(Wired)杂志2006年发明的一个专业术语，用来描述一种新的商业模式，即企业利用互联网来将工作分配出去、发现创意或解决技术问题。通过互联网控制，这些组织可以利用志愿员工大军的创意和能力——这些志愿员工具备完成任务的技能，愿意利用业余时间工作，满足于对其服务收取小额报酬，或者暂时并无报酬，仅仅满足于未来获得更多报酬的前景。尤其对于软件业和服务业，这提供了一种组织劳动力的全新方式</p>
-<h5 id="归一化">归一化</h5>
-<p>归一化方法有两种形式，一种是把数变为（0，1）之间的<a href="https://baike.baidu.com/item/%E5%B0%8F%E6%95%B0/2172615" target="_blank" rel="noopener">小数</a>，一种是把有量纲表达式变为无量纲表达式。主要是为了<a href="https://baike.baidu.com/item/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/944504" target="_blank" rel="noopener">数据处理</a>方便提出来的，把数据<a href="https://baike.baidu.com/item/%E6%98%A0%E5%B0%84/20402621" target="_blank" rel="noopener">映射</a>到0～1范围之内处理，更加<a href="https://baike.baidu.com/item/%E4%BE%BF%E6%8D%B7/2966338" target="_blank" rel="noopener">便捷</a>快速</p>
-<h5 id="GNN">GNN</h5>
-<p>图神经网络是一种直接作用于图结构上的神经网络。GNN的一个典型应用是节点分类,本质上，图中的每个节点都与一个标签相关联，我们希望预测未标记节点的标签。</p>
-<p>在节点分类问题中，每个节点v都可以用其特征x_v表示并且与已标记的标签t_v相关联。给定部分标记的图G，目标是利用这些标记的节点来预测未标记的节点标签。它通过学习得到每个节点的d维向量（状态）表示为h_v，同时包含其相邻节点的信息。</p>
-<p><img src="http://dingdm.online/GNN.png" alt=""></p>
-<h4 id="论文的研究步骤或过程情况">论文的研究步骤或过程情况</h4>
-<p>目前imageNet的单标签注释忽略了图像固有的多标签性质，所以导致目前的较为先进的分类器在imageNet上的表现不佳。而MS COCO和Open Images提供复杂的图片可以满足作者的需求，因此作者选择了这两个数据集。</p>
-<p>在收集多标签注释上的难度是要大于单标签注释的，因此作者选择使用偏标记学习，通过众包平台收集偏标记标签是比较容易和扩展的。作者选择了两种策略来提升图片分类的表现，设计更好的模型架构和通过大量的标签数据进行学习。在收集多标签注释时由于难度大，因此作者使用了网络监督的方式自动生成标签，而这种方式生成的标签由于噪音和不详细的影响，会导致比较差的分类表现。因此需要对噪音进行学习。</p>
-<p>在当前已存的方法对于大规模的数据集上不可扩展且无法微调卷机神经网络的情况下，论文提出了一种新的loss函数和方法来修补缺失的标签。第一步作者发现通过给定一个固定的标签预算，实验表明，部分注释所有图像比完全注释一个小子集要好。第二步论文中引入了一个损失函数，它通过利用标签比例信息来概括标准二元交叉熵损失。这个损失函数可以自动适应每张图片中已知标签的比例，并且在学习所有的标签时可以使用同样的训练设置。第三步则是预测丢失的标签，由于卷机神经网络对噪音非常敏感，所以模型的预测准确性较好，作者使用了一种基于GNNS的方法来明确模型在不同类别中的相关性。</p>
-<p>作者说明了几种方法来进行丢失标签的学习，首先是在网络监督学习中广泛运用的比较简单的方法，将丢失的标签作为负面标签，这种方法的标准假设是查询的类别存在图像中而其他类别不存在，由于在初始化时许多正面标签被标记为负面标签导致这种方法的表现较差。第二种方法是使用二元关联，把每一个标签作为一个独立的二元分类器，但是这种方法当分类的数量增加时是不易扩展的，而且它忽视了标签和实例之间的相关性。第三种则是利用训练数据中标签的相关性将已提供标签信息转移到缺失的标签中，使用矩阵补全算法来填充缺失的标签，这种方法利用了标签和实例之间的相关性对标签矩阵进行低秩正则化来完成实例标签矩阵。引入了低秩经验风险最小化，使用了混合图来对标签依赖网络进行编码，学习分类之间的相关性来预测丢失的标签。</p>
-<p>这几种方法都是不适用于深度卷机网络的，它们需要内村中的训练集来解决优化问题，所以不可能使用一种小批量策略来微调模型，而微调对于转移先前的预测训练架构又是至关重要的且一些方法是不可扩展的，因为他们需要解决大规模数据集难以处理的凸二次优化问题。因此作者提出了自己的模型来解决该问题。</p>
-<h4 id="算法内容">算法内容</h4>
-<h5 id="符号说明">符号说明</h5>
-<p>C：分类的数量	N：训练样本的数量</p>
-<p><img src="http://dingdm.online/D.png" alt=""></p>
-<p>I (i)为第i张图片，y (i) = [y (i) 1 , . . . , y (i) C ] 为第i张图片的C个分类</p>
-<p>y (i) c = 1 (resp. −1 and 0) 1为确定，-1为丢失，0为未知</p>
-<p>[y (1); . . . ; y (N) ] 为训练集的标签矩阵</p>
-<p>fw为权重，x (i) = [x (i) 1 , . . . , x (i) C ] = fw(I (i) )为未sigmoid之前的第i张图片的输出</p>
-<h5 id="Binary-cross-entropy-for-partial-labels">Binary cross-entropy for partial labels</h5>
-<p>为了与类别数量无关，BCE 损失由类别数量归一化，导致了反向传播的梯度较小，通过对已知标签比例的标准化，作者提出了一种部分BCE损失。</p>
-<p><img src="http://dingdm.online/parBCE.png" alt=""></p>
-<p>py ∈ [0, 1]是y中已知标签的比例，实例独立于已知标签数量，当图像标签的比例不固定时比较有用。</p>
-<p>正规化函数g设计</p>
-<p>通过标签比例标准化部分BCE的Loss函数，当全部标签显示时，为了使部分BCE和BCE的变现相同，作者提出了g函数</p>
-<p><img src="http://dingdm.online/G.png" alt=""></p>
-<p>通过给定 γ 值和给定比例的权重，可以找到对应的α 和β满足约束。γ 控制关于标签比例的归一化行为，对应的每个参数说明在后文。</p>
-<h4 id="后续的阅读和编码在系统性学习玩GNN后进行。">后续的阅读和编码在系统性学习玩GNN后进行。</h4>
+                <h3 id="论文阅读第一部分">论文阅读第一部分</h3>
+<h5 id="使用一些移位操作来设计更加高效的图片分类卷积神经网络">使用一些移位操作来设计更加高效的图片分类卷积神经网络</h5>
+<h5 id="深度学习模型及相关术语">深度学习模型及相关术语</h5>
+<h6 id="量化感知">量化感知</h6>
+<p>我们经常将网络输出的范围在 0.0~1.0 之间的张量调整成数值为 0~255、uint8 类型的图片数据，这个过程就是<strong>量化</strong>。将一张 uint8 类型、数值范围在 0~255 的图片归一成 float32 类型、数值范围在 0.0~1.0 的张量，这个过程就是<strong>反量化</strong>。</p>
+<p><img src="https://dingdm.online/lianghua1.png" alt=""></p>
+<p>𝑆 是 scale，表示实数和整数之间的比例关系，𝑍 是 zero point，表示实数中的 0 经过量化后对应的整数。</p>
+<p>这个网络只有三个模块，现在需要把 conv、fc、relu 量化。假设输入为 𝑥，我们可以事先统计样本的最大值和最小值，然后计算出 𝑆𝑥(scale) 和 𝑍𝑥(zero point)。同样地，假设 conv、fc 的参数为 𝑤1、𝑤2，以及 scale 和 zero point 为 𝑆𝑤1、𝑍𝑤1、𝑆𝑤2、𝑍𝑤2。中间层的 feature map 为 𝑎1，𝑎2，并且事先统计出它们的 scale 和 zero point 为 𝑆𝑎1、𝑍𝑎1、𝑆𝑎2、𝑍𝑎2。</p>
+<p>卷积运算和全连接层的本质都是矩阵运算，因此我们可以把卷积运算表示成</p>
+<p><img src="https://dingdm.online/lianghua2.png" alt=""></p>
+<p>根据之前的转换，我们可以得到：</p>
+<p><img src="https://dingdm.online/lianghua3.png" alt=""></p>
+<p>其中 𝑀=𝑆𝑤1𝑆𝑥/𝑆𝑎1，得到 conv 的输出后，我们不用反量化回 𝑎1，直接用 𝑞𝑎1 继续后面的计算即可。对于量化的 relu 来说，计算公式不再是 𝑞𝑎2=𝑚𝑎𝑥(𝑞𝑎1,0)，而是 𝑞𝑎2=𝑚𝑎𝑥(𝑞𝑎1,𝑍𝑎1)，并且 𝑆𝑎1=𝑆𝑎2，𝑍𝑎1=𝑍𝑎2 。另外，在实际部署的时候，relu 或者 bn 通常是会整合到 conv 中一起计算。</p>
+<p>得到 𝑞𝑎2 后，我们可以继续来计算 fc 层。假设网络输出为 𝑦，对应的 scale 和 zero point 为 𝑆𝑦、𝑍𝑦，则量化后的 fc 层可以用如下公式计算：</p>
+<p><img src="https://dingdm.online/lianghua4.png" alt=""></p>
+<p>然后通过公式 𝑦=𝑆𝑦(𝑞𝑦−𝑍𝑦)把结果反量化回去，就可以得到近似原来全精度模型的输出了。</p>
+<h6 id="消融学习">消融学习</h6>
+<p>为了提升baseline的性能，给它加了两个模块A,B 为了验证A、B两个模块是不是真的都有用，你需要做ablation study。<br>
+实验1：在baseline的基础上加上模块A，看效果。 实验2：在baseline的基础上加上模块B，看效果。<br>
+实验3：在baseline的基础上同时加上模块AB，看效果。 然后结果可能是，实验1和实验2的结果都不如实验3，那么说明AB都是有用的；<br>
+然而也有可能你会发现实验1的结果和实验3一样，甚至更好。这就说明你的想法是有问题的，模块B其实并没有起到作用，提升只来自于模块A。</p>
+<h6 id="剪枝技术">剪枝技术</h6>
+<p><a href="https://blog.csdn.net/jacke121/article/details/79450321?utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7Edefault-5.no_search_link&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7Edefault-5.no_search_link" target="_blank" rel="noopener">https://blog.csdn.net/jacke121/article/details/79450321?utm_medium=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~default-5.no_search_link&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~default-5.no_search_link</a></p>
+<p>相关论文以后阅读。</p>
+<h6 id="知识蒸馏">知识蒸馏</h6>
+<p>识蒸馏使用的是Teacher—Student模型，其中teacher是“知识”的输出者，student是“知识”的接受者。知识蒸馏的过程分为2个阶段:</p>
+<ol>
+<li>原始模型训练: 训练"Teacher模型", 简称为Net-T，它的特点是模型相对复杂，也可以由多个分别训练的模型集成而成。我们对"Teacher模型"不作任何关于模型架构、参数量、是否集成方面的限制，唯一的要求就是，对于输入X, 其都能输出Y，其中Y经过softmax的映射，输出值对应相应类别的概率值。</li>
+<li>精简模型训练: 训练"Student模型", 简称为Net-S，它是参数量较小、模型结构相对简单的单模型。同样的，对于输入X，其都能输出Y，Y经过softmax映射后同样能输出对应相应类别的概率值。</li>
+</ol>
+<h6 id="正则化">正则化</h6>
+<p>我们管Rempf(f)叫做<strong>经验风险</strong>，管上面我们思维导图的过程叫做<strong>正则化</strong>，所以顺其自然的管r(d)叫做<strong>正则化项</strong>，然后管Remp(f)+r(d) 叫做<strong>结构风险</strong>，所以顺其自然的<strong>正则化</strong>就是我们将<strong>结构风险</strong>最小化的过程，它们是等价的。</p>
+<p>详细解答https://www.zhihu.com/question/20924039</p>
+<h5 id="摘要">摘要</h5>
+<p>移位操作是除了深度可分离卷积网络之外的另一种可供选择的网络。然而它的实现方式和记忆点是它发展的瓶颈。本篇论文作者引入了一种新的叫做SSL的卷积层来构建高效的卷积神经网络。在这种架构中，最基本的块是由只有一些移位操作并用于中间层feature map的1*1的卷积层构成。作者为了证实这种方法的可行性，介绍了在优化过程中的移位操作惩罚机制和进一步提出了一种量化感知的移位学习方法来使推理过程中的强加学习位移更友好。广泛的消融学习表明只有一些移位操作可以更高效的提供空间信息交流的能力。更进一步为了最大化SSL的能力，作者重新设计了一种改进式的网络架构来完全开发神经网络被限制的潜力，也就是FE-Net。使用SSL，网络可以在ImageNet数据集上达到第一位75%的准确率。就准确率和训练速度而言它超过了其他同行基于深度可分离的卷积构建的网络和NAS的搜索网络。</p>
+<h5 id="引言">引言</h5>
+<p>不多介绍。</p>
+<h5 id="相关工作">相关工作</h5>
+<p>最近几年，就存储，计算和训练推理时间问题提出了越来越多的方法去简化神经网络，同时保证它的强大的表现。我们通过观察是否有预训练的模型将这些方法分为两个部分。</p>
+<h6 id="2-1-压缩神经网络">2.1 压缩神经网络</h6>
+<p>有四种方法将给定的预训练模型简化。剪枝技术为了移除一些不必要的参数来稀疏权重矩阵。张量分解开发通道和权重矩阵的冗余空间来寻求低秩近似。量化对于每个权重参数采用低比特来代替浮点数。知识蒸馏将教师模型简化为学生模型。</p>
+<p>这些方法都可以很高效的压缩神经网络，但是他们的表现都非常依赖预训练模型，没有架构的改善，准确率很难提高。</p>
+<h6 id="2-2-紧凑网络发展">2.2 紧凑网络发展</h6>
+<p>如何设计紧凑的神经元架构师当前的搜索热点话题。一些相关工作使用组卷积来构建紧凑网络。最出名的MobileNet采用了深层可分离卷积来构建准确且轻量化的网络，在领域上迈进了一大步。之后，很多的研究者效仿他们的工作设计出越来越多紧凑强大的架构，例如ShuffleNet，MobileNetV2，ShuffleNetV2，IGCV2。然而，即使深层可分离卷积只需要一点理论上的计算消耗，但由于算数强度太低也很难在训练中高效的实现。</p>
+<p>2018cvpr上的一篇移位论文给出了一种可供选择的方法，移位操作，即移位feature map而不进行计算。通过交错这种移位和逐点卷积来构建紧凑的网络。2019 NIPS的一篇论文提出了一种方法来使移位操作是可以学习的，意味着每一层的感受野是可以自动学习的。由于它是通过内存移动来实现的，因此会占用大量的推理时间。而作者在论文中解决了这个问题。</p>
+<h5 id="背景知识">背景知识</h5>
+<p>移位操作的公式如下所示：</p>
+<p><img src="https://dingdm.online/yiwei1" alt=""></p>
+<p>I为输入的feature maps，O为输出的feature maps。c为通道索引，i和j表示空间的位置。αc和βc表示相对于输入的第c个feature map的水平和垂直位移。α和β参数的数量和输入feature maps的通道数量一致，和卷积层的参数相比是几乎可以忽视的。</p>
+<h6 id="组位移">组位移</h6>
+<p>同样的在上面提到的cvpr2018论文中，对于移位操作使用了K尺寸的卷积核，输入的feature map最终被分为K^2个组，每组如图一所示指定一个位移方向，方向公式如下：</p>
+<p><img src="https://dingdm.online/weiyi2" alt=""></p>
+<p>符号为向下取值，然而这种指定不是任务驱动的。每个移位操作的卷积核都是通过大量试错实验来确定好的，位移的均匀分配并不适合所有的任务。</p>
+<h6 id="主动移位">主动移位</h6>
+<p>为了解决这个问题，提出了一种将α和β的整数约束到放宽到实数和放宽移位操作到双线性插值来使α和β可微的方法。第一个公式可以放宽到如下所示：</p>
+<p><img src="https://dingdm.online/weiyi3" alt=""></p>
+<p>Ω是由四个相近的整数点组成的(i+αc,j+βc)的邻集。因此，α和β可以通过反向传播的梯度下降优化器来自适应优化。这种移位模式见图1中的b。</p>
+<h5 id="使用少量的移位来设计高效的卷积神经网络">使用少量的移位来设计高效的卷积神经网络</h5>
+<p>cvpr2018的移位论文中通过相关工作证实了在卷积神经网络中移位操作可以为空间信息交流提供感受野。然而，不是所有的feature map都需要移位，多余的移位操作将会带来多余的内存移动和进一步影响神经网络的推理时间。从这个点出发，我们应该设计一个方法来使用较少的移位操作构建高效的卷积神经网络。</p>
+<h6 id="4-1-稀疏移位操作">4.1 稀疏移位操作</h6>
+<p>为了避免无意义的内存移动，我们添加了位置惩罚机制来淘汰损失函数中没有用的移位操作。因为大的位移可以导致有用的信息边界的丢失，所以它还可以避免移位学习的扩散特别是对于低解析度的feature map。我们对α和β添加了L1正则化来淘汰多余的移位，公式如下所示：</p>
+<p><img src="https://dingdm.online/yiwei3" alt=""></p>
+<p>(x,y)是输入的数据和对应的标签，W表示除了α和β之外的训练参数，f函数是输出标签的预测，L函数是神经网络的损失函数，λ平衡这两项。</p>
+<p>通过这种稀疏性惩罚，我们可以采用最小的内存移动来构建准确且较快的神经网络。我们把它命名为SSL，如图1中的c所示。</p>
+<h6 id="4-2-量化感知移位学习">4.2 量化感知移位学习</h6>
+<p>尽管灵活性和稀疏性使用了，但还有问题没有解决。尽管为了学习移位操作将整数α和β放宽为实数，标准的移位操作在推理时虽然只需要内存移动但是插值仍然需要乘法，在某种程度上它弱化了移位操作的推理优势。</p>
+<p>受量化训练神经网络的启发，我们提出了量化感知移位学习方法来解决这个问题。在方法中，我们在前馈时量化回整数，仍保持移位操作是可学习的。</p>
+<p><strong>前馈</strong></p>
+<p>我们使用α和β的近似整数来恢复移位操作代替插值，如下公式所示</p>
+<p><img src="https://dingdm.online/yiwei4" alt=""></p>
+<p>绝对值代表实数的舍入近似值，这种方式公式3通过量化又转回了公式1，意味着可以使用移位操作而不是插值来计算网络损失。</p>
+<p><strong>反向传播</strong></p>
+<p>和前馈不同，实数移位需要计算他们的梯度并通过SGD优化。根据公式3，α和β的梯度损失如下所示：</p>
+<p><img src="https://dingdm.online/yiwei5" alt=""></p>
+<p>w和h是输入feature map的空间尺寸，sign函数根据输入值的标志来确定加一还是减一。</p>
+<p>将损失梯度相对于特征图从高层反向传播到浅层，第三和第五公式都可以计算偏导数。考虑到在前馈过程中我们使用了公式5来代替公式3。所以使用公式5来计算梯度是比较合理且有效的，公式如下：</p>
+<p><img src="https://dingdm.online/yiwei6" alt=""></p>
+<p>和公式5相比这是一种逆内存移动。</p>
+<p><strong>讨论</strong></p>
+<p>在训练后，位置的舍入近似值被保存下来并且在推理时只有移位操作在执行。更多的是，另一个惊人的副作用是这种方法将L1正则化转变为了被截断式的正则化，将向精确0收缩更小的位移。</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -583,7 +624,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://dingdm.club/2021/06/14/lun-wen-yue-du-yi/">https://dingdm.club/2021/06/14/lun-wen-yue-du-yi/</a>
+                    <a href="https://dingdm.club/2021/09/29/lun-wen-yue-du-di-yi-bu-fen/">https://dingdm.club/2021/09/29/lun-wen-yue-du-di-yi-bu-fen/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -621,8 +662,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E5%81%8F%E6%A0%87%E8%AE%B0%E5%AD%A6%E4%B9%A0/">
-                                    <span class="chip bg-color">偏标记学习</span>
+                                <a href="/tags/%E8%AE%BA%E6%96%87/">
+                                    <span class="chip bg-color">论文</span>
                                 </a>
                             
                         </div>
@@ -927,53 +968,52 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/06/20/jie-fang-shuang-shou-cong-wo-zuo-qi/">
+                <a href="/2021/09/29/lun-wen-yue-du-di-yi-bu-fen/">
                     <div class="card-image">
                         
                         
-                        <img src="http://dingdm.online/22.jpg" class="responsive-img" alt="解放双手，从我做起">
+                        <img src="http://dingdm.online/5.jpg" class="responsive-img" alt="论文阅读第一部分">
                         
-                        <span class="card-title">解放双手，从我做起</span>
+                        <span class="card-title">论文阅读第一部分</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            解放双手，从我做起
-有爱自取
-明日方舟
-https://github.com/SprBoot/arknight
-import util
-import time
-import random
-total = int(input("请输入当前总体
+                            论文阅读第一部分
+使用一些移位操作来设计更加高效的图片分类卷积神经网络
+深度学习模型及相关术语
+量化感知
+我们经常将网络输出的范围在 0.0~1.0 之间的张量调整成数值为 0~255、uint8 类型的图片数据，这个过程就是量化。将一张 
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-06-20
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-09-29
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Python/" class="post-category">
-                                    Python
+                            <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    深度学习
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E8%84%9A%E6%9C%AC/">
-                        <span class="chip bg-color">脚本</span>
+                    <a href="/tags/%E8%AE%BA%E6%96%87/">
+                        <span class="chip bg-color">论文</span>
                     </a>
                     
                 </div>
@@ -987,28 +1027,30 @@ total = int(input("请输入当前总体
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/06/14/shen-du-xue-xi-bi-ji-si/">
+                <a href="/2021/09/27/yolov5-yuan-ma-jie-xi/">
                     <div class="card-image">
                         
                         
-                        <img src="http://dingdm.online/16.jpg" class="responsive-img" alt="深度学习笔记四">
+                        <img src="http://dingdm.online/22.jpg" class="responsive-img" alt="yolov5源码解析一">
                         
-                        <span class="card-title">深度学习笔记四</span>
+                        <span class="card-title">yolov5源码解析一</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            深度学习笔记四
-Deep Learning
-深度学习的network
+                            yolov5源码解析一
+yolov5模型
 
-神经元的权重和偏差可以视为矩阵运算。即得到激活函数(activation function)。将激活函数进行sigmoid得到最终结果。将上方的网络用该种形式进行计算即
+**（1）输入端：**Mosaic数据增强、自适应锚框计算、自适应图片缩放
+**（2）Backbone：**Focus结构，CSP结构
+**（3）Neck：**FPN+PAN结构
+**（4）Pre
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-14
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-09-27
                             </span>
                         <span class="publish-author">
                             
@@ -1025,8 +1067,8 @@ Deep Learning
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%A5%9E%E7%BB%8F%E5%85%83%E7%BD%91%E7%BB%9C/">
-                        <span class="chip bg-color">神经元网络</span>
+                    <a href="/tags/%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">算法</span>
                     </a>
                     
                 </div>
