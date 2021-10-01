@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://dingdm.club/"/>
-  <updated>2021-09-29T13:16:32.771Z</updated>
+  <updated>2021-10-01T09:48:06.716Z</updated>
   <id>https://dingdm.club/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>论文阅读第二部分</title>
+    <link href="https://dingdm.club/2021/10/01/lun-wen-yue-du-di-er-bu-fen/"/>
+    <id>https://dingdm.club/2021/10/01/lun-wen-yue-du-di-er-bu-fen/</id>
+    <published>2021-10-01T09:47:30.000Z</published>
+    <updated>2021-10-01T09:48:06.716Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;论文阅读第二部分&quot;&gt;论文阅读第二部分&lt;/h3&gt;
+&lt;h4 id=&quot;相关知识&quot;&gt;相关知识&lt;/h4&gt;
+&lt;h5 id=&quot;残差学习&quot;&gt;残差学习&lt;/h5&gt;
+&lt;p&gt;对于传统的CNN网络，简单的增加网络的深度，容易&lt;strong&gt;导致梯度消失和爆炸&lt;/strong&gt;。针对梯度消失
+      
+    
+    </summary>
+    
+    
+      <category term="深度学习" scheme="https://dingdm.club/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="论文" scheme="https://dingdm.club/tags/%E8%AE%BA%E6%96%87/"/>
+    
+  </entry>
   
   <entry>
     <title>论文阅读第一部分</title>
@@ -184,30 +211,6 @@
   </entry>
   
   <entry>
-    <title>论文阅读一</title>
-    <link href="https://dingdm.club/2021/06/14/lun-wen-yue-du-yi/"/>
-    <id>https://dingdm.club/2021/06/14/lun-wen-yue-du-yi/</id>
-    <published>2021-06-14T09:18:30.000Z</published>
-    <updated>2021-06-15T08:09:10.229Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;Learning-a-Deep-ConvNet-for-Multi-label-Classification-with-Partial-Labels论文阅读&quot;&gt;Learning a Deep ConvNet for Multi-label Classificati
-      
-    
-    </summary>
-    
-    
-      <category term="论文阅读" scheme="https://dingdm.club/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/"/>
-    
-    
-      <category term="偏标记学习" scheme="https://dingdm.club/tags/%E5%81%8F%E6%A0%87%E8%AE%B0%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
     <title>深度学习笔记四</title>
     <link href="https://dingdm.club/2021/06/14/shen-du-xue-xi-bi-ji-si/"/>
     <id>https://dingdm.club/2021/06/14/shen-du-xue-xi-bi-ji-si/</id>
@@ -231,6 +234,30 @@
     
     
       <category term="神经元网络" scheme="https://dingdm.club/tags/%E7%A5%9E%E7%BB%8F%E5%85%83%E7%BD%91%E7%BB%9C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>论文阅读一</title>
+    <link href="https://dingdm.club/2021/06/14/lun-wen-yue-du-yi/"/>
+    <id>https://dingdm.club/2021/06/14/lun-wen-yue-du-yi/</id>
+    <published>2021-06-14T09:18:30.000Z</published>
+    <updated>2021-06-15T08:09:10.229Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;Learning-a-Deep-ConvNet-for-Multi-label-Classification-with-Partial-Labels论文阅读&quot;&gt;Learning a Deep ConvNet for Multi-label Classificati
+      
+    
+    </summary>
+    
+    
+      <category term="论文阅读" scheme="https://dingdm.club/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/"/>
+    
+    
+      <category term="偏标记学习" scheme="https://dingdm.club/tags/%E5%81%8F%E6%A0%87%E8%AE%B0%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
@@ -522,33 +549,6 @@ Regression：回归算法，找到一个函数 function，通过输入特征 x �
     
     
       <category term="线性回归" scheme="https://dingdm.club/tags/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>记一次查漏补缺一</title>
-    <link href="https://dingdm.club/2021/04/14/ji-yi-ci-cha-lou-bu-que-yi/"/>
-    <id>https://dingdm.club/2021/04/14/ji-yi-ci-cha-lou-bu-que-yi/</id>
-    <published>2021-04-14T10:33:12.000Z</published>
-    <updated>2021-04-14T10:33:46.812Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;记一次查漏补缺一&quot;&gt;记一次查漏补缺一&lt;/h3&gt;
-&lt;h4 id=&quot;业务功能：不使用mysql或oracle实现持续签到领奖&quot;&gt;业务功能：不使用mysql或oracle实现持续签到领奖&lt;/h4&gt;
-&lt;p&gt;技术实现：使用redis的bitmap实现&lt;/p&gt;
-&lt;p&gt;bitm
-      
-    
-    </summary>
-    
-    
-      <category term="后端" scheme="https://dingdm.club/categories/%E5%90%8E%E7%AB%AF/"/>
-    
-    
-      <category term="redis" scheme="https://dingdm.club/tags/redis/"/>
     
   </entry>
   
