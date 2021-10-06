@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://dingdm.club/"/>
-  <updated>2021-10-05T13:27:12.408Z</updated>
+  <updated>2021-10-06T13:23:15.854Z</updated>
   <id>https://dingdm.club/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>UNet编码</title>
+    <link href="https://dingdm.club/2021/10/06/unet-bian-ma/"/>
+    <id>https://dingdm.club/2021/10/06/unet-bian-ma/</id>
+    <published>2021-10-06T13:22:30.000Z</published>
+    <updated>2021-10-06T13:23:15.854Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;UNet编码&quot;&gt;UNet编码&lt;/h3&gt;
+&lt;h5 id=&quot;UNet模型图&quot;&gt;UNet模型图&lt;/h5&gt;
+&lt;p&gt;&lt;img src=&quot;https://dingdm.online/unettu1&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h5 id=&quot;3-3卷积&quot;&gt;3*3卷积&lt;/h5&gt;
+
+      
+    
+    </summary>
+    
+    
+      <category term="深度学习" scheme="https://dingdm.club/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="图像分割" scheme="https://dingdm.club/tags/%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2/"/>
+    
+  </entry>
   
   <entry>
     <title>U-Net论文阅读</title>
@@ -514,33 +542,6 @@
         &lt;h3 id=&quot;OpenCV学习笔记三&quot;&gt;OpenCV学习笔记三&lt;/h3&gt;
 &lt;h4 id=&quot;角点特征&quot;&gt;角点特征&lt;/h4&gt;
 &lt;p&gt;角点是图像很重要的特征，对图像图形的理解和分析有着很重要的作用。角点在三维场景重建运动估计，目标跟踪、目标识别、图像配准与匹配等计算机视觉领域起着非常
-      
-    
-    </summary>
-    
-    
-      <category term="图像处理" scheme="https://dingdm.club/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
-    
-    
-      <category term="OpenCV" scheme="https://dingdm.club/tags/OpenCV/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>OpenCV学习笔记二</title>
-    <link href="https://dingdm.club/2021/04/16/opencv-xue-xi-bi-ji-er/"/>
-    <id>https://dingdm.club/2021/04/16/opencv-xue-xi-bi-ji-er/</id>
-    <published>2021-04-16T08:45:20.000Z</published>
-    <updated>2021-04-16T09:08:35.772Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;OpenCV学习笔记二&quot;&gt;OpenCV学习笔记二&lt;/h3&gt;
-&lt;h4 id=&quot;图像处理&quot;&gt;图像处理&lt;/h4&gt;
-&lt;h5 id=&quot;直方图&quot;&gt;直方图&lt;/h5&gt;
-&lt;p&gt;直方图是对数据进行统计的一种方法，并且将统计值组织到一系列实现定义好的bin中。其中，bin为直方图中经常
       
     
     </summary>
