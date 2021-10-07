@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://dingdm.club/"/>
-  <updated>2021-10-06T13:23:15.854Z</updated>
+  <updated>2021-10-07T12:28:15.893Z</updated>
   <id>https://dingdm.club/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>AUNet论文阅读</title>
+    <link href="https://dingdm.club/2021/10/07/aunet-lun-wen-yue-du/"/>
+    <id>https://dingdm.club/2021/10/07/aunet-lun-wen-yue-du/</id>
+    <published>2021-10-07T12:27:40.000Z</published>
+    <updated>2021-10-07T12:28:15.893Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;AUNet论文阅读&quot;&gt;AUNet论文阅读&lt;/h3&gt;
+&lt;h5 id=&quot;论文理解&quot;&gt;论文理解&lt;/h5&gt;
+&lt;p&gt;作者采用FPN金字塔作为主干网络，对实例和语义分割进行融合，使用了RoIUpsample和PAM，MAM。&lt;/p&gt;
+&lt;p&gt;核心点就是通过前景的语境信息帮助背景
+      
+    
+    </summary>
+    
+    
+      <category term="深度学习" scheme="https://dingdm.club/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="论文" scheme="https://dingdm.club/tags/%E8%AE%BA%E6%96%87/"/>
+    
+  </entry>
   
   <entry>
     <title>UNet编码</title>
@@ -267,6 +294,30 @@
   </entry>
   
   <entry>
+    <title>论文阅读一</title>
+    <link href="https://dingdm.club/2021/06/14/lun-wen-yue-du-yi/"/>
+    <id>https://dingdm.club/2021/06/14/lun-wen-yue-du-yi/</id>
+    <published>2021-06-14T09:18:30.000Z</published>
+    <updated>2021-06-15T08:09:10.229Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;Learning-a-Deep-ConvNet-for-Multi-label-Classification-with-Partial-Labels论文阅读&quot;&gt;Learning a Deep ConvNet for Multi-label Classificati
+      
+    
+    </summary>
+    
+    
+      <category term="论文阅读" scheme="https://dingdm.club/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/"/>
+    
+    
+      <category term="偏标记学习" scheme="https://dingdm.club/tags/%E5%81%8F%E6%A0%87%E8%AE%B0%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
     <title>深度学习笔记四</title>
     <link href="https://dingdm.club/2021/06/14/shen-du-xue-xi-bi-ji-si/"/>
     <id>https://dingdm.club/2021/06/14/shen-du-xue-xi-bi-ji-si/</id>
@@ -290,30 +341,6 @@
     
     
       <category term="神经元网络" scheme="https://dingdm.club/tags/%E7%A5%9E%E7%BB%8F%E5%85%83%E7%BD%91%E7%BB%9C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>论文阅读一</title>
-    <link href="https://dingdm.club/2021/06/14/lun-wen-yue-du-yi/"/>
-    <id>https://dingdm.club/2021/06/14/lun-wen-yue-du-yi/</id>
-    <published>2021-06-14T09:18:30.000Z</published>
-    <updated>2021-06-15T08:09:10.229Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;Learning-a-Deep-ConvNet-for-Multi-label-Classification-with-Partial-Labels论文阅读&quot;&gt;Learning a Deep ConvNet for Multi-label Classificati
-      
-    
-    </summary>
-    
-    
-      <category term="论文阅读" scheme="https://dingdm.club/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/"/>
-    
-    
-      <category term="偏标记学习" scheme="https://dingdm.club/tags/%E5%81%8F%E6%A0%87%E8%AE%B0%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
@@ -525,32 +552,6 @@
     
     
       <category term="python" scheme="https://dingdm.club/tags/python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>OpenCV学习笔记三</title>
-    <link href="https://dingdm.club/2021/04/20/opencv-xue-xi-bi-ji-san/"/>
-    <id>https://dingdm.club/2021/04/20/opencv-xue-xi-bi-ji-san/</id>
-    <published>2021-04-20T09:23:12.000Z</published>
-    <updated>2021-04-20T12:37:55.924Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;OpenCV学习笔记三&quot;&gt;OpenCV学习笔记三&lt;/h3&gt;
-&lt;h4 id=&quot;角点特征&quot;&gt;角点特征&lt;/h4&gt;
-&lt;p&gt;角点是图像很重要的特征，对图像图形的理解和分析有着很重要的作用。角点在三维场景重建运动估计，目标跟踪、目标识别、图像配准与匹配等计算机视觉领域起着非常
-      
-    
-    </summary>
-    
-    
-      <category term="图像处理" scheme="https://dingdm.club/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
-    
-    
-      <category term="OpenCV" scheme="https://dingdm.club/tags/OpenCV/"/>
     
   </entry>
   

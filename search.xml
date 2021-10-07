@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>AUNet论文阅读</title>
+      <link href="/2021/10/07/aunet-lun-wen-yue-du/"/>
+      <url>/2021/10/07/aunet-lun-wen-yue-du/</url>
+      
+        <content type="html"><![CDATA[<h3 id="AUNet论文阅读">AUNet论文阅读</h3><h5 id="论文理解">论文理解</h5><p>作者采用FPN金字塔作为主干网络，对实例和语义分割进行融合，使用了RoIUpsample和PAM，MAM。</p><p>核心点就是通过前景的语境信息帮助背景进行事物分割。</p><p>PAM：通过RPN的粗糙前景指导背景分割的分支。</p><p>MAM：将Mask进行上采样恢复到feature map大小，之后采用PAM的操作。</p><p>代码实现后面在写。不管是什么，我小机灵先放一张模型图在这就完事了。</p><p><img src="https://dingdm.online/AUNettu2" alt=""></p><h5 id="相关知识">相关知识</h5><h6 id="注意力机制">注意力机制</h6><p>attention机制可以它认为是一种资源分配的机制，可以理解为对于原本平均分配的资源根据attention对象的重要程度重新分配资源，重要的单位就多分一点，不重要或者不好的单位就少分一点，在深度神经网络的结构设计中，attention所要分配的资源基本上就是权重了</p><p>视觉注意力分为几种，核心思想是基于原有的数据找到其之间的关联性，然后突出其某些重要特征，有通道注意力，像素注意力，多阶注意力等，也有把NLP中的自注意力引入。</p><p>注意力机制的各种类型介绍https://zhuanlan.zhihu.com/p/146130215</p><p>相关论文以后阅读，这里只是进行初步的了解。</p><h6 id="RPN">RPN</h6><p>Region Proposal Network，直接翻译是“<strong>区域生成网络</strong>”，通俗讲是“筛选出可能会有目标的框”。其本质是基于滑窗的无类别object检测器，输入是任意尺度的图像，输出是一系列矩形候选区域。</p><p><a href="https://zhuanlan.zhihu.com/p/138515680" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/138515680</a></p><h6 id="归一化">归一化</h6><p>神经网络学习过程本质就是为了学习数据分布，一旦训练数据与测试数据的分布不同，那么网络的泛化能力也大大降低；另外一方面，一旦每批训练数据的分布各不相同(batch 梯度下降)，那么网络就要在每次迭代都去学习适应不同的分布，这样将会大大降低网络的训练速度，这也正是为什么我们需要对数据都要做一个归一化预处理的原因。<br>在网络的每一层输入的时候，又插入了一个归一化层，也就是先做一个归一化处理，然后再进入网络的下一层。</p><p><a href="https://blog.csdn.net/qq_41853758/article/details/82930944" target="_blank" rel="noopener">https://blog.csdn.net/qq_41853758/article/details/82930944</a></p><h5 id="摘要">摘要</h5><p>本篇论文研究了最近提出的前景由实例分割，背景由语义分割的全景分割任务。现在的方法大多数都是分开处理这两个问题的，但是在论文中，我们揭示了它们之间存在的潜在关系，实际上，前景物体为帮助背景的理解提供了补充的线索。我们的方法就是AUNet，一种同时包括前景和背景分割两个分支的统一框架。我们在背景分支中添加了RPN和前景分割掩膜来分别提供物体级别和像素级别的注意力。我们的网络可以泛化在各种的骨架模型中，并且拥有着在前景和背景分割中稳定的正确率。我们的网络在COCO和Cityscapes数据集上有着优异的表现。</p><h5 id="引言">引言</h5><p>场景理解是计算领域挑战任务的基础选择，同时在其他诸如自动驾驶和机器人领域也有着非常重要的影响。杰出的应用场景理解的领域包括物体检测，实例分割和语义分割。本篇论文介绍了全景分割，旨在通过实例分割来找到所有的前景物体和通过语义分割解析背景语义信息。基础的算法和COCO挑战的胜者都是通过直接将前景实例分割模型和背景场景解析算法直接结合来解决的，然而这样就忽视了两者之间潜在的关系和没有借鉴前景信息和背景信息之间丰富的语境关系。</p><p>在论文中，我们提出了一种概念上简单的用于全景分割的统一的框架。为了简化前景事物和背景事物之间的信息流，我们结合了卷积化的实例分割和语义分割网络，从而产生一种拥有两个分支的统一网络。这种策略为分割的准确性带来了显著的提供并且提供了运算的效率。这意味着全景分割可以从前景物体和背景语义中的补充信息中受益，同时这也是我们方法的基本原理。</p><p>接着往下，我们探索了结合更高级别视觉线索来提高分割准确性的可能。通过两种分别作用于物体级别和像素级别的注意力机制模型我们实现了该功能。对于第一个模型，我们参考局部生成，每一个局部都表示可能的前景事物，并且调整了其对应区域被认为是前景和背景事物的概率。对于第二个模型，我们使用了前景分割掩膜，并重新定义前景和背景事物的边界。在我们的网络中，这两种模型被称为PAM和MAM，是通过在前景和背景分支之间添加额外的连接实现的。通过MAM，一个叫做RoIUpsample的新层设计用于在固定形状的前景掩膜和对应的特征图中的像素间定义准确的映射函数。事实上，根据观察结果中前景分割的准确率是高的来看，所有的额外连接在由前景分支到背景分支中被丢弃了。更进一步，背景的事物在被前景事物精炼的同时，背景事物也可以通过梯度进行反馈，因此。前景和背景的分割准确率都得到了提高。</p><p>以上就是我们的AUNet，可以很方便的应用于各种网络架构，并且通过端到端的方式进行优化。我们通过两种基础流行的数据集来评估我们的网络，COCO和Citysapce，并就PQ而言，我们的网络取得了最优异的效果。除此之外，通过优化连接也带来了受益且通过消融学习，两种注意力机制模型也证实了其有效性。</p><p>我们研究的最大贡献就是提出了一种简单统一同时包含前景分割和背景分割的框架，并且在COCO和Cityspaces数据集上取得了优异的表现。同时，我们的工作也调查了在前景物体和背景语义信息之间传递的互补信息。全景分割是作为学习这种问题的自然选择，他应用于广泛的视觉任务。我们在这个领域只是进行了初步的探索，我们会沿着这个方向更加努力。</p><p>论文中剩下的部分如下，第二部分中我们简洁的说明了我们的相关工作，第三部分详细阐述了我们的AUNet网络架构，在第四部分的实验之后，我们在第五部分总结了实验结果。</p><h5 id="相关工作">相关工作</h5><p>基于场景理解的传统的深度学习研究经常关注与前景或者背景目标。随着物体检测的高速发展，实例分割使物体定为和分割发展成为了可能。与此同时，全景分割在场景解析上的表现也得到了发展。尽管它们很有效，但是分离的任务引起了实例分割中语境信息的丢失以及独立的语义分割带来了信息的混乱。为了解决这一问题，提出了全景分割，可以同时进行前景和背景的分割任务。</p><h6 id="全景分割">全景分割</h6><p>在前人的论文中，作者给出了一种结合实例和语义分割模型的一种基础算法。后来，在初始化分割结果之上又提出了一种弱监督的方法，并且通过端到端的方式来结合前景和背景线索。然后，这种方法的表现远不如基础算法。和他们不同，我们的端到端的AUNet框架得到了最优异的表现。更进一步，我们在基于生成的实例和基于FCN的语义分割之间建立了联系。</p><h6 id="实例分割">实例分割</h6><p>实例分割旨在判别同种物体的不同实例。可以通过基生成和基于分割的方法来解决。通过区域生成准确的帮助，基于生成的方法取得了较高的表现，包括MNC，FCIS，MASK R-CNN和PANet。</p><h6 id="语义分割">语义分割</h6><p>伴随类似FCN这种编码解码网络的发展，语义分割也取得了飞速的发展。分割中，捕获语境信息发挥了重要的作用。</p><h6 id="注意力模型">注意力模型</h6><p>注意力模型已经被广泛的应用于视觉任务，包括图像处理，视频理解和物体追踪。事实上，SENet通过attention-and-gating机制阐述了通道关系，non-loacl网络将机器翻译的自注意力桥接到使用non-local过滤器的视频分类。在场景理解范围内，增加全局语境信息和通过通道注意操作的特征信息。自注意力和通道注意力被用于处理空间和通道维度中长距离的语境信息。在我们的工作中，我们在全景分割中通过一系列粗糙到精细的注意力块在前景事物和背景事物之间建立了联系。</p><h5 id="AUNet">AUNet</h5><h6 id="问题和参照物">问题和参照物</h6><p>全景分割任务旨在理解单视野内的所有可见事物，这意味着要为图像的每个像素分配一个分割标签和实例ID。为了解决这个问题，当前最好的算法直接结合从分离模型中得到的实例和语义分割的结果，例如Mask R-CNN和PSPNet。</p><p>我们将全景分割问题表述为识别和分割所有前景事物并理解所有背景事物。我们从我们统一网络中的前景分支和背景分支两个方面来解决这个问题。我们给定输入图像X，我们的目标是产生前景事物分割结果Yth和背景事物分割结果Yst，因此，全景分割结果Ypa可以直接使用融合方法从Yth和Yst中产生。全景分割的结果表现通过PQ来评估。我们详细阐述了我们网络中的关键部分即PAM和MAM，我们在最后给出了我们的实现细节。</p><p>在工作中，我们将从分离模型中产生的前景和背景事物方法作为我们的参照。具体来说，基础的方法分别给出了来自分离模型MTh和MSt的事物YTh和事物YSt的结果。前景模型MTh和背景模型MSt为以下统一框架提供了相似的主干网络。</p><h6 id="统一的框架">统一的框架</h6><p>为了桥接前景事物和背景事物，我们提出了AUNet。和基础方法相比，AUNet通过分享相同的主干网络来融合两种模型产生Yth和Yst。如图2所说明，AUNet是概念简单的，FPN被用来作为主干网络来从不同的尺度和分支中提取特征判别。</p><p>和传统的直接融合Mth和Mst结果的方法不同，AUNet通过连接损失函数来进行优化，并简化了网络中的任务。我们采用了一种基于生成的实例切割模型来生成前景分支较好的掩膜M，而对于背景分支，重要的是从分享的多尺度特征中聚合场景信息。通过这种方式，主干网络同时被前景和背景事物监督，推动了两个分支在空间特征上的联系。为了更加明确的在前景事物和背景语义之间建立关系，我们使用了两种源注意力模型。我们考虑i个尺度背景feature map与相应的RPN feature map之间的粗注意力操作，分别用Si和Pi表示。注意力模块可以表示为Si ⊗ Pi ，其中“⊗”表示注意力操作，如图 2 所示。此外，通过处理后的feature map Spam和生成的前景分割掩膜之间的注意力建立更精细的关系，可以表述为Spam ⊗ Proi。 详细信息将在以下部分进行研究。</p><h6 id="注意力引导模型">注意力引导模型</h6><p><strong>PAM</strong></p><p>在传统的两阶段的检测框架中，RPN被用来进行二元标签分类和边界坐标的预测。这意味着RPN features包括只从背景分支的事物注释中获得的丰富背景信息。因此，我们提出了一种新的方法在前景元素和背景语义之间建立互补关系，被称为PAM。如图3所示，我们利用从RPN分支中获得的语境信息来进行注意力操作。我们给出了该过程的细节。给定一个从第i个RPN分支尺度输入的feature map Pi，在sigmoid激活前前景的权重map Mi如下表示：</p><p><img src="https://dingdm.online/AUNet1" alt=""></p><p>f函数表示卷积操作，参数表示ReLU激活函数，Mi表示生成的前景权重map，Wi,1和Wi,2表示卷积参数。</p><p>为了加强背景的语义信息，我们将注意力权重map表示为1-sigmoid(Mi)。然后，第i个尺度的激活的feature map S’i表示如下：</p><p><img src="https://dingdm.online/AUNet2" alt=""></p><p>⊗和⊕分别表示元素累乘和累加，Si,j表示第j层的分割feature map Si</p><p>受同行启发，设计一种简单的背景重新加权方法用来在注意力操作后对无用的背景的层进行权重减少。重新加权feature mapS’'i如下表示：</p><p><img src="https://dingdm.online/AUNet3" alt=""></p><p>G和GN表示全局平均池化和群体范数。Ni表示重新加权操作，Wi,3表示卷积参数，S’i,k表示S’i中的第k个像素通道。</p><p>基于 PAM 的上述公式，我们通过注意力操作和背景重加权函数突出共享feature map中的背景区域。它还通过在反向传播期间增强激活的前景区域的权重来方便前景事物的学习。</p><p><strong>MAM</strong></p><p>随着PAM引入语境信息，背景分支被鼓励更多地关注事物的区域。然而，从RPN分支中预测的粗糙的区域缺少足够的线索来对背景进行精确的陈述。和RPN feature不同，从前景分支生成的m×m固定形状掩码可以编码更精细的前景布局。因此我们提出了MAM来进一步模拟这种关系，我们提出了一种新的RoIUpsample层。RoIUpsample层设计的和RoIAlign的过程反转比较相似，如图四所示。在RoIUpsample层中，m×m的掩膜第一次被重塑为和RoIs一样的形状。然后我们利用设计的逆双线性插值计算每个掩码箱中四个规则采样位置的输出特征值，然后将最终结果累加生成掩码feature map。为了满足双线性插值的要求，其中接近点被赋予更多的权重，对于逆双线性插值表示如下：</p><p><img src="https://dingdm.online/AUNet4" alt=""></p><p>R(pj,k)表示在逆双线性插值之后点Pj,k的结果，R(pg)输入掩码对应值的四分之一，并且规范化的权重valuex和valuey定义如下：</p><p><img src="https://dingdm.online/AUNet5" alt=""></p><p>其中xp和yp分别表示两个轴上网格点pg和生成的p1,1之间的距离，如图4b所示，注意到公式5和6，也可以使用前向双线性插值从生成的 W’×H’ feature map还原m×m掩码。</p><p>然后，根据RoIs的尺寸将生成的feature map分配到四个不同的尺度，这与FPN中的相似。生成的前景feature map是通过以下操作实现的。</p><p><strong>注意力操作</strong></p><p>和传统的实例分割任务不同，预测的前景掩膜可以利用来为背景分支在像素级别上提供更多的语境导向。我们第一次使用RoIUpsample将它们聚合到Cm*W’*H‘ feature map中。然后，就可以产生1*W’*H’的精细的背景激活区域，这与PAM中的操作相似。随着注意力的引入，前景掩膜也被分割损失函数监督，这意味着在场景理解的能力可以进一步提高。一种相似的背景重新加权函数被采用来聚合有用的背景feature map。我们使用PAM和MAM为前景事物和背景事物提供互补信息。</p><h5 id="实现细节">实现细节</h5><p>作者在本节给出了在训练和推理阶段的相关实现细节。</p><h6 id="训练">训练</h6><p>像在3.2中已经详细阐述的一样，所以提出的方法在统一的框架中都进行了训练。整个网络在训练阶段通过连接的loss函数进行优化，损失函数如下所示：</p><p><img src="https://dingdm.online/AUNet6" alt=""></p><p>其中的LRPN，LRCNN，LMASK和LSeg分别代表了RPN，RCNN，实例分割和语义分割的损失函数。具体来说，超参数被用来平衡训练过程，λ1到λ4在COCO数据集上被设为1，1，1，0.3，在Cityspaces数据集上被设为1，0.75，1，1。</p><p>在细节上，我们采用了ResNet-FPN作为我们的主干网络。前景分支的超参数来自Mask R-CNN。主干网络在ImageNet数据集上进行了预训练，剩下的参数来自于参考的另一篇论文。作为标准训练，使用8个GPU来训练所有模型。对于基于ResNet-50和ResNet-101的网络，每个小批量处理的GPU有2个图像，其他每个GPU有1个图像。网络通过使用4e-5的权重衰减和0.9的动量进行迭代的优化。主干网络中的批量归一化是固定的，并且在我们的最终结果中将组归一化添加到所有分支中。对于COCO数据集，在前十三次迭代的学习率为0.02并在第十五次和第十八次的时候将学习率除10。输入的图像在训练时进行水平翻转并重塑短边为600个像素。多尺度测试在最后的结果中被采用。对于Cityspaces数据集来说，初始学习率设置为0.01并在第68次和第88次迭代后分别除10。在将每个图像随机翻转和缩放0.5到2.0倍之后，我们从16个随机512×1024图像裁剪构建mini-batch用于训练。</p><h6 id="推理">推理</h6><p>在参考的论文中，推理阶段的全景分割结果通过融合前景事物和背景事物产生。在该阶段，前景事物的重叠部分通过NMS极大值抑制进行处理，可以通过较高的置信度来预测分割任务。在程序中，分类之间的关系也被考虑在内。无重叠的实例分割和首次指配实例标签的背景事物进行结合来支持前景事物。</p><h5 id="实验">实验</h5><p>作者在COCO和Cityspaces数据集上进行实验并和同行算法相比。简言之就是吹。所以略。</p><h5 id="附加文件">附加文件</h5><h6 id="图1">图1</h6><p><img src="https://dingdm.online/AUNettu1" alt=""></p><h6 id="图2">图2</h6><p><img src="https://dingdm.online/AUNettu2" alt=""></p><h6 id="图3">图3</h6><p><img src="https://dingdm.online/AUNettu3" alt=""></p><h6 id="图4">图4</h6><p><img src="https://dingdm.online/AUNettu4" alt=""></p><h6 id="图5">图5</h6><p><img src="https://dingdm.online/AUNettu5" alt=""></p><h6 id="图6">图6</h6><p><img src="https://dingdm.online/AUNettu6" alt=""></p><h6 id="图7">图7</h6><p><img src="https://dingdm.online/AUNettu7" alt=""></p><h6 id="表1">表1</h6><p><img src="https://dingdm.online/AUNetbiao1" alt=""></p><h6 id="表2">表2</h6><p><img src="https://dingdm.online/AUNetbiao2" alt=""></p><h6 id="表3">表3</h6><p><img src="https://dingdm.online/AUNetbiao3" alt=""></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> 深度学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 论文 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>UNet编码</title>
       <link href="/2021/10/06/unet-bian-ma/"/>
       <url>/2021/10/06/unet-bian-ma/</url>
@@ -229,31 +254,6 @@
     
     
     <entry>
-      <title>深度学习笔记四</title>
-      <link href="/2021/06/14/shen-du-xue-xi-bi-ji-si/"/>
-      <url>/2021/06/14/shen-du-xue-xi-bi-ji-si/</url>
-      
-        <content type="html"><![CDATA[<h3 id="深度学习笔记四">深度学习笔记四</h3><h4 id="Deep-Learning">Deep Learning</h4><h5 id="深度学习的network">深度学习的network</h5><p><img src="http://dingdm.online/dee.jpg" alt=""></p><p>神经元的权重和偏差可以视为矩阵运算。即得到激活函数(activation function)。将激活函数进行sigmoid得到最终结果。将上方的网络用该种形式进行计算即为</p><p><img src="http://dingdm.online/dee2.jpg" alt=""></p><p>通过矩阵运行交由GPU加快运算过程。</p><h5 id="神经元网络的选取">神经元网络的选取</h5><p><img src="http://dingdm.online/cry.jpg" alt=""></p><p>通过神经元网络计算得到的输入矩阵和根据图像得到的target矩阵进行交叉熵计算结果，调整参数使得最后计算得到的交叉熵最小以确定最优的神经元网络函数。</p><p>通过不同组的数据进行训练得到所有的交叉熵进行累加，使用gradient descent获取w与b。</p><h5 id="gradient-descent">gradient descent</h5><p><img src="http://dingdm.online/grad.jpg" alt=""></p><h4 id="Backpropagation">Backpropagation</h4><p>帮助计算gradient descent中的参数的偏微分。</p><h5 id="chain-rule">chain rule</h5><p>即复合函数的微分过程。</p><p><img src="http://dingdm.online/we.jpg" alt=""></p><p>C为最后的交叉熵。</p><p>z对于w求偏微分，z对于哪一个w求微分，得到的即为w对应的输入数据。</p><p>C对于z求偏微分。</p><p><img src="http://dingdm.online/Cw.jpg" alt=""></p><p><img src="http://dingdm.online/ch.jpg" alt=""></p><h5 id="Backward-pass">Backward pass</h5><p>以未知的两项作为输入，得出的最终结果为输出。</p><p><img src="http://dingdm.online/fa2.jpg" alt=""></p><p>具体的放大倍率即为对应z的sigmoid的求导。反求通过已知的C即可快速计算。</p><h4 id="Recipe-OF-Deep-Learning">Recipe OF Deep Learning</h4><p>对于得到神经元网络应先应用于训练数据判断是否合适，防止直接运用于测试数据出现的非过拟合现象。</p><h5 id="New-activation-function">New activation function</h5><p>vanishing gradient problem</p><p>靠近输入的神经元gradient参数的更新速度较慢或靠近输入的神经元gradient参数更新较大。</p><p>使用sigmoid时，较大的输入经过sigmoid后会进行衰减，越深的层数对最后的C的结果的影响就越小。</p><h6 id="ReLU">ReLU</h6><p>更改激活函数，当输入小于0时，输出为0，当输入大于0时，输出等于输入。</p><p>当神经元的输出为0时，不会影响整个神经元网络，可以直接去掉。而输入等于输出不会产生递减问题。</p><p><img src="http://dingdm.online/rejy.jpg" alt=""></p><h6 id="maxout">maxout</h6><p>每层神经元的输出为分组中的最大值。</p><p>maxout也可以使用ReLU，即某个参数始终为0，其他参数为线性函数，即选取最大时满足ReLU。</p><p><img src="http://dingdm.online/bax.jpg" alt=""></p><h6 id="Maxout-training">Maxout training</h6><p>选取的最大值为最终的输出值，最终简化神经元网络。</p><h5 id="Adaptive-Learning-Rate">Adaptive Learning Rate</h5><p>使用adagrad</p><p><img src="http://dingdm.online/adagrad.png" alt=""></p><h6 id="RMSProp">RMSProp</h6><p>防止在某个变量变化的过程中出现的变化较小和变化较大同时存在的情况。</p><p><img src="http://dingdm.online/TRB.jpg" alt=""></p><h6 id="Momentum">Momentum</h6><p>利用惯性继续向前移动。</p><p>使用V记录移动距离。</p><p><img src="http://dingdm.online/MVE.jpg" alt=""></p><h6 id="Adam">Adam</h6><p>RMSProp + Momentum</p><p><img src="http://dingdm.online/adam.png" alt=""></p><h5 id="Early-Stopping">Early Stopping</h5><p>在error上升前停住，即一个if判断即可。</p><h5 id="Regularization">Regularization</h5><p><img src="http://dingdm.online/reg.jpg" alt=""></p><h5 id="DropOut">DropOut</h5><p><img src="http://dingdm.online/st1.jpg" alt=""></p><p>在新的神经元网络上进行训练。表现的结果可能变差。</p><p><img src="http://dingdm.online/sy2.jpg" alt=""></p><p>训练时使用所有的神经元，而在测试时需要去掉不合理的神经元。</p><p>训练数据时使用dropout，而测试时不需要dropout，因此对于所有的输入没有dropout，需要使用(1-p)%。</p><p>在训练时对于每组不同的数据会得到较多的神经元网络，而在测试时对于测试数据应用于所有的神经元网络不现实，因此采用了(1-p)%的方式进行计算，而得到的结果与前种方式得到的结果是相似的。</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
-      
-      
-      <categories>
-          
-          <category> 深度学习 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 神经元网络 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>论文阅读一</title>
       <link href="/2021/06/14/lun-wen-yue-du-yi/"/>
       <url>/2021/06/14/lun-wen-yue-du-yi/</url>
@@ -271,6 +271,31 @@
         <tags>
             
             <tag> 偏标记学习 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>深度学习笔记四</title>
+      <link href="/2021/06/14/shen-du-xue-xi-bi-ji-si/"/>
+      <url>/2021/06/14/shen-du-xue-xi-bi-ji-si/</url>
+      
+        <content type="html"><![CDATA[<h3 id="深度学习笔记四">深度学习笔记四</h3><h4 id="Deep-Learning">Deep Learning</h4><h5 id="深度学习的network">深度学习的network</h5><p><img src="http://dingdm.online/dee.jpg" alt=""></p><p>神经元的权重和偏差可以视为矩阵运算。即得到激活函数(activation function)。将激活函数进行sigmoid得到最终结果。将上方的网络用该种形式进行计算即为</p><p><img src="http://dingdm.online/dee2.jpg" alt=""></p><p>通过矩阵运行交由GPU加快运算过程。</p><h5 id="神经元网络的选取">神经元网络的选取</h5><p><img src="http://dingdm.online/cry.jpg" alt=""></p><p>通过神经元网络计算得到的输入矩阵和根据图像得到的target矩阵进行交叉熵计算结果，调整参数使得最后计算得到的交叉熵最小以确定最优的神经元网络函数。</p><p>通过不同组的数据进行训练得到所有的交叉熵进行累加，使用gradient descent获取w与b。</p><h5 id="gradient-descent">gradient descent</h5><p><img src="http://dingdm.online/grad.jpg" alt=""></p><h4 id="Backpropagation">Backpropagation</h4><p>帮助计算gradient descent中的参数的偏微分。</p><h5 id="chain-rule">chain rule</h5><p>即复合函数的微分过程。</p><p><img src="http://dingdm.online/we.jpg" alt=""></p><p>C为最后的交叉熵。</p><p>z对于w求偏微分，z对于哪一个w求微分，得到的即为w对应的输入数据。</p><p>C对于z求偏微分。</p><p><img src="http://dingdm.online/Cw.jpg" alt=""></p><p><img src="http://dingdm.online/ch.jpg" alt=""></p><h5 id="Backward-pass">Backward pass</h5><p>以未知的两项作为输入，得出的最终结果为输出。</p><p><img src="http://dingdm.online/fa2.jpg" alt=""></p><p>具体的放大倍率即为对应z的sigmoid的求导。反求通过已知的C即可快速计算。</p><h4 id="Recipe-OF-Deep-Learning">Recipe OF Deep Learning</h4><p>对于得到神经元网络应先应用于训练数据判断是否合适，防止直接运用于测试数据出现的非过拟合现象。</p><h5 id="New-activation-function">New activation function</h5><p>vanishing gradient problem</p><p>靠近输入的神经元gradient参数的更新速度较慢或靠近输入的神经元gradient参数更新较大。</p><p>使用sigmoid时，较大的输入经过sigmoid后会进行衰减，越深的层数对最后的C的结果的影响就越小。</p><h6 id="ReLU">ReLU</h6><p>更改激活函数，当输入小于0时，输出为0，当输入大于0时，输出等于输入。</p><p>当神经元的输出为0时，不会影响整个神经元网络，可以直接去掉。而输入等于输出不会产生递减问题。</p><p><img src="http://dingdm.online/rejy.jpg" alt=""></p><h6 id="maxout">maxout</h6><p>每层神经元的输出为分组中的最大值。</p><p>maxout也可以使用ReLU，即某个参数始终为0，其他参数为线性函数，即选取最大时满足ReLU。</p><p><img src="http://dingdm.online/bax.jpg" alt=""></p><h6 id="Maxout-training">Maxout training</h6><p>选取的最大值为最终的输出值，最终简化神经元网络。</p><h5 id="Adaptive-Learning-Rate">Adaptive Learning Rate</h5><p>使用adagrad</p><p><img src="http://dingdm.online/adagrad.png" alt=""></p><h6 id="RMSProp">RMSProp</h6><p>防止在某个变量变化的过程中出现的变化较小和变化较大同时存在的情况。</p><p><img src="http://dingdm.online/TRB.jpg" alt=""></p><h6 id="Momentum">Momentum</h6><p>利用惯性继续向前移动。</p><p>使用V记录移动距离。</p><p><img src="http://dingdm.online/MVE.jpg" alt=""></p><h6 id="Adam">Adam</h6><p>RMSProp + Momentum</p><p><img src="http://dingdm.online/adam.png" alt=""></p><h5 id="Early-Stopping">Early Stopping</h5><p>在error上升前停住，即一个if判断即可。</p><h5 id="Regularization">Regularization</h5><p><img src="http://dingdm.online/reg.jpg" alt=""></p><h5 id="DropOut">DropOut</h5><p><img src="http://dingdm.online/st1.jpg" alt=""></p><p>在新的神经元网络上进行训练。表现的结果可能变差。</p><p><img src="http://dingdm.online/sy2.jpg" alt=""></p><p>训练时使用所有的神经元，而在测试时需要去掉不合理的神经元。</p><p>训练数据时使用dropout，而测试时不需要dropout，因此对于所有的输入没有dropout，需要使用(1-p)%。</p><p>在训练时对于每组不同的数据会得到较多的神经元网络，而在测试时对于测试数据应用于所有的神经元网络不现实，因此采用了(1-p)%的方式进行计算，而得到的结果与前种方式得到的结果是相似的。</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> 深度学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 神经元网络 </tag>
             
         </tags>
       
