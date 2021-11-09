@@ -699,7 +699,7 @@ nano ~/blog.git/hooks/post-receive
 <p><strong>制作Dockerfile文件</strong></p>
 <p>使用自己刚刚拉取的ubuntu镜像并安装nginx和配置环境</p>
 <pre class=" language-language-dockerfile"><code class="language-language-dockerfile">FROM c090eaba6b94
-RUN apt-get update && apt-get install -y nginx
+RUN apt-get update &amp;&amp; apt-get install -y nginx
 COPY default /etc/nginx/sites-available/
 COPY www/ /home/www
 CMD ["/usr/sbin/nginx","-g","daemon off;"]
@@ -1386,7 +1386,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">100.3k</span>&nbsp;字
+                class="white-color">90.6k</span>&nbsp;字
             
             
             

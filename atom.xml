@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://dingdm.club/"/>
-  <updated>2021-10-07T12:28:15.893Z</updated>
+  <updated>2021-11-09T13:24:16.969Z</updated>
   <id>https://dingdm.club/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>yolo相关理论补充</title>
+    <link href="https://dingdm.club/2021/11/09/yolo-xiang-guan-li-lun/"/>
+    <id>https://dingdm.club/2021/11/09/yolo-xiang-guan-li-lun/</id>
+    <published>2021-11-09T13:24:40.000Z</published>
+    <updated>2021-11-09T13:24:16.969Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;yolo相关理论补充&quot;&gt;yolo相关理论补充&lt;/h3&gt;
+&lt;p&gt;TP:iou大于阈值检测框数量&lt;br&gt;
+FP:iou小于等于阈值的检测框数量&lt;br&gt;
+FN:没有检测到的GT的数量&lt;/p&gt;
+&lt;p&gt;precision:查准率，TP/(TP+FP)，预测正确的比例&lt;br&gt;
+      
+    
+    </summary>
+    
+    
+      <category term="深度学习" scheme="https://dingdm.club/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="论文" scheme="https://dingdm.club/tags/%E8%AE%BA%E6%96%87/"/>
+    
+  </entry>
   
   <entry>
     <title>AUNet论文阅读</title>
@@ -294,30 +322,6 @@
   </entry>
   
   <entry>
-    <title>论文阅读一</title>
-    <link href="https://dingdm.club/2021/06/14/lun-wen-yue-du-yi/"/>
-    <id>https://dingdm.club/2021/06/14/lun-wen-yue-du-yi/</id>
-    <published>2021-06-14T09:18:30.000Z</published>
-    <updated>2021-06-15T08:09:10.229Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;Learning-a-Deep-ConvNet-for-Multi-label-Classification-with-Partial-Labels论文阅读&quot;&gt;Learning a Deep ConvNet for Multi-label Classificati
-      
-    
-    </summary>
-    
-    
-      <category term="论文阅读" scheme="https://dingdm.club/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/"/>
-    
-    
-      <category term="偏标记学习" scheme="https://dingdm.club/tags/%E5%81%8F%E6%A0%87%E8%AE%B0%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
     <title>深度学习笔记四</title>
     <link href="https://dingdm.club/2021/06/14/shen-du-xue-xi-bi-ji-si/"/>
     <id>https://dingdm.club/2021/06/14/shen-du-xue-xi-bi-ji-si/</id>
@@ -341,6 +345,30 @@
     
     
       <category term="神经元网络" scheme="https://dingdm.club/tags/%E7%A5%9E%E7%BB%8F%E5%85%83%E7%BD%91%E7%BB%9C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>论文阅读一</title>
+    <link href="https://dingdm.club/2021/06/14/lun-wen-yue-du-yi/"/>
+    <id>https://dingdm.club/2021/06/14/lun-wen-yue-du-yi/</id>
+    <published>2021-06-14T09:18:30.000Z</published>
+    <updated>2021-06-15T08:09:10.229Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;Learning-a-Deep-ConvNet-for-Multi-label-Classification-with-Partial-Labels论文阅读&quot;&gt;Learning a Deep ConvNet for Multi-label Classificati
+      
+    
+    </summary>
+    
+    
+      <category term="论文阅读" scheme="https://dingdm.club/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/"/>
+    
+    
+      <category term="偏标记学习" scheme="https://dingdm.club/tags/%E5%81%8F%E6%A0%87%E8%AE%B0%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
@@ -525,33 +553,6 @@
     
     
       <category term="OpenCV" scheme="https://dingdm.club/tags/OpenCV/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>python学习笔记三</title>
-    <link href="https://dingdm.club/2021/04/20/python-xue-xi-bi-ji-san/"/>
-    <id>https://dingdm.club/2021/04/20/python-xue-xi-bi-ji-san/</id>
-    <published>2021-04-20T12:39:21.000Z</published>
-    <updated>2021-04-20T12:39:27.357Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;python学习笔记三&quot;&gt;python学习笔记三&lt;/h3&gt;
-&lt;h4 id=&quot;类与对象&quot;&gt;类与对象&lt;/h4&gt;
-&lt;p&gt;语法：&lt;/p&gt;
-&lt;pre class=&quot; language-language-python&quot;&gt;&lt;code class=&quot;language-langua
-      
-    
-    </summary>
-    
-    
-      <category term="后端" scheme="https://dingdm.club/categories/%E5%90%8E%E7%AB%AF/"/>
-    
-    
-      <category term="python" scheme="https://dingdm.club/tags/python/"/>
     
   </entry>
   
