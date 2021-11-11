@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://dingdm.club/"/>
-  <updated>2021-11-09T13:24:16.969Z</updated>
+  <updated>2021-11-11T13:18:55.373Z</updated>
   <id>https://dingdm.club/</id>
   
   <author>
@@ -15,6 +15,60 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>FPN网络理论</title>
+    <link href="https://dingdm.club/2021/11/11/fpn-wang-luo-li-lun/"/>
+    <id>https://dingdm.club/2021/11/11/fpn-wang-luo-li-lun/</id>
+    <published>2021-11-11T13:18:30.000Z</published>
+    <updated>2021-11-11T13:18:55.373Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;FPN网络理论&quot;&gt;FPN网络理论&lt;/h3&gt;
+&lt;h4 id=&quot;FPN论文&quot;&gt;FPN论文&lt;/h4&gt;
+&lt;h5 id=&quot;摘要&quot;&gt;摘要&lt;/h5&gt;
+&lt;p&gt;特征金字塔是识别系统中用于检测不同尺度对象的基本组件。但是最近的深度学习对象检测器避免了金字塔表示，部分原因是它们是计算和
+      
+    
+    </summary>
+    
+    
+      <category term="深度学习" scheme="https://dingdm.club/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="论文" scheme="https://dingdm.club/tags/%E8%AE%BA%E6%96%87/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ResNet网络理论</title>
+    <link href="https://dingdm.club/2021/11/11/resnet-wang-luo-jie-gou-li-lun/"/>
+    <id>https://dingdm.club/2021/11/11/resnet-wang-luo-jie-gou-li-lun/</id>
+    <published>2021-11-11T09:43:30.000Z</published>
+    <updated>2021-11-11T13:24:11.108Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;ResNet网络理论&quot;&gt;ResNet网络理论&lt;/h3&gt;
+&lt;h4 id=&quot;ResNet论文&quot;&gt;ResNet论文&lt;/h4&gt;
+&lt;h5 id=&quot;摘要&quot;&gt;摘要&lt;/h5&gt;
+&lt;p&gt;更深的神经网络更难训练。我们提出了一个残差学习框架，以简化比普通网络更深的网络的训练。我们提供了全
+      
+    
+    </summary>
+    
+    
+      <category term="深度学习" scheme="https://dingdm.club/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="论文" scheme="https://dingdm.club/tags/%E8%AE%BA%E6%96%87/"/>
+    
+  </entry>
   
   <entry>
     <title>yolo相关理论补充</title>
@@ -499,60 +553,6 @@ FN:没有检测到的GT的数量&lt;/p&gt;
     
     
       <category term="逻辑回归" scheme="https://dingdm.club/tags/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>深度学习第一次学习编码</title>
-    <link href="https://dingdm.club/2021/04/29/shen-du-xue-xi-di-yi-ci-xue-xi-bian-ma/"/>
-    <id>https://dingdm.club/2021/04/29/shen-du-xue-xi-di-yi-ci-xue-xi-bian-ma/</id>
-    <published>2021-04-29T07:09:31.000Z</published>
-    <updated>2021-04-29T07:10:07.129Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;深度学习第一次学习编码&quot;&gt;深度学习第一次学习编码&lt;/h3&gt;
-&lt;p&gt;由于受到硬件设备的缘故，故得出的结果并不准确，开学之后再测，本次记录仅仅对之前学习内容的总结和编码。&lt;/p&gt;
-&lt;h4 id=&quot;通过韩服lol15分钟经济差预测本场时长&quot;&gt;通过韩服lol15分钟经济差
-      
-    
-    </summary>
-    
-    
-      <category term="深度学习" scheme="https://dingdm.club/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="线性回归" scheme="https://dingdm.club/tags/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>OpenCV学习笔记四</title>
-    <link href="https://dingdm.club/2021/04/21/opencv-xue-xi-bi-ji-si/"/>
-    <id>https://dingdm.club/2021/04/21/opencv-xue-xi-bi-ji-si/</id>
-    <published>2021-04-21T10:21:56.000Z</published>
-    <updated>2021-04-21T11:23:12.581Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;OpenCV学习笔记四&quot;&gt;OpenCV学习笔记四&lt;/h3&gt;
-&lt;h4 id=&quot;Fast和ORB算法&quot;&gt;Fast和ORB算法&lt;/h4&gt;
-&lt;h5 id=&quot;Fast算法&quot;&gt;Fast算法&lt;/h5&gt;
-&lt;p&gt;&lt;strong&gt;原理：&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Fast是一种
-      
-    
-    </summary>
-    
-    
-      <category term="图像处理" scheme="https://dingdm.club/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
-    
-    
-      <category term="OpenCV" scheme="https://dingdm.club/tags/OpenCV/"/>
     
   </entry>
   

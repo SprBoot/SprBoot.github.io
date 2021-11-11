@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="深度学习笔记一, dingdm">
+    <meta name="keywords" content="ResNet网络理论, dingdm">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>深度学习笔记一 | dingdm</title>
+    <title>ResNet网络理论 | dingdm</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -323,12 +323,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('http://dingdm.online/3.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('http://dingdm.online/12.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">深度学习笔记一</h1>
+                    <h1 class="description center-align post-title">ResNet网络理论</h1>
                 </div>
             </div>
         </div>
@@ -445,8 +445,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/">
-                                <span class="chip bg-color">线性回归</span>
+                            <a href="/tags/%E8%AE%BA%E6%96%87/">
+                                <span class="chip bg-color">论文</span>
                             </a>
                         
                     </div>
@@ -470,7 +470,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-04-15
+                    2021-11-11
                 </div>
                 
 
@@ -479,14 +479,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.4k
+                    2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    8 分
+                    7 分
                 </div>
                 
 
@@ -501,108 +501,48 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="深度学习笔记一">深度学习笔记一</h3>
-<h4 id="名词">名词</h4>
-<p>函数的Loss：深度学习的错误率<br>
-Regression：回归算法，找到一个函数 function，通过输入特征 x ，输出一个数值 Scalar 。与其他任务不同的是输出一个数值<br>
-Classification：分类，输入参数，通过某种模型计算后，输出所属类别<br>
-Meta Learning：让机器学会学习，第一个任务是语音识别，第二个任务是图像识别，第一百个任务是文本分类，机器会因为之前所学到得任务，所以在后面得任务学习得更好。<br>
-Unsupervised Learning：无监督学习，数据没有label，需要根据数据自身结构特性来将数据分类<br>
-Life-long Learning：终身学习，对多个任务使用一个模型进行学习，期望机器学完第一个任务后，再学习学第二个任务后，不会遗忘第一个任务，继续学习第三个任务后，不会忘记第一个和第二个任务。<br>
-Reinforcement Learning：强化学习，估计未来的收益，并根据这些收益对<strong>当前动作进行强化</strong>的算法设计思想是<strong>强化学习</strong><br>
-Domain Adversarial Learning：对抗训练，在对抗训练的过程中，样本会被混合一些微小的扰动（改变很小，但是很可能造成误分类），然后使神经网络适应这种改变，从而对对抗样本具有鲁棒性。<br>
-Network Compression：模型压缩<br>
-Anomaly Detection：<strong>异常检测</strong>，目的在于让机器知道我所不知道的事情<br>
-Explainable AI：可解释AI</p>
-<h4 id="Regression">Regression</h4>
-<p>Step1:Model<br>
-视频通过宝可梦的例子进行讲解，这里我通过新闻推荐的方式对相关内容进行理解。<br>
-函数，即通过线性模型构造函数。y = b + w*x(similar)；<br>
-这里的y为推荐新闻的推荐指数，而b可以为新闻分类的相似度下时间发表的前后或者新闻的阅读量等因素构成的推荐数值。而w为用户行为(点赞，评论，收藏，分享)分析的推荐数值。x(similar)则为被推荐新闻与用户阅读过新闻关键字的匹配值。<br>
-其中x中的各种属性，即关键字匹配度或者发表机构的匹配度等为输入特征。w为权重，x为偏差。</p>
-<p>Step2:Goodness of Function<br>
-获取多个数据通过表格，折线等多种形式进行分析。<br>
-定义Loss function L：衡量参数的好坏<br>
-通过对应的估测误差的函数来计算所有已有样本根据不同function计算的Loss值。</p>
-<p><img src="http://dingdm.online/ss.png" alt=""></p>
-<p>Step3:Best Function<br>
-根据Loss值获取最好的function。<br>
-gradient descent：处理function找到最优值<br>
-1.穷举<br>
-2.Gradient Descent<br>
-单参<br>
-随机选取或者其他方法找到一个初始点w0；<br>
-计算w0位置的微分。为负的话应该增加w的值。为正的话应该减少w的值。<br>
-增量选取：根据微分的大小(陡峭程度)；常数项learning rate(事先定义好的值)。<br>
-重复之前的步骤。<br>
-经过t次的更新，找到local optimal微分为0的位置。局部最优解。<br>
-双参<br>
-和单参数相同，不过是计算双参数的微分。使用同一个常数项learning rate。<br>
-对于三维Loss Function函数的计算是根据选取点的，而对线性模型得到的是同一组参数。<br>
-根据原图像与得到的最优的function进行误差估测。<br>
-获取新的模型用于测试得到的最优函数，在进行误差估测。</p>
-<p>Step4：新的模型误差较大或者某个局部预测不准<br>
-引入二次式进行再次预测或继续引入三次方再次预测。<br>
-由于现有模型的不足和分布不均，使用较高的次方进行预测的原数据模型对当前数据模型误差可能增大。产生overfitting。<br>
-高次方程的范围是低次方程的超集，在找出最优function的情况下，根据最优function在找到最优的误差。</p>
-<p>Step5：根据较大的数据模型和分布重新设计function<br>
-显然根据不同的新闻的分类或者不同的新闻分类下的再次细分设计不同的function。<br>
-使用switch区分分类来构成线性函数。线性函数则由x的多个特征来设计。</p>
-<p>Step6：若仍想取最优<br>
-将所有x的特征都加入到function中，并采取多次函数进行预测。可能会产生overfitting。<br>
-Regularization：<br>
-第二步中的估计误差的loss function选取更好的误差估计函数。<br>
-在进行regularization的时候，进行图像的平滑程度调整不需要考虑偏差，偏差只是让图像上下移动而已。<br>
-误差函数新增的项的值应该较小，使加上的项产生的函数较平滑。输入对输出的影响较小。<br>
-根据结果得出，新增的变量的值越大，图像越平滑。变量的值越大，越依赖于w，则error越大。<br>
-而对于新的测试数据，平滑图像的最优也可能导致error更大。</p>
-<h4 id="Error来源">Error来源</h4>
-<p>f*来自于训练得出的最优function，而程序使用的function为fhat<br>
-其中f*距fhat的‘距离’来自于bias和variance。<br>
-计算f*的数学期望 E[f*] 。bias即E[f*] 与f hat的误差，而variance即E[f*] 与f*的方差。<br>
-对于简单的模型函数拥有较低的variance，拥有较大的bias。而对于复杂的模型函数拥有较大的variance，拥有较小的bias。<br>
-对于简单的模型函数可能不包含你的fhat，而较复杂的模型函数可能包含你的fhat，但是variance较大。<br>
-对于模型函数来讲，当准度高即bias越来越小的时候，你的精度低即variance会越来越大。<br>
-对于训练数据得到的f*没有fit的情况下，bias较大。而对于测试数据测试f*时，产生的error较大，则应该考虑variance较大。<br>
-当bias较大时，应输入更多特征，优化模型函数。而variance较大时，应增大训练数据或者regularization(可能平滑之后无法包含fhat)。<br>
-<strong>训练数据应分为两组，一组为Training set，另一组为Validation set。通过训练得到的f*在Validation set上进行验证，或者使用全部的训练数据。</strong><br>
-N-fold Cross Validation：将训练数据分为三份，以组合的形式(两份训练，一份验证)训练模型函数得到f*，再在全部的训练数据中进行测试。</p>
-<h4 id="Gradient-Descent">Gradient Descent</h4>
-<p>表达式：</p>
-<p><img src="http://dingdm.online/grad.png" alt=""></p>
-<h4 id="tuning-your-learning-rate">tuning your learning rate</h4>
-<p>可视化参数的变化对loss的影响，当折线平稳下降时，rate较小，而折现下降平稳之后，则rate较大，当折线开始上升则rate错误。<br>
-learning rate会随着参数的更新越来越小。每一个不同的参数都应该有不同的learning rate。</p>
-<p><img src="http://dingdm.online/desct.png" alt=""></p>
-<p>Adagrad：选取一个数值为参数之前的均方根进行更新</p>
-<p><img src="http://dingdm.online/Adagrad.png" alt=""></p>
-<p>g为偏微分。</p>
-<p>推荐使用Adam。</p>
-<p>Adagrad会使用除值来弥补反差。当进行跨参数时，分子和一次微分成正比，分母和二次微分成反比。</p>
-<p><img src="http://dingdm.online/er.png" alt=""></p>
-<p>对于跨参数而言，参考如图即可得知，在a位置的一次微分较小，二次微分也较小。而对于c的位置一次微分较大，同时二次微分也较大。Adagrad就是通过分母预估二次微分的值。</p>
-<h4 id="Stochastic-Gradient-Descent">Stochastic Gradient Descent</h4>
-<p>计算单个样本的Loss和单个Gradient</p>
-<p><img src="http://dingdm.online/sss.png" alt=""></p>
-<p><img src="http://dingdm.online/sgrad.png" alt=""></p>
-<p>每个样本更新一次参数，计算较快。</p>
-<h4 id="Feature-Scaling">Feature Scaling</h4>
-<p>当输入时考虑多个特征，且多个特征的规模相差较大时，可以rescaling将多个特征的规模调整到基本一致。<br>
-当多特征的选值相差较大时，会发现较大的特征值变更时对于loss的变化是较大的，而特征值小变化较小。所以小的特征值方向上比较平滑，而特征值大方向上的比较陡峭。这个时候参数的update寻找f*时是比较难的，消耗的时间较长。<br>
-而对特征进行rescaling之后，正圆形的参数更新是比较方便的。</p>
-<p>rescaling的方法</p>
-<p><img src="http://dingdm.online/resc.png" alt=""></p>
-<h4 id="Gradient-Descent背后原理">Gradient Descent背后原理</h4>
-<p>在使用gradient descent的时候，随着每次参数的更新，loss的值可能增大也可能也减小。</p>
-<p>泰勒公式：有</p>
-<p><img src="http://dingdm.online/tai.png" alt="img"></p>
-<p>这是在对函数进行局部线性化处理时常用的公式之一。从几何上看，它是用切线近似代替曲线。<br>
-<strong>让近似多项式函数在x=x0处的y值, 一阶导, 二阶导 …n阶导的值 = 原始函数在x=x0处的y值, 一阶导, 二阶导 …n阶导</strong><br>
-泰勒公式几何意义，一看就懂。<a href="https://www.zhihu.com/question/21149770" target="_blank" rel="noopener">https://www.zhihu.com/question/21149770</a><br>
-多维也是如此。</p>
-<p><img src="http://dingdm.online/sasa.png" alt=""></p>
-<p>而对于gradient descent来说，给定一个初始点和范围，可以使用泰勒公式计算最小的loss；而计算最小值的计算公式即为gradient。而learning rate设置时即要保证使用到的泰勒公式要成立，即x-x0的高阶导为无穷小量时。</p>
-<p><img src="http://dingdm.online/tr.png" alt=""></p>
+                <h3 id="ResNet网络理论">ResNet网络理论</h3>
+<h4 id="ResNet论文">ResNet论文</h4>
+<h5 id="摘要">摘要</h5>
+<p>更深的神经网络更难训练。我们提出了一个残差学习框架，以简化比普通网络更深的网络的训练。我们提供了全面的经验证据，表明这些残差网络更容易优化，并且可以从显着增加的深度中获得准确性。在 ImageNet 数据集上，我们评估了深度高达 152 层的残差网络——比 VGG 网络深8倍，但仍然具有较低的复杂性。这些残差网络的集合在 ImageNet 测试集上实现了 3.57% 的错误率。该结果在 ILSVRC 2015 分类任务中获得第一名。我们还对具有 100 层和 1000 层的 CIFAR-10 进行了分析。</p>
+<h5 id="残差学习">残差学习</h5>
+<p>让我们将 H(x) 视为适合几个堆叠层（不一定是整个网络）的底层映射，其中 x 表示这些层中第一层的输入，如果假设多个非线性层可以渐近逼近复杂函数，那么假设它们可以渐近逼近残差函数，即 H(x) − x（假设输入和输出是尺寸相同）。 因此，与其期望堆叠层近似 H(x)，我们明确地让这些层近似一个残差函数 F(x) = H(x) − x。原来的函数因此变成了 F(x)+x。 尽管这两种形式都应该能够渐近逼近所需的函数（如假设的那样），但学习的难易程度可能不同。</p>
+<p>这种重新表述的动机是关于退化问题的违反直觉的现象。 正如我们在介绍中所讨论的，如果添加的层可以构建为恒等映射，那么更深的模型的训练误差应该不大于其更浅的对应部分。 退化问题表明求解器可能难以通过多个非线性层逼近恒等映射。 通过残差学习重新表述，如果恒等映射是最优的，求解器可以简单地将多个非线性层的权重推向零以接近恒等映射。</p>
+<p>在实际情况下，恒等映射不太可能是最佳的，但我们的重新表述可能有助于先决问题。 如果最优函数更接近恒等映射而不是零映射，则求解器应该更容易参考恒等映射找到扰动，而不是将函数作为新函数学习。 我们通过实验表明，学习到的残差函数通常具有很小的响应，这表明恒等映射提供了合理的预处理。</p>
+<h5 id="通过捷径进行恒等映射">通过捷径进行恒等映射</h5>
+<p>我们对每几个堆叠层采用残差学习。 一个构成如图所示。正式地，在本文中，我们考虑一个公式定义为</p>
+<p><img src="https://dingdm.online/resnet5.png" alt=""></p>
+<p>这里 x 和 y 是所考虑层的输入和输出向量。 函数 F (x, {Wi }) 表示要学习的残差映射。 对于图 中具有两层的示例，F = W2σ(W1x) 其中 σ 表示 ReLU激活函数，并且为了简化符号省略了偏差。 操作 F + x 是通过快捷连接和逐元素加法来执行的。</p>
+<p>等式中的快捷连接既不引入额外参数，也不引入计算复杂度。 这不仅在实践中很有吸引力，而且在我们比较普通网络和残差网络时也很重要。 我们可以公平地比较同时具有相同数量参数、深度、宽度和计算成本的普通/残差网络。</p>
+<p>x 和 F 的维度在等式中必须相等。 如果不是这种情况，我们可以通过快捷连接进行线性投影 Ws 以匹配维度</p>
+<p><img src="https://dingdm.online/resnet6.png" alt=""></p>
+<p>我们也可以在方程中使用方Ws。 但是我们将通过实验证明恒等映射足以解决退化问题并且是便宜的，因此Ws仅在匹配维度时使用。</p>
+<p>残差函数 F 的形式是灵活的。 本文中的实验涉及具有两层或三层的函数 F，但更多层也是可能的。 但如果F只有单层，对此我们没有观察到优势。</p>
+<p>我们还注意到，虽然上述关于全连接层的符号是简化的，但它们适用于卷积层。 函数 F(x,{Wi}) 可以表示多个卷积层，逐个通道地在两个特征图上执行维度添加。</p>
+<h5 id="网络架构">网络架构</h5>
+<h6 id="残差网络">残差网络</h6>
+<p>基于上述普通网络，我们插入快捷连接，将网络转换为其对应的残差版本。 当输入和输出的维度相同时，可以直接使用恒等快捷连接。 当维度增加时，我们考虑两个选项：（A）快捷连接仍然执行恒等映射，填充额外的零条目以增加维度。 这个选项没有引入额外的参数； (B) 使用投影快捷方式匹配维度（由 1×1 卷积完成）。 对于这两个选项，当快捷连接连接两种尺寸的特征图时，它们的步长为 2。</p>
+<h4 id="实现">实现</h4>
+<p>我们对 ImageNet 的实现遵循前人的做法。图像被调整大小，其较短的边在 [256, 480] 中随机采样以进行缩放 。一个 224×224 的裁剪是从图像或其水平翻转中随机采样的，减去每个像素的平均值 。使用了 [21] 中的标准颜色增强。我们在每次卷积之后和激活之前采用批量归一化（BN），遵循 [16]。我们按照 [13] 中的方法初始化权重，并从头开始训练所有普通/残差网络。我们使用小批量大小为 256 的 SGD优化函数。学习率从 0.1 开始，并在误差平稳时除以 10，并且模型最多训练 60 × 104 次迭代。我们使用 0.0001 的权重衰减和 0.9 的动量。我们不使用 dropout [14]，遵循 [16] 中的做法。<br>
+在测试中，对于消融实验，我们采用标准的 10 裁剪测试 [21]。为了获得最佳结果，我们采用 [41, 13] 中的全卷积形式，并在多个尺度上取平均得分（调整图像大小，使短边在 {224, 256, 384, 480, 640} 中）。</p>
+<p>梯度消失或梯度爆炸<br>
+退化问题</p>
+<p>残差网络的相加是维度的相加</p>
+<h4 id="残差块">残差块</h4>
+<p><img src="https://dingdm.online/resnet1.png" alt=""></p>
+<p>使用1*1的卷积核可以有效的减少卷积过程中的参数个数</p>
+<h4 id="ResNet卷积网络">ResNet卷积网络</h4>
+<p><img src="https://dingdm.online/resnet2.png" alt=""></p>
+<p><img src="https://dingdm.online/resnet7.png" alt=""></p>
+<p>在使用残差块时，对输入和输出特征进行相加时要保证矩阵的shape相同，因此对于输入和输出矩阵shape不相同的情况，在进行相加前，需要对输入特征矩阵进行1*1的卷积操作来改变特征矩阵的通道数。</p>
+<h4 id="BN">BN</h4>
+<p>对于一个具有n层深度的输入特征矩阵，即一个拥有n维的输入x，bn标准化处理就是对这n个通道分别进行标准化处理使得每个通道的特征矩阵都满足某个分布规律。</p>
+<p><img src="https://dingdm.online/resnet4.png" alt=""></p>
+<p><img src="https://dingdm.online/resnet3.png" alt=""></p>
+<p>根据特征矩阵求的均值和方差，均值和方差都为n维向量，再通过bn的公式进行标准化处理。</p>
+<p>1.训练时要将training参数设置为True，在验证时将training参数设置为False。使用历史统计的均值和方差。<br>
+2.batch size尽可能设置大点，设置小后表现可能很差，设置的越大求的均值和方差越接近整个训练集的均值和方差。<br>
+3.建议将bn层放在卷积层和激活层之间，且卷积层不要使用偏置bias。</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -646,7 +586,7 @@ learning rate会随着参数的更新越来越小。每一个不同的参数都�
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://dingdm.club/2021/04/15/shen-du-xue-xi-bi-ji-yi/">https://dingdm.club/2021/04/15/shen-du-xue-xi-bi-ji-yi/</a>
+                    <a href="https://dingdm.club/2021/11/11/resnet-wang-luo-jie-gou-li-lun/">https://dingdm.club/2021/11/11/resnet-wang-luo-jie-gou-li-lun/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -684,8 +624,8 @@ learning rate会随着参数的更新越来越小。每一个不同的参数都�
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/">
-                                    <span class="chip bg-color">线性回归</span>
+                                <a href="/tags/%E8%AE%BA%E6%96%87/">
+                                    <span class="chip bg-color">论文</span>
                                 </a>
                             
                         </div>
@@ -994,34 +934,34 @@ learning rate会随着参数的更新越来越小。每一个不同的参数都�
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/04/16/opencv-xue-xi-bi-ji-er/">
+                <a href="/2021/11/11/fpn-wang-luo-li-lun/">
                     <div class="card-image">
                         
                         
-                        <img src="http://dingdm.online/7.jpg" class="responsive-img" alt="OpenCV学习笔记二">
+                        <img src="http://dingdm.online/11.jpg" class="responsive-img" alt="FPN网络理论">
                         
-                        <span class="card-title">OpenCV学习笔记二</span>
+                        <span class="card-title">FPN网络理论</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            OpenCV学习笔记二
-图像处理
-直方图
-直方图是对数据进行统计的一种方法，并且将统计值组织到一系列实现定义好的bin中。其中，bin为直方图中经常用到的一个概念，可以译为直条或组距，其数值是从数据中计算出的特征统计量，这些数据可以是诸如梯
+                            FPN网络理论
+FPN论文
+摘要
+特征金字塔是识别系统中用于检测不同尺度对象的基本组件。但是最近的深度学习对象检测器避免了金字塔表示，部分原因是它们是计算和内存密集型的。在本文中，我们利用深度卷积网络固有的多尺度金字塔层次结构来构建没有额外
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-04-16
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-11-11
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" class="post-category">
-                                    图像处理
+                            <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    深度学习
                                 </a>
                             
                             
@@ -1031,8 +971,8 @@ learning rate会随着参数的更新越来越小。每一个不同的参数都�
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/OpenCV/">
-                        <span class="chip bg-color">OpenCV</span>
+                    <a href="/tags/%E8%AE%BA%E6%96%87/">
+                        <span class="chip bg-color">论文</span>
                     </a>
                     
                 </div>
@@ -1046,35 +986,36 @@ learning rate会随着参数的更新越来越小。每一个不同的参数都�
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/04/14/ji-yi-ci-cha-lou-bu-que-yi/">
+                <a href="/2021/11/09/yolo-xiang-guan-li-lun/">
                     <div class="card-image">
                         
                         
-                        <img src="http://dingdm.online/16.jpg" class="responsive-img" alt="记一次查漏补缺一">
+                        <img src="http://dingdm.online/8.jpg" class="responsive-img" alt="yolo相关理论补充">
                         
-                        <span class="card-title">记一次查漏补缺一</span>
+                        <span class="card-title">yolo相关理论补充</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            记一次查漏补缺一
-业务功能：不使用mysql或oracle实现持续签到领奖
-技术实现：使用redis的bitmap实现
-bitmap基于最小的单位bit进行存储，设置时候时间复杂度O(1)、读取时候时间复杂度O(n)，方便扩容。
-签到信息以
+                            yolo相关理论补充
+TP:iou大于阈值检测框数量
+FP:iou小于等于阈值的检测框数量
+FN:没有检测到的GT的数量
+precision:查准率，TP/(TP+FP)，预测正确的比例
+recall:查全率，TP/(TP+FN)，真实目标
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-14
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-11-09
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category">
-                                    后端
+                            <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    深度学习
                                 </a>
                             
                             
@@ -1084,8 +1025,8 @@ bitmap基于最小的单位bit进行存储，设置时候时间复杂度O(1)、�
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/redis/">
-                        <span class="chip bg-color">redis</span>
+                    <a href="/tags/%E8%AE%BA%E6%96%87/">
+                        <span class="chip bg-color">论文</span>
                     </a>
                     
                 </div>
