@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://dingdm.club/"/>
-  <updated>2021-11-24T05:26:02.938Z</updated>
+  <updated>2021-11-29T13:19:00.418Z</updated>
   <id>https://dingdm.club/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>L0梯度最小化去雨论文代码</title>
+    <link href="https://dingdm.club/2021/11/29/l0-ti-du-zui-xiao-hua-qu-yu-lun-wen-dai-ma/"/>
+    <id>https://dingdm.club/2021/11/29/l0-ti-du-zui-xiao-hua-qu-yu-lun-wen-dai-ma/</id>
+    <published>2021-11-29T13:17:58.000Z</published>
+    <updated>2021-11-29T13:19:00.418Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;Rain-Removal-From-Still-Images-Using-L0-Gradient-Minimization-Technique论文代码&quot;&gt;Rain Removal From Still Images Using L0 Gradient Minimi
+      
+    
+    </summary>
+    
+    
+      <category term="深度学习" scheme="https://dingdm.club/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="编码" scheme="https://dingdm.club/tags/%E7%BC%96%E7%A0%81/"/>
+    
+  </entry>
   
   <entry>
     <title>leetcode刷题(11.24)</title>
@@ -518,32 +542,6 @@ FN:没有检测到的GT的数量&lt;/p&gt;
         &lt;h3 id=&quot;深度学习笔记三&quot;&gt;深度学习笔记三&lt;/h3&gt;
 &lt;h4 id=&quot;逻辑回归的计算过程-Discriminative&quot;&gt;逻辑回归的计算过程 Discriminative&lt;/h4&gt;
 &lt;h5 id=&quot;Step1-选取Loss-function&quot;&gt;Step1 选取Loss fu
-      
-    
-    </summary>
-    
-    
-      <category term="深度学习" scheme="https://dingdm.club/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="逻辑回归" scheme="https://dingdm.club/tags/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>深度学习第二次编码</title>
-    <link href="https://dingdm.club/2021/05/20/shen-du-xue-xi-di-er-ci-bian-ma/"/>
-    <id>https://dingdm.club/2021/05/20/shen-du-xue-xi-di-er-ci-bian-ma/</id>
-    <published>2021-05-20T12:13:30.000Z</published>
-    <updated>2021-05-20T12:14:13.743Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;深度学习第二次编码&quot;&gt;深度学习第二次编码&lt;/h3&gt;
-&lt;h4 id=&quot;使用爬虫爬取明日方舟干员属性，进行逻辑回归预测&quot;&gt;使用爬虫爬取明日方舟干员属性，进行逻辑回归预测&lt;/h4&gt;
-&lt;pre class=&quot; language-language-python&quot;&gt;&lt;code
       
     
     </summary>
