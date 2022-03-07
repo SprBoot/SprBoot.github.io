@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://dingdm.club/"/>
-  <updated>2022-03-07T10:59:34.987Z</updated>
+  <updated>2022-03-07T12:17:00.331Z</updated>
   <id>https://dingdm.club/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>KCF算法相关知识</title>
+    <link href="https://dingdm.club/2022/03/07/kcf-suan-fa-xiang-guan-zhi-shi/"/>
+    <id>https://dingdm.club/2022/03/07/kcf-suan-fa-xiang-guan-zhi-shi/</id>
+    <published>2022-03-07T12:12:12.000Z</published>
+    <updated>2022-03-07T12:17:00.331Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;KCF算法相关知识&quot;&gt;KCF算法相关知识&lt;/h3&gt;
+&lt;h4 id=&quot;相关滤波&quot;&gt;相关滤波&lt;/h4&gt;
+&lt;p&gt;互相关与子相关&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://dingdm.online/WX20220307-201016.png&quot; alt=&quot;&quot;&gt;&lt;/p
+      
+    
+    </summary>
+    
+    
+      <category term="图像追踪" scheme="https://dingdm.club/categories/%E5%9B%BE%E5%83%8F%E8%BF%BD%E8%B8%AA/"/>
+    
+    
+      <category term="KCF" scheme="https://dingdm.club/tags/KCF/"/>
+    
+  </entry>
   
   <entry>
     <title>Ubuntu20.04安装Hadoop和Hive(PD虚拟机 MAC M1)</title>
@@ -524,32 +551,6 @@ FN:没有检测到的GT的数量&lt;/p&gt;
     
     
       <category term="python" scheme="https://dingdm.club/tags/python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>青春纪念册</title>
-    <link href="https://dingdm.club/2021/05/28/qing-chun-ji-nian-ce/"/>
-    <id>https://dingdm.club/2021/05/28/qing-chun-ji-nian-ce/</id>
-    <published>2021-05-27T17:52:30.000Z</published>
-    <updated>2021-05-27T18:06:23.304Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;青春纪念册&quot;&gt;青春纪念册&lt;/h3&gt;
-&lt;video id=&quot;video&quot; controls=&quot;&quot; preload=&quot;none&quot;&gt;
-    &lt;source id=&quot;mp4&quot; src=&quot;http://dingdm.online/%E9%9D%92%E6%98%A5%E7
-      
-    
-    </summary>
-    
-    
-      <category term="影视" scheme="https://dingdm.club/categories/%E5%BD%B1%E8%A7%86/"/>
-    
-    
-      <category term="老友记" scheme="https://dingdm.club/tags/%E8%80%81%E5%8F%8B%E8%AE%B0/"/>
     
   </entry>
   
