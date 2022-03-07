@@ -29,8 +29,8 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="dingdm" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><link rel="alternate" href="/atom.xml" title="dingdm" type="application/atom+xml">
+</head>
 
 
 <body>
@@ -503,7 +503,7 @@
             <div id="articleContent">
                 <h3 id="UNet编码">UNet编码</h3>
 <h5 id="UNet模型图">UNet模型图</h5>
-<p><img src="https://dingdm.online/unettu1" alt=""></p>
+<p><img src="http://dingdm.online/unettu1" alt=""></p>
 <h5 id="3-3卷积">3*3卷积</h5>
 <pre class=" language-language-python"><code class="language-language-python">class DoubleConvWithThreeKernnel(torch.nn.Module):
     def __init__(self,in_channel,out_channel):
@@ -663,9 +663,9 @@
             optimizer.step()
 </code></pre>
 <h5 id="数据集">数据集</h5>
-<p><a href="https://dingdm.online/data.zip" target="_blank" rel="noopener">https://dingdm.online/data.zip</a></p>
+<p><a href="http://dingdm.online/data.zip" target="_blank" rel="noopener">http://dingdm.online/data.zip</a></p>
 <h5 id="训练过程及最优模型">训练过程及最优模型</h5>
-<p><img src="https://dingdm.online/rununet.png" alt=""></p>
+<p><img src="http://dingdm.online/rununet.png" alt=""></p>
 <h5 id="测试">测试</h5>
 <pre class=" language-language-python"><code class="language-language-python">    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     model = UNet(1,1)
@@ -693,7 +693,7 @@
         cv2.imwrite(save_res_path, pred)
 </code></pre>
 <h5 id="测试结果">测试结果</h5>
-<p><img src="https://dingdm.online/trainresult.png" alt=""></p>
+<p><img src="http://dingdm.online/trainresult.png" alt=""></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {

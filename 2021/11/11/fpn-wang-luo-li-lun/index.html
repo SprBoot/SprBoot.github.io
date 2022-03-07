@@ -29,8 +29,8 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="dingdm" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><link rel="alternate" href="/atom.xml" title="dingdm" type="application/atom+xml">
+</head>
 
 
 <body>
@@ -515,12 +515,12 @@
 <p>图 3 显示了构建自顶向下特征图的构建块。 对于较粗糙分辨率的特征图，我们将空间分辨率上采样 2 倍（为简单起见，使用最近邻上采样）。 然后通过逐维度加法将上采样映射与相应的自底向上映射（经过 1×1 卷积层以减少通道尺寸）合并。 这个过程会不断迭代，直到生成最精细的分辨率特征图。 开始迭代之前，我们简单地在 C5 上附加一个 1×1 的卷积层来生成最粗糙的分辨率图。 最后，我们在每个合并图上附加一个 3 × 3 的卷积来生成最终的特征图，这是为了减少上采样的混叠效应。 这最后一组特征图称为{P2，P3，P4，P5}，对应于分别具有相同空间大小的{C2，C3，C4，C5}。</p>
 <p>简单性是我们设计的核心，我们发现我们的模型对许多设计选择都是稳健的。 我们已经对更复杂的块进行了实验（例如，使用多层残差块作为连接）并观察到稍微好一点的结果。 设计更好的连接模块不是本文的重点，因此我们选择了上述的简单设计。</p>
 <h4 id="相关理论">相关理论</h4>
-<p><img src="https://dingdm.online/fpn3.png" alt=""></p>
+<p><img src="http://dingdm.online/fpn3.png" alt=""></p>
 <p>FPN是为了自然地利用CNN层级特征的金字塔形式，<strong>同时生成在所有尺度上都具有强语义信息的特征金字塔</strong>。所以FPN的结构设计了top-down结构和横向连接，以此融合具有高分辨率的浅层layer和具有丰富语义信息的深层layer。这样就实现了从单尺度的单张输入图像，快速构建在所有尺度上都具有强语义信息的特征金字塔，同时不产生明显的代价。</p>
 <p>因为深度卷积神经网络具有内在的多尺度性质（池化带来的不同size的feature map），网络由浅即深，分辨率越来越粗糙，但是语义信息越来越丰富。相似的思想利用在FCN的skip layer。要识别多尺度的目标，也需要利用不同level的feature map。作者利用了这种内在多尺度性质，设计出FPN。</p>
 <p>FPN中的缩放比例为2的整数倍，合并的项为横向连接的1*1卷积核和自上而下的2倍的上采样。</p>
 <p>使用最近邻值插值法，可以在上采样的过程中最大程度地保留特征图的语义信息(有利于分类)，从而与bottom-up 过程中相应的具有丰富的空间信息(高分辨率，有利于定位)的特征图进行融合，从而得到既有良好的空间信息又有较强烈的语义信息的特征图。</p>
-<p><img src="https://dingdm.online/fpn1.png" alt=""></p>
+<p><img src="http://dingdm.online/fpn1.png" alt=""></p>
 <p>代码明天根据这张模型图慢慢写。这个模型是用于faster rcnn的。</p>
 <script>
         document.querySelectorAll('.github-emoji')
