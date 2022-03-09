@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://dingdm.club/"/>
-  <updated>2022-03-08T07:39:35.714Z</updated>
+  <updated>2022-03-09T09:35:41.262Z</updated>
   <id>https://dingdm.club/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>KCF源码解析</title>
+    <link href="https://dingdm.club/2022/03/09/kcf-yuan-ma-jie-xi/"/>
+    <id>https://dingdm.club/2022/03/09/kcf-yuan-ma-jie-xi/</id>
+    <published>2022-03-09T09:40:12.000Z</published>
+    <updated>2022-03-09T09:35:41.262Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;KCF源码解析&quot;&gt;KCF源码解析&lt;/h3&gt;
+&lt;h4 id=&quot;双线性插值&quot;&gt;双线性插值&lt;/h4&gt;
+&lt;p&gt;例：将一个feature map由3*3放大为4**4时，如何进行外围的填充？填充的方式即为插值。&lt;/p&gt;
+&lt;p&gt;普通的插值方式&lt;/p&gt;
+&lt;p&gt;src为原图的像素
+      
+    
+    </summary>
+    
+    
+      <category term="图像追踪" scheme="https://dingdm.club/categories/%E5%9B%BE%E5%83%8F%E8%BF%BD%E8%B8%AA/"/>
+    
+    
+      <category term="KCF" scheme="https://dingdm.club/tags/KCF/"/>
+    
+  </entry>
   
   <entry>
     <title>KCF算法相关知识</title>
@@ -525,32 +553,6 @@ FN:没有检测到的GT的数量&lt;/p&gt;
     
     
       <category term="偏标记学习" scheme="https://dingdm.club/tags/%E5%81%8F%E6%A0%87%E8%AE%B0%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>模拟器后台挂机刷图小提示</title>
-    <link href="https://dingdm.club/2021/06/03/mo-ni-qi-hou-tai-gua-ji-shua-tu-xiao-ti-shi/"/>
-    <id>https://dingdm.club/2021/06/03/mo-ni-qi-hou-tai-gua-ji-shua-tu-xiao-ti-shi/</id>
-    <published>2021-06-03T13:11:12.000Z</published>
-    <updated>2021-06-03T13:16:51.584Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;模拟器后台挂机刷图小提示&quot;&gt;模拟器后台挂机刷图小提示&lt;/h3&gt;
-&lt;h4 id=&quot;使用Spy-获取后台窗口类和标题名称，根据句柄信息对窗口进行截图。&quot;&gt;使用Spy++获取后台窗口类和标题名称，根据句柄信息对窗口进行截图。&lt;/h4&gt;
-&lt;pre class=&quot; lang
-      
-    
-    </summary>
-    
-    
-      <category term="脚本" scheme="https://dingdm.club/categories/%E8%84%9A%E6%9C%AC/"/>
-    
-    
-      <category term="python" scheme="https://dingdm.club/tags/python/"/>
     
   </entry>
   
