@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://dingdm.club/"/>
-  <updated>2022-03-09T09:35:41.262Z</updated>
+  <updated>2022-03-10T09:09:52.720Z</updated>
   <id>https://dingdm.club/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://dingdm.club/2022/03/09/kcf-yuan-ma-jie-xi/"/>
     <id>https://dingdm.club/2022/03/09/kcf-yuan-ma-jie-xi/</id>
     <published>2022-03-09T09:40:12.000Z</published>
-    <updated>2022-03-09T09:35:41.262Z</updated>
+    <updated>2022-03-10T09:09:52.720Z</updated>
     
     <summary type="html">
     
@@ -29,9 +29,9 @@
       
         &lt;h3 id=&quot;KCF源码解析&quot;&gt;KCF源码解析&lt;/h3&gt;
 &lt;h4 id=&quot;双线性插值&quot;&gt;双线性插值&lt;/h4&gt;
-&lt;p&gt;例：将一个feature map由3*3放大为4**4时，如何进行外围的填充？填充的方式即为插值。&lt;/p&gt;
+&lt;p&gt;例：将一个feature map由3*3放大为4*4时，如何进行外围的填充？填充的方式即为插值。&lt;/p&gt;
 &lt;p&gt;普通的插值方式&lt;/p&gt;
-&lt;p&gt;src为原图的像素
+&lt;p&gt;src为原图的像素值
       
     
     </summary>
@@ -506,6 +506,30 @@ FN:没有检测到的GT的数量&lt;/p&gt;
   </entry>
   
   <entry>
+    <title>论文阅读一</title>
+    <link href="https://dingdm.club/2021/06/14/lun-wen-yue-du-yi/"/>
+    <id>https://dingdm.club/2021/06/14/lun-wen-yue-du-yi/</id>
+    <published>2021-06-14T09:18:30.000Z</published>
+    <updated>2021-06-15T08:09:10.229Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;Learning-a-Deep-ConvNet-for-Multi-label-Classification-with-Partial-Labels论文阅读&quot;&gt;Learning a Deep ConvNet for Multi-label Classificati
+      
+    
+    </summary>
+    
+    
+      <category term="论文阅读" scheme="https://dingdm.club/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/"/>
+    
+    
+      <category term="偏标记学习" scheme="https://dingdm.club/tags/%E5%81%8F%E6%A0%87%E8%AE%B0%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
     <title>深度学习笔记四</title>
     <link href="https://dingdm.club/2021/06/14/shen-du-xue-xi-bi-ji-si/"/>
     <id>https://dingdm.club/2021/06/14/shen-du-xue-xi-bi-ji-si/</id>
@@ -529,30 +553,6 @@ FN:没有检测到的GT的数量&lt;/p&gt;
     
     
       <category term="神经元网络" scheme="https://dingdm.club/tags/%E7%A5%9E%E7%BB%8F%E5%85%83%E7%BD%91%E7%BB%9C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>论文阅读一</title>
-    <link href="https://dingdm.club/2021/06/14/lun-wen-yue-du-yi/"/>
-    <id>https://dingdm.club/2021/06/14/lun-wen-yue-du-yi/</id>
-    <published>2021-06-14T09:18:30.000Z</published>
-    <updated>2021-06-15T08:09:10.229Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;Learning-a-Deep-ConvNet-for-Multi-label-Classification-with-Partial-Labels论文阅读&quot;&gt;Learning a Deep ConvNet for Multi-label Classificati
-      
-    
-    </summary>
-    
-    
-      <category term="论文阅读" scheme="https://dingdm.club/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/"/>
-    
-    
-      <category term="偏标记学习" scheme="https://dingdm.club/tags/%E5%81%8F%E6%A0%87%E8%AE%B0%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   

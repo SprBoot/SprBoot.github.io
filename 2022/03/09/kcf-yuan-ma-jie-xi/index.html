@@ -479,14 +479,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.7k
+                    3.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    11 分
+                    12 分
                 </div>
                 
 
@@ -503,7 +503,7 @@
             <div id="articleContent">
                 <h3 id="KCF源码解析">KCF源码解析</h3>
 <h4 id="双线性插值">双线性插值</h4>
-<p>例：将一个feature map由3*3放大为4**4时，如何进行外围的填充？填充的方式即为插值。</p>
+<p>例：将一个feature map由3*3放大为4*4时，如何进行外围的填充？填充的方式即为插值。</p>
 <p>普通的插值方式</p>
 <p>src为原图的像素值，dst为填充后的目标图的像素值，计算公式为srcX=dstX* (srcWidth/dstWidth) , srcY = dstY * (srcHeight/dstHeight)</p>
 <p>但是计算目标图的像素值时会出现小数的情况，使用四舍五入或者之间去掉小数位会导致插值后的目标图出现马赛克或者失真现象。</p>
@@ -579,7 +579,7 @@
 	end
 	% 设置检测窗口，大小为框选区域的 1+padding倍
 	window_sz = floor(target_sz * (1 + padding));
-	% 计算高斯核的带宽，即上文中说到的σ值
+	% 计算带宽
 	output_sigma = sqrt(prod(target_sz)) * output_sigma_factor / cell_size;
 	% 傅立叶变换到频域进行处理，gaussian_shaped_labels进行移位采样
 	yf = fft2(gaussian_shaped_labels(output_sigma, floor(window_sz / cell_size)));
@@ -612,7 +612,7 @@
 			zf = fft2(get_features(patch, features, cell_size, cos_window));
 			switch kernel.type
 			case 'gaussian',
-			  % 计算每个采样的高斯响应
+			  % 计算每个采样的高斯响应，也就是低维映射到高维之后高斯核函数的快速计算结果
 				kzf = gaussian_correlation(zf, model_xf, kernel.sigma);
 			case 'polynomial',
 				kzf = polynomial_correlation(zf, model_xf, kernel.poly_a, kernel.poly_b);
@@ -641,14 +641,14 @@
 		% 根据不同的核函数调用不同的处理方法
 		switch kernel.type
 		case 'gaussian',
-		  % 获取高斯响应
+		  % 获取高斯响应，也就是低维映射到高维之后高斯核函数的快速计算结果
 			kf = gaussian_correlation(xf, xf, kernel.sigma);
 		case 'polynomial',
 			kf = polynomial_correlation(xf, xf, kernel.poly_a, kernel.poly_b);
 		case 'linear',
 			kf = linear_correlation(xf, xf);
 		end
-		% 岭回归
+		% 快速计算 lambda为岭回归的惩罚因子 yf为检测框的高斯标签，kf为hog特征提取后特征矩阵的高斯响应
 		alphaf = yf ./ (kf + lambda);
     % 第一帧的分类器训练参数，为上面计算的alphaf分类器参数和检测区域特征矩阵变换后的频域信息
 		if frame == 1, 
@@ -680,15 +680,24 @@ end
 </code></pre>
 <h4 id="高斯回归">高斯回归</h4>
 <pre class=" language-language-matlab"><code class="language-language-matlab">function labels = gaussian_shaped_labels(sigma, sz)
-	% 计算高斯回归标签
+% 前面是高斯σ，后面是一维向量，是检测框以cell为单位后计算的x，y所包含的4*4cell的个数
+  % ndgrid的第一个参数为 1:x轴的cell个数(为啥减去x的一半啊) 第二个同理为y轴方向
+  % ndgrid函数的作用主要是用于低维到高维的映射
+  % rs的列数等于cs的列数，而cs的行数等于rs的行数，即rs复制了cs的列，cs复制了rs的行。rs垂直于cs，cs有16个坐标点，所以rs有16列，而cs垂直于rs，rs有38个坐标点，所以cs有18行。这样低维到高维就映射完成了
 	[rs, cs] = ndgrid((1:sz(1)) - floor(sz(1)/2), (1:sz(2)) - floor(sz(2)/2));
+  % rs是一个矩阵 1到x轴次数减次数的一半 1到最后一个值每个以行为基准构成矩阵 cs是y轴 以列为基准构成矩阵
+  % 在高维的图像上计算高斯函数 获取检测框内的特征信息
 	labels = exp(-0.5 / sigma^2 * (rs.^2 + cs.^2));
+
+	% 检测区域内的循环移位操作，列移位和行移位
 	labels = circshift(labels, -floor(sz(1:2) / 2) + 1);
+  % 为什么要确定移位到左上角呢
 	assert(labels(1,1) == 1)
 end
 </code></pre>
 <h4 id="高斯响应">高斯响应</h4>
-<pre class=" language-language-matlab"><code class="language-language-matlab">% 输入两个频率域上的尺寸完全相同的两个三维矩阵xf(当前帧特征矩阵的傅立叶变换)，yf(上一帧特征矩阵的傅立叶变换)以及主函数中选择的高斯方差gaussian.sigam
+<pre class=" language-language-matlab"><code class="language-language-matlab">% 输入两个频率域上的尺寸完全相同的两个三维矩阵xf(当前帧特征矩阵的傅立叶变换)，yf(上一帧特征矩阵的傅立叶变换)以及主函数中选择的高斯带宽gaussian.sigam
+% 这里也就是使用高斯核将低维映射到高维之后的低维计算方式
 function kf = gaussian_correlation(xf, yf, sigma)
 	N = size(xf,1) * size(xf,2);
 	% xx和yy等于xf和yf中各元素的模的平方和再除以N，都是实数
@@ -707,13 +716,14 @@ end
 	if features.hog,
 		% hog特征提取
 		x = double(fhog(single(im) / 255, cell_size, features.hog_orientations));
-		x(:,:,end) = [];  %remove all-zeros channel ("truncation feature")
+		x(:,:,end) = [];
 	end
 	if features.gray,
 		x = double(im) / 255;
 		x = x - mean(x(:));
 	end
 	if ~isempty(cos_window),
+	  % 加窗函数的处理
 		x = bsxfun(@times, x, cos_window);
 	end
 	
@@ -1125,9 +1135,9 @@ end
                         
                             KCF源码解析
 双线性插值
-例：将一个feature map由3*3放大为4**4时，如何进行外围的填充？填充的方式即为插值。
+例：将一个feature map由3*3放大为4*4时，如何进行外围的填充？填充的方式即为插值。
 普通的插值方式
-src为原图的像素值，dst为填充后的目标图的像素值，计算公式为srcX=dstX* (srcW
+src为原图的像素值，dst为填充后的目标图的像素值，计算公式为srcX=dstX* (srcWi
                         
                     </div>
                     <div class="publish-info">
@@ -1393,7 +1403,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">112.9k</span>&nbsp;字
+                class="white-color">113.3k</span>&nbsp;字
             
             
             
