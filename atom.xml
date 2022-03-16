@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://dingdm.club/"/>
-  <updated>2022-03-10T09:09:52.720Z</updated>
+  <updated>2022-03-16T07:03:29.022Z</updated>
   <id>https://dingdm.club/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>agx xavier开发板刷机、环境搭建与算法训练</title>
+    <link href="https://dingdm.club/2022/03/16/agx-xavier-kai-fa-ban-shua-ji-huan-jing-da-jian-yu-suan-fa-xun-lian/"/>
+    <id>https://dingdm.club/2022/03/16/agx-xavier-kai-fa-ban-shua-ji-huan-jing-da-jian-yu-suan-fa-xun-lian/</id>
+    <published>2022-03-16T07:03:12.000Z</published>
+    <updated>2022-03-16T07:03:29.022Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;agx-xavier开发板刷机、环境搭建与算法训练&quot;&gt;agx xavier开发板刷机、环境搭建与算法训练&lt;/h3&gt;
+&lt;h4 id=&quot;开发板刷机&quot;&gt;开发板刷机&lt;/h4&gt;
+&lt;p&gt;主机需要Linux系统，安装sdkmanager。&lt;/p&gt;
+&lt;p&gt;这里由于我的电脑是mac
+      
+    
+    </summary>
+    
+    
+      <category term="开发板" scheme="https://dingdm.club/categories/%E5%BC%80%E5%8F%91%E6%9D%BF/"/>
+    
+    
+      <category term="nvdia agx Xavier" scheme="https://dingdm.club/tags/nvdia-agx-Xavier/"/>
+    
+  </entry>
   
   <entry>
     <title>KCF源码解析</title>
@@ -502,30 +529,6 @@ FN:没有检测到的GT的数量&lt;/p&gt;
     
     
       <category term="脚本" scheme="https://dingdm.club/tags/%E8%84%9A%E6%9C%AC/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>论文阅读一</title>
-    <link href="https://dingdm.club/2021/06/14/lun-wen-yue-du-yi/"/>
-    <id>https://dingdm.club/2021/06/14/lun-wen-yue-du-yi/</id>
-    <published>2021-06-14T09:18:30.000Z</published>
-    <updated>2021-06-15T08:09:10.229Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;Learning-a-Deep-ConvNet-for-Multi-label-Classification-with-Partial-Labels论文阅读&quot;&gt;Learning a Deep ConvNet for Multi-label Classificati
-      
-    
-    </summary>
-    
-    
-      <category term="论文阅读" scheme="https://dingdm.club/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/"/>
-    
-    
-      <category term="偏标记学习" scheme="https://dingdm.club/tags/%E5%81%8F%E6%A0%87%E8%AE%B0%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
