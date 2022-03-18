@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://dingdm.club/"/>
-  <updated>2022-03-16T07:03:29.022Z</updated>
+  <updated>2022-03-18T09:34:42.508Z</updated>
   <id>https://dingdm.club/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>kcf源码复现</title>
+    <link href="https://dingdm.club/2022/03/18/kcf-yuan-ma-fu-xian/"/>
+    <id>https://dingdm.club/2022/03/18/kcf-yuan-ma-fu-xian/</id>
+    <published>2022-03-18T09:34:12.000Z</published>
+    <updated>2022-03-18T09:34:42.508Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;kcf源码复现&quot;&gt;kcf源码复现&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;还没写完&lt;/strong&gt;&lt;/p&gt;
+&lt;h4 id=&quot;run-tracker&quot;&gt;run_tracker&lt;/h4&gt;
+&lt;pre class=&quot; language-language-python&quot;&gt;&lt;cod
+      
+    
+    </summary>
+    
+    
+      <category term="图像追踪" scheme="https://dingdm.club/categories/%E5%9B%BE%E5%83%8F%E8%BF%BD%E8%B8%AA/"/>
+    
+    
+      <category term="KCF" scheme="https://dingdm.club/tags/KCF/"/>
+    
+  </entry>
   
   <entry>
     <title>agx xavier开发板刷机、环境搭建与算法训练</title>
@@ -529,33 +556,6 @@ FN:没有检测到的GT的数量&lt;/p&gt;
     
     
       <category term="脚本" scheme="https://dingdm.club/tags/%E8%84%9A%E6%9C%AC/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>深度学习笔记四</title>
-    <link href="https://dingdm.club/2021/06/14/shen-du-xue-xi-bi-ji-si/"/>
-    <id>https://dingdm.club/2021/06/14/shen-du-xue-xi-bi-ji-si/</id>
-    <published>2021-06-14T09:18:30.000Z</published>
-    <updated>2021-06-14T09:18:36.831Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;深度学习笔记四&quot;&gt;深度学习笔记四&lt;/h3&gt;
-&lt;h4 id=&quot;Deep-Learning&quot;&gt;Deep Learning&lt;/h4&gt;
-&lt;h5 id=&quot;深度学习的network&quot;&gt;深度学习的network&lt;/h5&gt;
-&lt;p&gt;&lt;img src=&quot;http://dingdm.o
-      
-    
-    </summary>
-    
-    
-      <category term="深度学习" scheme="https://dingdm.club/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="神经元网络" scheme="https://dingdm.club/tags/%E7%A5%9E%E7%BB%8F%E5%85%83%E7%BD%91%E7%BB%9C/"/>
     
   </entry>
   

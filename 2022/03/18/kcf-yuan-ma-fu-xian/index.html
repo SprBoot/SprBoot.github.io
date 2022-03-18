@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="个人类库工具文档(持续更新), dingdm">
+    <meta name="keywords" content="kcf源码复现, dingdm">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>个人类库工具文档(持续更新) | dingdm</title>
+    <title>kcf源码复现 | dingdm</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -323,12 +323,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('http://dingdm.online/23.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('http://dingdm.online/6.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">个人类库工具文档(持续更新)</h1>
+                    <h1 class="description center-align post-title">kcf源码复现</h1>
                 </div>
             </div>
         </div>
@@ -445,8 +445,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/jar/">
-                                <span class="chip bg-color">jar</span>
+                            <a href="/tags/KCF/">
+                                <span class="chip bg-color">KCF</span>
                             </a>
                         
                     </div>
@@ -457,8 +457,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category">
-                                后端
+                            <a href="/categories/%E5%9B%BE%E5%83%8F%E8%BF%BD%E8%B8%AA/" class="post-category">
+                                图像追踪
                             </a>
                         
                     </div>
@@ -470,7 +470,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-09-21
+                    2022-03-18
                 </div>
                 
 
@@ -479,14 +479,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3k
+                    1.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    12 分
+                    6 分
                 </div>
                 
 
@@ -501,1263 +501,227 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="个人类库工具文档-持续更新">个人类库工具文档(持续更新)</h3>
-<h4 id="文件操作类-FileUtils">文件操作类(FileUtils)</h4>
-<table>
-<thead>
-<tr>
-<th>方法名称</th>
-<th>方法注释</th>
-<th>传入参数</th>
-<th>参数注释</th>
-<th>返回结果</th>
-<th>结果注释</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>FileUtils.ImgUpload()</td>
-<td>文件上传工具类</td>
-<td>file</td>
-<td>MultipartFile文件类</td>
-<td>Map</td>
-<td>返回Map类型数据，文件uuid名称(uName),封装文件路径(url),文件原名称(filename),文件后缀(suffix),文件类型(type,1为图片,2为文档,3为视频,4为音频)。</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>path</td>
-<td>文件存储路径</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>mvc</td>
-<td>文件映射路径</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>FileUtils.getFileType()</td>
-<td>获取文件类型</td>
-<td>suffix</td>
-<td>文件后缀</td>
-<td>String</td>
-<td>返回文件类型</td>
-</tr>
-</tbody>
-</table>
-<h4 id="日期操作类-DateUtils">日期操作类(DateUtils)</h4>
-<table>
-<thead>
-<tr>
-<th>方法名称</th>
-<th>方法注释</th>
-<th>传入参数</th>
-<th>参数注释</th>
-<th>返回结果</th>
-<th>结果注释</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>DateUtils.format()</td>
-<td>日期格式化 日期格式为：yyyy-MM-dd</td>
-<td>Date</td>
-<td>日期</td>
-<td>String</td>
-<td>返回yyyy-MM-dd格式日期</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>String</td>
-<td>格式，如：DateUtils.DATE_TIME_PATTERN</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>DateUtils.stringToDate()</td>
-<td>日期解析</td>
-<td>String</td>
-<td>日期</td>
-<td>Date</td>
-<td>返回Date</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>String</td>
-<td>格式，如：DateUtils.DATE_TIME_PATTERN</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>DateUtils.getWeekStartAndEnd()</td>
-<td>根据周数，获取开始日期、结束日期</td>
-<td>int</td>
-<td>周期  0本周，-1上周，-2上上周，1下周，2下下周</td>
-<td>Date数组</td>
-<td>返回date[0]开始日期、date[1]结束日期</td>
-</tr>
-<tr>
-<td>DateUtils.addDateSeconds()</td>
-<td>对日期的【秒】进行加/减</td>
-<td>Date</td>
-<td>日期</td>
-<td>Date</td>
-<td>加/减几秒后的日期</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>int</td>
-<td>秒数，负数为减</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>DateUtils.addDateMinutes()</td>
-<td>对日期的【分钟】进行加/减</td>
-<td>Date</td>
-<td>日期</td>
-<td>Date</td>
-<td>加/减几分钟后的日期</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>int</td>
-<td>分钟数，负数为减</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>DateUtils.addDateHours()</td>
-<td>对日期的【小时】进行加/减</td>
-<td>Date</td>
-<td>日期</td>
-<td>Date</td>
-<td>加/减几小时后的日期</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>int</td>
-<td>小时数，负数为减</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>DateUtils.addDateDays()</td>
-<td>对日期的【天】进行加/减</td>
-<td>Date</td>
-<td>日期</td>
-<td>Date</td>
-<td>加/减几天后的日期</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>int</td>
-<td>天数，负数为减</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>DateUtils.addDateWeeks()</td>
-<td>对日期的【周】进行加/减</td>
-<td>Date</td>
-<td>日期</td>
-<td>Date</td>
-<td>加/减几周后的日期</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>int</td>
-<td>加/减几周后的日期</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>DateUtils.addDateMonths()</td>
-<td>对日期的【月】进行加/减</td>
-<td>Date</td>
-<td>日期</td>
-<td>Date</td>
-<td>对日期的【月】进行加/减</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>int</td>
-<td>加/减几月后的日期</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>DateUtils.addDateYears()</td>
-<td>对日期的【年】进行加/减</td>
-<td>Date</td>
-<td>日期</td>
-<td>Date</td>
-<td>加/减几年后的日期</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>int</td>
-<td>年数，负数为减</td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h4 id="Word导出类-WordUtils">Word导出类(WordUtils)</h4>
-<table>
-<thead>
-<tr>
-<th>方法名称</th>
-<th>方法注释</th>
-<th>传入参数</th>
-<th>参数注释</th>
-<th>返回结果</th>
-<th>结果注释</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>WordUtils.exportWord()</td>
-<td>获取word文件下载地址</td>
-<td>Map</td>
-<td>封装的需要的Map参数</td>
-<td>String</td>
-<td>word文件下载地址</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>String</td>
-<td>word模板文件所在地址</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>String</td>
-<td>word文件导出地址</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>String</td>
-<td>word模板名称</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>String</td>
-<td>文件映射路径</td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h4 id="Spring容器类-SpringContextUtils">Spring容器类(SpringContextUtils)</h4>
-<table>
-<thead>
-<tr>
-<th>方法名称</th>
-<th>方法注释</th>
-<th>传入参数</th>
-<th>参数注释</th>
-<th>返回结果</th>
-<th>结果注释</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>SpringContextUtils.getBean()</td>
-<td>获取java bean</td>
-<td>Class<t></t></td>
-<td>java类</td>
-<td><t></t></td>
-<td>返回java bean</td>
-</tr>
-<tr>
-<td>SpringContextUtils.getBean()</td>
-<td>获取java bean</td>
-<td>String</td>
-<td>类名称</td>
-<td><t></t></td>
-<td>返回java bean</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>Class<t></t></td>
-<td>java类</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>SpringContextUtils.containsBean()</td>
-<td>是否包含java bean</td>
-<td>String</td>
-<td>类名称</td>
-<td>boolean</td>
-<td>是否包含</td>
-</tr>
-<tr>
-<td>SpringContextUtils.isSingleton()</td>
-<td>bean是否为单例</td>
-<td>String</td>
-<td>类名称</td>
-<td>boolean</td>
-<td>是否为单例</td>
-</tr>
-<tr>
-<td>SpringContextUtils.getType()</td>
-<td>获取java类型</td>
-<td>String</td>
-<td>类名称</td>
-<td>Class&lt;? extends Object&gt;</td>
-<td>java类型</td>
-</tr>
-</tbody>
-</table>
-<h4 id="Excel工具类-ExcelUtils">Excel工具类(ExcelUtils)</h4>
-<table>
-<thead>
-<tr>
-<th>方法名称</th>
-<th>方法注释</th>
-<th>传入参数</th>
-<th>参数注释</th>
-<th>返回结果</th>
-<th>结果注释</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>ExcelUtils.exportExcel()</td>
-<td>Excel导出</td>
-<td>HttpServletResponse</td>
-<td>response</td>
-<td>void</td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>String</td>
-<td>文件名</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>Collection&lt;?&gt;</td>
-<td>数据List</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>Class&lt;?&gt;</td>
-<td>对象Class</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>ExcelUtils.getMyCellDate()</td>
-<td>excel日期转换</td>
-<td>Cell</td>
-<td>获取excel的日期列</td>
-<td>Date</td>
-<td>日期</td>
-</tr>
-</tbody>
-</table>
-<h4 id="个人邮件类-MailUtils">个人邮件类(MailUtils)</h4>
-<table>
-<thead>
-<tr>
-<th>方法名称</th>
-<th>方法注释</th>
-<th>传入参数</th>
-<th>参数注释</th>
-<th>返回结果</th>
-<th>结果注释</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>new Thread(new MailUtils(email,sendEmail,password,host,html,title,qq)).start();</td>
-<td>创建线程发送邮件</td>
-<td>String</td>
-<td>接收人邮箱</td>
-<td>void</td>
-<td>控制台打印信息</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>String</td>
-<td>发送人邮箱</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>String</td>
-<td>发送人邮箱授权码</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>String</td>
-<td><a href="http://xn--smtp-zh5ft2bu2us9p2xpj2jcm6bd61dj3b.qq.com" target="_blank" rel="noopener">指定发送邮件的主机smtp.qq.com</a>(QQ)|<a href="http://smtp.163.com" target="_blank" rel="noopener">smtp.163.com</a>(网易)</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>String</td>
-<td>邮件html内容</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>String</td>
-<td>邮件标题</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>boolean</td>
-<td>是否为qq邮箱</td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h4 id="MessageUtils工具类">MessageUtils工具类</h4>
-<table>
-<thead>
-<tr>
-<th>方法名称</th>
-<th>方法注释</th>
-<th>传入参数</th>
-<th>参数注释</th>
-<th>返回结果</th>
-<th>结果注释</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>SnowFlake.nextId()</td>
-<td>获取雪花id</td>
-<td>无</td>
-<td>无</td>
-<td>Long</td>
-<td>雪花id</td>
-</tr>
-</tbody>
-</table>
-<h4 id="Ip工具类-IpUtils">Ip工具类(IpUtils)</h4>
-<table>
-<thead>
-<tr>
-<th>方法名称</th>
-<th>方法注释</th>
-<th>传入参数</th>
-<th>参数注释</th>
-<th>返回结果</th>
-<th>结果注释</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>IpUtils.getIpAddr()</td>
-<td>获取ip地址</td>
-<td>HttpServletRequest</td>
-<td>request请求对象</td>
-<td>String</td>
-<td>ip地址</td>
-</tr>
-</tbody>
-</table>
-<h4 id="加密工具类-MD5Utils">加密工具类(MD5Utils)</h4>
-<table>
-<thead>
-<tr>
-<th>方法名称</th>
-<th>方法注释</th>
-<th>传入参数</th>
-<th>参数注释</th>
-<th>返回结果</th>
-<th>结果注释</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>MD5Utils.MD5()</td>
-<td>md5加密</td>
-<td>String</td>
-<td>加密内容</td>
-<td>String</td>
-<td>加密结果</td>
-</tr>
-</tbody>
-</table>
-<h4 id="类型转换工具类-TransformUtils-XmlUtils">类型转换工具类(TransformUtils,XmlUtils)</h4>
-<table>
-<thead>
-<tr>
-<th>方法名称</th>
-<th>方法注释</th>
-<th>传入参数</th>
-<th>参数注释</th>
-<th>返回结果</th>
-<th>结果注释</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>TransformUtils.mapToXml()</td>
-<td>将Map转换为XML格式的字符串</td>
-<td>Map&lt;String, String&gt;</td>
-<td>原数据</td>
-<td>String</td>
-<td>返回xml</td>
-</tr>
-<tr>
-<td>TransformUtils.xmlToMap()</td>
-<td>XML格式字符串转换为Map</td>
-<td>String</td>
-<td>xml数据</td>
-<td>Map&lt;String, String&gt;</td>
-<td>Map数据</td>
-</tr>
-</tbody>
-</table>
-<h4 id="支付工具类-AliPayUtils-WxPayUtils">支付工具类(AliPayUtils,WxPayUtils)</h4>
-<p>创建代理对象</p>
-<table>
-<thead>
-<tr>
-<th>方法名称</th>
-<th>方法注释</th>
-<th>传入参数</th>
-<th>参数注释</th>
-<th>返回结果</th>
-<th>结果注释</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>new AliPay()</td>
-<td>创建ali支付参数类</td>
-<td>String</td>
-<td>appId</td>
-<td>AliPay</td>
-<td>Alipay对象</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>String</td>
-<td>网关</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>String</td>
-<td>商户私钥</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>String</td>
-<td>编码格式</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>String</td>
-<td>支付宝公钥</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>String</td>
-<td>签名方式</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>String</td>
-<td>异步通知页面</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>String</td>
-<td>同步通知页面</td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p>封装响应数据</p>
-<table>
-<thead>
-<tr>
-<th>方法名称</th>
-<th>方法注释</th>
-<th>传入参数</th>
-<th>参数注释</th>
-<th>返回结果</th>
-<th>结果注释</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>AliPayUtils.aliParam()</td>
-<td>构造响应内容</td>
-<td>String</td>
-<td>biz_content，请求参数的集合，最大长度不限，除公共参数外所有请求参数都必须放在这个参数中传递</td>
-<td>String</td>
-<td>响应内容</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>AliPay</td>
-<td>alipay对象</td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p>创建微信参数对象</p>
-<table>
-<thead>
-<tr>
-<th>方法名称</th>
-<th>方法注释</th>
-<th>传入参数</th>
-<th>参数注释</th>
-<th>返回结果</th>
-<th>结果注释</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>new WxPay()</td>
-<td>创建微信支付参数类</td>
-<td>String</td>
-<td>微信id</td>
-<td>WxPay</td>
-<td>WxPay对象</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>String</td>
-<td>商户号</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>String</td>
-<td>key</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>String</td>
-<td>异步通知页面</td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p>创建微信签名</p>
-<table>
-<thead>
-<tr>
-<th>方法名称</th>
-<th>方法注释</th>
-<th>传入参数</th>
-<th>参数注释</th>
-<th>返回结果</th>
-<th>结果注释</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>WxPayUtils.createWxParam()</td>
-<td>创建微信签名</td>
-<td>HttpServletRequest</td>
-<td>request请求参数</td>
-<td>String</td>
-<td>微信支付签名</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>WxPay</td>
-<td>微信请求参数对象</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>String</td>
-<td>body</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>String</td>
-<td>订单编号</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>BigDecimal</td>
-<td>订单总价格</td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p>返回微信支付响应数据</p>
-<table>
-<thead>
-<tr>
-<th>方法名称</th>
-<th>方法注释</th>
-<th>传入参数</th>
-<th>参数注释</th>
-<th>返回结果</th>
-<th>结果注释</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>WxPayUtils.wxParam()</td>
-<td>创建响应内容</td>
-<td>HttpServletRequest</td>
-<td>request请求参数</td>
-<td>String</td>
-<td>支付响应内容</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>WxPay</td>
-<td>微信请求参数对象</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>String</td>
-<td>微信签名</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>String</td>
-<td>body</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>String</td>
-<td>订单编号</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>BigDecimal</td>
-<td>订单总价格</td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h4 id="七牛云文件上传工具类-QiniuUtils">七牛云文件上传工具类(QiniuUtils)</h4>
-<table>
-<thead>
-<tr>
-<th>方法名称</th>
-<th>方法注释</th>
-<th>传入参数</th>
-<th>参数注释</th>
-<th>返回结果</th>
-<th>结果注释</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>QiniuUtils.uploadQiniu()</td>
-<td>上传文件到七牛云</td>
-<td>MultipartFile</td>
-<td>@RequestParam(“file”)：文件</td>
-<td>String</td>
-<td>返回的七牛云链接</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>Map&lt;String,String&gt;</td>
-<td>key说明：QiniuAccessKey：公钥，QiniuSecretKey：私钥，QiniuBucketName：空间名，QiniuDomain：域名，QiniuPrefix：文件分组辨识前缀</td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h4 id="阿里云短信发送工具类-SmsUtils">阿里云短信发送工具类(SmsUtils)</h4>
-<table>
-<thead>
-<tr>
-<th>方法名称</th>
-<th>方法注释</th>
-<th>传入参数</th>
-<th>参数注释</th>
-<th>返回结果</th>
-<th>结果注释</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>SmsUtils.sendSms()</td>
-<td>阿里云发送短信</td>
-<td>Map&lt;String,String&gt;</td>
-<td>阿里云短信配置map。key说明：time：超时时间，accessKeyId，accessKeySecret：短信个人配置信息，sign：短信签名</td>
-<td>int</td>
-<td>1为成功，0为失败</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>Map&lt;String,String&gt;</td>
-<td>阿里云短信个人信息map。key说明：mobile：接收手机号，template：短信模板，json：变量替换JSON串,如模板内容为"亲爱的用户,您的验证码为${code}“时,此处的json值为”{“code”:"" + code + “”}"，outId：提供给业务方扩展字段,最终在短信回执消息中将此值带回给调用者</td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h4 id="集合第三方qq登录工具类-QQLoginUtils">集合第三方qq登录工具类(QQLoginUtils)</h4>
-<p>创建代理对象</p>
-<table>
-<thead>
-<tr>
-<th>方法名称</th>
-<th>方法注释</th>
-<th>传入参数</th>
-<th>参数注释</th>
-<th>返回结果</th>
-<th>结果注释</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>new QQHttpClient(String APPID,String APPKEY);</td>
-<td>创建QQ配置对象</td>
-<td>APPID</td>
-<td>qq互联平台应用id</td>
-<td>client</td>
-<td>QQHttpClient对象</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>APPKEY</td>
-<td>qq互联平台应用key</td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p>登录方法</p>
-<table>
-<thead>
-<tr>
-<th>方法名称</th>
-<th>方法注释</th>
-<th>传入参数</th>
-<th>参数注释</th>
-<th>返回结果</th>
-<th>结果注释</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>QQLoginUtils.getBackUrl(String domain, QQHttpClient qqHttpClient);</td>
-<td>获取登录返回链接</td>
-<td>String</td>
-<td>应用配置域名</td>
-<td>Map&lt;String,String&gt;</td>
-<td>key说明：url：返回的链接；state：用于第三方应用防止CSRF攻击的uuid</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>QQHttpClient</td>
-<td>QQHttpClient配置对象</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>QQLoginUtils.qqCallBack(Map&lt;String,String&gt; map,String backUrlState,String domain,QQHttpClient client);</td>
-<td>qq回调函数</td>
-<td>Map&lt;String,String&gt;</td>
-<td>request获取的qq信息携带参数的map集合。key说明：code：<em>Authorization Code</em>；state：uuid；注意：数据获取来自qq返回的信息</td>
-<td>Map&lt;String,String&gt;</td>
-<td>key说明：openid：用户唯一标识；nickname：qq用户名；figureurl_qq_2：100*100像素头像链接</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>String</td>
-<td>获取登录链接方法中创建的uuid</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>String</td>
-<td>应用配置的域名</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>QQHttpClient</td>
-<td>QQHttpClient配置对象</td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h4 id="redis工具类-RedisUtils">redis工具类(RedisUtils)</h4>
-<table>
-<thead>
-<tr>
-<th>方法名称</th>
-<th>方法注释</th>
-<th>传入参数</th>
-<th>参数注释</th>
-<th>返回结果</th>
-<th>结果注释</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>expire(key,time)</td>
-<td>指定缓存失效时间</td>
-<td>String,long</td>
-<td>键，时间</td>
-<td>boolean</td>
-<td>true：成功，false：失败</td>
-</tr>
-<tr>
-<td>getExpire(key)</td>
-<td>获取key的过期时间</td>
-<td>String</td>
-<td>键</td>
-<td>long</td>
-<td>返回过期时间，若为0则永久有效</td>
-</tr>
-<tr>
-<td>hasKey(key)</td>
-<td>判断key是否存在</td>
-<td>String</td>
-<td>键</td>
-<td>boolean</td>
-<td>true：存在，false：不存在</td>
-</tr>
-<tr>
-<td>del(key)</td>
-<td>删除缓存</td>
-<td>String/String []</td>
-<td>单键，键数组</td>
-<td>void</td>
-<td>无返回结果</td>
-</tr>
-<tr>
-<td>get(key)</td>
-<td>获取缓存值</td>
-<td>String</td>
-<td>键</td>
-<td>Object</td>
-<td>缓存值</td>
-</tr>
-<tr>
-<td>set(key,value)</td>
-<td>存放缓存</td>
-<td>String,Object</td>
-<td>键，值</td>
-<td>boolean</td>
-<td>true：成功，false：失败</td>
-</tr>
-<tr>
-<td>set(key,value,time)</td>
-<td>存放缓存并设置失效时间</td>
-<td>String,Object,long</td>
-<td>键，值，失效时间(当time小于等于0时，键永久有效)</td>
-<td>boolean</td>
-<td>true：成功，false：失败</td>
-</tr>
-<tr>
-<td>hmset(key,map)</td>
-<td>存放Map类型键值对</td>
-<td>String,Map&lt;String,Object&gt;</td>
-<td>键，Map数据值</td>
-<td>boolean</td>
-<td>true：成功，false：失败</td>
-</tr>
-<tr>
-<td>hmset(key,map,time)</td>
-<td>存放Map类型键值对并设置过期时间</td>
-<td>String,Map&lt;String,Object&gt;,long</td>
-<td>键，Map数据值，过期时间(当time小于等于0时，键永久有效)</td>
-<td>boolean</td>
-<td>true：成功，false：失败</td>
-</tr>
-<tr>
-<td>hmget(key)</td>
-<td>获取key对应的Map键值</td>
-<td>String</td>
-<td>键</td>
-<td>Map&lt;Object,Object&gt;</td>
-<td>Map键值对</td>
-</tr>
-<tr>
-<td>hget(key,item)</td>
-<td>获取key对应的map键的值</td>
-<td>String,String</td>
-<td>键，map键</td>
-<td>Object</td>
-<td>map值</td>
-</tr>
-<tr>
-<td>hset(key,item,value)</td>
-<td>向hash表中存放数据，如果不存在则创建</td>
-<td>String,String,Object</td>
-<td>键，项，值</td>
-<td>boolean</td>
-<td>true：成功，false：失败</td>
-</tr>
-<tr>
-<td>hset(key,item,value,time)</td>
-<td>向hash表中存放数据，如果不存在则创建</td>
-<td>String,String,Object,long</td>
-<td>键，项，值，时间(如果已存在的hash表有时间,这里将会替换原有的时间)</td>
-<td>boolean</td>
-<td>true：成功，false：失败</td>
-</tr>
-<tr>
-<td>hdel(key,item)</td>
-<td>删除hash表中的值</td>
-<td>String,String/String []</td>
-<td>键，单项或项数组</td>
-<td>void</td>
-<td>无返回结果</td>
-</tr>
-<tr>
-<td>hHasKey(key,item)</td>
-<td>判断hash表中是否有项的值</td>
-<td>String,String</td>
-<td>键，项</td>
-<td>boolean</td>
-<td>true：存在，false：不存在</td>
-</tr>
-<tr>
-<td>sSet(key,values)</td>
-<td>将数据放入set缓存</td>
-<td>String,Object/Object []</td>
-<td>键，值</td>
-<td>long</td>
-<td>返回成功的个数</td>
-</tr>
-<tr>
-<td>sSetAndTime(key,time,values)</td>
-<td>将数据放入set缓存并设置过期时间</td>
-<td>String,time,Object/Object []</td>
-<td>键，时间，值</td>
-<td>long</td>
-<td>返回成功个数</td>
-</tr>
-<tr>
-<td>sHasKey(key,value)</td>
-<td>判断set中的value是否存在</td>
-<td>String,Object</td>
-<td>键，值</td>
-<td>boolean</td>
-<td>true：存在，false：不存在</td>
-</tr>
-<tr>
-<td>sGet(key)</td>
-<td>根据key获取Set中的所有值</td>
-<td>String</td>
-<td>键</td>
-<td>Set<object></object></td>
-<td>set值</td>
-</tr>
-<tr>
-<td>sGetSetSize(key)</td>
-<td>获取set缓存长度</td>
-<td>String</td>
-<td>键</td>
-<td>long</td>
-<td>缓存长度</td>
-</tr>
-<tr>
-<td>setRemove(key,values)</td>
-<td>移除set缓存中值为values的</td>
-<td>String,Object/Object p[]</td>
-<td>键，值/值数组</td>
-<td>long</td>
-<td>返回移除的个数</td>
-</tr>
-<tr>
-<td>lSet(key,value)</td>
-<td>向list中存放缓存</td>
-<td>String,Object</td>
-<td>键，值</td>
-<td>boolean</td>
-<td>true：成功，false：失败</td>
-</tr>
-<tr>
-<td>lSet(key, value,time)</td>
-<td>向list中存放缓存并设置缓存时间</td>
-<td>String,Object,long</td>
-<td>键，值，时间(time小于等于0为永久有效)</td>
-<td>boolean</td>
-<td>true：成功，false：失败</td>
-</tr>
-<tr>
-<td>lSet(key,value)</td>
-<td>向list中存放缓存，值为list</td>
-<td>String,List<object></object></td>
-<td>键，值</td>
-<td>boolean</td>
-<td>true：成功，false：失败</td>
-</tr>
-<tr>
-<td>lSet(key, value,time)</td>
-<td>向list中存放缓存，值为list并设置缓存时间</td>
-<td>String,List<object>,long</object></td>
-<td>键，值，时间(time小于等于0为永久有效)</td>
-<td>boolean</td>
-<td>rue：成功，false：失败</td>
-</tr>
-<tr>
-<td>lGet(key, start,end)</td>
-<td>获取list缓存的内容</td>
-<td>String,long,long</td>
-<td>键，开始，结束(0 到 -1代表所有值)</td>
-<td>List<object></object></td>
-<td>获取的缓存值</td>
-</tr>
-<tr>
-<td>lGetListSize(key)</td>
-<td>获取list缓存的长度</td>
-<td>String</td>
-<td>键</td>
-<td>long</td>
-<td>缓存长度</td>
-</tr>
-<tr>
-<td>lGetIndex(key,index)</td>
-<td>通过索引获取list中的缓存值</td>
-<td>String,long</td>
-<td>键，索引(索引 index&gt;=0时， 0 表头，1 第二个元素，依次类推；index&lt;0时，-1，表尾，-2倒数第二个元素，依次类推)</td>
-<td>Object</td>
-<td>缓存值</td>
-</tr>
-<tr>
-<td>lUpdateIndex(key, index,value)</td>
-<td>修改list中索引对应的值</td>
-<td>String,long,Object</td>
-<td>键，索引，值</td>
-<td>boolean</td>
-<td>true：成功，false：失败</td>
-</tr>
-<tr>
-<td>lRemove(key, count,value)</td>
-<td>移除list缓存中值为value的n个缓存</td>
-<td>String,long,Object</td>
-<td>键，个数，值</td>
-<td>long</td>
-<td>移除的个数</td>
-</tr>
-<tr>
-<td>removeAll(keyPrefix)</td>
-<td>删除指定前缀的一系列key</td>
-<td>String</td>
-<td>键前缀</td>
-<td>void</td>
-<td>无返回结果</td>
-</tr>
-</tbody>
-</table>
-<h3 id="类库文件">类库文件</h3>
-<p><a href="https://dingdm.online/dingdm-1.2.jar" target="_blank" rel="noopener">https://dingdm.online/dingdm-1.2.jar</a></p>
+                <h3 id="kcf源码复现">kcf源码复现</h3>
+<p><strong>还没写完</strong></p>
+<h4 id="run-tracker">run_tracker</h4>
+<pre class=" language-language-python"><code class="language-language-python"># author:dinggc
+# date:2022/3/18 下午12:37
+from  load_video_info import load_video_info
+from tracker import tracker,strArrayToFloat,strArrayToInt
+from kernel import Kernel
+from features import Features
+kernel = Kernel('gaussian',0.5,1,9)
+features = Features(0,1,9)
+img_files,pos,target_sz,ground_truth,video_path = load_video_info('/Users/dinggongcheng/Downloads/kcf/','Bolt')
+target_sz = strArrayToInt(target_sz)
+pos = strArrayToInt(pos)
+positions,time = tracker(video_path,img_files,pos,target_sz,padding=1.5,kernel=kernel,lambd=1e-4,out_sigma_factor=0.1,interp_factor=0.02,cell_size=4,features=features,show_visualization=True)
+</code></pre>
+<h4 id="tracker">tracker</h4>
+<pre class=" language-language-python"><code class="language-language-python"># author:dinggc
+# date:2022/3/18 下午12:41
+import math
+import numpy as np
+from gaussian_shaped_labels import gaussian_shaped_labels
+import cv2
+from get_subwindow import get_subwindow
+from get_features import get_features,hann
+from gaussian_correlation import gaussian_correlation
+import scipy
+def tracker(video_path,img_files,pos,target_sz,padding,kernel,lambd,out_sigma_factor,interp_factor,cell_size,features,show_visualization):
+    resize_image = math.sqrt(target_sz[0] * target_sz[1])
+    if resize_image > 100:
+        pos[0] = math.floor(int(pos[0]) / 2)
+        pos[1] = math.floor(int(pos[1]) / 2)
+        target_sz[0] = math.floor(int(target_sz[0]) / 2)
+        target_sz[1] = math.floor(int(target_sz[0]) / 2)
+    window_sz = []
+    window_sz.append(math.floor(target_sz[0] * (1 + padding)))
+    window_sz.append(math.floor(target_sz[1] * (1 + padding)))
+    out_sigma = math.sqrt(target_sz[0] * target_sz[1]) * out_sigma_factor / cell_size
+    yf = gaussian_shaped_labels(out_sigma,[math.floor(window_sz[0] / cell_size),math.floor(window_sz[1] / cell_size)])
+    cos_window = hann(len(yf), len(yf[0]))
+    time = 0
+    positions = np.zeros((len(img_files),2))
+    for frame in range(1,len(img_files)):
+        im = cv2.imread(video_path + img_files[frame][0])
+        #if len(im.shape) > 2:
+           # im = cv2.cvtColor(im,cv2.COLOR_BGR2GRAY)
+        if resize_image > 100:
+            im = cv2.resize(im,0.5)
+        if frame > 1:
+            patch = get_subwindow(im,pos,window_sz)
+            zf = get_features(patch,cell_size,cos_window)
+            kzf = gaussian_correlation(zf,model_xf,kernel.sigma)
+            response = np.real(scipy.ifft(np.dot(model_alphaf,kzf)))
+        patch = get_subwindow(im, pos, window_sz);
+        xf = get_features(patch, cell_size, cos_window);
+        kf = gaussian_correlation(xf, xf, kernel.sigma);
+        alphaf = np.divide(yf,(kf + lambd))
+        if frame == 1:
+            model_alphaf = alphaf
+            model_xf = xf
+        else:
+            model_alphaf = (1 - interp_factor) * model_alphaf + interp_factor * alphaf
+            model_xf = (1 - interp_factor) * model_xf + interp_factor * xf
+    return 0,0
+
+def strArrayToInt(arr):
+    result = []
+    for i in arr:
+        i = int(i)
+        result.append(i)
+    return result
+def strArrayToFloat(arr):
+    result = []
+    for i in arr:
+        i = float(i)
+        result.append(i)
+    return result
+</code></pre>
+<h4 id="load-video-info">load_video_info</h4>
+<pre class=" language-language-python"><code class="language-language-python"># author:dinggc
+# date:2022/3/18 上午11:05
+# 输入视频所在路径和视频
+# 返回参数为视频每帧的图片，初始位置，目标尺寸，真实标签和视频路径
+import math
+import os
+
+def load_video_info(base_path, video):
+    groundtruth = []
+    for line in open(base_path + video + '/groundtruth_rect.txt'):
+      groundtruth.append(line.replace('\n','').split(','))
+    target_size = []
+    target_size.append(groundtruth[0][3])
+    target_size.append(groundtruth[0][2])
+    pos = []
+    pos.append(str(int(groundtruth[0][1]) +  math.floor(int(target_size[0]) / 2)))
+    pos.append(str(int(groundtruth[0][0]) +  math.floor(int(target_size[1]) / 2)))
+    if len(groundtruth) == 1:
+        groundtruth = []
+    else:
+        gt = groundtruth
+        groundtruth = []
+        for i in gt:
+            temp = []
+            temp.append(str(float(i[1]) +  float(i[3]) / 2))
+            temp.append(str(float(i[0]) + float(i[2]) / 2))
+            groundtruth.append(temp)
+    video_path = base_path + video + '/img/'
+    img_files = []
+    file_list = os.listdir(video_path)
+    file_list.sort()
+    for filename in file_list:
+        fileinfo = os.stat(video_path + filename)
+        img_file = []
+        img_file.append(filename)
+        img_file.append(base_path + video + '/img/')
+        img_file.append(fileinfo.st_mtime)
+        img_file.append(fileinfo.st_size)
+        img_file.append(0)
+        img_file.append(fileinfo.st_ctime)
+        img_files.append(img_file)
+    return img_files,pos,target_size,groundtruth,video_path
+</code></pre>
+<h4 id="features">features</h4>
+<pre class=" language-language-python"><code class="language-language-python"># author:dinggc
+# date:2022/3/18 下午12:52
+class Features():
+    def __init__(self,gray,hog,hog_orientations):
+        self.gray = gray
+        self.hog = hog
+        self.hog_orientations = hog_orientations
+</code></pre>
+<h4 id="gaussian-shaped-labels">gaussian_shaped_labels</h4>
+<pre class=" language-language-python"><code class="language-language-python"># author:dinggc
+# date:2022/3/18 下午1:13
+import numpy as np
+import math
+import scipy
+def gaussian_shaped_labels(sigma,sz):
+    rs, cs = np.ogrid[1 - math.floor(sz[0] / 2):sz[0] - math.floor(sz[0]  / 2) + 1, 1 - math.floor(sz[1] / 2):sz[1] - math.floor(sz[1] / 2) + 1]
+    labels = np.exp(-0.5 / math.pow(sigma,2) * (rs ** 2 + cs ** 2))
+    labels = circshift(labels,-math.floor(sz[0] / 2) + 1,-math.floor(sz[1] / 2) + 1)
+    labels = scipy.fft.fft2(labels)
+    return labels
+def circshift(u,shiftnum1,shiftnum2):
+    h,w = u.shape
+    if shiftnum1 < 0:
+        u = np.vstack((u[-shiftnum1:,:],u[:-shiftnum1,:]))
+    else:
+        u = np.vstack((u[(h-shiftnum1):,:],u[:(h-shiftnum1),:]))
+    if shiftnum2 > 0:
+        u = np.hstack((u[:, (w - shiftnum2):], u[:, :(w - shiftnum2)]))
+    else:
+        u = np.hstack((u[:,-shiftnum2:],u[:,:-shiftnum2]))
+    return u
+</code></pre>
+<h4 id="get-features">get_features</h4>
+<pre class=" language-language-python"><code class="language-language-python"># author:dinggc
+# date:2022/3/18 下午2:57
+import fhog
+import numpy as np
+import scipy
+
+def get_features(im,cell_size,cos_window):
+
+    mapp = {'sizeX': 0, 'sizeY': 0, 'numFeatures': 0, 'map': 0}
+    mapp = fhog.getFeatureMaps(im, cell_size, mapp)
+    #mapp = fhog.normalizeAndTruncate(mapp, 0.2)
+    mapp = fhog.PCAFeatureMaps(mapp)
+
+    size_patch = map(int, [mapp['sizeY'], mapp['sizeX'], mapp['numFeatures']])
+    size_patch = list(size_patch)
+    FeaturesMap = mapp['map'].reshape((size_patch[0] * size_patch[1],size_patch[2])).T
+    cos_window = hann(size_patch[2],size_patch[0] * size_patch[1])
+    FeaturesMap = cos_window * FeaturesMap
+    return scipy.fft.fft2(FeaturesMap)
+def hann(M,N):
+    hann2t, hann1t = np.ogrid[0:M, 0:N]
+    hann1t = 0.5 * (1 - np.cos(2 * np.pi * hann1t / (N - 1)))
+    hann2t = 0.5 * (1 - np.cos(2 * np.pi * hann2t / (M - 1)))
+    hann2d = hann2t * hann1t
+    hann = hann2d.astype(np.float32)
+    return hann
+</code></pre>
+<h4 id="get-subwindow">get_subwindow</h4>
+<pre class=" language-language-python"><code class="language-language-python"># author:dinggc
+# date:2022/3/18 下午2:16
+import math
+
+
+def get_subwindow(im,pos,sz):
+    if len(sz) == 1:
+        sz.append(sz)
+    xs = []
+    for i in range(1 + math.floor(pos[1]) - math.floor(sz[1] / 2),sz[1] + math.floor(pos[1]) - math.floor(sz[1] / 2) + 1):
+        if i < 1:
+            i = 1
+        if i > im.shape[1]:
+            i = im.shape[1]
+        xs.append(i)
+    ys = []
+    for i in range(1 + math.floor(pos[0]) - math.floor(sz[0] / 2),sz[0] + math.floor(pos[0]) - math.floor(sz[0] / 2) + 1):
+        if i < 1:
+            i = 1
+        if i > im.shape[0]:
+            i = im.shape[0]
+        ys.append(i)
+    out = im[ys[0]:ys[len(ys)-1],xs[0]:xs[len(xs)-1]]
+    return out
+</code></pre>
+<h4 id="kernel">kernel</h4>
+<pre class=" language-language-python"><code class="language-language-python"># author:dinggc
+# date:2022/3/18 下午12:49
+class Kernel():
+    def __init__(self,type,sigma,poly_a,poly_b):
+        self.type = type
+        self.sigma = sigma
+        self.poly_a = poly_a
+        self.poly_b = poly_b
+</code></pre>
+<h4 id="fhog">fhog</h4>
+<p>编译c++文件。</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -1801,7 +765,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://dingdm.club/2021/09/21/ge-ren-lei-ku-gong-ju-wen-dang/">https://dingdm.club/2021/09/21/ge-ren-lei-ku-gong-ju-wen-dang/</a>
+                    <a href="https://dingdm.club/2022/03/18/kcf-yuan-ma-fu-xian/">https://dingdm.club/2022/03/18/kcf-yuan-ma-fu-xian/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1839,8 +803,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/jar/">
-                                    <span class="chip bg-color">jar</span>
+                                <a href="/tags/KCF/">
+                                    <span class="chip bg-color">KCF</span>
                                 </a>
                             
                         </div>
@@ -2145,52 +1109,54 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/09/27/yolov5-yuan-ma-jie-xi/">
+                <a href="/2022/03/18/kcf-yuan-ma-fu-xian/">
                     <div class="card-image">
                         
                         
-                        <img src="http://dingdm.online/22.jpg" class="responsive-img" alt="yolov5源码解析一">
+                        <img src="http://dingdm.online/6.jpg" class="responsive-img" alt="kcf源码复现">
                         
-                        <span class="card-title">yolov5源码解析一</span>
+                        <span class="card-title">kcf源码复现</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            yolov5源码解析一
-yolov5模型
-
-**（1）输入端：**Mosaic数据增强、自适应锚框计算、自适应图片缩放
-**（2）Backbone：**Focus结构，CSP结构
-**（3）Neck：**FPN+PAN结构
-**（4）Pre
+                            kcf源码复现
+还没写完
+run_tracker
+# author:dinggc
+# date:2022/3/18 下午12:37
+from  load_video_info import load_video_info
+from trac
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-09-27
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-18
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                    深度学习
+                            <a href="/categories/%E5%9B%BE%E5%83%8F%E8%BF%BD%E8%B8%AA/" class="post-category">
+                                    图像追踪
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">算法</span>
+                    <a href="/tags/KCF/">
+                        <span class="chip bg-color">KCF</span>
                     </a>
                     
                 </div>
@@ -2204,35 +1170,34 @@ yolov5模型
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/09/12/tu-xiang-pin-jie-ru-men/">
+                <a href="/2022/03/16/agx-xavier-kai-fa-ban-shua-ji-huan-jing-da-jian-yu-suan-fa-xun-lian/">
                     <div class="card-image">
                         
                         
-                        <img src="http://dingdm.online/1.jpg" class="responsive-img" alt="图像全景拼接">
+                        <img src="http://dingdm.online/14.jpg" class="responsive-img" alt="agx xavier开发板刷机、环境搭建与算法训练">
                         
-                        <span class="card-title">图像全景拼接</span>
+                        <span class="card-title">agx xavier开发板刷机、环境搭建与算法训练</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            图像全景拼接
-前提知识
-泰勒公式
-使用多次多项式来近似表达原函数f(x)。
-对于一个函数，在某一点处可以找到一个函数的值与它相同，但是在该点的领域内可能找到的图像不尽相同，而导数反应的是变化率，因此可以对当前近似表示的函数求导，对于近似函数
+                            agx xavier开发板刷机、环境搭建与算法训练
+开发板刷机
+主机需要Linux系统，安装sdkmanager。
+这里由于我的电脑是mac，使用pd虚拟机镜像是arm的，没找到桌面版的，而且sdkmanager是deb，不太适配。所以我这
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-09-12
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-16
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" class="post-category">
-                                    图像处理
+                            <a href="/categories/%E5%BC%80%E5%8F%91%E6%9D%BF/" class="post-category">
+                                    开发板
                                 </a>
                             
                             
@@ -2242,8 +1207,8 @@ yolov5模型
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%9B%BE%E5%83%8F%E6%8B%BC%E6%8E%A5/">
-                        <span class="chip bg-color">图像拼接</span>
+                    <a href="/tags/nvdia-agx-Xavier/">
+                        <span class="chip bg-color">nvdia agx Xavier</span>
                     </a>
                     
                 </div>
