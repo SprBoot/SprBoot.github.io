@@ -534,10 +534,10 @@ def getFeatures(roi, image,flag,window_size):
         h = int(h) // (2 * cell_size) * 2 * cell_size + 2 * cell_size
         window_size[0] = w
         window_size[1] = h
-    _roi[0] = int(x - _roi[2] / 2)
-    _roi[1] = int(y - _roi[3] / 2)
     _roi[2] = int(window_size[0])
     _roi[3] = int(window_size[1])
+    _roi[0] = int(x - _roi[2] / 2)
+    _roi[1] = int(y - _roi[3] / 2)
     detect = getSubWindow(image,_roi,cv2.BORDER_REPLICATE)
     if(detect.shape[1] != window_size[0] or detect.shape[0] != window_size[1]):
         detect = cv2.resize(detect,tuple(window_size))
@@ -1087,39 +1087,34 @@ def subPixelPeak(left, center, right):
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/03/18/kcf-yuan-ma-fu-xian/">
+                <a href="/2022/03/26/kcf-suan-fa-zong-he/">
                     <div class="card-image">
                         
                         
-                        <img src="http://dingdm.online/6.jpg" class="responsive-img" alt="kcf源码复现">
+                        <img src="http://dingdm.online/16.jpg" class="responsive-img" alt="KCF算法综合">
                         
-                        <span class="card-title">kcf源码复现</span>
+                        <span class="card-title">KCF算法综合</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            kcf源码复现
-# author:dinggc
-# date:2022/3/23 下午4:04
-import cv2
-import fhog
-import numpy as np
-
-padding = 2.5
-cell_size = 4
-o
+                            KCF算法综合
+实现效果
+&lt;video id=“video” controls=""src=“http://dingdm.online/buhuo.mp4” preload=“none”&gt;
+优化方向
+追踪目标消失与重捕获
+算法整
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-18
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-03-26
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1132,7 +1127,6 @@ o
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -1377,7 +1371,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">116.1k</span>&nbsp;字
+                class="white-color">117.3k</span>&nbsp;字
             
             
             
