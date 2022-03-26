@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://dingdm.club/"/>
-  <updated>2022-03-26T03:04:12.497Z</updated>
+  <updated>2022-03-26T03:07:12.484Z</updated>
   <id>https://dingdm.club/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://dingdm.club/2022/03/26/kcf-suan-fa-zong-he/"/>
     <id>https://dingdm.club/2022/03/26/kcf-suan-fa-zong-he/</id>
     <published>2022-03-26T03:04:12.000Z</published>
-    <updated>2022-03-26T03:04:12.497Z</updated>
+    <updated>2022-03-26T03:07:12.484Z</updated>
     
     <summary type="html">
     
@@ -29,7 +29,8 @@
       
         &lt;h3 id=&quot;KCF算法综合&quot;&gt;KCF算法综合&lt;/h3&gt;
 &lt;h4 id=&quot;实现效果&quot;&gt;实现效果&lt;/h4&gt;
-&lt;p&gt;&amp;lt;video id=“video” controls=&quot;&quot;src=“&lt;a href=&quot;http://dingdm.online/buhuo.mp4&quot; targe
+&lt;video id=&quot;video&quot; controls=&quot;&quot; preload=&quot;none&quot;&gt;
+    &lt;source id=&quot;mp4&quot; src=&quot;http://dingdm.
       
     
     </summary>

@@ -8,7 +8,7 @@
       <link href="/2022/03/26/kcf-suan-fa-zong-he/"/>
       <url>/2022/03/26/kcf-suan-fa-zong-he/</url>
       
-        <content type="html"><![CDATA[<h3 id="KCF算法综合">KCF算法综合</h3><h4 id="实现效果">实现效果</h4><p>&lt;video id=“video” controls=""src=“<a href="http://dingdm.online/buhuo.mp4" target="_blank" rel="noopener">http://dingdm.online/buhuo.mp4</a>” preload=“none”&gt;</p><h4 id="优化方向">优化方向</h4><p>追踪目标消失与重捕获</p><h4 id="算法整体思想">算法整体思想</h4><p>将低维不可分问题使用核函数映射到高维变为可分问题。使用核技巧解决高维维度灾难问题。使用高斯函数和岭回归训练分类器。更新时使用上一帧和当前帧的特征获取当前帧的最大响应定位当前帧的跟踪位置并重新训练分类器参数。</p><h4 id="算法实现步骤">算法实现步骤</h4><p>获取视频第一帧的框选区域roi。</p><p>调整区域roi的大小，调整完的区域超出框选位置则对框选的图像边缘进行填充，符合调整后的区域大小。</p><p>对框选区域使用fhog进行特征提取。</p><p>为了防止泄露在特征提取完成之后对特征进行加窗。</p><p>创建高斯核函数将低维空间映射到高维，同时使用核技巧来解决维度灾难中的计算问题。</p><p>对于高斯核函数计算的结果使用岭回归训练参数得到分类器。</p><p>第一帧之后根据上一帧的特征值和当前帧的特征值计算最大响应位置。</p><p>根据最大响应位置定位检测框的位置，在根据当前的检测框进行训练更新分类器参数。</p><h4 id="KCF论文阅读">KCF论文阅读</h4><h5 id="摘要">摘要</h5><p>大多数现代跟踪器的核心组件是判别分类器，其任务是区分目标和目标周边的环境。为了应对自然图像的变化，通常使用经过平移和缩放的样本<code>patch</code>进行训练。但这样的样本充满冗余，任何重叠的像素都被视为相同。基于这个简单的观察，我们提出了数千个平移<code>patch</code>的数据集分析模型。结果显示数据是循环的，我们能够使用离散傅里叶变换对数据矩阵进行对角化，从而将存储和计算开销减少几个数量级。有趣的是对于线性回归我们的公式相当于一个相关滤波器，例如目前使用的那些最快的有竞争力的跟踪器。然而，对于核回归，我们推导了一个新的核化相关滤波器（KCF），不同于其他核算法，它与线性核相应部分有完全相同的复杂度。在此基础上，通过线性核，我们还提出了一种线性相关滤波器的快速多通道扩展，我们称之为双相关滤波器。KCF和DCF在50个视频基准（OTB-50）测试中的表现优于Struck或TLD等顶级跟踪器，虽然每秒运行数百帧，但是只需几行代码即可实现（算法1）。为了鼓励更进一步的发展，我们开源了跟踪框架。</p><p><a href="http://dingdm.website/2022/03/07/kcf-suan-fa-xiang-guan-zhi-shi/" target="_blank" rel="noopener">相关理论</a></p><h5 id="实现细节">实现细节</h5><p>输入<code>patch</code>（原始像素或从通道中提取的特征）由余弦窗口加权，可以平滑地消除由循环假设引起的图像边界的不连续性。 跟踪区域的大小是目标区域框的2.5倍，以提供一些背景和额外的负样本。</p><p>为什么选取高斯</p><p>训练样本由基样本移位组成，因为我们必须为y中每一个yi指定回归目标 。回归目标y简单遵循高斯函数，其目标中心值为1，根据空间带宽s 从中间向周边平滑衰减到0。高斯目标比二进制标签更加平滑，而且有利于减轻在傅里叶域中的振铃伪像问题。</p><p><img src="http://dingdm.online/middle1.png" alt="图1"></p><p><img src="http://dingdm.online/middle2.png" alt="图2"></p><p>一个微妙的问题是确定y的哪个元素是居中样本的回归目标，我们将以高斯函数为中心。虽然直观地看起来它似乎是输出平面的中间（图 1），但事实证明正确的选择是左上角的元素（图 2)。 原因是，在计算傅立叶域中的两个图像之间的互相关并转换回空间域之后，结果的左上角元素对应于零的移位。 当然，由于我们总是处理循环信号，因此高斯函数的峰值必须从左上角到其他角落环绕，如图2所示。 将高斯峰放置在回归目标的中间在一些过滤器实现中是常见的，并且导致相关输出被不必要地移动半个窗口，必须在事后更正。</p><p><a href="http://dingdm.website/2022/03/18/kcf-yuan-ma-fu-xian/" target="_blank" rel="noopener">代码复现</a></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+        <content type="html"><![CDATA[<h3 id="KCF算法综合">KCF算法综合</h3><h4 id="实现效果">实现效果</h4><video id="video" controls="" preload="none">    <source id="mp4" src="http://dingdm.online/buhuo.mp4" type="video/mp4"></video><h4 id="优化方向">优化方向</h4><p>追踪目标消失与重捕获</p><h4 id="算法整体思想">算法整体思想</h4><p>将低维不可分问题使用核函数映射到高维变为可分问题。使用核技巧解决高维维度灾难问题。使用高斯函数和岭回归训练分类器。更新时使用上一帧和当前帧的特征获取当前帧的最大响应定位当前帧的跟踪位置并重新训练分类器参数。</p><h4 id="算法实现步骤">算法实现步骤</h4><p>获取视频第一帧的框选区域roi。</p><p>调整区域roi的大小，调整完的区域超出框选位置则对框选的图像边缘进行填充，符合调整后的区域大小。</p><p>对框选区域使用fhog进行特征提取。</p><p>为了防止泄露在特征提取完成之后对特征进行加窗。</p><p>创建高斯核函数将低维空间映射到高维，同时使用核技巧来解决维度灾难中的计算问题。</p><p>对于高斯核函数计算的结果使用岭回归训练参数得到分类器。</p><p>第一帧之后根据上一帧的特征值和当前帧的特征值计算最大响应位置。</p><p>根据最大响应位置定位检测框的位置，在根据当前的检测框进行训练更新分类器参数。</p><h4 id="KCF论文阅读">KCF论文阅读</h4><h5 id="摘要">摘要</h5><p>大多数现代跟踪器的核心组件是判别分类器，其任务是区分目标和目标周边的环境。为了应对自然图像的变化，通常使用经过平移和缩放的样本<code>patch</code>进行训练。但这样的样本充满冗余，任何重叠的像素都被视为相同。基于这个简单的观察，我们提出了数千个平移<code>patch</code>的数据集分析模型。结果显示数据是循环的，我们能够使用离散傅里叶变换对数据矩阵进行对角化，从而将存储和计算开销减少几个数量级。有趣的是对于线性回归我们的公式相当于一个相关滤波器，例如目前使用的那些最快的有竞争力的跟踪器。然而，对于核回归，我们推导了一个新的核化相关滤波器（KCF），不同于其他核算法，它与线性核相应部分有完全相同的复杂度。在此基础上，通过线性核，我们还提出了一种线性相关滤波器的快速多通道扩展，我们称之为双相关滤波器。KCF和DCF在50个视频基准（OTB-50）测试中的表现优于Struck或TLD等顶级跟踪器，虽然每秒运行数百帧，但是只需几行代码即可实现（算法1）。为了鼓励更进一步的发展，我们开源了跟踪框架。</p><p><a href="http://dingdm.website/2022/03/07/kcf-suan-fa-xiang-guan-zhi-shi/" target="_blank" rel="noopener">相关理论</a></p><h5 id="实现细节">实现细节</h5><p>输入<code>patch</code>（原始像素或从通道中提取的特征）由余弦窗口加权，可以平滑地消除由循环假设引起的图像边界的不连续性。 跟踪区域的大小是目标区域框的2.5倍，以提供一些背景和额外的负样本。</p><p>为什么选取高斯</p><p>训练样本由基样本移位组成，因为我们必须为y中每一个yi指定回归目标 。回归目标y简单遵循高斯函数，其目标中心值为1，根据空间带宽s 从中间向周边平滑衰减到0。高斯目标比二进制标签更加平滑，而且有利于减轻在傅里叶域中的振铃伪像问题。</p><p><img src="http://dingdm.online/middle1.png" alt="图1"></p><p><img src="http://dingdm.online/middle2.png" alt="图2"></p><p>一个微妙的问题是确定y的哪个元素是居中样本的回归目标，我们将以高斯函数为中心。虽然直观地看起来它似乎是输出平面的中间（图 1），但事实证明正确的选择是左上角的元素（图 2)。 原因是，在计算傅立叶域中的两个图像之间的互相关并转换回空间域之后，结果的左上角元素对应于零的移位。 当然，由于我们总是处理循环信号，因此高斯函数的峰值必须从左上角到其他角落环绕，如图2所示。 将高斯峰放置在回归目标的中间在一些过滤器实现中是常见的，并且导致相关输出被不必要地移动半个窗口，必须在事后更正。</p><p><a href="http://dingdm.website/2022/03/18/kcf-yuan-ma-fu-xian/" target="_blank" rel="noopener">代码复现</a></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
       
       
       <categories>
@@ -529,31 +529,6 @@
     
     
     <entry>
-      <title>深度学习笔记四</title>
-      <link href="/2021/06/14/shen-du-xue-xi-bi-ji-si/"/>
-      <url>/2021/06/14/shen-du-xue-xi-bi-ji-si/</url>
-      
-        <content type="html"><![CDATA[<h3 id="深度学习笔记四">深度学习笔记四</h3><h4 id="Deep-Learning">Deep Learning</h4><h5 id="深度学习的network">深度学习的network</h5><p><img src="http://dingdm.online/dee.jpg" alt=""></p><p>神经元的权重和偏差可以视为矩阵运算。即得到激活函数(activation function)。将激活函数进行sigmoid得到最终结果。将上方的网络用该种形式进行计算即为</p><p><img src="http://dingdm.online/dee2.jpg" alt=""></p><p>通过矩阵运行交由GPU加快运算过程。</p><h5 id="神经元网络的选取">神经元网络的选取</h5><p><img src="http://dingdm.online/cry.jpg" alt=""></p><p>通过神经元网络计算得到的输入矩阵和根据图像得到的target矩阵进行交叉熵计算结果，调整参数使得最后计算得到的交叉熵最小以确定最优的神经元网络函数。</p><p>通过不同组的数据进行训练得到所有的交叉熵进行累加，使用gradient descent获取w与b。</p><h5 id="gradient-descent">gradient descent</h5><p><img src="http://dingdm.online/grad.jpg" alt=""></p><h4 id="Backpropagation">Backpropagation</h4><p>帮助计算gradient descent中的参数的偏微分。</p><h5 id="chain-rule">chain rule</h5><p>即复合函数的微分过程。</p><p><img src="http://dingdm.online/we.jpg" alt=""></p><p>C为最后的交叉熵。</p><p>z对于w求偏微分，z对于哪一个w求微分，得到的即为w对应的输入数据。</p><p>C对于z求偏微分。</p><p><img src="http://dingdm.online/Cw.jpg" alt=""></p><p><img src="http://dingdm.online/ch.jpg" alt=""></p><h5 id="Backward-pass">Backward pass</h5><p>以未知的两项作为输入，得出的最终结果为输出。</p><p><img src="http://dingdm.online/fa2.jpg" alt=""></p><p>具体的放大倍率即为对应z的sigmoid的求导。反求通过已知的C即可快速计算。</p><h4 id="Recipe-OF-Deep-Learning">Recipe OF Deep Learning</h4><p>对于得到神经元网络应先应用于训练数据判断是否合适，防止直接运用于测试数据出现的非过拟合现象。</p><h5 id="New-activation-function">New activation function</h5><p>vanishing gradient problem</p><p>靠近输入的神经元gradient参数的更新速度较慢或靠近输入的神经元gradient参数更新较大。</p><p>使用sigmoid时，较大的输入经过sigmoid后会进行衰减，越深的层数对最后的C的结果的影响就越小。</p><h6 id="ReLU">ReLU</h6><p>更改激活函数，当输入小于0时，输出为0，当输入大于0时，输出等于输入。</p><p>当神经元的输出为0时，不会影响整个神经元网络，可以直接去掉。而输入等于输出不会产生递减问题。</p><p><img src="http://dingdm.online/rejy.jpg" alt=""></p><h6 id="maxout">maxout</h6><p>每层神经元的输出为分组中的最大值。</p><p>maxout也可以使用ReLU，即某个参数始终为0，其他参数为线性函数，即选取最大时满足ReLU。</p><p><img src="http://dingdm.online/bax.jpg" alt=""></p><h6 id="Maxout-training">Maxout training</h6><p>选取的最大值为最终的输出值，最终简化神经元网络。</p><h5 id="Adaptive-Learning-Rate">Adaptive Learning Rate</h5><p>使用adagrad</p><p><img src="http://dingdm.online/adagrad.png" alt=""></p><h6 id="RMSProp">RMSProp</h6><p>防止在某个变量变化的过程中出现的变化较小和变化较大同时存在的情况。</p><p><img src="http://dingdm.online/TRB.jpg" alt=""></p><h6 id="Momentum">Momentum</h6><p>利用惯性继续向前移动。</p><p>使用V记录移动距离。</p><p><img src="http://dingdm.online/MVE.jpg" alt=""></p><h6 id="Adam">Adam</h6><p>RMSProp + Momentum</p><p><img src="http://dingdm.online/adam.png" alt=""></p><h5 id="Early-Stopping">Early Stopping</h5><p>在error上升前停住，即一个if判断即可。</p><h5 id="Regularization">Regularization</h5><p><img src="http://dingdm.online/reg.jpg" alt=""></p><h5 id="DropOut">DropOut</h5><p><img src="http://dingdm.online/st1.jpg" alt=""></p><p>在新的神经元网络上进行训练。表现的结果可能变差。</p><p><img src="http://dingdm.online/sy2.jpg" alt=""></p><p>训练时使用所有的神经元，而在测试时需要去掉不合理的神经元。</p><p>训练数据时使用dropout，而测试时不需要dropout，因此对于所有的输入没有dropout，需要使用(1-p)%。</p><p>在训练时对于每组不同的数据会得到较多的神经元网络，而在测试时对于测试数据应用于所有的神经元网络不现实，因此采用了(1-p)%的方式进行计算，而得到的结果与前种方式得到的结果是相似的。</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
-      
-      
-      <categories>
-          
-          <category> 深度学习 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 神经元网络 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>论文阅读一</title>
       <link href="/2021/06/14/lun-wen-yue-du-yi/"/>
       <url>/2021/06/14/lun-wen-yue-du-yi/</url>
@@ -571,6 +546,31 @@
         <tags>
             
             <tag> 偏标记学习 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>深度学习笔记四</title>
+      <link href="/2021/06/14/shen-du-xue-xi-bi-ji-si/"/>
+      <url>/2021/06/14/shen-du-xue-xi-bi-ji-si/</url>
+      
+        <content type="html"><![CDATA[<h3 id="深度学习笔记四">深度学习笔记四</h3><h4 id="Deep-Learning">Deep Learning</h4><h5 id="深度学习的network">深度学习的network</h5><p><img src="http://dingdm.online/dee.jpg" alt=""></p><p>神经元的权重和偏差可以视为矩阵运算。即得到激活函数(activation function)。将激活函数进行sigmoid得到最终结果。将上方的网络用该种形式进行计算即为</p><p><img src="http://dingdm.online/dee2.jpg" alt=""></p><p>通过矩阵运行交由GPU加快运算过程。</p><h5 id="神经元网络的选取">神经元网络的选取</h5><p><img src="http://dingdm.online/cry.jpg" alt=""></p><p>通过神经元网络计算得到的输入矩阵和根据图像得到的target矩阵进行交叉熵计算结果，调整参数使得最后计算得到的交叉熵最小以确定最优的神经元网络函数。</p><p>通过不同组的数据进行训练得到所有的交叉熵进行累加，使用gradient descent获取w与b。</p><h5 id="gradient-descent">gradient descent</h5><p><img src="http://dingdm.online/grad.jpg" alt=""></p><h4 id="Backpropagation">Backpropagation</h4><p>帮助计算gradient descent中的参数的偏微分。</p><h5 id="chain-rule">chain rule</h5><p>即复合函数的微分过程。</p><p><img src="http://dingdm.online/we.jpg" alt=""></p><p>C为最后的交叉熵。</p><p>z对于w求偏微分，z对于哪一个w求微分，得到的即为w对应的输入数据。</p><p>C对于z求偏微分。</p><p><img src="http://dingdm.online/Cw.jpg" alt=""></p><p><img src="http://dingdm.online/ch.jpg" alt=""></p><h5 id="Backward-pass">Backward pass</h5><p>以未知的两项作为输入，得出的最终结果为输出。</p><p><img src="http://dingdm.online/fa2.jpg" alt=""></p><p>具体的放大倍率即为对应z的sigmoid的求导。反求通过已知的C即可快速计算。</p><h4 id="Recipe-OF-Deep-Learning">Recipe OF Deep Learning</h4><p>对于得到神经元网络应先应用于训练数据判断是否合适，防止直接运用于测试数据出现的非过拟合现象。</p><h5 id="New-activation-function">New activation function</h5><p>vanishing gradient problem</p><p>靠近输入的神经元gradient参数的更新速度较慢或靠近输入的神经元gradient参数更新较大。</p><p>使用sigmoid时，较大的输入经过sigmoid后会进行衰减，越深的层数对最后的C的结果的影响就越小。</p><h6 id="ReLU">ReLU</h6><p>更改激活函数，当输入小于0时，输出为0，当输入大于0时，输出等于输入。</p><p>当神经元的输出为0时，不会影响整个神经元网络，可以直接去掉。而输入等于输出不会产生递减问题。</p><p><img src="http://dingdm.online/rejy.jpg" alt=""></p><h6 id="maxout">maxout</h6><p>每层神经元的输出为分组中的最大值。</p><p>maxout也可以使用ReLU，即某个参数始终为0，其他参数为线性函数，即选取最大时满足ReLU。</p><p><img src="http://dingdm.online/bax.jpg" alt=""></p><h6 id="Maxout-training">Maxout training</h6><p>选取的最大值为最终的输出值，最终简化神经元网络。</p><h5 id="Adaptive-Learning-Rate">Adaptive Learning Rate</h5><p>使用adagrad</p><p><img src="http://dingdm.online/adagrad.png" alt=""></p><h6 id="RMSProp">RMSProp</h6><p>防止在某个变量变化的过程中出现的变化较小和变化较大同时存在的情况。</p><p><img src="http://dingdm.online/TRB.jpg" alt=""></p><h6 id="Momentum">Momentum</h6><p>利用惯性继续向前移动。</p><p>使用V记录移动距离。</p><p><img src="http://dingdm.online/MVE.jpg" alt=""></p><h6 id="Adam">Adam</h6><p>RMSProp + Momentum</p><p><img src="http://dingdm.online/adam.png" alt=""></p><h5 id="Early-Stopping">Early Stopping</h5><p>在error上升前停住，即一个if判断即可。</p><h5 id="Regularization">Regularization</h5><p><img src="http://dingdm.online/reg.jpg" alt=""></p><h5 id="DropOut">DropOut</h5><p><img src="http://dingdm.online/st1.jpg" alt=""></p><p>在新的神经元网络上进行训练。表现的结果可能变差。</p><p><img src="http://dingdm.online/sy2.jpg" alt=""></p><p>训练时使用所有的神经元，而在测试时需要去掉不合理的神经元。</p><p>训练数据时使用dropout，而测试时不需要dropout，因此对于所有的输入没有dropout，需要使用(1-p)%。</p><p>在训练时对于每组不同的数据会得到较多的神经元网络，而在测试时对于测试数据应用于所有的神经元网络不现实，因此采用了(1-p)%的方式进行计算，而得到的结果与前种方式得到的结果是相似的。</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> 深度学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 神经元网络 </tag>
             
         </tags>
       
