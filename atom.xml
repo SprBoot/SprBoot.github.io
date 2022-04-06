@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://dingdm.club/"/>
-  <updated>2022-03-26T03:07:12.484Z</updated>
+  <updated>2022-04-06T11:49:04.553Z</updated>
   <id>https://dingdm.club/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>人工智能</title>
+    <link href="https://dingdm.club/2022/04/04/tu-xiang-zhui-zong/"/>
+    <id>https://dingdm.club/2022/04/04/tu-xiang-zhui-zong/</id>
+    <published>2022-04-04T03:04:12.000Z</published>
+    <updated>2022-04-06T11:49:04.553Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;人工智能的定义&quot;&gt;人工智能的定义&lt;/h3&gt;
+&lt;h5 id=&quot;上世纪80年代以前&quot;&gt;上世纪80年代以前&lt;/h5&gt;
+&lt;p&gt;徒有其名，计算能力和对应的硬件限制。&lt;/p&gt;
+&lt;p&gt;А.В.Брушлинский,世京.人工“智能”为什么不可能?[J].世界科学译刊,1979
+      
+    
+    </summary>
+    
+    
+      <category term="图像追踪" scheme="https://dingdm.club/categories/%E5%9B%BE%E5%83%8F%E8%BF%BD%E8%B8%AA/"/>
+    
+    
+      <category term="人工智能" scheme="https://dingdm.club/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+    
+  </entry>
   
   <entry>
     <title>KCF算法综合</title>
@@ -528,33 +555,6 @@ FN:没有检测到的GT的数量&lt;/p&gt;
     
     
       <category term="图像拼接" scheme="https://dingdm.club/tags/%E5%9B%BE%E5%83%8F%E6%8B%BC%E6%8E%A5/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>基于云服务器的远程连接搭建</title>
-    <link href="https://dingdm.club/2021/08/26/ji-yu-yun-fu-wu-qi-de-yuan-cheng-lian-jie-da-jian/"/>
-    <id>https://dingdm.club/2021/08/26/ji-yu-yun-fu-wu-qi-de-yuan-cheng-lian-jie-da-jian/</id>
-    <published>2021-08-26T09:41:30.000Z</published>
-    <updated>2021-08-26T09:51:57.055Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;基于云服务器的远程连接搭建&quot;&gt;基于云服务器的远程连接搭建&lt;/h3&gt;
-&lt;p&gt;本来打算直接路由器的，但是梅林的frpc要虚拟内存，而我手上又没有好的u盘，所以先用最直接的吧。&lt;/p&gt;
-&lt;h4 id=&quot;域名解析&quot;&gt;域名解析&lt;/h4&gt;
-&lt;p&gt;&lt;img src=&quot;http:
-      
-    
-    </summary>
-    
-    
-      <category term="运维" scheme="https://dingdm.club/categories/%E8%BF%90%E7%BB%B4/"/>
-    
-    
-      <category term="frpc" scheme="https://dingdm.club/tags/frpc/"/>
     
   </entry>
   

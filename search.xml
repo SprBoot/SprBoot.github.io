@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>人工智能</title>
+      <link href="/2022/04/04/tu-xiang-zhui-zong/"/>
+      <url>/2022/04/04/tu-xiang-zhui-zong/</url>
+      
+        <content type="html"><![CDATA[<h3 id="人工智能的定义">人工智能的定义</h3><h5 id="上世纪80年代以前">上世纪80年代以前</h5><p>徒有其名，计算能力和对应的硬件限制。</p><p>А.В.Брушлинский,世京.人工“智能”为什么不可能?[J].世界科学译刊,1979(07):79-80.</p><h5 id="2000年以前">2000年以前</h5><p>成本高，上层太高无法落地</p><p>陈庆霞.人工智能研究纲领的发展历程和前景[J].科技信息,2008(33):49+234.</p><h6 id="至今">至今</h6><p>大数据，算法，算力</p><p>张贺.大数据时代人工智能在计算机网络技术中的应用探究[J].科技资讯,2021,19(30):17-19.DOI:10.16661/j.cnki.1672-3791.2111-5042-1903.</p><h4 id="应用价值">应用价值</h4><p>高梦鸽,邢梦颖.人工智能在汽车制造工业中的应用价值与前景[J].无线互联科技,2021,18(21):85-86.</p><p>王笛,赵靖,金明超,刘婧,熊伟.人工智能在医疗领域的应用与思考[J].中国医院管理,2021,41(06):71-74.</p><h4 id="应用领域">应用领域</h4><h4 id="微观">微观</h4><h5 id="粒子追踪">粒子追踪</h5><p>王福斌,何江红,武晨.基于粒子滤波的烧结断面图像火焰区域跟踪[J].激光杂志,2021,42(12):94-101.DOI:10.14016/j.cnki.jgzz.2022.12.094.</p><p>王伟,肖建强,何小元. 基于图像跟踪的低维材料实时应变测量方法[J]. 中国激光,2010,37(2):526-530. DOI:10.3788/CJL20103702.0526.</p><h5 id="细胞">细胞</h5><p>李臣鸿. 囊泡转运的动态跟踪及其与脂筏关系的初步研究[D]. 湖北:华中科技大学,2005. DOI:10.7666/d.d010452.</p><h4 id="宏观">宏观</h4><h5 id="兵工">兵工</h5><p>周桢. 复杂场景中目标抗遮挡跟踪算法研究[J]. 航空兵器,2007(6):36-39. DOI:10.3969/j.issn.1673-5048.2007.06.009.</p><p>王华荣,刘霞. 飞行器红外图像识别与跟踪算法研究[J]. 激光与红外,2021,51(8):1097-1103. DOI:10.3969/j.issn.1001-5078.2021.08.020.</p><p>贾君君. 坦克目标自动识别与跟踪算法研究[D]. 陕西:西安工业大学,2006. DOI:10.7666/d.y934367.</p><h5 id="交通">交通</h5><p>韩艺. 基于视频图像的运动车辆检测与跟踪算法研究[D]. 黑龙江:哈尔滨工业大学,2015. DOI:10.7666/d.D753596.</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> 图像追踪 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 人工智能 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>KCF算法综合</title>
       <link href="/2022/03/26/kcf-suan-fa-zong-he/"/>
       <url>/2022/03/26/kcf-suan-fa-zong-he/</url>
@@ -529,31 +554,6 @@
     
     
     <entry>
-      <title>论文阅读一</title>
-      <link href="/2021/06/14/lun-wen-yue-du-yi/"/>
-      <url>/2021/06/14/lun-wen-yue-du-yi/</url>
-      
-        <content type="html"><![CDATA[<h3 id="Learning-a-Deep-ConvNet-for-Multi-label-Classification-with-Partial-Labels论文阅读">Learning a Deep ConvNet for Multi-label Classification with Partial Labels论文阅读</h3><h4 id="知识储备">知识储备</h4><h5 id="Partial-Multi-Label-Learning">Partial Multi-Label Learning</h5><p>在多分类标记中，存在一种情况即在对图片中的物体进行标记时会出现难以标记的情况，图片中较明显的事物可以很容易的标记，而对于较为模糊的事物在标记者知识不足的情况下可能无法进行标记，或者当前图片中的事物过于抽象而无法确定所属。被称为偏标记学习。</p><p>在不确定的情况下，可以选择不标注、或者随机标注。但是不标注意味着我们丢失了所有信息，随机标注意味着可能带来噪声，对学习的影响更大。所以PML选择的是让标注者提供所有可能的标签，当然加了一个较强的假设：所有的标签都应该被包含在候选标签集中。</p><h5 id="Curriculum-Learning">Curriculum Learning</h5><p><strong>主张让模型先从容易的样本开始学习，并逐渐进阶到复杂的样本和知识。</strong></p><p>在以后的学习中进一步深入学习，目前仅限于了解即可。</p><h5 id="crowdsourcing">crowdsourcing</h5><p>互联网带来的新的生产组织形式。连线(Wired)杂志2006年发明的一个专业术语，用来描述一种新的商业模式，即企业利用互联网来将工作分配出去、发现创意或解决技术问题。通过互联网控制，这些组织可以利用志愿员工大军的创意和能力——这些志愿员工具备完成任务的技能，愿意利用业余时间工作，满足于对其服务收取小额报酬，或者暂时并无报酬，仅仅满足于未来获得更多报酬的前景。尤其对于软件业和服务业，这提供了一种组织劳动力的全新方式</p><h5 id="归一化">归一化</h5><p>归一化方法有两种形式，一种是把数变为（0，1）之间的<a href="https://baike.baidu.com/item/%E5%B0%8F%E6%95%B0/2172615" target="_blank" rel="noopener">小数</a>，一种是把有量纲表达式变为无量纲表达式。主要是为了<a href="https://baike.baidu.com/item/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/944504" target="_blank" rel="noopener">数据处理</a>方便提出来的，把数据<a href="https://baike.baidu.com/item/%E6%98%A0%E5%B0%84/20402621" target="_blank" rel="noopener">映射</a>到0～1范围之内处理，更加<a href="https://baike.baidu.com/item/%E4%BE%BF%E6%8D%B7/2966338" target="_blank" rel="noopener">便捷</a>快速</p><h5 id="GNN">GNN</h5><p>图神经网络是一种直接作用于图结构上的神经网络。GNN的一个典型应用是节点分类,本质上，图中的每个节点都与一个标签相关联，我们希望预测未标记节点的标签。</p><p>在节点分类问题中，每个节点v都可以用其特征x_v表示并且与已标记的标签t_v相关联。给定部分标记的图G，目标是利用这些标记的节点来预测未标记的节点标签。它通过学习得到每个节点的d维向量（状态）表示为h_v，同时包含其相邻节点的信息。</p><p><img src="http://dingdm.online/GNN.png" alt=""></p><h4 id="论文的研究步骤或过程情况">论文的研究步骤或过程情况</h4><p>目前imageNet的单标签注释忽略了图像固有的多标签性质，所以导致目前的较为先进的分类器在imageNet上的表现不佳。而MS COCO和Open Images提供复杂的图片可以满足作者的需求，因此作者选择了这两个数据集。</p><p>在收集多标签注释上的难度是要大于单标签注释的，因此作者选择使用偏标记学习，通过众包平台收集偏标记标签是比较容易和扩展的。作者选择了两种策略来提升图片分类的表现，设计更好的模型架构和通过大量的标签数据进行学习。在收集多标签注释时由于难度大，因此作者使用了网络监督的方式自动生成标签，而这种方式生成的标签由于噪音和不详细的影响，会导致比较差的分类表现。因此需要对噪音进行学习。</p><p>在当前已存的方法对于大规模的数据集上不可扩展且无法微调卷机神经网络的情况下，论文提出了一种新的loss函数和方法来修补缺失的标签。第一步作者发现通过给定一个固定的标签预算，实验表明，部分注释所有图像比完全注释一个小子集要好。第二步论文中引入了一个损失函数，它通过利用标签比例信息来概括标准二元交叉熵损失。这个损失函数可以自动适应每张图片中已知标签的比例，并且在学习所有的标签时可以使用同样的训练设置。第三步则是预测丢失的标签，由于卷机神经网络对噪音非常敏感，所以模型的预测准确性较好，作者使用了一种基于GNNS的方法来明确模型在不同类别中的相关性。</p><p>作者说明了几种方法来进行丢失标签的学习，首先是在网络监督学习中广泛运用的比较简单的方法，将丢失的标签作为负面标签，这种方法的标准假设是查询的类别存在图像中而其他类别不存在，由于在初始化时许多正面标签被标记为负面标签导致这种方法的表现较差。第二种方法是使用二元关联，把每一个标签作为一个独立的二元分类器，但是这种方法当分类的数量增加时是不易扩展的，而且它忽视了标签和实例之间的相关性。第三种则是利用训练数据中标签的相关性将已提供标签信息转移到缺失的标签中，使用矩阵补全算法来填充缺失的标签，这种方法利用了标签和实例之间的相关性对标签矩阵进行低秩正则化来完成实例标签矩阵。引入了低秩经验风险最小化，使用了混合图来对标签依赖网络进行编码，学习分类之间的相关性来预测丢失的标签。</p><p>这几种方法都是不适用于深度卷机网络的，它们需要内村中的训练集来解决优化问题，所以不可能使用一种小批量策略来微调模型，而微调对于转移先前的预测训练架构又是至关重要的且一些方法是不可扩展的，因为他们需要解决大规模数据集难以处理的凸二次优化问题。因此作者提出了自己的模型来解决该问题。</p><h4 id="算法内容">算法内容</h4><h5 id="符号说明">符号说明</h5><p>C：分类的数量N：训练样本的数量</p><p><img src="http://dingdm.online/D.png" alt=""></p><p>I (i)为第i张图片，y (i) = [y (i) 1 , . . . , y (i) C ] 为第i张图片的C个分类</p><p>y (i) c = 1 (resp. −1 and 0) 1为确定，-1为丢失，0为未知</p><p>[y (1); . . . ; y (N) ] 为训练集的标签矩阵</p><p>fw为权重，x (i) = [x (i) 1 , . . . , x (i) C ] = fw(I (i) )为未sigmoid之前的第i张图片的输出</p><h5 id="Binary-cross-entropy-for-partial-labels">Binary cross-entropy for partial labels</h5><p>为了与类别数量无关，BCE 损失由类别数量归一化，导致了反向传播的梯度较小，通过对已知标签比例的标准化，作者提出了一种部分BCE损失。</p><p><img src="http://dingdm.online/parBCE.png" alt=""></p><p>py ∈ [0, 1]是y中已知标签的比例，实例独立于已知标签数量，当图像标签的比例不固定时比较有用。</p><p>正规化函数g设计</p><p>通过标签比例标准化部分BCE的Loss函数，当全部标签显示时，为了使部分BCE和BCE的变现相同，作者提出了g函数</p><p><img src="http://dingdm.online/G.png" alt=""></p><p>通过给定 γ 值和给定比例的权重，可以找到对应的α 和β满足约束。γ 控制关于标签比例的归一化行为，对应的每个参数说明在后文。</p><h4 id="后续的阅读和编码在系统性学习玩GNN后进行。">后续的阅读和编码在系统性学习玩GNN后进行。</h4><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
-      
-      
-      <categories>
-          
-          <category> 论文阅读 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 偏标记学习 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>深度学习笔记四</title>
       <link href="/2021/06/14/shen-du-xue-xi-bi-ji-si/"/>
       <url>/2021/06/14/shen-du-xue-xi-bi-ji-si/</url>
@@ -571,6 +571,31 @@
         <tags>
             
             <tag> 神经元网络 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>论文阅读一</title>
+      <link href="/2021/06/14/lun-wen-yue-du-yi/"/>
+      <url>/2021/06/14/lun-wen-yue-du-yi/</url>
+      
+        <content type="html"><![CDATA[<h3 id="Learning-a-Deep-ConvNet-for-Multi-label-Classification-with-Partial-Labels论文阅读">Learning a Deep ConvNet for Multi-label Classification with Partial Labels论文阅读</h3><h4 id="知识储备">知识储备</h4><h5 id="Partial-Multi-Label-Learning">Partial Multi-Label Learning</h5><p>在多分类标记中，存在一种情况即在对图片中的物体进行标记时会出现难以标记的情况，图片中较明显的事物可以很容易的标记，而对于较为模糊的事物在标记者知识不足的情况下可能无法进行标记，或者当前图片中的事物过于抽象而无法确定所属。被称为偏标记学习。</p><p>在不确定的情况下，可以选择不标注、或者随机标注。但是不标注意味着我们丢失了所有信息，随机标注意味着可能带来噪声，对学习的影响更大。所以PML选择的是让标注者提供所有可能的标签，当然加了一个较强的假设：所有的标签都应该被包含在候选标签集中。</p><h5 id="Curriculum-Learning">Curriculum Learning</h5><p><strong>主张让模型先从容易的样本开始学习，并逐渐进阶到复杂的样本和知识。</strong></p><p>在以后的学习中进一步深入学习，目前仅限于了解即可。</p><h5 id="crowdsourcing">crowdsourcing</h5><p>互联网带来的新的生产组织形式。连线(Wired)杂志2006年发明的一个专业术语，用来描述一种新的商业模式，即企业利用互联网来将工作分配出去、发现创意或解决技术问题。通过互联网控制，这些组织可以利用志愿员工大军的创意和能力——这些志愿员工具备完成任务的技能，愿意利用业余时间工作，满足于对其服务收取小额报酬，或者暂时并无报酬，仅仅满足于未来获得更多报酬的前景。尤其对于软件业和服务业，这提供了一种组织劳动力的全新方式</p><h5 id="归一化">归一化</h5><p>归一化方法有两种形式，一种是把数变为（0，1）之间的<a href="https://baike.baidu.com/item/%E5%B0%8F%E6%95%B0/2172615" target="_blank" rel="noopener">小数</a>，一种是把有量纲表达式变为无量纲表达式。主要是为了<a href="https://baike.baidu.com/item/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/944504" target="_blank" rel="noopener">数据处理</a>方便提出来的，把数据<a href="https://baike.baidu.com/item/%E6%98%A0%E5%B0%84/20402621" target="_blank" rel="noopener">映射</a>到0～1范围之内处理，更加<a href="https://baike.baidu.com/item/%E4%BE%BF%E6%8D%B7/2966338" target="_blank" rel="noopener">便捷</a>快速</p><h5 id="GNN">GNN</h5><p>图神经网络是一种直接作用于图结构上的神经网络。GNN的一个典型应用是节点分类,本质上，图中的每个节点都与一个标签相关联，我们希望预测未标记节点的标签。</p><p>在节点分类问题中，每个节点v都可以用其特征x_v表示并且与已标记的标签t_v相关联。给定部分标记的图G，目标是利用这些标记的节点来预测未标记的节点标签。它通过学习得到每个节点的d维向量（状态）表示为h_v，同时包含其相邻节点的信息。</p><p><img src="http://dingdm.online/GNN.png" alt=""></p><h4 id="论文的研究步骤或过程情况">论文的研究步骤或过程情况</h4><p>目前imageNet的单标签注释忽略了图像固有的多标签性质，所以导致目前的较为先进的分类器在imageNet上的表现不佳。而MS COCO和Open Images提供复杂的图片可以满足作者的需求，因此作者选择了这两个数据集。</p><p>在收集多标签注释上的难度是要大于单标签注释的，因此作者选择使用偏标记学习，通过众包平台收集偏标记标签是比较容易和扩展的。作者选择了两种策略来提升图片分类的表现，设计更好的模型架构和通过大量的标签数据进行学习。在收集多标签注释时由于难度大，因此作者使用了网络监督的方式自动生成标签，而这种方式生成的标签由于噪音和不详细的影响，会导致比较差的分类表现。因此需要对噪音进行学习。</p><p>在当前已存的方法对于大规模的数据集上不可扩展且无法微调卷机神经网络的情况下，论文提出了一种新的loss函数和方法来修补缺失的标签。第一步作者发现通过给定一个固定的标签预算，实验表明，部分注释所有图像比完全注释一个小子集要好。第二步论文中引入了一个损失函数，它通过利用标签比例信息来概括标准二元交叉熵损失。这个损失函数可以自动适应每张图片中已知标签的比例，并且在学习所有的标签时可以使用同样的训练设置。第三步则是预测丢失的标签，由于卷机神经网络对噪音非常敏感，所以模型的预测准确性较好，作者使用了一种基于GNNS的方法来明确模型在不同类别中的相关性。</p><p>作者说明了几种方法来进行丢失标签的学习，首先是在网络监督学习中广泛运用的比较简单的方法，将丢失的标签作为负面标签，这种方法的标准假设是查询的类别存在图像中而其他类别不存在，由于在初始化时许多正面标签被标记为负面标签导致这种方法的表现较差。第二种方法是使用二元关联，把每一个标签作为一个独立的二元分类器，但是这种方法当分类的数量增加时是不易扩展的，而且它忽视了标签和实例之间的相关性。第三种则是利用训练数据中标签的相关性将已提供标签信息转移到缺失的标签中，使用矩阵补全算法来填充缺失的标签，这种方法利用了标签和实例之间的相关性对标签矩阵进行低秩正则化来完成实例标签矩阵。引入了低秩经验风险最小化，使用了混合图来对标签依赖网络进行编码，学习分类之间的相关性来预测丢失的标签。</p><p>这几种方法都是不适用于深度卷机网络的，它们需要内村中的训练集来解决优化问题，所以不可能使用一种小批量策略来微调模型，而微调对于转移先前的预测训练架构又是至关重要的且一些方法是不可扩展的，因为他们需要解决大规模数据集难以处理的凸二次优化问题。因此作者提出了自己的模型来解决该问题。</p><h4 id="算法内容">算法内容</h4><h5 id="符号说明">符号说明</h5><p>C：分类的数量N：训练样本的数量</p><p><img src="http://dingdm.online/D.png" alt=""></p><p>I (i)为第i张图片，y (i) = [y (i) 1 , . . . , y (i) C ] 为第i张图片的C个分类</p><p>y (i) c = 1 (resp. −1 and 0) 1为确定，-1为丢失，0为未知</p><p>[y (1); . . . ; y (N) ] 为训练集的标签矩阵</p><p>fw为权重，x (i) = [x (i) 1 , . . . , x (i) C ] = fw(I (i) )为未sigmoid之前的第i张图片的输出</p><h5 id="Binary-cross-entropy-for-partial-labels">Binary cross-entropy for partial labels</h5><p>为了与类别数量无关，BCE 损失由类别数量归一化，导致了反向传播的梯度较小，通过对已知标签比例的标准化，作者提出了一种部分BCE损失。</p><p><img src="http://dingdm.online/parBCE.png" alt=""></p><p>py ∈ [0, 1]是y中已知标签的比例，实例独立于已知标签数量，当图像标签的比例不固定时比较有用。</p><p>正规化函数g设计</p><p>通过标签比例标准化部分BCE的Loss函数，当全部标签显示时，为了使部分BCE和BCE的变现相同，作者提出了g函数</p><p><img src="http://dingdm.online/G.png" alt=""></p><p>通过给定 γ 值和给定比例的权重，可以找到对应的α 和β满足约束。γ 控制关于标签比例的归一化行为，对应的每个参数说明在后文。</p><h4 id="后续的阅读和编码在系统性学习玩GNN后进行。">后续的阅读和编码在系统性学习玩GNN后进行。</h4><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> 论文阅读 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 偏标记学习 </tag>
             
         </tags>
       
