@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://dingdm.club/"/>
-  <updated>2022-04-06T11:49:04.553Z</updated>
+  <updated>2022-04-07T05:43:10.077Z</updated>
   <id>https://dingdm.club/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>DSST多尺度论文阅读</title>
+    <link href="https://dingdm.club/2022/04/07/dsst-duo-chi-du-lun-wen-yue-du/"/>
+    <id>https://dingdm.club/2022/04/07/dsst-duo-chi-du-lun-wen-yue-du/</id>
+    <published>2022-04-07T05:43:12.000Z</published>
+    <updated>2022-04-07T05:43:10.077Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;DSST多尺度论文阅读&quot;&gt;DSST多尺度论文阅读&lt;/h3&gt;
+&lt;h4 id=&quot;算法整体思想&quot;&gt;算法整体思想&lt;/h4&gt;
+&lt;p&gt;在kcf使用二维高斯构建函数找到最大值后，在新的响应值最大即目标位置处通过调整追踪框大小来获取不同尺寸的响应值，取最大响应值的尺寸作为最佳尺寸
+      
+    
+    </summary>
+    
+    
+      <category term="图像追踪" scheme="https://dingdm.club/categories/%E5%9B%BE%E5%83%8F%E8%BF%BD%E8%B8%AA/"/>
+    
+    
+      <category term="DSST" scheme="https://dingdm.club/tags/DSST/"/>
+    
+  </entry>
   
   <entry>
     <title>人工智能</title>
@@ -527,34 +553,6 @@ FN:没有检测到的GT的数量&lt;/p&gt;
     
     
       <category term="jar" scheme="https://dingdm.club/tags/jar/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>图像全景拼接</title>
-    <link href="https://dingdm.club/2021/09/12/tu-xiang-pin-jie-ru-men/"/>
-    <id>https://dingdm.club/2021/09/12/tu-xiang-pin-jie-ru-men/</id>
-    <published>2021-09-12T12:03:30.000Z</published>
-    <updated>2021-09-12T12:03:37.701Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h4 id=&quot;图像全景拼接&quot;&gt;图像全景拼接&lt;/h4&gt;
-&lt;h5 id=&quot;前提知识&quot;&gt;前提知识&lt;/h5&gt;
-&lt;h6 id=&quot;泰勒公式&quot;&gt;泰勒公式&lt;/h6&gt;
-&lt;p&gt;使用多次多项式来近似表达原函数f(x)。&lt;/p&gt;
-&lt;p&gt;对于一个函数，在某一点处可以找到一个函数的值与它相同，但是在该点的
-      
-    
-    </summary>
-    
-    
-      <category term="图像处理" scheme="https://dingdm.club/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
-    
-    
-      <category term="图像拼接" scheme="https://dingdm.club/tags/%E5%9B%BE%E5%83%8F%E6%8B%BC%E6%8E%A5/"/>
     
   </entry>
   

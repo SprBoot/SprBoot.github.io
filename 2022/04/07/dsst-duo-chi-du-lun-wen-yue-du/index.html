@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="leetcode刷题(11.24), dingdm">
+    <meta name="keywords" content="DSST多尺度论文阅读, dingdm">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>leetcode刷题(11.24) | dingdm</title>
+    <title>DSST多尺度论文阅读 | dingdm</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -323,12 +323,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('http://dingdm.online/5.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('http://dingdm.online/1.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">leetcode刷题(11.24)</h1>
+                    <h1 class="description center-align post-title">DSST多尺度论文阅读</h1>
                 </div>
             </div>
         </div>
@@ -445,8 +445,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/leetcode/">
-                                <span class="chip bg-color">leetcode</span>
+                            <a href="/tags/DSST/">
+                                <span class="chip bg-color">DSST</span>
                             </a>
                         
                     </div>
@@ -457,8 +457,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                算法
+                            <a href="/categories/%E5%9B%BE%E5%83%8F%E8%BF%BD%E8%B8%AA/" class="post-category">
+                                图像追踪
                             </a>
                         
                     </div>
@@ -470,7 +470,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-11-24
+                    2022-04-07
                 </div>
                 
 
@@ -479,14 +479,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    279
+                    1.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    5 分
                 </div>
                 
 
@@ -501,57 +501,147 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="leetcode刷题-11-24">leetcode刷题(11.24)</h3>
-<h4 id="题目">题目</h4>
-<p>给你一个链表的头节点 head 和一个特定值 x ，请你对链表进行分隔，使得所有 小于 x 的节点都出现在 大于或等于 x 的节点之前。</p>
-<p>你应当 保留 两个分区中每个节点的初始相对位置。</p>
-<p><strong>示例 1：</strong></p>
-<p><img src="http://dingdm.online/partition.jpeg" alt=""></p>
-<pre><code>输入：head = [1,4,3,2,5,2], x = 3
-输出：[1,2,2,4,3,5]
+                <h3 id="DSST多尺度论文阅读">DSST多尺度论文阅读</h3>
+<h4 id="算法整体思想">算法整体思想</h4>
+<p>在kcf使用二维高斯构建函数找到最大值后，在新的响应值最大即目标位置处通过调整追踪框大小来获取不同尺寸的响应值，取最大响应值的尺寸作为最佳尺寸，从而实现跟踪框内小范围的尺度自适应。</p>
+<h4 id="算法实现-matlab">算法实现(matlab)</h4>
+<pre class=" language-language-matlab"><code class="language-language-matlab">% 这里就是尺寸比例系数 33个尺寸
+ss = 1:nScales;
+scaleFactors = scale_step.^(ceil(nScales/2) - ss);
 </code></pre>
-<p><strong>示例 2：</strong></p>
-<pre><code>输入：head = [2,1], x = 2
-输出：[1,2]
+<pre class=" language-language-matlab"><code class="language-language-matlab">for frame = 1:num_frames,
+    im = imread([video_path img_files{frame}]);
+    tic;
+    if frame > 1
+        xt = get_translation_sample(im, pos, sz, currentScaleFactor, cos_window);
+        response = real(ifft2(sum(hf_num .* xtf, 3) ./ (hf_den + lambda))); 
+        % 这里先获取位置的最大响应
+        [row, col] = find(response == max(response(:)), 1);
+        pos = pos + round((-sz/2 + [row, col]) * currentScaleFactor);
+        xs = get_scale_sample(im, pos, base_target_sz, currentScaleFactor * scaleFactors, scale_window, scale_model_sz);
+        xsf = fft(xs,[],2);  
+        scale_response = real(ifft(sum(sf_num .* xsf, 1) ./ (sf_den + lambda))); 
+        % 这里得到的是尺寸最大响应
+        recovered_scale = find(scale_response == max(scale_response(:)), 1);
+        currentScaleFactor = currentScaleFactor * scaleFactors(recovered_scale);     %更新尺寸
+        if currentScaleFactor < min_scale_factor                                     %处理极值
+            currentScaleFactor = min_scale_factor;
+        elseif currentScaleFactor > max_scale_factor
+            currentScaleFactor = max_scale_factor;
+        end
+    end
+    xl = get_translation_sample(im, pos, sz, currentScaleFactor, cos_window);
+    xlf = fft2(xl);
+    new_hf_num = bsxfun(@times, yf, conj(xlf));
+    new_hf_den = sum(xlf .* conj(xlf), 3);
+    % 得到33个尺度特征
+    xs = get_scale_sample(im, pos, base_target_sz, currentScaleFactor * scaleFactors, scale_window, scale_model_sz);
+    xsf = fft(xs,[],2);
+    new_sf_num = bsxfun(@times, ysf, conj(xsf));
+    new_sf_den = sum(xsf .* conj(xsf), 1);
+    if frame == 1    
+        hf_den = new_hf_den;
+        hf_num = new_hf_num;
+        
+        sf_den = new_sf_den;
+        sf_num = new_sf_num;
+    else
+        hf_den = (1 - learning_rate) * hf_den + learning_rate * new_hf_den;
+        hf_num = (1 - learning_rate) * hf_num + learning_rate * new_hf_num;
+        sf_den = (1 - learning_rate) * sf_den + learning_rate * new_sf_den;
+        sf_num = (1 - learning_rate) * sf_num + learning_rate * new_sf_num;
+    end
+    target_sz = floor(base_target_sz * currentScaleFactor);
+    positions(frame,:) = [pos target_sz];
+    
+    time = time + toc;
+    if visualization == 1
+        rect_position = [pos([2,1]) - target_sz([2,1])/2, target_sz([2,1])];
+        if frame == 1,  
+            figure('Name',['Tracker - ' video_path]);
+            im_handle = imshow(uint8(im), 'Border','tight', 'InitialMag', 100 + 100 * (length(im) < 500));
+            rect_handle = rectangle('Position',rect_position, 'EdgeColor','g');
+            text_handle = text(10, 10, int2str(frame));
+            set(text_handle, 'color', [0 1 1]);
+        else
+            try 
+                set(im_handle, 'CData', im)
+                set(rect_handle, 'Position', rect_position)
+                set(text_handle, 'string', int2str(frame));
+            catch
+                return
+            end
+        end
+        drawnow
+    end
+end
 </code></pre>
-<h4 id="题解">题解</h4>
-<pre class=" language-language-java"><code class="language-language-java">/**
- * Definition for singly-linked list.
- * public class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode() {}
- *     ListNode(int val) { this.val = val; }
- *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
- * }
- */
-class Solution {
-    public ListNode partition(ListNode head, int x) {
-        ListNode small = new ListNode(0);
-        // 头节点
-        ListNode smallHead = small;
-        // 头节点
-        ListNode big = new ListNode(0);
-        ListNode bigHead = big;
-        while(head != null){
-            if(head.val < x){
-                small.next = head;
-                small = small.next;
-            }else{
-                big.next = head;
-                big = big.next;
-            }
-            head = head.next;
-        }
-        big.next = null;
-        small.next = bigHead.next;
-        return smallHead.next;
-    }
-}
+<h4 id="算法实现-python-kcf">算法实现(python + kcf)</h4>
+<p>kcf的实现过程中，作者在实现尺度自适应时，思想和dsst是相同的，但是实现过程中，在确定了位置最大响应后，调整的跟踪框比例是按照1.0 / self.scale_step和self.scale_step来进行调节的，并且将尺寸缩放到了96，这样实现了一个高帧率。缩放的越小，计算的越快，但是特征信息丢失的也多，明显的拿空间换时间。</p>
+<pre class=" language-language-python"><code class="language-language-python">    def getFeatures(self,image,flag,current_scale_size):
+        # 获取横纵坐标
+        _roi = [0,0,0,0]
+        x = self.n_roi[0] + self.n_roi[2] / 2
+        y = self.n_roi[1] + self.n_roi[3] / 2
+        if flag:
+            # 首次构造汉宁窗
+            # 汉宁窗大小为检测框大小
+            # 使用padding填充
+            w = self.n_roi[2] * self.padding
+            h = self.n_roi[3] * self.padding
+            # 缩放以减少特征提取量，如何减少特征提取量的同时保证帧数
+            self._scale = np.maximum(w,h) / float(96)
+            w = int(w / self._scale)
+            h = int(h / self._scale)
+            # 使用fhog特征提取，确保汉宁窗大小满足加窗规则
+            w = int(w) // (2 * self.cell_size) * 2 * self.cell_size + 2 * self.cell_size
+            h = int(h) // (2 * self.cell_size) * 2 * self.cell_size + 2 * self.cell_size
+            self.window_size[0] = w
+            self.window_size[1] = h
+        # 检测框大小
+        _roi[2] = int(current_scale_size * self._scale * self.window_size[0])
+        _roi[3] = int(current_scale_size * self._scale * self.window_size[1])
+        _roi[0] = int(x - _roi[2] / 2)
+        _roi[1] = int(y - _roi[3] / 2)
+        # 提取检测区域的像素
+        detect = utils.getSubWindow(image,_roi,cv2.BORDER_REPLICATE)
+        if(detect.shape[1] != self.window_size[0] or detect.shape[0] != self.window_size[1]):
+            detect = cv2.resize(detect,tuple(self.window_size))
+        # fhog对检测区域进行特征提取
+        mapp = {'sizeX': 0, 'sizeY': 0, 'numFeatures': 0, 'map': 0}
+        mapp = fhog.getFeatureMaps(detect, self.cell_size, mapp)
+        mapp = fhog.normalizeAndTruncate(mapp, 0.2)
+        mapp = fhog.PCAFeatureMaps(mapp)
+        self.size_patch = list(map(int, [mapp['sizeY'], mapp['sizeX'], mapp['numFeatures']]))
+        featuresMap = mapp['map'].reshape((self.size_patch[0] * self.size_patch[1], self.size_patch[2])).T
+        if flag:
+            # 创建汉宁窗
+            self.createHann()
+        featuresMap = self.hann * featuresMap
+        return featuresMap
 </code></pre>
-<h4 id="学习点">学习点</h4>
-<p>1.分割思想</p>
-<p>2.链表指针思想</p>
+<pre class=" language-language-python"><code class="language-language-python"> # 在这里更新尺度因子
+min_loc, min_peak_value = self.detect(self.features, self.getFeatures(image, False, 1.0 / self.scale_step))
+max_loc, max_peak_value = self.detect(self.features, self.getFeatures(image, False, self.scale_step))
+</code></pre>
+<p>小比例和大比例的最大响应值与原比例进行判断，系数为固定的1.05。</p>
+<h4 id="算法实现-python-kcf-DSST">算法实现(python + kcf + DSST)</h4>
+<pre class=" language-language-python"><code class="language-language-python">scale_factor = 1
+scale_factors = [math.pow(self.scale_step,(np.ceil(33 / 2) - x)) for x in range(1,33)]
+scale_factors = sorted(scale_factors)
+for x in scale_factors:
+   n_loc, n_peak_value = self.detect(self.features, self.getFeatures(image, False, x))
+   if (0.96 * n_peak_value > peak_value):
+       scale_factor = x
+       break
+self._scale *= scale_factor
+self.n_roi[2] *= scale_factor
+self.n_roi[3] *= scale_factor
+</code></pre>
+<p>帧数明显降低</p>
+<h4 id="多尺度优化方向">多尺度优化方向</h4>
+<p><strong>在实际的追踪中，跟踪框的抖动明显，不稳定</strong></p>
+<p><strong>高帧率，多特征</strong></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -595,7 +685,7 @@ class Solution {
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://dingdm.club/2021/11/24/leetcode-shua-ti-11.24/">https://dingdm.club/2021/11/24/leetcode-shua-ti-11.24/</a>
+                    <a href="https://dingdm.club/2022/04/07/dsst-duo-chi-du-lun-wen-yue-du/">https://dingdm.club/2022/04/07/dsst-duo-chi-du-lun-wen-yue-du/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -633,8 +723,8 @@ class Solution {
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/leetcode/">
-                                    <span class="chip bg-color">leetcode</span>
+                                <a href="/tags/DSST/">
+                                    <span class="chip bg-color">DSST</span>
                                 </a>
                             
                         </div>
@@ -939,50 +1029,51 @@ class Solution {
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/11/29/l0-ti-du-zui-xiao-hua-qu-yu-lun-wen-dai-ma/">
+                <a href="/2022/04/07/dsst-duo-chi-du-lun-wen-yue-du/">
                     <div class="card-image">
                         
                         
-                        <img src="http://dingdm.online/4.jpg" class="responsive-img" alt="L0梯度最小化去雨论文代码">
+                        <img src="http://dingdm.online/1.jpg" class="responsive-img" alt="DSST多尺度论文阅读">
                         
-                        <span class="card-title">L0梯度最小化去雨论文代码</span>
+                        <span class="card-title">DSST多尺度论文阅读</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Rain Removal From Still Images Using L0 Gradient Minimization Technique论文代码
-原图像
-
-find_rain
-function [No_Of_RainPixels On
+                            DSST多尺度论文阅读
+算法整体思想
+在kcf使用二维高斯构建函数找到最大值后，在新的响应值最大即目标位置处通过调整追踪框大小来获取不同尺寸的响应值，取最大响应值的尺寸作为最佳尺寸，从而实现跟踪框内小范围的尺度自适应。
+算法实现(matla
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-11-29
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-07
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                    深度学习
+                            <a href="/categories/%E5%9B%BE%E5%83%8F%E8%BF%BD%E8%B8%AA/" class="post-category">
+                                    图像追踪
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%BC%96%E7%A0%81/">
-                        <span class="chip bg-color">编码</span>
+                    <a href="/tags/DSST/">
+                        <span class="chip bg-color">DSST</span>
                     </a>
                     
                 </div>
@@ -996,34 +1087,37 @@ function [No_Of_RainPixels On
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/11/11/fpn-wang-luo-li-lun/">
+                <a href="/2022/04/04/tu-xiang-zhui-zong/">
                     <div class="card-image">
                         
                         
-                        <img src="http://dingdm.online/11.jpg" class="responsive-img" alt="FPN网络理论">
+                        <img src="http://dingdm.online/6.jpg" class="responsive-img" alt="人工智能">
                         
-                        <span class="card-title">FPN网络理论</span>
+                        <span class="card-title">人工智能</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            FPN网络理论
-FPN论文
-摘要
-特征金字塔是识别系统中用于检测不同尺度对象的基本组件。但是最近的深度学习对象检测器避免了金字塔表示，部分原因是它们是计算和内存密集型的。在本文中，我们利用深度卷积网络固有的多尺度金字塔层次结构来构建没有额外
+                            人工智能的定义
+上世纪80年代以前
+徒有其名，计算能力和对应的硬件限制。
+А.В.Брушлинский,世京.人工“智能”为什么不可能?[J].世界科学译刊,1979(07):79-80.
+2000年以前
+成本高，上层太高无法落地
+陈庆霞
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-11-11
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-04
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                    深度学习
+                            <a href="/categories/%E5%9B%BE%E5%83%8F%E8%BF%BD%E8%B8%AA/" class="post-category">
+                                    图像追踪
                                 </a>
                             
                             
@@ -1033,8 +1127,8 @@ FPN论文
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E8%AE%BA%E6%96%87/">
-                        <span class="chip bg-color">论文</span>
+                    <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">
+                        <span class="chip bg-color">人工智能</span>
                     </a>
                     
                 </div>

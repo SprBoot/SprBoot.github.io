@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>DSST多尺度论文阅读</title>
+      <link href="/2022/04/07/dsst-duo-chi-du-lun-wen-yue-du/"/>
+      <url>/2022/04/07/dsst-duo-chi-du-lun-wen-yue-du/</url>
+      
+        <content type="html"><![CDATA[<h3 id="DSST多尺度论文阅读">DSST多尺度论文阅读</h3><h4 id="算法整体思想">算法整体思想</h4><p>在kcf使用二维高斯构建函数找到最大值后，在新的响应值最大即目标位置处通过调整追踪框大小来获取不同尺寸的响应值，取最大响应值的尺寸作为最佳尺寸，从而实现跟踪框内小范围的尺度自适应。</p><h4 id="算法实现-matlab">算法实现(matlab)</h4><pre class=" language-language-matlab"><code class="language-language-matlab">% 这里就是尺寸比例系数 33个尺寸ss = 1:nScales;scaleFactors = scale_step.^(ceil(nScales/2) - ss);</code></pre><pre class=" language-language-matlab"><code class="language-language-matlab">for frame = 1:num_frames,    im = imread([video_path img_files{frame}]);    tic;    if frame > 1        xt = get_translation_sample(im, pos, sz, currentScaleFactor, cos_window);        response = real(ifft2(sum(hf_num .* xtf, 3) ./ (hf_den + lambda)));         % 这里先获取位置的最大响应        [row, col] = find(response == max(response(:)), 1);        pos = pos + round((-sz/2 + [row, col]) * currentScaleFactor);        xs = get_scale_sample(im, pos, base_target_sz, currentScaleFactor * scaleFactors, scale_window, scale_model_sz);        xsf = fft(xs,[],2);          scale_response = real(ifft(sum(sf_num .* xsf, 1) ./ (sf_den + lambda)));         % 这里得到的是尺寸最大响应        recovered_scale = find(scale_response == max(scale_response(:)), 1);        currentScaleFactor = currentScaleFactor * scaleFactors(recovered_scale);     %更新尺寸        if currentScaleFactor < min_scale_factor                                     %处理极值            currentScaleFactor = min_scale_factor;        elseif currentScaleFactor > max_scale_factor            currentScaleFactor = max_scale_factor;        end    end    xl = get_translation_sample(im, pos, sz, currentScaleFactor, cos_window);    xlf = fft2(xl);    new_hf_num = bsxfun(@times, yf, conj(xlf));    new_hf_den = sum(xlf .* conj(xlf), 3);    % 得到33个尺度特征    xs = get_scale_sample(im, pos, base_target_sz, currentScaleFactor * scaleFactors, scale_window, scale_model_sz);    xsf = fft(xs,[],2);    new_sf_num = bsxfun(@times, ysf, conj(xsf));    new_sf_den = sum(xsf .* conj(xsf), 1);    if frame == 1            hf_den = new_hf_den;        hf_num = new_hf_num;                sf_den = new_sf_den;        sf_num = new_sf_num;    else        hf_den = (1 - learning_rate) * hf_den + learning_rate * new_hf_den;        hf_num = (1 - learning_rate) * hf_num + learning_rate * new_hf_num;        sf_den = (1 - learning_rate) * sf_den + learning_rate * new_sf_den;        sf_num = (1 - learning_rate) * sf_num + learning_rate * new_sf_num;    end    target_sz = floor(base_target_sz * currentScaleFactor);    positions(frame,:) = [pos target_sz];        time = time + toc;    if visualization == 1        rect_position = [pos([2,1]) - target_sz([2,1])/2, target_sz([2,1])];        if frame == 1,              figure('Name',['Tracker - ' video_path]);            im_handle = imshow(uint8(im), 'Border','tight', 'InitialMag', 100 + 100 * (length(im) < 500));            rect_handle = rectangle('Position',rect_position, 'EdgeColor','g');            text_handle = text(10, 10, int2str(frame));            set(text_handle, 'color', [0 1 1]);        else            try                 set(im_handle, 'CData', im)                set(rect_handle, 'Position', rect_position)                set(text_handle, 'string', int2str(frame));            catch                return            end        end        drawnow    endend</code></pre><h4 id="算法实现-python-kcf">算法实现(python + kcf)</h4><p>kcf的实现过程中，作者在实现尺度自适应时，思想和dsst是相同的，但是实现过程中，在确定了位置最大响应后，调整的跟踪框比例是按照1.0 / self.scale_step和self.scale_step来进行调节的，并且将尺寸缩放到了96，这样实现了一个高帧率。缩放的越小，计算的越快，但是特征信息丢失的也多，明显的拿空间换时间。</p><pre class=" language-language-python"><code class="language-language-python">    def getFeatures(self,image,flag,current_scale_size):        # 获取横纵坐标        _roi = [0,0,0,0]        x = self.n_roi[0] + self.n_roi[2] / 2        y = self.n_roi[1] + self.n_roi[3] / 2        if flag:            # 首次构造汉宁窗            # 汉宁窗大小为检测框大小            # 使用padding填充            w = self.n_roi[2] * self.padding            h = self.n_roi[3] * self.padding            # 缩放以减少特征提取量，如何减少特征提取量的同时保证帧数            self._scale = np.maximum(w,h) / float(96)            w = int(w / self._scale)            h = int(h / self._scale)            # 使用fhog特征提取，确保汉宁窗大小满足加窗规则            w = int(w) // (2 * self.cell_size) * 2 * self.cell_size + 2 * self.cell_size            h = int(h) // (2 * self.cell_size) * 2 * self.cell_size + 2 * self.cell_size            self.window_size[0] = w            self.window_size[1] = h        # 检测框大小        _roi[2] = int(current_scale_size * self._scale * self.window_size[0])        _roi[3] = int(current_scale_size * self._scale * self.window_size[1])        _roi[0] = int(x - _roi[2] / 2)        _roi[1] = int(y - _roi[3] / 2)        # 提取检测区域的像素        detect = utils.getSubWindow(image,_roi,cv2.BORDER_REPLICATE)        if(detect.shape[1] != self.window_size[0] or detect.shape[0] != self.window_size[1]):            detect = cv2.resize(detect,tuple(self.window_size))        # fhog对检测区域进行特征提取        mapp = {'sizeX': 0, 'sizeY': 0, 'numFeatures': 0, 'map': 0}        mapp = fhog.getFeatureMaps(detect, self.cell_size, mapp)        mapp = fhog.normalizeAndTruncate(mapp, 0.2)        mapp = fhog.PCAFeatureMaps(mapp)        self.size_patch = list(map(int, [mapp['sizeY'], mapp['sizeX'], mapp['numFeatures']]))        featuresMap = mapp['map'].reshape((self.size_patch[0] * self.size_patch[1], self.size_patch[2])).T        if flag:            # 创建汉宁窗            self.createHann()        featuresMap = self.hann * featuresMap        return featuresMap</code></pre><pre class=" language-language-python"><code class="language-language-python"> # 在这里更新尺度因子min_loc, min_peak_value = self.detect(self.features, self.getFeatures(image, False, 1.0 / self.scale_step))max_loc, max_peak_value = self.detect(self.features, self.getFeatures(image, False, self.scale_step))</code></pre><p>小比例和大比例的最大响应值与原比例进行判断，系数为固定的1.05。</p><h4 id="算法实现-python-kcf-DSST">算法实现(python + kcf + DSST)</h4><pre class=" language-language-python"><code class="language-language-python">scale_factor = 1scale_factors = [math.pow(self.scale_step,(np.ceil(33 / 2) - x)) for x in range(1,33)]scale_factors = sorted(scale_factors)for x in scale_factors:   n_loc, n_peak_value = self.detect(self.features, self.getFeatures(image, False, x))   if (0.96 * n_peak_value > peak_value):       scale_factor = x       breakself._scale *= scale_factorself.n_roi[2] *= scale_factorself.n_roi[3] *= scale_factor</code></pre><p>帧数明显降低</p><h4 id="多尺度优化方向">多尺度优化方向</h4><p><strong>在实际的追踪中，跟踪框的抖动明显，不稳定</strong></p><p><strong>高帧率，多特征</strong></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> 图像追踪 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> DSST </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>人工智能</title>
       <link href="/2022/04/04/tu-xiang-zhui-zong/"/>
       <url>/2022/04/04/tu-xiang-zhui-zong/</url>
@@ -554,31 +579,6 @@
     
     
     <entry>
-      <title>深度学习笔记四</title>
-      <link href="/2021/06/14/shen-du-xue-xi-bi-ji-si/"/>
-      <url>/2021/06/14/shen-du-xue-xi-bi-ji-si/</url>
-      
-        <content type="html"><![CDATA[<h3 id="深度学习笔记四">深度学习笔记四</h3><h4 id="Deep-Learning">Deep Learning</h4><h5 id="深度学习的network">深度学习的network</h5><p><img src="http://dingdm.online/dee.jpg" alt=""></p><p>神经元的权重和偏差可以视为矩阵运算。即得到激活函数(activation function)。将激活函数进行sigmoid得到最终结果。将上方的网络用该种形式进行计算即为</p><p><img src="http://dingdm.online/dee2.jpg" alt=""></p><p>通过矩阵运行交由GPU加快运算过程。</p><h5 id="神经元网络的选取">神经元网络的选取</h5><p><img src="http://dingdm.online/cry.jpg" alt=""></p><p>通过神经元网络计算得到的输入矩阵和根据图像得到的target矩阵进行交叉熵计算结果，调整参数使得最后计算得到的交叉熵最小以确定最优的神经元网络函数。</p><p>通过不同组的数据进行训练得到所有的交叉熵进行累加，使用gradient descent获取w与b。</p><h5 id="gradient-descent">gradient descent</h5><p><img src="http://dingdm.online/grad.jpg" alt=""></p><h4 id="Backpropagation">Backpropagation</h4><p>帮助计算gradient descent中的参数的偏微分。</p><h5 id="chain-rule">chain rule</h5><p>即复合函数的微分过程。</p><p><img src="http://dingdm.online/we.jpg" alt=""></p><p>C为最后的交叉熵。</p><p>z对于w求偏微分，z对于哪一个w求微分，得到的即为w对应的输入数据。</p><p>C对于z求偏微分。</p><p><img src="http://dingdm.online/Cw.jpg" alt=""></p><p><img src="http://dingdm.online/ch.jpg" alt=""></p><h5 id="Backward-pass">Backward pass</h5><p>以未知的两项作为输入，得出的最终结果为输出。</p><p><img src="http://dingdm.online/fa2.jpg" alt=""></p><p>具体的放大倍率即为对应z的sigmoid的求导。反求通过已知的C即可快速计算。</p><h4 id="Recipe-OF-Deep-Learning">Recipe OF Deep Learning</h4><p>对于得到神经元网络应先应用于训练数据判断是否合适，防止直接运用于测试数据出现的非过拟合现象。</p><h5 id="New-activation-function">New activation function</h5><p>vanishing gradient problem</p><p>靠近输入的神经元gradient参数的更新速度较慢或靠近输入的神经元gradient参数更新较大。</p><p>使用sigmoid时，较大的输入经过sigmoid后会进行衰减，越深的层数对最后的C的结果的影响就越小。</p><h6 id="ReLU">ReLU</h6><p>更改激活函数，当输入小于0时，输出为0，当输入大于0时，输出等于输入。</p><p>当神经元的输出为0时，不会影响整个神经元网络，可以直接去掉。而输入等于输出不会产生递减问题。</p><p><img src="http://dingdm.online/rejy.jpg" alt=""></p><h6 id="maxout">maxout</h6><p>每层神经元的输出为分组中的最大值。</p><p>maxout也可以使用ReLU，即某个参数始终为0，其他参数为线性函数，即选取最大时满足ReLU。</p><p><img src="http://dingdm.online/bax.jpg" alt=""></p><h6 id="Maxout-training">Maxout training</h6><p>选取的最大值为最终的输出值，最终简化神经元网络。</p><h5 id="Adaptive-Learning-Rate">Adaptive Learning Rate</h5><p>使用adagrad</p><p><img src="http://dingdm.online/adagrad.png" alt=""></p><h6 id="RMSProp">RMSProp</h6><p>防止在某个变量变化的过程中出现的变化较小和变化较大同时存在的情况。</p><p><img src="http://dingdm.online/TRB.jpg" alt=""></p><h6 id="Momentum">Momentum</h6><p>利用惯性继续向前移动。</p><p>使用V记录移动距离。</p><p><img src="http://dingdm.online/MVE.jpg" alt=""></p><h6 id="Adam">Adam</h6><p>RMSProp + Momentum</p><p><img src="http://dingdm.online/adam.png" alt=""></p><h5 id="Early-Stopping">Early Stopping</h5><p>在error上升前停住，即一个if判断即可。</p><h5 id="Regularization">Regularization</h5><p><img src="http://dingdm.online/reg.jpg" alt=""></p><h5 id="DropOut">DropOut</h5><p><img src="http://dingdm.online/st1.jpg" alt=""></p><p>在新的神经元网络上进行训练。表现的结果可能变差。</p><p><img src="http://dingdm.online/sy2.jpg" alt=""></p><p>训练时使用所有的神经元，而在测试时需要去掉不合理的神经元。</p><p>训练数据时使用dropout，而测试时不需要dropout，因此对于所有的输入没有dropout，需要使用(1-p)%。</p><p>在训练时对于每组不同的数据会得到较多的神经元网络，而在测试时对于测试数据应用于所有的神经元网络不现实，因此采用了(1-p)%的方式进行计算，而得到的结果与前种方式得到的结果是相似的。</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
-      
-      
-      <categories>
-          
-          <category> 深度学习 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 神经元网络 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>论文阅读一</title>
       <link href="/2021/06/14/lun-wen-yue-du-yi/"/>
       <url>/2021/06/14/lun-wen-yue-du-yi/</url>
@@ -596,6 +596,31 @@
         <tags>
             
             <tag> 偏标记学习 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>深度学习笔记四</title>
+      <link href="/2021/06/14/shen-du-xue-xi-bi-ji-si/"/>
+      <url>/2021/06/14/shen-du-xue-xi-bi-ji-si/</url>
+      
+        <content type="html"><![CDATA[<h3 id="深度学习笔记四">深度学习笔记四</h3><h4 id="Deep-Learning">Deep Learning</h4><h5 id="深度学习的network">深度学习的network</h5><p><img src="http://dingdm.online/dee.jpg" alt=""></p><p>神经元的权重和偏差可以视为矩阵运算。即得到激活函数(activation function)。将激活函数进行sigmoid得到最终结果。将上方的网络用该种形式进行计算即为</p><p><img src="http://dingdm.online/dee2.jpg" alt=""></p><p>通过矩阵运行交由GPU加快运算过程。</p><h5 id="神经元网络的选取">神经元网络的选取</h5><p><img src="http://dingdm.online/cry.jpg" alt=""></p><p>通过神经元网络计算得到的输入矩阵和根据图像得到的target矩阵进行交叉熵计算结果，调整参数使得最后计算得到的交叉熵最小以确定最优的神经元网络函数。</p><p>通过不同组的数据进行训练得到所有的交叉熵进行累加，使用gradient descent获取w与b。</p><h5 id="gradient-descent">gradient descent</h5><p><img src="http://dingdm.online/grad.jpg" alt=""></p><h4 id="Backpropagation">Backpropagation</h4><p>帮助计算gradient descent中的参数的偏微分。</p><h5 id="chain-rule">chain rule</h5><p>即复合函数的微分过程。</p><p><img src="http://dingdm.online/we.jpg" alt=""></p><p>C为最后的交叉熵。</p><p>z对于w求偏微分，z对于哪一个w求微分，得到的即为w对应的输入数据。</p><p>C对于z求偏微分。</p><p><img src="http://dingdm.online/Cw.jpg" alt=""></p><p><img src="http://dingdm.online/ch.jpg" alt=""></p><h5 id="Backward-pass">Backward pass</h5><p>以未知的两项作为输入，得出的最终结果为输出。</p><p><img src="http://dingdm.online/fa2.jpg" alt=""></p><p>具体的放大倍率即为对应z的sigmoid的求导。反求通过已知的C即可快速计算。</p><h4 id="Recipe-OF-Deep-Learning">Recipe OF Deep Learning</h4><p>对于得到神经元网络应先应用于训练数据判断是否合适，防止直接运用于测试数据出现的非过拟合现象。</p><h5 id="New-activation-function">New activation function</h5><p>vanishing gradient problem</p><p>靠近输入的神经元gradient参数的更新速度较慢或靠近输入的神经元gradient参数更新较大。</p><p>使用sigmoid时，较大的输入经过sigmoid后会进行衰减，越深的层数对最后的C的结果的影响就越小。</p><h6 id="ReLU">ReLU</h6><p>更改激活函数，当输入小于0时，输出为0，当输入大于0时，输出等于输入。</p><p>当神经元的输出为0时，不会影响整个神经元网络，可以直接去掉。而输入等于输出不会产生递减问题。</p><p><img src="http://dingdm.online/rejy.jpg" alt=""></p><h6 id="maxout">maxout</h6><p>每层神经元的输出为分组中的最大值。</p><p>maxout也可以使用ReLU，即某个参数始终为0，其他参数为线性函数，即选取最大时满足ReLU。</p><p><img src="http://dingdm.online/bax.jpg" alt=""></p><h6 id="Maxout-training">Maxout training</h6><p>选取的最大值为最终的输出值，最终简化神经元网络。</p><h5 id="Adaptive-Learning-Rate">Adaptive Learning Rate</h5><p>使用adagrad</p><p><img src="http://dingdm.online/adagrad.png" alt=""></p><h6 id="RMSProp">RMSProp</h6><p>防止在某个变量变化的过程中出现的变化较小和变化较大同时存在的情况。</p><p><img src="http://dingdm.online/TRB.jpg" alt=""></p><h6 id="Momentum">Momentum</h6><p>利用惯性继续向前移动。</p><p>使用V记录移动距离。</p><p><img src="http://dingdm.online/MVE.jpg" alt=""></p><h6 id="Adam">Adam</h6><p>RMSProp + Momentum</p><p><img src="http://dingdm.online/adam.png" alt=""></p><h5 id="Early-Stopping">Early Stopping</h5><p>在error上升前停住，即一个if判断即可。</p><h5 id="Regularization">Regularization</h5><p><img src="http://dingdm.online/reg.jpg" alt=""></p><h5 id="DropOut">DropOut</h5><p><img src="http://dingdm.online/st1.jpg" alt=""></p><p>在新的神经元网络上进行训练。表现的结果可能变差。</p><p><img src="http://dingdm.online/sy2.jpg" alt=""></p><p>训练时使用所有的神经元，而在测试时需要去掉不合理的神经元。</p><p>训练数据时使用dropout，而测试时不需要dropout，因此对于所有的输入没有dropout，需要使用(1-p)%。</p><p>在训练时对于每组不同的数据会得到较多的神经元网络，而在测试时对于测试数据应用于所有的神经元网络不现实，因此采用了(1-p)%的方式进行计算，而得到的结果与前种方式得到的结果是相似的。</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> 深度学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 神经元网络 </tag>
             
         </tags>
       
