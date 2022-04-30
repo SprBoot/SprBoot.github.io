@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://dingdm.club/"/>
-  <updated>2022-04-07T05:43:10.077Z</updated>
+  <updated>2022-04-30T10:52:45.033Z</updated>
   <id>https://dingdm.club/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>美剧爬虫</title>
+    <link href="https://dingdm.club/2022/04/30/mei-ju-pa-chong/"/>
+    <id>https://dingdm.club/2022/04/30/mei-ju-pa-chong/</id>
+    <published>2022-04-30T10:46:12.000Z</published>
+    <updated>2022-04-30T10:52:45.033Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;美剧爬虫&quot;&gt;美剧爬虫&lt;/h3&gt;
+&lt;p&gt;因为隐私原因，隐去了cookie。文章末尾提供了exe文件。支持halo(光环)和moon-knight(月光骑士)。&lt;/p&gt;
+&lt;pre class=&quot; language-language-python&quot;&gt;&lt;code clas
+      
+    
+    </summary>
+    
+    
+      <category term="python" scheme="https://dingdm.club/categories/python/"/>
+    
+    
+      <category term="爬虫" scheme="https://dingdm.club/tags/%E7%88%AC%E8%99%AB/"/>
+    
+  </entry>
   
   <entry>
     <title>DSST多尺度论文阅读</title>
@@ -522,37 +548,6 @@ FN:没有检测到的GT的数量&lt;/p&gt;
     
     
       <category term="算法" scheme="https://dingdm.club/tags/%E7%AE%97%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>个人类库工具文档(持续更新)</title>
-    <link href="https://dingdm.club/2021/09/21/ge-ren-lei-ku-gong-ju-wen-dang/"/>
-    <id>https://dingdm.club/2021/09/21/ge-ren-lei-ku-gong-ju-wen-dang/</id>
-    <published>2021-09-21T03:08:29.000Z</published>
-    <updated>2021-09-21T03:10:41.131Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;个人类库工具文档-持续更新&quot;&gt;个人类库工具文档(持续更新)&lt;/h3&gt;
-&lt;h4 id=&quot;文件操作类-FileUtils&quot;&gt;文件操作类(FileUtils)&lt;/h4&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;方法名称&lt;/th&gt;
-&lt;th&gt;方法注释&lt;/th&gt;
-&lt;
-      
-    
-    </summary>
-    
-    
-      <category term="后端" scheme="https://dingdm.club/categories/%E5%90%8E%E7%AB%AF/"/>
-    
-    
-      <category term="jar" scheme="https://dingdm.club/tags/jar/"/>
     
   </entry>
   

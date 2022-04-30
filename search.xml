@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>美剧爬虫</title>
+      <link href="/2022/04/30/mei-ju-pa-chong/"/>
+      <url>/2022/04/30/mei-ju-pa-chong/</url>
+      
+        <content type="html"><![CDATA[<h3 id="美剧爬虫">美剧爬虫</h3><p>因为隐私原因，隐去了cookie。文章末尾提供了exe文件。支持halo(光环)和moon-knight(月光骑士)。</p><pre class=" language-language-python"><code class="language-language-python">import requestsfrom bs4 import BeautifulSoup as bsimport reimport jsonimport urllib.requestimport gzipdef getData(src,total,number):    u = '' + src     if total > 1:        u = '' + src + '/' + str(total) + '/'    html = requests.get(u).content    soup = bs(html,'lxml')     introductions = soup.find_all("script", class_="wp-playlist-script")[0]    front = str(introductions).split('"tracks":[')[1].split(']')[0].replace('\/','')    front = re.sub(r"\n|\t|\r|\r\n|\n\r|\x08|\\", "", front)    result = json.loads('[' + front + ']')    info = result[number - 1]    url = info['src1']    github_url = '' + url + '&type=mix'    referer = '' + src + '?ep=' + str(number)    if total > 1:        referer = '' + src + '/' + str(total) + '/' '?ep=' + str(number)    result = getResponse(github_url,referer)    with open(src + '第' + str(total) + '季' + '第' +  str(number) + '集' + '.txt', 'w', encoding='utf-8') as fileobj:        fileobj.write(result)def getResponse(url,referer):    req_header = {        "user-agent": "",        "accept": "*/*",        "accept-language": "zh-CN,zh;q=0.9",        "accept-encoding": "gzip",        "cookie": "",        "Referer": referer        }    req = urllib.request.Request(url,headers=req_header)    resp = urllib.request.urlopen(req)    resp = gzip.decompress(resp.read())    return json.loads(resp.decode("utf-8"))['url']print('请输入剧名：')name = input()print('请输入季数：')total = int(input())print('请输入集数：')number = int(input())getData(name,total,number)</code></pre><h3 id="运行文件">运行文件</h3><p><a href="http://dingdm.online/dgc.exe" target="_blank" rel="noopener">exe文件</a></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> python </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 爬虫 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>DSST多尺度论文阅读</title>
       <link href="/2022/04/07/dsst-duo-chi-du-lun-wen-yue-du/"/>
       <url>/2022/04/07/dsst-duo-chi-du-lun-wen-yue-du/</url>
