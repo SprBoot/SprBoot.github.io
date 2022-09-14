@@ -29,6 +29,31 @@
     
     
     <entry>
+      <title>华为Atlas 200DK开发者套件配置</title>
+      <link href="/2022/09/13/hua-wei-atlas-200dk-kai-fa-zhe-tao-jian-pei-zhi/"/>
+      <url>/2022/09/13/hua-wei-atlas-200dk-kai-fa-zhe-tao-jian-pei-zhi/</url>
+      
+        <content type="html"><![CDATA[<h3 id="华为Atlas-200DK开发者套件配置">华为Atlas 200DK开发者套件配置</h3><h4 id="开发与运行分设">开发与运行分设</h4><p>如果你的电脑是linux系统的话，可以通过atlas 200DK的<a href="https://www.hiascend.com/document/detail/zh/Atlas200DKDeveloperKit/1013/environment/atlased_04_0003.html" target="_blank" rel="noopener">官方文档</a>进行部署。</p><p>自己的电脑当做开发环境，使用开发板做运行环境即可。</p><p><strong>注意：安装摄像头时分清方向！！！！！！！</strong></p><h4 id="开发与运行合设">开发与运行合设</h4><p>由于一开始没开学，只能用mac，mac又不好配置，所以就选择了合设，官方也推荐合设，虽说是合设，其实就是当做服务器用，比分设还方便。</p><p>合设的环境配置也参考上述的官方文档。主要是合设的sd卡镜像设置。</p><h5 id="1-下载Etcher工具">1.下载Etcher工具</h5><p><a href="https://c7xcode.obs.cn-north-4.myhuaweicloud.com/arx/%E5%B7%A5%E5%85%B7/balenaEtcher-Setup-1.5.115.exe" target="_blank" rel="noopener">软件链接</a></p><h5 id="2-镜像地址-kjm7">2.镜像地址(kjm7)</h5><pre class=" language-language-xml"><code class="language-language-xml">固件与驱动版本：1.0.13 CANN版本：5.1.RC1.alpha005https://pan.baidu.com/s/1QzbbDrE1C-lsJnAtBSFKHA固件与驱动版本：1.0.13 CANN版本：5.1.RC1.alpha002https://pan.baidu.com/s/1uQiyqsT5ufWJXxyJOwDvGA固件与驱动版本：1.0.13 CANN版本：5.1.RC1.alpha003https://pan.baidu.com/s/1JEgVyAIxSsP28O4kidtT8g固件与驱动版本：1.0.12 CANN版本：5.0.5alpha001https://pan.baidu.com/s/1hm0g3zpmm4f6GyEqGUhptQ固件与驱动版本：1.0.12 CANN版本：5.0.4alpha005https://pan.baidu.com/s/1GCP45t9nklXTIU7NG087cw固件与驱动版本：1.0.12 CANN版本：5.0.4alpha003[https://pan.baidu.com/s/1whmrLDOfq0_295GysCXLSw](https://gitee.com/link?target=https%3A%2F%2Fpan.baidu.com%2Fs%2F1whmrLDOfq0_295GysCXLSw)固件与驱动版本：1.0.12 CANN版本：5.0.4alpha002https://pan.baidu.com/s/1c5XOUbX14G3EgZvdMcM4zw固件与驱动版本：1.0.11 CANN版本：5.0.3alpha002https://pan.baidu.com/s/1hefOVChPGQOQ-wX6DRac6Q 固件与驱动版本：1.0.11 CANN版本：5.0.3alpha001https://pan.baidu.com/s/1fSntsNLR8-8Vl3YpADsa6Q 固件与驱动版本：1.0.11 CANN版本：5.0.2alpha005https://pan.baidu.com/s/1Xyq08TCuCWUJuN1U6k5fug 固件与驱动版本：1.0.10 CANN版本：5.0.2alpha003https://pan.baidu.com/s/1-IrpeMzf0KVuzFZg4C56dQ固件与驱动版本：1.0.9 CANN版本：5.0.2alpha002https://pan.baidu.com/s/1POOqw3NjpkmOI1LPbhf7kA固件与驱动版本：1.0.9 CANN版本：3.3.0alpha006https://pan.baidu.com/s/1XOYM6SaRoRJNY0yHLQE8AA固件与驱动版本：1.0.9 CANN版本：3.3.0alpha005https://pan.baidu.com/s/1x4YEAPmGAIVGH-tI2apUjg固件与驱动版本：1.0.9 CANN版本：3.3.0.alpha001https://pan.baidu.com/s/1aqOzBQAi3xBYswztq3_Y9A固件与驱动版本：1.0.9 CANN版本：3.2.0alpha001https://pan.baidu.com/s/1ft0vl0Lk_sRQMxyth7axYg固件与驱动版本：1.0.9 CANN版本：3.1.0alpha001https://pan.baidu.com/s/1A5DBJBYbRXK2HfVqrjqH_A</code></pre><p><img src="https://bbs-img.huaweicloud.com/data/forums/attachment/forum/202107/14/152527yop06t508qnx5vvd.png" alt=""></p><p>选择对应的镜像刷就行了，刷完插到开发板上上电，四灯全亮就OK，开不清的把盒子拆了，官方文档拆盒子的图片太难理解，类似于钩子卡住，你把钩子推进去，外壳就下来那种，慢慢来，建议用螺丝刀撬，注意别给外壳干碎了就行。</p><h4 id="windows配置atlas">windows配置atlas</h4><p>校园网太离谱，个人登个人的，路由器限速，当成交换机用又回到起点了，一个实验室内网ip都ping不通，没办法，网线不能插。转到windows上进行开发，只能使用线缆连接主机，然后修改开发板的ip了，atlas也不像nx，装个可视化环境太蠢了，所以远程连接也不好用。寄。</p><h5 id="连接USB与windows电脑">连接USB与windows电脑</h5><p>打开windows设备管理器</p><p><img src="https://www.hiascend.com/doc_center/source/zh/Atlas200DKDeveloperKit/1013/environment/figure/zh-cn_image_0000001226542328.png" alt="img"></p><p>如果出现其他设备里有RNDIS说明驱动未安装好。</p><p>通过<a href="https://www.hiascend.com/document/detail/zh/Atlas200DKDeveloperKit/1013/environment/atlased_04_0033.html" target="_blank" rel="noopener">官方链接</a>安装驱动。</p><p><img src="https://www.hiascend.com/doc_center/source/zh/Atlas200DKDeveloperKit/1013/environment/figure/zh-cn_image_0000001271142381.png" alt="img"></p><p>安装完成出现USB RNDIS6即可。</p><p>由于校园网的缘故，只能共享电脑网络了，一般电脑给手机开热点，ip都分到了192.168.137段，所以使用虚拟机改下开发板的ip地址。vmware软件去wapj搜就行了，镜像各大学校的镜像站都可以下。</p><p>虚拟机安装好以后ssh连接到你的开发板，开发板的ip默认为192.168.1.2，修改ip为192.168.137网段就可以了。</p><pre class=" language-language-shell"><code class="language-language-shell">ssh HwHiAiUser@192.168.1.2sudo nano /etc/netplan/01-netcfg.yaml# ethernets usb0 addresses# 将192.168.1.2改为192.168.137.10sudo netplan apply</code></pre><p><strong>注意：这里改的是usb0，而不是eth0；改完要等一会之后在连接，改完立马连接连接不上，等开发板网络重新配置一下才可以。</strong></p><p>在win10中将网络共享给开发板即可。</p><p>设置，网络和internet，更改适配器选项</p><p><img src="http://dingdm.online/shipeiqi.png" alt=""></p><p>选择你接入的网络，我这里是以太网。点击属性，共享。允许其他网络用户连接。</p><p>家庭网络连接选择你的本地连接RNDIS6即可。</p><p>最后通过开发板ping baidu.com的效果</p><p><img src="http://dingdm.online/baidu.png" alt=""></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> 深度学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 运维 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>美剧爬虫</title>
       <link href="/2022/04/30/mei-ju-pa-chong/"/>
       <url>/2022/04/30/mei-ju-pa-chong/</url>
@@ -629,31 +654,6 @@
     
     
     <entry>
-      <title>深度学习笔记四</title>
-      <link href="/2021/06/14/shen-du-xue-xi-bi-ji-si/"/>
-      <url>/2021/06/14/shen-du-xue-xi-bi-ji-si/</url>
-      
-        <content type="html"><![CDATA[<h3 id="深度学习笔记四">深度学习笔记四</h3><h4 id="Deep-Learning">Deep Learning</h4><h5 id="深度学习的network">深度学习的network</h5><p><img src="http://dingdm.online/dee.jpg" alt=""></p><p>神经元的权重和偏差可以视为矩阵运算。即得到激活函数(activation function)。将激活函数进行sigmoid得到最终结果。将上方的网络用该种形式进行计算即为</p><p><img src="http://dingdm.online/dee2.jpg" alt=""></p><p>通过矩阵运行交由GPU加快运算过程。</p><h5 id="神经元网络的选取">神经元网络的选取</h5><p><img src="http://dingdm.online/cry.jpg" alt=""></p><p>通过神经元网络计算得到的输入矩阵和根据图像得到的target矩阵进行交叉熵计算结果，调整参数使得最后计算得到的交叉熵最小以确定最优的神经元网络函数。</p><p>通过不同组的数据进行训练得到所有的交叉熵进行累加，使用gradient descent获取w与b。</p><h5 id="gradient-descent">gradient descent</h5><p><img src="http://dingdm.online/grad.jpg" alt=""></p><h4 id="Backpropagation">Backpropagation</h4><p>帮助计算gradient descent中的参数的偏微分。</p><h5 id="chain-rule">chain rule</h5><p>即复合函数的微分过程。</p><p><img src="http://dingdm.online/we.jpg" alt=""></p><p>C为最后的交叉熵。</p><p>z对于w求偏微分，z对于哪一个w求微分，得到的即为w对应的输入数据。</p><p>C对于z求偏微分。</p><p><img src="http://dingdm.online/Cw.jpg" alt=""></p><p><img src="http://dingdm.online/ch.jpg" alt=""></p><h5 id="Backward-pass">Backward pass</h5><p>以未知的两项作为输入，得出的最终结果为输出。</p><p><img src="http://dingdm.online/fa2.jpg" alt=""></p><p>具体的放大倍率即为对应z的sigmoid的求导。反求通过已知的C即可快速计算。</p><h4 id="Recipe-OF-Deep-Learning">Recipe OF Deep Learning</h4><p>对于得到神经元网络应先应用于训练数据判断是否合适，防止直接运用于测试数据出现的非过拟合现象。</p><h5 id="New-activation-function">New activation function</h5><p>vanishing gradient problem</p><p>靠近输入的神经元gradient参数的更新速度较慢或靠近输入的神经元gradient参数更新较大。</p><p>使用sigmoid时，较大的输入经过sigmoid后会进行衰减，越深的层数对最后的C的结果的影响就越小。</p><h6 id="ReLU">ReLU</h6><p>更改激活函数，当输入小于0时，输出为0，当输入大于0时，输出等于输入。</p><p>当神经元的输出为0时，不会影响整个神经元网络，可以直接去掉。而输入等于输出不会产生递减问题。</p><p><img src="http://dingdm.online/rejy.jpg" alt=""></p><h6 id="maxout">maxout</h6><p>每层神经元的输出为分组中的最大值。</p><p>maxout也可以使用ReLU，即某个参数始终为0，其他参数为线性函数，即选取最大时满足ReLU。</p><p><img src="http://dingdm.online/bax.jpg" alt=""></p><h6 id="Maxout-training">Maxout training</h6><p>选取的最大值为最终的输出值，最终简化神经元网络。</p><h5 id="Adaptive-Learning-Rate">Adaptive Learning Rate</h5><p>使用adagrad</p><p><img src="http://dingdm.online/adagrad.png" alt=""></p><h6 id="RMSProp">RMSProp</h6><p>防止在某个变量变化的过程中出现的变化较小和变化较大同时存在的情况。</p><p><img src="http://dingdm.online/TRB.jpg" alt=""></p><h6 id="Momentum">Momentum</h6><p>利用惯性继续向前移动。</p><p>使用V记录移动距离。</p><p><img src="http://dingdm.online/MVE.jpg" alt=""></p><h6 id="Adam">Adam</h6><p>RMSProp + Momentum</p><p><img src="http://dingdm.online/adam.png" alt=""></p><h5 id="Early-Stopping">Early Stopping</h5><p>在error上升前停住，即一个if判断即可。</p><h5 id="Regularization">Regularization</h5><p><img src="http://dingdm.online/reg.jpg" alt=""></p><h5 id="DropOut">DropOut</h5><p><img src="http://dingdm.online/st1.jpg" alt=""></p><p>在新的神经元网络上进行训练。表现的结果可能变差。</p><p><img src="http://dingdm.online/sy2.jpg" alt=""></p><p>训练时使用所有的神经元，而在测试时需要去掉不合理的神经元。</p><p>训练数据时使用dropout，而测试时不需要dropout，因此对于所有的输入没有dropout，需要使用(1-p)%。</p><p>在训练时对于每组不同的数据会得到较多的神经元网络，而在测试时对于测试数据应用于所有的神经元网络不现实，因此采用了(1-p)%的方式进行计算，而得到的结果与前种方式得到的结果是相似的。</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
-      
-      
-      <categories>
-          
-          <category> 深度学习 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 神经元网络 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>论文阅读一</title>
       <link href="/2021/06/14/lun-wen-yue-du-yi/"/>
       <url>/2021/06/14/lun-wen-yue-du-yi/</url>
@@ -671,6 +671,31 @@
         <tags>
             
             <tag> 偏标记学习 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>深度学习笔记四</title>
+      <link href="/2021/06/14/shen-du-xue-xi-bi-ji-si/"/>
+      <url>/2021/06/14/shen-du-xue-xi-bi-ji-si/</url>
+      
+        <content type="html"><![CDATA[<h3 id="深度学习笔记四">深度学习笔记四</h3><h4 id="Deep-Learning">Deep Learning</h4><h5 id="深度学习的network">深度学习的network</h5><p><img src="http://dingdm.online/dee.jpg" alt=""></p><p>神经元的权重和偏差可以视为矩阵运算。即得到激活函数(activation function)。将激活函数进行sigmoid得到最终结果。将上方的网络用该种形式进行计算即为</p><p><img src="http://dingdm.online/dee2.jpg" alt=""></p><p>通过矩阵运行交由GPU加快运算过程。</p><h5 id="神经元网络的选取">神经元网络的选取</h5><p><img src="http://dingdm.online/cry.jpg" alt=""></p><p>通过神经元网络计算得到的输入矩阵和根据图像得到的target矩阵进行交叉熵计算结果，调整参数使得最后计算得到的交叉熵最小以确定最优的神经元网络函数。</p><p>通过不同组的数据进行训练得到所有的交叉熵进行累加，使用gradient descent获取w与b。</p><h5 id="gradient-descent">gradient descent</h5><p><img src="http://dingdm.online/grad.jpg" alt=""></p><h4 id="Backpropagation">Backpropagation</h4><p>帮助计算gradient descent中的参数的偏微分。</p><h5 id="chain-rule">chain rule</h5><p>即复合函数的微分过程。</p><p><img src="http://dingdm.online/we.jpg" alt=""></p><p>C为最后的交叉熵。</p><p>z对于w求偏微分，z对于哪一个w求微分，得到的即为w对应的输入数据。</p><p>C对于z求偏微分。</p><p><img src="http://dingdm.online/Cw.jpg" alt=""></p><p><img src="http://dingdm.online/ch.jpg" alt=""></p><h5 id="Backward-pass">Backward pass</h5><p>以未知的两项作为输入，得出的最终结果为输出。</p><p><img src="http://dingdm.online/fa2.jpg" alt=""></p><p>具体的放大倍率即为对应z的sigmoid的求导。反求通过已知的C即可快速计算。</p><h4 id="Recipe-OF-Deep-Learning">Recipe OF Deep Learning</h4><p>对于得到神经元网络应先应用于训练数据判断是否合适，防止直接运用于测试数据出现的非过拟合现象。</p><h5 id="New-activation-function">New activation function</h5><p>vanishing gradient problem</p><p>靠近输入的神经元gradient参数的更新速度较慢或靠近输入的神经元gradient参数更新较大。</p><p>使用sigmoid时，较大的输入经过sigmoid后会进行衰减，越深的层数对最后的C的结果的影响就越小。</p><h6 id="ReLU">ReLU</h6><p>更改激活函数，当输入小于0时，输出为0，当输入大于0时，输出等于输入。</p><p>当神经元的输出为0时，不会影响整个神经元网络，可以直接去掉。而输入等于输出不会产生递减问题。</p><p><img src="http://dingdm.online/rejy.jpg" alt=""></p><h6 id="maxout">maxout</h6><p>每层神经元的输出为分组中的最大值。</p><p>maxout也可以使用ReLU，即某个参数始终为0，其他参数为线性函数，即选取最大时满足ReLU。</p><p><img src="http://dingdm.online/bax.jpg" alt=""></p><h6 id="Maxout-training">Maxout training</h6><p>选取的最大值为最终的输出值，最终简化神经元网络。</p><h5 id="Adaptive-Learning-Rate">Adaptive Learning Rate</h5><p>使用adagrad</p><p><img src="http://dingdm.online/adagrad.png" alt=""></p><h6 id="RMSProp">RMSProp</h6><p>防止在某个变量变化的过程中出现的变化较小和变化较大同时存在的情况。</p><p><img src="http://dingdm.online/TRB.jpg" alt=""></p><h6 id="Momentum">Momentum</h6><p>利用惯性继续向前移动。</p><p>使用V记录移动距离。</p><p><img src="http://dingdm.online/MVE.jpg" alt=""></p><h6 id="Adam">Adam</h6><p>RMSProp + Momentum</p><p><img src="http://dingdm.online/adam.png" alt=""></p><h5 id="Early-Stopping">Early Stopping</h5><p>在error上升前停住，即一个if判断即可。</p><h5 id="Regularization">Regularization</h5><p><img src="http://dingdm.online/reg.jpg" alt=""></p><h5 id="DropOut">DropOut</h5><p><img src="http://dingdm.online/st1.jpg" alt=""></p><p>在新的神经元网络上进行训练。表现的结果可能变差。</p><p><img src="http://dingdm.online/sy2.jpg" alt=""></p><p>训练时使用所有的神经元，而在测试时需要去掉不合理的神经元。</p><p>训练数据时使用dropout，而测试时不需要dropout，因此对于所有的输入没有dropout，需要使用(1-p)%。</p><p>在训练时对于每组不同的数据会得到较多的神经元网络，而在测试时对于测试数据应用于所有的神经元网络不现实，因此采用了(1-p)%的方式进行计算，而得到的结果与前种方式得到的结果是相似的。</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> 深度学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 神经元网络 </tag>
             
         </tags>
       

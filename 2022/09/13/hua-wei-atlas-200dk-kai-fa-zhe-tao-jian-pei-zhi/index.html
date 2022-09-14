@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="深度学习第二次编码, dingdm">
+    <meta name="keywords" content="华为Atlas 200DK开发者套件配置, dingdm">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>深度学习第二次编码 | dingdm</title>
+    <title>华为Atlas 200DK开发者套件配置 | dingdm</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -323,12 +323,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('http://dingdm.online/13.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('http://dingdm.online/4.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">深度学习第二次编码</h1>
+                    <h1 class="description center-align post-title">华为Atlas 200DK开发者套件配置</h1>
                 </div>
             </div>
         </div>
@@ -445,8 +445,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/">
-                                <span class="chip bg-color">逻辑回归</span>
+                            <a href="/tags/%E8%BF%90%E7%BB%B4/">
+                                <span class="chip bg-color">运维</span>
                             </a>
                         
                     </div>
@@ -470,7 +470,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-05-20
+                    2022-09-13
                 </div>
                 
 
@@ -479,14 +479,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.5k
+                    1.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    8 分
+                    4 分
                 </div>
                 
 
@@ -501,214 +501,105 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="深度学习第二次编码">深度学习第二次编码</h3>
-<h4 id="使用爬虫爬取明日方舟干员属性，进行逻辑回归预测">使用爬虫爬取明日方舟干员属性，进行逻辑回归预测</h4>
-<pre class=" language-language-python"><code class="language-language-python"># author:dinggc
-# date:2021/5/20 下午12:03
+                <h3 id="华为Atlas-200DK开发者套件配置">华为Atlas 200DK开发者套件配置</h3>
+<h4 id="开发与运行分设">开发与运行分设</h4>
+<p>如果你的电脑是linux系统的话，可以通过atlas 200DK的<a href="https://www.hiascend.com/document/detail/zh/Atlas200DKDeveloperKit/1013/environment/atlased_04_0003.html" target="_blank" rel="noopener">官方文档</a>进行部署。</p>
+<p>自己的电脑当做开发环境，使用开发板做运行环境即可。</p>
+<p><strong>注意：安装摄像头时分清方向！！！！！！！</strong></p>
+<h4 id="开发与运行合设">开发与运行合设</h4>
+<p>由于一开始没开学，只能用mac，mac又不好配置，所以就选择了合设，官方也推荐合设，虽说是合设，其实就是当做服务器用，比分设还方便。</p>
+<p>合设的环境配置也参考上述的官方文档。主要是合设的sd卡镜像设置。</p>
+<h5 id="1-下载Etcher工具">1.下载Etcher工具</h5>
+<p><a href="https://c7xcode.obs.cn-north-4.myhuaweicloud.com/arx/%E5%B7%A5%E5%85%B7/balenaEtcher-Setup-1.5.115.exe" target="_blank" rel="noopener">软件链接</a></p>
+<h5 id="2-镜像地址-kjm7">2.镜像地址(kjm7)</h5>
+<pre class=" language-language-xml"><code class="language-language-xml">固件与驱动版本：1.0.13 CANN版本：5.1.RC1.alpha005
 
-import data as gd
+https://pan.baidu.com/s/1QzbbDrE1C-lsJnAtBSFKHA
 
-# w之前的所有干员的数据 分类为重装和其他职业 不考虑星级的影响下
-# 输入特征为6个，分别为初始特征和费用。生命 攻击 防御 法抗
-# 爬取数据
-# print(gd.getData('https://wiki.biligame.com/arknights/%E5%B9%B2%E5%91%98%E6%95%B0%E6%8D%AE%E8%A1%A8'))
-# μ和ε在训练数据上计算高斯分布的最大可能性
-import pymysql
-# 建立数据库连接
-conn = pymysql.Connect(host='127.0.0.1',
-                       port=3306,
-                       user='root',
-                       passwd='dgc123.com',
-                       db='python',
-                       charset='utf8')
-# 获取游标对象
-cursor = conn.cursor(pymysql.cursors.DictCursor)
-# 插入数据语句
-query = """SELECT arknights.life,
-        arknights.attack,arknights.defense,arknights.resistance,arknights.profession FROM arknights WHERE id < 978"""
-cursor.execute(query)
-list = cursor.fetchall()
-# 计算重装和其他数目
-# print(gd.calcCount(list,'重装'))
-# print(gd.calcCount(list,'其他'))
-# 17
-# 133
-zCount = gd.calcCount(list,1)
-oCount = gd.calcCount(list,0)
-# 计算p(重装) 0.12781954887218044
-# print(gd.calcSP(list,zCount))
-pZ = gd.calcSP(list,zCount)
-# 计算p(其他) 0.8721804511278195
-#print(gd.calcSP(list,oCount))
-pO = gd.calcSP(list,oCount)
-print(gd.calμ(list,zCount))
-μStarZ = gd.calμ(list,int(zCount))
-# 计算重装
-# 重装μ的最大可能性 [6933.294117647059, 1889.5882352941176, 908.7058823529412, 29.41176470588235]的转置
-# print(gd.calε(list,μStarZ,zCount,1))
-# εStarZ =gd.calε(list,μStarZ,zCount,1)
-print(gd.calε(list,μStarZ,zCount))
-εStarZ = gd.calε(list,μStarZ,zCount)
-# 重装ε的最大可能性
-# [[1.21203507e+06 3.75984385e+07 7.80255296e+07 2.86753473e+08]
-#  [3.30847431e+05 1.02180807e+07 2.12961342e+07 7.80255296e+07]
-#  [1.59228689e+05 4.95178622e+06 1.02180807e+07 3.75984385e+07]
-#  [5.45824344e+03 1.59228689e+05 3.30847431e+05 1.21203507e+06]]
-# 计算一般
-print(gd.calμ(list,int(oCount)))
-μStarO = gd.calμ(list,int(oCount))
-# 其他μ的最大可能性 [1016.0862068965517, 276.92241379310343, 133.17241379310346, 4.310344827586207]的转置
-# print(gd.calε(list,μStarO,oCount))
-# 其他ε的最大可能性
-# [[-1.47530265e+02  1.76302963e+04  1.35486771e+04  1.17346441e+05]
-#  [ 3.62113940e+01  5.64593090e+02  8.26326463e+03  1.35486771e+04]
-#  [ 3.55354873e+01  5.82516993e+03  5.64593090e+02  1.76302963e+04]
-#  [ 4.57816536e+01  3.55354873e+01  3.62113940e+01 -1.47530265e+02]]
-# εStarO = gd.calε(list,μStarO,oCount,1)
-εStarO = gd.calε(list,μStarO,oCount)
-print(gd.calε(list,μStarO,oCount))
-# 计算高斯分布并计算准确率
-# 测试数据中的数据为7,预测应该有的数据为19,正确率为36.84210526315789%
-queryTest = """SELECT arknights.initial,arknights.perfect,arknights.life,
-        arknights.attack,arknights.defense,arknights.resistance,arknights.profession FROM arknights WHERE id > 977"""
-cursor.execute(queryTest)
-test = cursor.fetchall()
-# print(gd.calcResult(μStarZ,εStarZ,μStarO,εStarO,pZ,pO,test))
-matrix = gd.matrix_add(gd.calcSame(εStarZ,pZ),gd.calcSame(εStarO,pO))
-print(gd.calcResult(μStarZ,matrix,μStarO,matrix,pZ,pO,test))
-cursor.close()
-conn.commit()
-conn.close()
+固件与驱动版本：1.0.13 CANN版本：5.1.RC1.alpha002
+
+https://pan.baidu.com/s/1uQiyqsT5ufWJXxyJOwDvGA
+
+固件与驱动版本：1.0.13 CANN版本：5.1.RC1.alpha003
+
+https://pan.baidu.com/s/1JEgVyAIxSsP28O4kidtT8g
+
+固件与驱动版本：1.0.12 CANN版本：5.0.5alpha001
+
+https://pan.baidu.com/s/1hm0g3zpmm4f6GyEqGUhptQ
+
+固件与驱动版本：1.0.12 CANN版本：5.0.4alpha005
+
+https://pan.baidu.com/s/1GCP45t9nklXTIU7NG087cw
+
+固件与驱动版本：1.0.12 CANN版本：5.0.4alpha003
+
+[https://pan.baidu.com/s/1whmrLDOfq0_295GysCXLSw](https://gitee.com/link?target=https%3A%2F%2Fpan.baidu.com%2Fs%2F1whmrLDOfq0_295GysCXLSw)
+
+固件与驱动版本：1.0.12 CANN版本：5.0.4alpha002
+
+https://pan.baidu.com/s/1c5XOUbX14G3EgZvdMcM4zw
+
+固件与驱动版本：1.0.11 CANN版本：5.0.3alpha002
+
+https://pan.baidu.com/s/1hefOVChPGQOQ-wX6DRac6Q 
+
+固件与驱动版本：1.0.11 CANN版本：5.0.3alpha001
+
+https://pan.baidu.com/s/1fSntsNLR8-8Vl3YpADsa6Q 
+
+固件与驱动版本：1.0.11 CANN版本：5.0.2alpha005
+
+https://pan.baidu.com/s/1Xyq08TCuCWUJuN1U6k5fug 
+
+固件与驱动版本：1.0.10 CANN版本：5.0.2alpha003
+https://pan.baidu.com/s/1-IrpeMzf0KVuzFZg4C56dQ
+
+固件与驱动版本：1.0.9 CANN版本：5.0.2alpha002
+https://pan.baidu.com/s/1POOqw3NjpkmOI1LPbhf7kA
+
+固件与驱动版本：1.0.9 CANN版本：3.3.0alpha006
+https://pan.baidu.com/s/1XOYM6SaRoRJNY0yHLQE8AA
+
+固件与驱动版本：1.0.9 CANN版本：3.3.0alpha005
+https://pan.baidu.com/s/1x4YEAPmGAIVGH-tI2apUjg
+
+固件与驱动版本：1.0.9 CANN版本：3.3.0.alpha001
+https://pan.baidu.com/s/1aqOzBQAi3xBYswztq3_Y9A
+
+固件与驱动版本：1.0.9 CANN版本：3.2.0alpha001
+https://pan.baidu.com/s/1ft0vl0Lk_sRQMxyth7axYg
+
+固件与驱动版本：1.0.9 CANN版本：3.1.0alpha001
+https://pan.baidu.com/s/1A5DBJBYbRXK2HfVqrjqH_A
 </code></pre>
-<p>使用到的工具函数</p>
-<pre class=" language-language-python"><code class="language-language-python"># author:dinggc
-# date:2021/5/20 下午12:23
-
-import requests    #requests是HTTP库
-import re
-from bs4 import BeautifulSoup as bs   #bs:通过解析文档为用户提供需要抓取的数据
-import os
-import math
-import io
-import sys
-import pymysql
-import numpy as np
-sys.stdout = io.TextIOWrapper(sys.stdout.buffer,encoding='utf8') #改变标准输出的默认编码
-#我们开始利用requests.get（）来获取网页并利用bs4解析网页：
-def getData(src):
-    # 建立数据库连接
-    conn = pymysql.Connect(host='127.0.0.1',
-                           port=3306,
-                           user='root',
-                           passwd='dgc123.com',
-                           db='python',
-                           charset='utf8')
-    # 获取游标对象
-    cursor = conn.cursor()
-    # 插入数据语句
-    query = """insert into arknights (initial,perfect,life,attack,defense,resistance,username,profession) values (%s,%s,%s,%s,%s,%s,%s,%s)"""
-    html = requests.get(src).content    # requests.get(src)返回的是状态码<Response [200]>，加上.content以字节形式（二进制返回数据。   和前端一样，分为get post等
-    soup = bs(html,'lxml')   # lxml解析器解析字节形式的数据，得到完整的类似页面的html代码结构的数据
-    introductions = soup.find_all("tr", class_="divsort")
-    for introduction in introductions:
-      name = introduction.find_all("td")[1].find_all("a")[0].text.replace(' ','')
-      data = requests.get('https://wiki.biligame.com/arknights/' + name).content
-      dataSoup = bs(data,'lxml')
-      profession = dataSoup.find_all("table", class_="wikitable")[1].find_all("tr")[0].find_all("td")[0].text.replace(' ','')
-      life = dataSoup.find_all("table", class_="wikitable")[3].find_all("tr")[1].find_all("td")[1].text.replace(' ','')
-      attack = dataSoup.find_all("table", class_="wikitable")[3].find_all("tr")[2].find_all("td")[1].text.replace(' ','')
-      defense = dataSoup.find_all("table", class_="wikitable")[3].find_all("tr")[3].find_all("td")[1].text.replace(' ','')
-      resistance = dataSoup.find_all("table", class_="wikitable")[3].find_all("tr")[4].find_all("td")[1].text.replace(' ','')
-      values = (int(float(life)),int(float(attack)),int(float(defense)),
-                int(float(resistance)),str(name),str(profession))
-      cursor.execute(query,values)
-    cursor.close()
-    conn.commit()
-    conn.close()
-    return "success"
-
-def calμ(list,count):
-    μ = []
-    sumLife = sumAttack = sumDefense = sumResistance = 0
-    for item in list:
-        sumLife = sumLife + item['life']
-        sumAttack = sumAttack + item['attack']
-        sumDefense = sumDefense + item['defense']
-        sumResistance = sumResistance + item['resistance']
-    μ.append(sumLife / count)
-    μ.append(sumAttack / count)
-    μ.append(sumDefense / count)
-    μ.append(sumResistance / count)
-    return μ
-
-def calε(list,μStar,count):
-
-    matrix = [[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]]
-    for item in list:
-      front = []
-      front.append(item['life'] - μStar[0])
-      front.append(item['attack'] - μStar[1])
-      front.append(item['defense'] - μStar[2])
-      front.append(item['resistance'] - μStar[3])
-      matrix = matrix_add(matrix,OneMult(front,front[::-1]))
-    return np.multiply(matrix,np.array([[1/count,1/count,1/count,1/count],[1/count,1/count,1/count,1/count],[1/count,1/count,1/count,1/count],[1/count,1/count,1/count,1/count]]))
-
-def calcCount(list,flag):
-    sum = 0
-    for item in list:
-        if('重装' == item['profession']):
-            sum = sum + 1
-    if (flag == 1):
-        return sum
-    else:
-        return len(list) - sum
-
-def calcSP(list,count):
-    return count / len(list)
-
-def calcResult(μStarZ,εStarZ,μStarO,εStarO,pZ,pO,test):
-    sum = right = 0
-    for item in test:
-      resultZ = calcGauss(μStarZ,εStarZ,item)
-      resultO = calcGauss(μStarO,εStarO,item)
-      result = (resultZ * pZ) / (resultZ * pZ + resultO + pO)
-      if(item['profession'] == '重装'):
-        sum = sum + 1
-      if(result > 0.5):
-        right = right + 1
-    return '测试数据中的数据为{0},预测应该有的数据为{1},正确率为{2}{3}'.format(sum,right,sum / right * 100,'%')
-
-
-def calcGauss(μStar,εStar,item):
-    front = []
-    front.append(item['life'] - μStar[0])
-    front.append(item['attack'] - μStar[1])
-    front.append(item['defense'] - μStar[2])
-    front.append(item['resistance'] - μStar[3])
-    εStarTemp = np.linalg.inv(εStar)
-    temp = np.dot(front,np.dot(εStarTemp,front))
-    result = math.e ** (temp * (-0.5))
-    other = (1 / (pow(math.pi * 2, 2))) * (1 / pow(np.linalg.det(εStar), 0.5))
-    return result * other
-
-def matrix_add(matrix1,matrix2):
-    total_element = [matrix1[i][j] + matrix2[i][j] for i in range(len(matrix1)) for j in range(len(matrix1))]
-    new_matrix = [total_element[x:x+len(matrix1)] for x in range(0,len(total_element),len(matrix1))]
-    return new_matrix
-
-def OneMult(list1,list2):
-    result = []
-    for i in list1:
-        temp = []
-        for j in list2:
-            temp.append(i * j)
-        result.append(temp)
-
-    return result
-
-def calcSame(list,p):
-    return np.multiply(list,np.array([[p,p,p,p],[p,p,p,p],[p,p,p,p],[p,p,p,p]]))
+<p><img src="https://bbs-img.huaweicloud.com/data/forums/attachment/forum/202107/14/152527yop06t508qnx5vvd.png" alt=""></p>
+<p>选择对应的镜像刷就行了，刷完插到开发板上上电，四灯全亮就OK，开不清的把盒子拆了，官方文档拆盒子的图片太难理解，类似于钩子卡住，你把钩子推进去，外壳就下来那种，慢慢来，建议用螺丝刀撬，注意别给外壳干碎了就行。</p>
+<h4 id="windows配置atlas">windows配置atlas</h4>
+<p>校园网太离谱，个人登个人的，路由器限速，当成交换机用又回到起点了，一个实验室内网ip都ping不通，没办法，网线不能插。转到windows上进行开发，只能使用线缆连接主机，然后修改开发板的ip了，atlas也不像nx，装个可视化环境太蠢了，所以远程连接也不好用。寄。</p>
+<h5 id="连接USB与windows电脑">连接USB与windows电脑</h5>
+<p>打开windows设备管理器</p>
+<p><img src="https://www.hiascend.com/doc_center/source/zh/Atlas200DKDeveloperKit/1013/environment/figure/zh-cn_image_0000001226542328.png" alt="img"></p>
+<p>如果出现其他设备里有RNDIS说明驱动未安装好。</p>
+<p>通过<a href="https://www.hiascend.com/document/detail/zh/Atlas200DKDeveloperKit/1013/environment/atlased_04_0033.html" target="_blank" rel="noopener">官方链接</a>安装驱动。</p>
+<p><img src="https://www.hiascend.com/doc_center/source/zh/Atlas200DKDeveloperKit/1013/environment/figure/zh-cn_image_0000001271142381.png" alt="img"></p>
+<p>安装完成出现USB RNDIS6即可。</p>
+<p>由于校园网的缘故，只能共享电脑网络了，一般电脑给手机开热点，ip都分到了192.168.137段，所以使用虚拟机改下开发板的ip地址。vmware软件去wapj搜就行了，镜像各大学校的镜像站都可以下。</p>
+<p>虚拟机安装好以后ssh连接到你的开发板，开发板的ip默认为192.168.1.2，修改ip为192.168.137网段就可以了。</p>
+<pre class=" language-language-shell"><code class="language-language-shell">ssh HwHiAiUser@192.168.1.2
+sudo nano /etc/netplan/01-netcfg.yaml
+# ethernets usb0 addresses
+# 将192.168.1.2改为192.168.137.10
+sudo netplan apply
 </code></pre>
+<p><strong>注意：这里改的是usb0，而不是eth0；改完要等一会之后在连接，改完立马连接连接不上，等开发板网络重新配置一下才可以。</strong></p>
+<p>在win10中将网络共享给开发板即可。</p>
+<p>设置，网络和internet，更改适配器选项</p>
+<p><img src="http://dingdm.online/shipeiqi.png" alt=""></p>
+<p>选择你接入的网络，我这里是以太网。点击属性，共享。允许其他网络用户连接。</p>
+<p>家庭网络连接选择你的本地连接RNDIS6即可。</p>
+<p>最后通过开发板ping baidu.com的效果</p>
+<p><img src="http://dingdm.online/baidu.png" alt=""></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -752,7 +643,7 @@ def calcSame(list,p):
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://dingdm.club/2021/05/20/shen-du-xue-xi-di-er-ci-bian-ma/">https://dingdm.club/2021/05/20/shen-du-xue-xi-di-er-ci-bian-ma/</a>
+                    <a href="https://dingdm.club/2022/09/13/hua-wei-atlas-200dk-kai-fa-zhe-tao-jian-pei-zhi/">https://dingdm.club/2022/09/13/hua-wei-atlas-200dk-kai-fa-zhe-tao-jian-pei-zhi/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -790,8 +681,8 @@ def calcSame(list,p):
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/">
-                                    <span class="chip bg-color">逻辑回归</span>
+                                <a href="/tags/%E8%BF%90%E7%BB%B4/">
+                                    <span class="chip bg-color">运维</span>
                                 </a>
                             
                         </div>
@@ -1100,30 +991,30 @@ def calcSame(list,p):
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/05/21/shen-du-xue-xi-bi-ji-san/">
+                <a href="/2022/09/14/deepsort-yuan-ma-jie-xi-yi/">
                     <div class="card-image">
                         
                         
-                        <img src="http://dingdm.online/18.jpg" class="responsive-img" alt="深度学习笔记三">
+                        <img src="http://dingdm.online/0.jpg" class="responsive-img" alt="DeepSort源码解析一">
                         
-                        <span class="card-title">深度学习笔记三</span>
+                        <span class="card-title">DeepSort源码解析一</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            深度学习笔记三
-逻辑回归的计算过程 Discriminative
-Step1 选取Loss function
+                            DeepSort源码解析一
+DeepSort的追踪流程
+本次主要记录源码的阅读，reid模型，级联匹配，iou和匈牙利下次在写。
 
-Step2 选取变量计算最小值
 
-为了方便gradient计算最小值，将w，b的最大值公式转换为最小值进行计算。对functio
+将第一帧检测目标框初始化对应轨迹进行卡尔曼滤波预测下一时刻轨迹，其中初始化轨迹状态为不确定态
+将上一时刻确
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-05-21
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-09-14
                         </span>
                         <span class="publish-author">
                             
@@ -1140,8 +1031,8 @@ Step2 选取变量计算最小值
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/">
-                        <span class="chip bg-color">逻辑回归</span>
+                    <a href="/tags/track/">
+                        <span class="chip bg-color">track</span>
                     </a>
                     
                 </div>
@@ -1155,34 +1046,35 @@ Step2 选取变量计算最小值
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/05/19/shen-du-xue-xi-bi-ji-er/">
+                <a href="/2022/04/30/mei-ju-pa-chong/">
                     <div class="card-image">
                         
                         
-                        <img src="http://dingdm.online/7.jpg" class="responsive-img" alt="深度学习笔记二">
+                        <img src="http://dingdm.online/16.jpg" class="responsive-img" alt="美剧爬虫">
                         
-                        <span class="card-title">深度学习笔记二</span>
+                        <span class="card-title">美剧爬虫</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            深度学习笔记二
-New Optimization for Deep Learning
-On-line：one pair of (xt,yt) at a time step (单输入)
-Off-line：pour all into the m
+                            美剧爬虫
+因为隐私原因，隐去了cookie。文章末尾提供了exe文件。支持halo(光环)和moon-knight(月光骑士)。
+import requests
+from bs4 import BeautifulSoup as bs
+imp
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-19
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-30
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                    深度学习
+                            <a href="/categories/python/" class="post-category">
+                                    python
                                 </a>
                             
                             
@@ -1192,8 +1084,8 @@ Off-line：pour all into the m
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/">
-                        <span class="chip bg-color">逻辑回归</span>
+                    <a href="/tags/%E7%88%AC%E8%99%AB/">
+                        <span class="chip bg-color">爬虫</span>
                     </a>
                     
                 </div>

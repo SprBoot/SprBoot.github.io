@@ -44,6 +44,32 @@
   </entry>
   
   <entry>
+    <title>华为Atlas 200DK开发者套件配置</title>
+    <link href="https://dingdm.club/2022/09/13/hua-wei-atlas-200dk-kai-fa-zhe-tao-jian-pei-zhi/"/>
+    <id>https://dingdm.club/2022/09/13/hua-wei-atlas-200dk-kai-fa-zhe-tao-jian-pei-zhi/</id>
+    <published>2022-09-13T08:00:30.000Z</published>
+    <updated>2022-09-14T06:07:34.989Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;华为Atlas-200DK开发者套件配置&quot;&gt;华为Atlas 200DK开发者套件配置&lt;/h3&gt;
+&lt;h4 id=&quot;开发与运行分设&quot;&gt;开发与运行分设&lt;/h4&gt;
+&lt;p&gt;如果你的电脑是linux系统的话，可以通过atlas 200DK的&lt;a href=&quot;https://w
+      
+    
+    </summary>
+    
+    
+      <category term="深度学习" scheme="https://dingdm.club/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="运维" scheme="https://dingdm.club/tags/%E8%BF%90%E7%BB%B4/"/>
+    
+  </entry>
+  
+  <entry>
     <title>美剧爬虫</title>
     <link href="https://dingdm.club/2022/04/30/mei-ju-pa-chong/"/>
     <id>https://dingdm.club/2022/04/30/mei-ju-pa-chong/</id>
@@ -512,33 +538,6 @@ FN:没有检测到的GT的数量&lt;/p&gt;
 &lt;h4 id=&quot;相关知识&quot;&gt;相关知识&lt;/h4&gt;
 &lt;h5 id=&quot;残差学习&quot;&gt;残差学习&lt;/h5&gt;
 &lt;p&gt;对于传统的CNN网络，简单的增加网络的深度，容易&lt;strong&gt;导致梯度消失和爆炸&lt;/strong&gt;。针对梯度消失
-      
-    
-    </summary>
-    
-    
-      <category term="深度学习" scheme="https://dingdm.club/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="论文" scheme="https://dingdm.club/tags/%E8%AE%BA%E6%96%87/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>论文阅读第一部分</title>
-    <link href="https://dingdm.club/2021/09/29/lun-wen-yue-du-di-yi-bu-fen/"/>
-    <id>https://dingdm.club/2021/09/29/lun-wen-yue-du-di-yi-bu-fen/</id>
-    <published>2021-09-29T13:16:30.000Z</published>
-    <updated>2021-09-29T13:16:32.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;论文阅读第一部分&quot;&gt;论文阅读第一部分&lt;/h3&gt;
-&lt;h5 id=&quot;使用一些移位操作来设计更加高效的图片分类卷积神经网络&quot;&gt;使用一些移位操作来设计更加高效的图片分类卷积神经网络&lt;/h5&gt;
-&lt;h5 id=&quot;深度学习模型及相关术语&quot;&gt;深度学习模型及相关术语&lt;/h5&gt;
-&lt;h
       
     
     </summary>
