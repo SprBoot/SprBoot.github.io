@@ -507,21 +507,21 @@
 <p>余弦相似度计算公式</p>
 <p>这里的向量A为i维的，即（a1,a2,a3,…,ai）</p>
 <p>向量b也为i维，即（b1,b2,b3,…,bi）</p>
-<p><img src="http://dingdm.online/yuxianxiangsidu.png" alt="yuxianxiangsidu"></p>
+<p><img src="http://dingdm.online/yuxianxiangsidu.png" alt=""></p>
 <p>余弦距离为1-cosθ。</p>
 <p>DeepSort中使用数组R中的外观特征与检测框的特征计算余弦相似度，取最小值记为C。</p>
-<p><img src="http://dingdm.online/jisuanyuxianxiangsidu.png" alt="jisuanyuxianxiangsidu"></p>
+<p><img src="http://dingdm.online/jisuanyuxianxiangsidu.png" alt=""></p>
 <h4 id="马氏距离">马氏距离</h4>
 <p>在使用欧氏距离度量变量之间的相关程度时，</p>
-<p><img src="http://dingdm.online/oushijuli.png" alt="oushijuli"></p>
+<p><img src="http://dingdm.online/oushijuli.png" alt=""></p>
 <p>这里x,y为二维，若存在多维的情况下，当变量之间差距过大，实例之间差距较小。往往相关程度受大变量的影响造成误差。</p>
 <p>（身高/cm，体重/g）</p>
 <p>已知小明（160,60000）；小王（160,59000）；小李（170，60000）。根据常识可以知道小明和小王体型相似。但是如果根据欧几里得距离来判断，小明和小王的距离要远远大于小明和小李之间的距离，即小明和小李体型相似。这是因为不同特征的度量标准之间存在差异而导致判断出错。以克（g）为单位测量人的体重，数据分布比较分散，即方差大，而以厘米为单位来测量人的身高，数据分布就相对集中，方差小。马氏距离的目的就是把方差归一化，使得特征之间的关系更加符合实际情况。</p>
-<p><img src="http://dingdm.online/jisuanmashijuli.png" alt="mashijuli"></p>
+<p><img src="http://dingdm.online/jisuanmashijuli.png" alt=""></p>
 <p>即马氏距离引入了协方差矩阵。</p>
 <p><a href="https://blog.csdn.net/weixin_43800577/article/details/118031146" target="_blank" rel="noopener">马氏距离的计算公式</a></p>
 <h4 id="使用马氏距离对余弦距离进行筛选">使用马氏距离对余弦距离进行筛选</h4>
-<p><img src="http://dingdm.online/deepsortmashijuli.png" alt="deepsortmashijuli"></p>
+<p><img src="http://dingdm.online/deepsortmashijuli.png" alt=""></p>
 <p>d为检测框的位置，y为预测框的位置，S为检测框与预测框的协方差矩阵。</p>
 <p>DeepSORT中，由马氏距离计算获得运动特征提供了物体定位的可能信息，在短期预测中非常有效。由余弦距离计算获得外观特征在目标被长期遮挡后，恢复目标的ID编号，减少ID切换次数，比较有效。通过加权运算，结合两个特征</p>
 <p><img src="http://dingdm.online/tezhengjiehe.png" alt=""></p>
