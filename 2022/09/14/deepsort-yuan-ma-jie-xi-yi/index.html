@@ -1229,36 +1229,33 @@ class Net(nn.Module):
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/09/14/deepsort-yuan-ma-jie-xi-yi/">
+                <a href="/2022/09/17/deepsort-yuan-ma-yue-du-er/">
                     <div class="card-image">
                         
                         
-                        <img src="http://dingdm.online/0.jpg" class="responsive-img" alt="DeepSort源码解析一">
+                        <img src="http://dingdm.online/4.jpg" class="responsive-img" alt="DeepSort源码解析二">
                         
-                        <span class="card-title">DeepSort源码解析一</span>
+                        <span class="card-title">DeepSort源码解析二</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            DeepSort源码解析一
-DeepSort的追踪流程
-本次主要记录源码的阅读，reid模型，级联匹配，iou和匈牙利下次在写。
-
-
-将第一帧检测目标框初始化对应轨迹进行卡尔曼滤波预测下一时刻轨迹，其中初始化轨迹状态为不确定态
-将上一时刻确
+                            DeepSort源码解析二
+外观特征余弦距离计算
+创建数组R存储128维度的特征值，数组序号为多目标跟踪的id，数组内容为视频帧的特征值。数组的长度不超过100，即存储的目标特征帧不超过100帧。
+余弦相似度计算公式
+这里的向量A为i维的，
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-09-14
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-09-17
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1271,7 +1268,6 @@ DeepSort的追踪流程
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -1518,7 +1514,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">122.5k</span>&nbsp;字
+                class="white-color">123.5k</span>&nbsp;字
             
             
             
