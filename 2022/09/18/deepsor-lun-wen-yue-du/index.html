@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="KCF源码解析, dingdm">
+    <meta name="keywords" content="DeepSor论文阅读, dingdm">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>KCF源码解析 | dingdm</title>
+    <title>DeepSor论文阅读 | dingdm</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -323,12 +323,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('http://dingdm.online/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('http://dingdm.online/5.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">KCF源码解析</h1>
+                    <h1 class="description center-align post-title">DeepSor论文阅读</h1>
                 </div>
             </div>
         </div>
@@ -445,8 +445,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/KCF/">
-                                <span class="chip bg-color">KCF</span>
+                            <a href="/tags/track/">
+                                <span class="chip bg-color">track</span>
                             </a>
                         
                     </div>
@@ -457,8 +457,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E5%9B%BE%E5%83%8F%E8%BF%BD%E8%B8%AA/" class="post-category">
-                                图像追踪
+                            <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                深度学习
                             </a>
                         
                     </div>
@@ -470,7 +470,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-03-09
+                    2022-09-18
                 </div>
                 
 
@@ -479,14 +479,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.1k
+                    638
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    12 分
+                    2 分
                 </div>
                 
 
@@ -501,234 +501,28 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="KCF源码解析">KCF源码解析</h3>
-<h4 id="双线性插值">双线性插值</h4>
-<p>例：将一个feature map由3*3放大为4*4时，如何进行外围的填充？填充的方式即为插值。</p>
-<p>普通的插值方式</p>
-<p>src为原图的像素值，dst为填充后的目标图的像素值，计算公式为srcX=dstX* (srcWidth/dstWidth) , srcY = dstY * (srcHeight/dstHeight)</p>
-<p>但是计算目标图的像素值时会出现小数的情况，使用四舍五入或者之间去掉小数位会导致插值后的目标图出现马赛克或者失真现象。</p>
-<p>双线性插值</p>
-<p>双线性插值使用源图像像素点周围真实存在的四个像素值来决定目标图的像素值。</p>
-<p>对于一个目的像素，设置坐标通过反向变换得到的浮点坐标为(i+u,j+v) (其中i、j均为浮点坐标的整数部分，u、v为浮点坐标的小数部分，是取值[0,1)区间的浮点数)，则这个像素得值 f(i+u,j+v) 可由原图像中坐标为 (i,j)、(i+1,j)、(i,j+1)、(i+1,j+1)所对应的周围四个像素的值决定，即：f(i+u,j+v) = (1-u)(1-v)f(i,j) + (1-u)vf(i,j+1) + u(1-v)f(i+1,j) + uvf(i+1,j+1)<br>
-其中f(i,j)表示源图像(i,j)处的的像素值</p>
-<p>假如目标图的象素坐标为（1，1），那么反推得到的对应于源图的坐标是（0.75 , 0.75）, 这其实只是一个概念上的虚拟象素,实际在源图中并不存在这样一个象素,那么目标图的象素（1，1）的取值不能够由这个虚拟象素来决定，而只能由源图的这四个象素共同决定：（0，0）（0，1）（1，0）（1，1），而由于（0.75,0.75）离（1，1）要更近一些，那么（1,1）所起的决定作用更大一些，这从公式1中的系数uv=0.75×0.75就可以体现出来，而（0.75,0.75）离（0，0）最远，所以（0，0）所起的决定作用就要小一些</p>
-<p>首先，在X方向上进行两次线性插值计算，然后在Y方向上进行一次插值计算。<br>
-在图像处理的时候，我们先根据srcX=dstX* (srcWidth/dstWidth) ,srcY = dstY * (srcHeight/dstHeight)来计算目标像素在源图像中的位置，这里计算的srcX和srcY一般都是浮点数，比如f（1.2, 3.4）这个像素点是虚拟存在的，先找到与它临近的四个实际存在的像素点<br>
-　　（1，3） （2，3）<br>
-　　（1，4） （2，4）<br>
-写成f(i+u,j+v)的形式，则u=0.2,v=0.4, i=1, j=3，f(i+u,j+v) = (1-u)(1-v)f(i,j) + (1-u)vf(i,j+1) + u(1-v)f(i+1,j) + uvf(i+1,j+1) 。</p>
-<p><strong>线性插值空间因子的引入</strong></p>
-<p>源图像与目标图像几何中心的对齐</p>
-<p>srcX=dstX* (srcWidth/dstWidth)+0.5*(srcWidth/dstWidth-1)</p>
-<p>我们在原始的浮点坐标上加上了0.5*<em>(srcWidth/dstWidth-1)这样一个控制因子，这项的符号可正可负，与srcWidth/dstWidth的比值也就是当前插值是扩大还是缩小图像有关，假设源图像是3</em>3，中心点坐标（1，1）目标图像是9**9，中心点坐标（4，4），我们在进行插值映射的时候，尽可能希望均匀的用到源图像的像素信息，最直观的就是（4,4）映射到（1,1）现在直接计算srcX=4**3/9=1.3333！=1，也就是我们在插值的时候所利用的像素集中在图像的右下方，而不是均匀分布整个图像。</p>
-<h4 id="高斯核函数">高斯核函数</h4>
-<p><img src="http://dingdm.online/WX20220309-111917.png" alt=""></p>
-<p>σ控制高斯核函数的局部作用范围。当 x 和x′的欧式距离处于某一个区间范围内的时候，假设固定 x′， k(x,x′) 随x的变化而变化的相当显著。</p>
-<p>σ=1</p>
-<p><img src="http://dingdm.online/WX20220309-112058.png" alt=""></p>
-<p>σ=5</p>
-<p><img src="http://dingdm.online/WX20220309-112108.png" alt=""></p>
-<h4 id="hog特征提取">hog特征提取</h4>
-<p>在HOG特征描述符中，梯度方向的分布，也就是梯度方向的直方图被视作特征。图像的梯度(x和y导数)非常有用，因为边缘和拐角(强度突变的区域)周围的梯度幅度很大，并且边缘和拐角比平坦区域包含更多关于物体形状的信息。</p>
-<p>在每个像素处，梯度有一个大小和一个方向。x方向梯度图会强化垂直边缘特征，y方向梯度图会强化水平边缘特征。这就使得有用的特征（轮廓）得到保留，无关不重要的信息被去除。</p>
-<p>把整个图像划分为若干个8x8的小单元，称为cell，并计算每个cell的梯度直方图。</p>
-<p>计算cell中像素的梯度直方图，先将角度范围分成9份，也就是9 bins，每20°为一个单元，也就是这些像素可以根据角度分为9组。将每一份中所有像素对应的梯度值进行累加，可以得到9个数值。直方图就是由这9个数值组成的数组，对应于角度0、20、40、60… 160。如果某个像素的梯度角度大于160度，也就是在160度到180度之间，那么把这个像素对应的梯度值按比例分给0度和160度对应的bin。</p>
-<p>HOG将8×8的一个区域作为一个cell，再以2×2个cell作为一组，称为block。由于每个cell有9个值，2×2个cell则有36个值，HOG是通过滑动窗口的方式来得到block的</p>
-<pre class=" language-language-matlab"><code class="language-language-matlab">feature.hog(image, orientations=9, pixels_per_cell=(16, 16),
-                    cells_per_block=(2, 2), visualize=True)
-</code></pre>
-<ul>
-<li><code>image</code>：可以是灰度图或者彩色图；</li>
-<li>orientations：就是把180度分成几份，也就是bin的数量；</li>
-<li><code>pixels_per_cell</code>：一个cell里包含的像素个数；</li>
-<li><code>cells_per_block</code>：一个block包含的cell个数；</li>
-<li><code>visualize</code>：是否返回一个hog图像用于显示</li>
-</ul>
-<h4 id="参数设置">参数设置</h4>
-<pre class=" language-language-matlab"><code class="language-language-matlab">	% 高斯核函数
-	kernel.type = 'gaussian';	
-	% 额外区域，每帧检测的范围
-	padding = 1.5;
-	% 控制过拟合的岭回归参数，即惩罚因子
-	lambda = 1e-4;
-	% 空间带宽
-	output_sigma_factor = 0.1;
-	% 线性插值的控制因子
-	interp_factor = 0.02;
-	% 高斯核函数的带宽，控制高斯核函数的局部作用范围
-	kernel.sigma = 0.5;
-	
-	kernel.poly_a = 1;
-	kernel.poly_b = 9;
-	% 使用hog特征提取
-	features.hog = true;
-	% bin的数量
-	features.hog_orientations = 9;
-	% cell的大小
-	cell_size = 4;
-</code></pre>
-<h4 id="tracker">tracker</h4>
-<pre class=" language-language-matlab"><code class="language-language-matlab">function [positions, time] = tracker(video_path, img_files, pos, target_sz, ...
-	padding, kernel, lambda, output_sigma_factor, interp_factor, cell_size, ...
-	features, show_visualization)
-	% 判断框选区域大小，区域较大减小分辨率，并非提取全部细节
-	resize_image = (sqrt(prod(target_sz)) >= 100);
-	if resize_image,
-		pos = floor(pos / 2);
-		target_sz = floor(target_sz / 2);
-	end
-	% 设置检测窗口，大小为框选区域的 1+padding倍
-	window_sz = floor(target_sz * (1 + padding));
-	% 计算带宽
-	output_sigma = sqrt(prod(target_sz)) * output_sigma_factor / cell_size;
-	% 傅立叶变换到频域进行处理，gaussian_shaped_labels进行移位采样
-	yf = fft2(gaussian_shaped_labels(output_sigma, floor(window_sz / cell_size)));
-  % 为了防止傅立叶变换之后频域信号泄露，进行加窗，窗函数参考之前kcf算法相关知识
-	cos_window = hann(size(yf,1)) * hann(size(yf,2))';	
-  % 图像追踪可视化
-	if show_visualization,
-		update_visualization = show_video(img_files, video_path, resize_image);
-	end
-  % FPS计算
-	time = 0;
-	positions = zeros(numel(img_files), 2);
-  % 逐帧跟踪，即数据集中的图片
-	for frame = 1:numel(img_files),
-		% 图片读取，并转换为灰度图
-		im = imread([video_path img_files{frame}]);
-		if size(im,3) > 1,
-			im = rgb2gray(im);
-		end
-		if resize_image,
-			im = imresize(im, 0.5);
-		end
-
-		tic()
-    % 第一帧之后的图像追踪处理，可以先看代码下方对第一帧的分类器训练逻辑
-		if frame > 1,
-			% 在接下来的图像帧中根据设定的检测框和上一帧的追踪位置提取检测区域
-			patch = get_subwindow(im, pos, window_sz);
-			% 对特征区域进行傅立叶变换
-			zf = fft2(get_features(patch, features, cell_size, cos_window));
-			switch kernel.type
-			case 'gaussian',
-			  % 计算每个采样的高斯响应，也就是低维映射到高维之后高斯核函数的快速计算结果
-				kzf = gaussian_correlation(zf, model_xf, kernel.sigma);
-			case 'polynomial',
-				kzf = polynomial_correlation(zf, model_xf, kernel.poly_a, kernel.poly_b);
-			case 'linear',
-				kzf = linear_correlation(zf, model_xf);
-			end
-			% 归一化逆傅立叶变换后的时域图
-			response = real(ifft2(model_alphaf .* kzf));
-
-			% 获取最大响应位置
-			[vert_delta, horiz_delta] = find(response == max(response(:)), 1);
-			% 处理追踪时目标不移动而导致的峰值不在中心的情形
-			if vert_delta > size(zf,1) / 2, 
-				vert_delta = vert_delta - size(zf,1);
-			end
-			if horiz_delta > size(zf,2) / 2,
-				horiz_delta = horiz_delta - size(zf,2);
-			end
-			pos = pos + cell_size * [vert_delta - 1, horiz_delta - 1];
-		end
-
-		% 若是第一帧，获取第一帧检测的区域，否则是第一帧之后的检测位置信息
-		patch = get_subwindow(im, pos, window_sz);
-		% 获取第一帧检测区域的特征矩阵并进行傅立叶变换到频域或后面帧的特征矩阵
-		xf = fft2(get_features(patch, features, cell_size, cos_window));
-		% 根据不同的核函数调用不同的处理方法
-		switch kernel.type
-		case 'gaussian',
-		  % 获取高斯响应，也就是低维映射到高维之后高斯核函数的快速计算结果
-			kf = gaussian_correlation(xf, xf, kernel.sigma);
-		case 'polynomial',
-			kf = polynomial_correlation(xf, xf, kernel.poly_a, kernel.poly_b);
-		case 'linear',
-			kf = linear_correlation(xf, xf);
-		end
-		% 快速计算 lambda为岭回归的惩罚因子 yf为检测框的高斯标签，kf为hog特征提取后特征矩阵的高斯响应
-		alphaf = yf ./ (kf + lambda);
-    % 第一帧的分类器训练参数，为上面计算的alphaf分类器参数和检测区域特征矩阵变换后的频域信息
-		if frame == 1, 
-			model_alphaf = alphaf;
-			model_xf = xf;
-		else
-			% interp_factor作为更新系数更新分类器参数，理解为插值运算保留上一次区域检测的信息？
-			model_alphaf = (1 - interp_factor) * model_alphaf + interp_factor * alphaf;
-			model_xf = (1 - interp_factor) * model_xf + interp_factor * xf;
-		end
-
-		positions(frame,:) = pos;
-		time = time + toc();
-
-		% 可视化
-		if show_visualization,
-			box = [pos([2,1]) - target_sz([2,1])/2, target_sz([2,1])];
-			stop = update_visualization(frame, box);
-			if stop, break, end
-			drawnow
-		end
-		
-	end
-
-	if resize_image,
-		positions = positions * 2;
-	end
-end
-</code></pre>
-<h4 id="高斯回归">高斯回归</h4>
-<pre class=" language-language-matlab"><code class="language-language-matlab">function labels = gaussian_shaped_labels(sigma, sz)
-% 前面是高斯σ，后面是一维向量，是检测框以cell为单位后计算的x，y所包含的4*4cell的个数
-  % ndgrid的第一个参数为 1:x轴的cell个数(为啥减去x的一半啊) 第二个同理为y轴方向
-  % ndgrid函数的作用主要是用于低维到高维的映射
-  % rs的列数等于cs的列数，而cs的行数等于rs的行数，即rs复制了cs的列，cs复制了rs的行。rs垂直于cs，cs有16个坐标点，所以rs有16列，而cs垂直于rs，rs有38个坐标点，所以cs有18行。这样低维到高维就映射完成了
-	[rs, cs] = ndgrid((1:sz(1)) - floor(sz(1)/2), (1:sz(2)) - floor(sz(2)/2));
-  % rs是一个矩阵 1到x轴次数减次数的一半 1到最后一个值每个以行为基准构成矩阵 cs是y轴 以列为基准构成矩阵
-  % 在高维的图像上计算高斯函数 获取检测框内的特征信息
-	labels = exp(-0.5 / sigma^2 * (rs.^2 + cs.^2));
-
-	% 检测区域内的循环移位操作，列移位和行移位
-	labels = circshift(labels, -floor(sz(1:2) / 2) + 1);
-  % 为什么要确定移位到左上角呢
-	assert(labels(1,1) == 1)
-end
-</code></pre>
-<h4 id="高斯响应">高斯响应</h4>
-<pre class=" language-language-matlab"><code class="language-language-matlab">% 输入两个频率域上的尺寸完全相同的两个三维矩阵xf(当前帧特征矩阵的傅立叶变换)，yf(上一帧特征矩阵的傅立叶变换)以及主函数中选择的高斯带宽gaussian.sigam
-% 这里也就是使用高斯核将低维映射到高维之后的低维计算方式
-function kf = gaussian_correlation(xf, yf, sigma)
-	N = size(xf,1) * size(xf,2);
-	% xx和yy等于xf和yf中各元素的模的平方和再除以N，都是实数
-	xx = xf(:)' * xf(:) / N; 
-	yy = yf(:)' * yf(:) / N; 
-	% xyf等于xf与yf的共轭矩阵点乘 
-	xyf = xf .* conj(yf);
-	% xyf经过傅里叶反变换回到时域，取实部并将第三维度上的值求和，最后得到尺寸与输入xf和yf相同的二维矩阵xy 
-	xy = sum(real(ifft2(xyf)), 3); 
-	% 用xx+yy-2xy再除以xf中的元素数，然后乘以高斯核函数，最后经过傅里叶变换得到所有位置的高斯响应
-	kf = fft2(exp(-1 / sigma^2 * max(0, (xx + yy - 2 * xy) / numel(xf))));
-end
-</code></pre>
-<h4 id="HOG特征提取">HOG特征提取</h4>
-<pre class=" language-language-matlab"><code class="language-language-matlab">function x = get_features(im, features, cell_size, cos_window)
-	if features.hog,
-		% hog特征提取
-		x = double(fhog(single(im) / 255, cell_size, features.hog_orientations));
-		x(:,:,end) = [];
-	end
-	if features.gray,
-		x = double(im) / 255;
-		x = x - mean(x(:));
-	end
-	if ~isempty(cos_window),
-	  % 加窗函数的处理
-		x = bsxfun(@times, x, cos_window);
-	end
-	
-end
-</code></pre>
+                <h3 id="DeepSor论文阅读">DeepSor论文阅读</h3>
+<p><a href="http://dingdm.online/deepsort.pdf" target="_blank" rel="noopener">论文下载</a></p>
+<p><img src="http://dingdm.online/deepsortliucheng.png" alt=""></p>
+<p>DeepSort的实现流程如上图所示。</p>
+<h4 id="DeepSort算法的基础知识">DeepSort算法的基础知识</h4>
+<p>在DeepSort算法中，预测轨迹分为确定态和不确定态，不确定态的轨迹要和检测框连续匹配三次成功下转换为确定态；确定态要在失配70次的情况下转为非确定态。配置参数来自于torch版的deepsort算法。</p>
+<p>对视频跟踪时，视频首帧通过yolo检测，预测轨迹为非确定态。</p>
+<p>预测轨迹由卡尔曼滤波预测，卡尔曼滤波首帧初始化。</p>
+<h4 id="跟踪流程">跟踪流程</h4>
+<p>跟踪流程的算法部分在源码中给出了，具体的参考源码解析一，二。这里只做理论的参考。</p>
+<ol>
+<li>非确定态预测框与该帧的检测框进行IOU匹配，计算代价矩阵。</li>
+<li>通过代价矩阵使用匈牙利算法对预测框和检测框进行最优匹配，返回预测框失配，预测框匹配和检测框失配三种情况。匹配成功更新卡尔曼滤波器，匹配失败删除，检测框失配进行重新初始化为预测轨迹。</li>
+<li>1-2进行重复，匹配成功三次的情况下出现确认态，进行级联匹配。</li>
+<li>确认态使用级联匹配，级联匹配使用余弦距离和马氏距离，同样使用匈牙利进行匹配。匹配成功更新卡尔曼滤波器，R数组（100帧）中保存特征和运动信息，128维。确认态匹配后的失败次数为1的失配预测框与3中的非确认态进行IOU匹配，返回同样的三种结果。匹配成功的都用于更新卡尔曼滤波器。</li>
+<li>将确认态与非确认态的三种结果进行相加去除重复项。这里的失配项则参考max_age。即上文提到的确认态与非确认态的转变。</li>
+<li>重复4-5知道跟踪结束。</li>
+</ol>
+<p><img src="http://dingdm.online/jilianpipei.png" alt=""></p>
+<p>这里的级联匹配直接参考deepsort源码阅读二，那里面有着该部分的详细代码和数学实现。</p>
+<p>整个算法的难度不是很高，但是效果很好，主要是级联匹配解决了id的切换频繁问题。</p>
+<p>接下来考虑自己的优化。</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -772,7 +566,7 @@ end
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://dingdm.club/2022/03/09/kcf-yuan-ma-jie-xi/">https://dingdm.club/2022/03/09/kcf-yuan-ma-jie-xi/</a>
+                    <a href="https://dingdm.club/2022/09/18/deepsor-lun-wen-yue-du/">https://dingdm.club/2022/09/18/deepsor-lun-wen-yue-du/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -810,8 +604,8 @@ end
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/KCF/">
-                                    <span class="chip bg-color">KCF</span>
+                                <a href="/tags/track/">
+                                    <span class="chip bg-color">track</span>
                                 </a>
                             
                         </div>
@@ -1116,49 +910,53 @@ end
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2022/03/16/agx-xavier-kai-fa-ban-shua-ji-huan-jing-da-jian-yu-suan-fa-xun-lian/">
+                <a href="/2022/09/18/deepsor-lun-wen-yue-du/">
                     <div class="card-image">
                         
                         
-                        <img src="http://dingdm.online/14.jpg" class="responsive-img" alt="agx xavier开发板刷机、环境搭建与算法训练">
+                        <img src="http://dingdm.online/5.jpg" class="responsive-img" alt="DeepSor论文阅读">
                         
-                        <span class="card-title">agx xavier开发板刷机、环境搭建与算法训练</span>
+                        <span class="card-title">DeepSor论文阅读</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            agx xavier开发板刷机、环境搭建与算法训练
-开发板刷机
-主机需要Linux系统，安装sdkmanager。
-这里由于我的电脑是mac，使用pd虚拟机镜像是arm的，没找到桌面版的，而且sdkmanager是deb，不太适配。所以我这
+                            DeepSor论文阅读
+论文下载
+
+DeepSort的实现流程如上图所示。
+DeepSort算法的基础知识
+在DeepSort算法中，预测轨迹分为确定态和不确定态，不确定态的轨迹要和检测框连续匹配三次成功下转换为确定态；确定态要在失配70次
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-03-16
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-09-18
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%BC%80%E5%8F%91%E6%9D%BF/" class="post-category">
-                                    开发板
+                            <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    深度学习
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/nvdia-agx-Xavier/">
-                        <span class="chip bg-color">nvdia agx Xavier</span>
+                    <a href="/tags/track/">
+                        <span class="chip bg-color">track</span>
                     </a>
                     
                 </div>
@@ -1172,36 +970,35 @@ end
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/03/07/kcf-suan-fa-xiang-guan-zhi-shi/">
+                <a href="/2022/09/17/deepsort-yuan-ma-yue-du-er/">
                     <div class="card-image">
                         
                         
-                        <img src="http://dingdm.online/0.jpg" class="responsive-img" alt="KCF算法相关知识">
+                        <img src="http://dingdm.online/4.jpg" class="responsive-img" alt="DeepSort源码解析二">
                         
-                        <span class="card-title">KCF算法相关知识</span>
+                        <span class="card-title">DeepSort源码解析二</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            KCF算法相关知识
-相关滤波
-互相关与子相关
-
-图像追踪
-输入第一帧，选定追踪区域提取特征，训练得到相关滤波器。对与之后的每一帧，裁剪之前的预测区域，进行特征提取，加窗函数进行FFT变换，然后与相关滤波器相乘，结果做IFFT，最大响应点所在
+                            DeepSort源码解析二
+外观特征余弦距离计算
+创建数组R存储128维度的特征值，数组序号为多目标跟踪的id，数组内容为视频帧的特征值。数组的长度不超过100，即存储的目标特征帧不超过100帧。
+余弦相似度计算公式
+这里的向量A为i维的，
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-07
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-09-17
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%9B%BE%E5%83%8F%E8%BF%BD%E8%B8%AA/" class="post-category">
-                                    图像追踪
+                            <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    深度学习
                                 </a>
                             
                             
@@ -1211,8 +1008,8 @@ end
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/KCF/">
-                        <span class="chip bg-color">KCF</span>
+                    <a href="/tags/track/">
+                        <span class="chip bg-color">track</span>
                     </a>
                     
                 </div>
