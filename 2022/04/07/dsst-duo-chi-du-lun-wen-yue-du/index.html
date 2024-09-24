@@ -512,7 +512,7 @@ scaleFactors = scale_step.^(ceil(nScales/2) - ss);
 <pre class=" language-language-matlab"><code class="language-language-matlab">for frame = 1:num_frames,
     im = imread([video_path img_files{frame}]);
     tic;
-    if frame > 1
+    if frame &gt; 1
         xt = get_translation_sample(im, pos, sz, currentScaleFactor, cos_window);
         response = real(ifft2(sum(hf_num .* xtf, 3) ./ (hf_den + lambda))); 
         % 这里先获取位置的最大响应
@@ -524,9 +524,9 @@ scaleFactors = scale_step.^(ceil(nScales/2) - ss);
         % 这里得到的是尺寸最大响应
         recovered_scale = find(scale_response == max(scale_response(:)), 1);
         currentScaleFactor = currentScaleFactor * scaleFactors(recovered_scale);     %更新尺寸
-        if currentScaleFactor < min_scale_factor                                     %处理极值
+        if currentScaleFactor &lt; min_scale_factor                                     %处理极值
             currentScaleFactor = min_scale_factor;
-        elseif currentScaleFactor > max_scale_factor
+        elseif currentScaleFactor &gt; max_scale_factor
             currentScaleFactor = max_scale_factor;
         end
     end
@@ -559,7 +559,7 @@ scaleFactors = scale_step.^(ceil(nScales/2) - ss);
         rect_position = [pos([2,1]) - target_sz([2,1])/2, target_sz([2,1])];
         if frame == 1,  
             figure('Name',['Tracker - ' video_path]);
-            im_handle = imshow(uint8(im), 'Border','tight', 'InitialMag', 100 + 100 * (length(im) < 500));
+            im_handle = imshow(uint8(im), 'Border','tight', 'InitialMag', 100 + 100 * (length(im) &lt; 500));
             rect_handle = rectangle('Position',rect_position, 'EdgeColor','g');
             text_handle = text(10, 10, int2str(frame));
             set(text_handle, 'color', [0 1 1]);
@@ -631,7 +631,7 @@ scale_factors = [math.pow(self.scale_step,(np.ceil(33 / 2) - x)) for x in range(
 scale_factors = sorted(scale_factors)
 for x in scale_factors:
    n_loc, n_peak_value = self.detect(self.features, self.getFeatures(image, False, x))
-   if (0.96 * n_peak_value > peak_value):
+   if (0.96 * n_peak_value &gt; peak_value):
        scale_factor = x
        break
 self._scale *= scale_factor
@@ -1315,7 +1315,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">120.3k</span>&nbsp;字
+                class="white-color">109.9k</span>&nbsp;字
             
             
             

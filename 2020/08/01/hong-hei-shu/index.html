@@ -574,18 +574,18 @@
 </tr>
 </tbody>
 </table>
-<pre class=" language-language-java"><code class="language-language-java">static final class TreeNode<K,V> extends LinkedHashMap.Entry<K,V> {
-    //指向父节点的指针 		TreeNode<K,V> parent;
-    //指向左孩子的指针 TreeNode<K,V> left;
-    //指向右孩子的指针 TreeNode<K,V> right;
-    //前驱指针，跟next属性相反的指向 TreeNode<K,V> prev;
+<pre class=" language-language-java"><code class="language-language-java">static final class TreeNode<k,v> extends LinkedHashMap.Entry<k,v> {
+    //指向父节点的指针 		TreeNode<k,v> parent;
+    //指向左孩子的指针 TreeNode<k,v> left;
+    //指向右孩子的指针 TreeNode<k,v> right;
+    //前驱指针，跟next属性相反的指向 TreeNode<k,v> prev;
     //是否为红色节点 boolean red;
     //左旋方法如下
-    static <K, V> TreeNode<K, V> rotateLeft(TreeNode<K, V> root,
-                                            TreeNode<K, V> x) {
-        TreeNode<K, V> y, parent, β;//x表示要调整的节点，y表示x的右节点，parent表示x的parent节点，β表示x的右孩子的左孩子节点
+    static <k, v=""> TreeNode<k, v=""> rotateLeft(TreeNode<k, v=""> root,
+                                            TreeNode<k, v=""> x) {
+        TreeNode<k, v=""> y, parent, β;//x表示要调整的节点，y表示x的右节点，parent表示x的parent节点，β表示x的右孩子的左孩子节点
         //判断y，如果y为空则旋转没有意义
-        if (y != null && (β = y.left) != null) {
+        if (y != null &amp;&amp; (β = y.left) != null) {
             //设置的β父亲为x，β为x的右节点
             if ((β = y.left) != null)
                 x.right = β;
@@ -603,7 +603,7 @@
         return root;
     }
 }
-</code></pre>
+</k,></k,></k,></k,></k,></k,v></k,v></k,v></k,v></k,v></k,v></code></pre>
 <h5 id="右旋">右旋</h5>
 <p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/QQ%E6%88%AA%E5%9B%BE20200626191905.png" alt="右旋" title="右旋"><br>
 <strong>右旋和左旋的原理相同</strong></p>
@@ -1330,7 +1330,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">120.3k</span>&nbsp;字
+                class="white-color">109.9k</span>&nbsp;字
             
             
             

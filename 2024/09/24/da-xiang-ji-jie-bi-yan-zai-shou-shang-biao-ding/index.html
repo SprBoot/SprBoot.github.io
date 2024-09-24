@@ -505,7 +505,7 @@
 <p>使用USB接口相机标定时需要先使用标定板标定获取相机内参等信息，realsense相机自带标定信息。相机标定完成后在机械臂末端固定相机后使用aruco和机械臂位姿进行手眼标定。</p>
 <h4 id="相机标定">相机标定</h4>
 <p>大象机械臂内置了ROS1和ROS2环境，usb_cam默认安装编译完成，如果不是自带的话，ROS环境的安装可以使用鱼香的一键安装。</p>
-<pre class=" language-language-bash"><code class="language-language-bash">wget http://fishros.com/install -O fishros && . fishros
+<pre class=" language-language-bash"><code class="language-language-bash">wget http://fishros.com/install -O fishros &amp;&amp; . fishros
 </code></pre>
 <p>usb_cam安装如下所示。</p>
 <pre class=" language-language-bash"><code class="language-language-bash">cd ~/catkin_ws/src
@@ -521,21 +521,21 @@ catkin_make
 sudo vi usb_cam-test.launch
 </code></pre>
 <pre class=" language-language-xml"><code class="language-language-xml"><launch>  
-    <node name="usb_cam" pkg="usb_cam" type="usb_cam_node" output="screen" >    
+    <node name="usb_cam" pkg="usb_cam" type="usb_cam_node" output="screen">    
         <!-- modify the video device to your device -->    
-        <param name="video_device" value="/dev/video0" />    
+        <param name="video_device" value="/dev/video0">    
         <!-- modify the size of your device -->    
-        <param name="image_width" value="1280" />    
-        <param name="image_height" value="720" />   
-        <param name="pixel_format" value="yuyv" />    
-        <param name="camera_frame_id" value="usb_cam" />    
-        <param name="io_method" value="mmap"/>  
+        <param name="image_width" value="1280">    
+        <param name="image_height" value="720">   
+        <param name="pixel_format" value="yuyv">    
+        <param name="camera_frame_id" value="usb_cam">    
+        <param name="io_method" value="mmap">  
     </node>  
     
     <node name="image_view" pkg="image_view" type="image_view" respawn="false">  
-        <remap from="image" to="/usb_cam/image_raw"/>    
-        <param name="autosize" value="true" /> 
-    </node>
+        <remap from="image" to="/usb_cam/image_raw">    
+        <param name="autosize" value="true"> 
+    </remap></node>
 </launch>
 </code></pre>
 <p>大象机械臂内置的系统没有交换内存，所以比较卡。</p>
@@ -594,14 +594,14 @@ sudo swapon /swapfile
 	<!-- <arg name="port" default="/dev/ttyAMA0" />
 	<arg name="baud" default="1000000" /> -->
 	<!-- Load file model ，加载文件模型-->	
-	<arg name="model" default="$(find mycobot_description)/urdf/mycobot_280_pi/mycobot_280_pi.urdf"/>
-	<arg name="rvizconfig" default="$(find mycobot_280pi)/config/mycobot.rviz" />
-	<arg name="gui" default="true" />
+	<arg name="model" default="$(find mycobot_description)/urdf/mycobot_280_pi/mycobot_280_pi.urdf">
+	<arg name="rvizconfig" default="$(find mycobot_280pi)/config/mycobot.rviz">
+	<arg name="gui" default="true">
 
-	<param name="robot_description" command="$(find xacro)/xacro --inorder $(arg model)" />
+	<param name="robot_description" command="$(find xacro)/xacro --inorder $(arg model)">
 
 	<!-- Combinejoin values to TF，将值合并到TF -->
-	<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+	<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher">
 	<node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui"> 
 		<!-- <param name="use_gui" value="$(arg gui)" />	 -->
 		<!-- <rosparam param="source_list" subst_value="true">["joint_states"]</rosparam> -->
@@ -612,8 +612,8 @@ sudo swapon /swapfile
 		<param name="baud" type="int" value="$(arg baud)" />
 	</node> -->
 	<!-- Show in Rviz ，显示在Rviz-->
-	<node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true" />
-</launch>
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true">
+</node></node></arg></arg></arg></launch>
 </code></pre>
 <p>启动后软件如下图所示</p>
 <p><img src="https://raw.githubusercontent.com/SprBoot/hexo_image/refs/heads/master/mycobot.png" alt=""></p>
@@ -1291,7 +1291,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">120.3k</span>&nbsp;字
+                class="white-color">109.9k</span>&nbsp;字
             
             
             

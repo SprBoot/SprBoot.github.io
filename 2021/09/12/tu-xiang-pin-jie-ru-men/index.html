@@ -581,7 +581,7 @@
 <p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/hm.png" alt=""></p>
 <pre class=" language-language-python"><code class="language-language-python">    # 挑出好的匹配点
     for m, n in knn_matchers:
-        if m.distance < 0.5 * n.distance:
+        if m.distance &lt; 0.5 * n.distance:
             good_keypoints.append(m)
     left_points = np.zeros(shape=(len(good_keypoints), 2), dtype=np.float32)
     right_points = np.zeros(shape=(len(good_keypoints), 2), dtype=np.float32)
@@ -652,7 +652,7 @@ cv2.waitKey(0)
 </code></pre>
 <pre class=" language-language-python"><code class="language-language-python">    # 挑出好的匹配点
     for m in range(len(knn_matchers) - 1):
-        if knn_matchers[m][0].distance < 0.9 * knn_matchers[m][1].distance:
+        if knn_matchers[m][0].distance &lt; 0.9 * knn_matchers[m][1].distance:
             good_keypoints.append(knn_matchers[m])
 </code></pre>
 <script>
@@ -1341,7 +1341,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">120.3k</span>&nbsp;字
+                class="white-color">109.9k</span>&nbsp;字
             
             
             

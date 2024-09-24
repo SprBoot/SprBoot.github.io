@@ -479,14 +479,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    7.8k
+                    9.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    38 分
+                    47 分
                 </div>
                 
 
@@ -617,14 +617,14 @@ print(args)
     parser.add_argument('--sync-bn', action='store_true', help='use SyncBatchNorm, only available in DDP mode')
     parser.add_argument('--workers', type=int, default=8, help='maximum number of dataloader workers')
     parser.add_argument('--project', default='runs/train', help='save to project/name')
-    parser.add_argument('--entity', default=None, help='W&B entity')
+    parser.add_argument('--entity', default=None, help='W&amp;B entity')
     parser.add_argument('--name', default='exp', help='save to project/name')
     parser.add_argument('--exist-ok', action='store_true', help='existing project/name ok, do not increment')
     parser.add_argument('--quad', action='store_true', help='quad dataloader')
     parser.add_argument('--linear-lr', action='store_true', help='linear LR')
     parser.add_argument('--label-smoothing', type=float, default=0.0, help='Label smoothing epsilon')
-    parser.add_argument('--upload_dataset', action='store_true', help='Upload dataset as W&B artifact table')
-    parser.add_argument('--bbox_interval', type=int, default=-1, help='Set bounding-box image logging interval for W&B')
+    parser.add_argument('--upload_dataset', action='store_true', help='Upload dataset as W&amp;B artifact table')
+    parser.add_argument('--bbox_interval', type=int, default=-1, help='Set bounding-box image logging interval for W&amp;B')
     parser.add_argument('--save_period', type=int, default=-1, help='Log model after every "save_period" epoch')
     parser.add_argument('--artifact_alias', type=str, default="latest", help='version of dataset artifact to be used')
     parser.add_argument('--local_rank', type=int, default=-1, help='DDP parameter, do not modify')
@@ -687,11 +687,11 @@ def check_file(file, suffix=''):
     if Path(file).is_file() or file == '':  # exists
         return file
     elif file.startswith(('http:/', 'https:/')):  # download
-        url = str(Path(file)).replace(':/', '://')  # Pathlib turns :// -> :/
+        url = str(Path(file)).replace(':/', '://')  # Pathlib turns :// -&gt; :/
         file = Path(urllib.parse.unquote(file)).name.split('?')[0]  # '%2F' to '/', split https://url.com/file.txt?auth
         print(f'Downloading {url} to {file}...')
         torch.hub.download_url_to_file(url, file)
-        assert Path(file).exists() and Path(file).stat().st_size > 0, f'File download failed: {url}'  # check
+        assert Path(file).exists() and Path(file).stat().st_size &gt; 0, f'File download failed: {url}'  # check
         return file
     else:  # search
         files = glob.glob('./**/' + file, recursive=True)  # find file
@@ -756,15 +756,15 @@ def check_file(file, suffix=''):
         r = wh[:, None] / k[None]
         x = torch.min(r, 1. / r).min(2)[0]  # ratio metric
         best = x.max(1)[0]  # best_x
-        aat = (x > 1. / thr).float().sum(1).mean()  # anchors above threshold
-        bpr = (best > 1. / thr).float().mean()  # best possible recall
+        aat = (x &gt; 1. / thr).float().sum(1).mean()  # anchors above threshold
+        bpr = (best &gt; 1. / thr).float().mean()  # best possible recall
         return bpr, aat
     # h/h_a, w/w_a都要在(1/hyp['anchor_t'], hyp['anchor_t'])
     anchors = m.anchor_grid.clone().cpu().view(-1, 2)  # current anchors
     bpr, aat = metric(anchors)
     print(f'anchors/target = {aat:.2f}, Best Possible Recall (BPR) = {bpr:.4f}', end='')
     # 如果标签框满足上面条件的数量小于总数的98%，则根据k-mean算法聚类新的锚点anchor
-    if bpr < 0.98:  # threshold to recompute
+    if bpr &lt; 0.98:  # threshold to recompute
         print('. Attempting to improve anchors, please wait...')
         na = m.anchor_grid.numel() // 2  # number of anchors
         try:
@@ -772,7 +772,7 @@ def check_file(file, suffix=''):
         except Exception as e:
             print(f'{prefix}ERROR: {e}')
         new_bpr = metric(anchors)[0]
-        if new_bpr > bpr:  # replace anchors
+        if new_bpr &gt; bpr:  # replace anchors
             anchors = torch.tensor(anchors, device=m.anchors.device).type_as(m.anchors)
             m.anchor_grid[:] = anchors.clone().view_as(m.anchor_grid)  # for inference
             m.anchors[:] = anchors.clone().view_as(m.anchors) / m.stride.to(m.anchors.device).view(-1, 1, 1)  # loss
@@ -820,17 +820,17 @@ def check_file(file, suffix=''):
 
     def anchor_fitness(k):  # mutation fitness
         _, best = metric(torch.tensor(k, dtype=torch.float32), wh)
-        return (best * (best > thr).float()).mean()  # fitness
+        return (best * (best &gt; thr).float()).mean()  # fitness
 
     def print_results(k):
         k = k[np.argsort(k.prod(1))]  # sort small to large
         x, best = metric(k, wh0)
-        bpr, aat = (best > thr).float().mean(), (x > thr).float().mean() * n  # best possible recall, anch > thr
+        bpr, aat = (best &gt; thr).float().mean(), (x &gt; thr).float().mean() * n  # best possible recall, anch &gt; thr
         print(f'{prefix}thr={thr:.2f}: {bpr:.4f} best possible recall, {aat:.2f} anchors past thr')
         print(f'{prefix}n={n}, img_size={img_size}, metric_all={x.mean():.3f}/{best.mean():.3f}-mean/best, '
-              f'past_thr={x[x > thr].mean():.3f}-mean: ', end='')
+              f'past_thr={x[x &gt; thr].mean():.3f}-mean: ', end='')
         for i, x in enumerate(k):
-            print('%i,%i' % (round(x[0]), round(x[1])), end=',  ' if i < len(k) - 1 else '\n')  # use in *.cfg
+            print('%i,%i' % (round(x[0]), round(x[1])), end=',  ' if i &lt; len(k) - 1 else '\n')  # use in *.cfg
         return k
 
     if isinstance(dataset, str):  # *.yaml file
@@ -844,10 +844,10 @@ def check_file(file, suffix=''):
     wh0 = np.concatenate([l[:, 3:5] * s for s, l in zip(shapes, dataset.labels)])  # wh
 
     # Filter
-    i = (wh0 < 3.0).any(1).sum()
+    i = (wh0 &lt; 3.0).any(1).sum()
     if i:
-        print(f'{prefix}WARNING: Extremely small objects found. {i} of {len(wh0)} labels are < 3 pixels in size.')
-    wh = wh0[(wh0 >= 2.0).any(1)]  # filter > 2 pixels
+        print(f'{prefix}WARNING: Extremely small objects found. {i} of {len(wh0)} labels are &lt; 3 pixels in size.')
+    wh = wh0[(wh0 &gt;= 2.0).any(1)]  # filter &gt; 2 pixels
     # wh = wh * (np.random.rand(wh.shape[0], 1) * 0.9 + 0.1)  # multiply by random scale 0-1
 
     # Kmeans calculation
@@ -868,8 +868,8 @@ def check_file(file, suffix=''):
     # ax = ax.ravel()
     # ax[0].plot(np.arange(1, 21), np.array(d) ** 2, marker='.')
     # fig, ax = plt.subplots(1, 2, figsize=(14, 7))  # plot wh
-    # ax[0].hist(wh[wh[:, 0]<100, 0],400)
-    # ax[1].hist(wh[wh[:, 1]<100, 1],400)
+    # ax[0].hist(wh[wh[:, 0]&lt;100, 0],400)
+    # ax[1].hist(wh[wh[:, 1]&lt;100, 1],400)
     # fig.savefig('wh.png', dpi=200)
 
     # Evolve
@@ -879,10 +879,10 @@ def check_file(file, suffix=''):
     for _ in pbar:
         v = np.ones(sh)
         while (v == 1).all():  # mutate until a change occurs (prevent duplicates)
-            v = ((npr.random(sh) < mp) * random.random() * npr.randn(*sh) * s + 1).clip(0.3, 3.0)
+            v = ((npr.random(sh) &lt; mp) * random.random() * npr.randn(*sh) * s + 1).clip(0.3, 3.0)
         kg = (k.copy() * v).clip(min=2.0)
         fg = anchor_fitness(kg)
-        if fg > f:
+        if fg &gt; f:
             f, k = fg, kg.copy()
             pbar.desc = f'{prefix}Evolving anchors with Genetic Algorithm: fitness = {f:.4f}'
             if verbose:
@@ -894,7 +894,7 @@ def check_file(file, suffix=''):
 <p>由于刚开始训练时,模型的权重(weights)是随机初始化的，此时若选择一个较大的学习率,可能带来模型的不稳定(振荡)，选择Warmup预热学习率的方式，可以使得开始训练的几个epoches或者一些steps内学习率较小,在预热的小学习率下，模型可以慢慢趋于稳定,等模型相对稳定后再选择预先设置的学习率进行训练,使得模型收敛速度变得更快，模型效果更佳。</p>
 <pre class=" language-language-python"><code class="language-language-python">            # 热身训练(前nw次迭代)
             # 在前nw次迭代中，根据以下方式选取accumulate和学习率
-            if ni <= nw:
+            if ni &lt;= nw:
                 xi = [0, nw]  # x interp
                 # compute_loss.gr = np.interp(ni, xi, [0.0, 1.0])  # iou loss ratio (obj_loss = 1.0 or iou)
                 accumulate = max(1, np.interp(ni, xi, [1, nbs / batch_size]).round())
@@ -935,7 +935,7 @@ def check_file(file, suffix=''):
 <pre class=" language-language-python"><code class="language-language-python">    device = select_device(opt.device, batch_size=opt.batch_size)
     if LOCAL_RANK != -1:
         from datetime import timedelta
-        assert torch.cuda.device_count() > LOCAL_RANK, 'insufficient CUDA devices for DDP command'
+        assert torch.cuda.device_count() &gt; LOCAL_RANK, 'insufficient CUDA devices for DDP command'
         assert opt.batch_size % WORLD_SIZE == 0, '--batch-size must be multiple of CUDA device count'
         assert not opt.image_weights, '--image-weights argument is not compatible with DDP training'
         assert not opt.evolve, '--evolve argument is not compatible with DDP training'
@@ -947,7 +947,7 @@ def check_file(file, suffix=''):
 <pre class=" language-language-python"><code class="language-language-python">    # 没有设置超参数优化，直接进行训练
     if not opt.evolve:
         train(opt.hyp, opt, device, callbacks)
-        if WORLD_SIZE > 1 and RANK == 0:
+        if WORLD_SIZE &gt; 1 and RANK == 0:
             LOGGER.info('Destroying process group... ')
             dist.destroy_process_group()
 
@@ -1001,7 +1001,7 @@ def check_file(file, suffix=''):
                 x = np.loadtxt(evolve_csv, ndmin=2, delimiter=',', skiprows=1)
                 n = min(5, len(x))  # number of previous results to consider
                 x = x[np.argsort(-fitness(x))][:n]  # top n mutations
-                w = fitness(x) - fitness(x).min() + 1E-6  # weights (sum > 0)
+                w = fitness(x) - fitness(x).min() + 1E-6  # weights (sum &gt; 0)
                 if parent == 'single' or len(x) == 1:
                     # x = x[random.randint(0, n - 1)]  # random selection
                     x = x[random.choices(range(n), weights=w)[0]]  # weighted selection
@@ -1016,7 +1016,7 @@ def check_file(file, suffix=''):
                 ng = len(meta)
                 v = np.ones(ng)
                 while all(v == 1):  # mutate until a change occurs (prevent duplicates)
-                    v = (g * (npr.random(ng) < mp) * npr.randn(ng) * npr.random() * s + 1).clip(0.3, 3.0)
+                    v = (g * (npr.random(ng) &lt; mp) * npr.randn(ng) * npr.random() * s + 1).clip(0.3, 3.0)
                 for i, k in enumerate(hyp.keys()):  # plt.hist(v.ravel(), 300)
                     hyp[k] = float(x[i + 7] * v[i])  # mutate
 
@@ -1179,8 +1179,8 @@ def check_file(file, suffix=''):
         # 则视新设置的epochs为需要再训练的轮次数而不再是总的轮次数
         start_epoch = ckpt['epoch'] + 1
         if resume:
-            assert start_epoch > 0, f'{weights} training to {epochs} epochs is finished, nothing to resume.'
-        if epochs < start_epoch:
+            assert start_epoch &gt; 0, f'{weights} training to {epochs} epochs is finished, nothing to resume.'
+        if epochs &lt; start_epoch:
             LOGGER.info(f"{weights} has been trained for {ckpt['epoch']} epochs. Fine-tuning for {epochs} more epochs.")
             epochs += ckpt['epoch']  # finetune additional epochs
 
@@ -1192,7 +1192,7 @@ def check_file(file, suffix=''):
     imgsz = check_img_size(opt.imgsz, gs, floor=gs * 2)  # verify imgsz is gs-multiple
 
     # 单机多卡训练
-    if cuda and RANK == -1 and torch.cuda.device_count() > 1:
+    if cuda and RANK == -1 and torch.cuda.device_count() &gt; 1:
         logging.warning('DP not recommended, instead use torch.distributed.run for best DDP Multi-GPU results.\n'
                         'See Multi-GPU Tutorial at https://github.com/ultralytics/yolov5/issues/475 to get started.')
         model = torch.nn.DataParallel(model)
@@ -1210,7 +1210,7 @@ def check_file(file, suffix=''):
     # 判断类别与配置中的最大类别nc进行比价，大于nc则错误
     mlc = int(np.concatenate(dataset.labels, 0)[:, 0].max())  # max label class
     nb = len(train_loader)  # number of batches
-    assert mlc < nc, f'Label class {mlc} exceeds nc={nc} in {data}. Possible class labels are 0-{nc - 1}'
+    assert mlc &lt; nc, f'Label class {mlc} exceeds nc={nc} in {data}. Possible class labels are 0-{nc - 1}'
 
     # Process 0
     if RANK in [-1, 0]:
@@ -1255,7 +1255,7 @@ def check_file(file, suffix=''):
     # Start training
     t0 = time.time()
     nw = max(round(hyp['warmup_epochs'] * nb), 1000)  # number of warmup iterations, max(3 epochs, 1k iterations)
-    # nw = min(nw, (epochs - start_epoch) / 2 * nb)  # limit warmup to < 1/2 of training
+    # nw = min(nw, (epochs - start_epoch) / 2 * nb)  # limit warmup to &lt; 1/2 of training
     last_opt_step = -1
     # 初始化类别和结果
     maps = np.zeros(nc)  # mAP per class
@@ -1296,7 +1296,7 @@ def check_file(file, suffix=''):
 
             # 热身训练(前nw次迭代)
             # 在前nw次迭代中，根据以下方式选取accumulate和学习率
-            if ni <= nw:
+            if ni &lt;= nw:
                 xi = [0, nw]  # x interp
                 # bias的学习率从0.1下降到基准学习率lr*lf(epoch)，
                 # 其他的参数学习率从0增加到lr*lf(epoch).
@@ -1330,7 +1330,7 @@ def check_file(file, suffix=''):
             scaler.scale(loss).backward()
 
             # 参数更新
-            if ni - last_opt_step >= accumulate:
+            if ni - last_opt_step &gt;= accumulate:
                 scaler.step(optimizer)  # optimizer.step
                 scaler.update()
                 # 梯度归0
@@ -1367,14 +1367,14 @@ def check_file(file, suffix=''):
                                            dataloader=val_loader,
                                            save_dir=save_dir,
                                            save_json=is_coco and final_epoch,
-                                           verbose=nc < 50 and final_epoch,
+                                           verbose=nc &lt; 50 and final_epoch,
                                            plots=plots and final_epoch,
                                            callbacks=callbacks,
                                            compute_loss=compute_loss)
 
             # Update best mAP
             fi = fitness(np.array(results).reshape(1, -1))  # weighted combination of [P, R, mAP@.5, mAP@.5-.95]
-            if fi > best_fitness:
+            if fi &gt; best_fitness:
                 best_fitness = fi
             log_vals = list(mloss) + list(results) + lr
             callbacks.run('on_fit_epoch_end', log_vals, epoch, best_fitness, fi)
@@ -2123,7 +2123,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">120.3k</span>&nbsp;字
+                class="white-color">109.9k</span>&nbsp;字
             
             
             

@@ -621,7 +621,7 @@
         image = image.reshape(1, image.shape[0], image.shape[1])
         label = label.reshape(1, label.shape[0], label.shape[1])
         # 处理标签，将像素值为255的改为1
-        if label.max() > 1:
+        if label.max() &gt; 1:
             label = label / 255
         # 随机进行数据增强，为2时不做处理
         flipCode = random.choice([-1, 0, 1, 2])
@@ -655,7 +655,7 @@
             # 计算损失
             loss = criterion(yhat,label)
             print('loss',loss)
-            if loss < best_loss:
+            if loss &lt; best_loss:
                 best_loss = loss
                 torch.save(model.state_dict(), 'best_model.pth')
             # 反向传播
@@ -688,8 +688,8 @@
         # 提取结果
         pred = np.array(pred.data.cpu()[0])[0]
         # 处理结果
-        pred[pred >= 0.5] = 255
-        pred[pred < 0.5] = 0
+        pred[pred &gt;= 0.5] = 255
+        pred[pred &lt; 0.5] = 0
         cv2.imwrite(save_res_path, pred)
 </code></pre>
 <h5 id="测试结果">测试结果</h5>
@@ -1367,7 +1367,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">120.3k</span>&nbsp;字
+                class="white-color">109.9k</span>&nbsp;字
             
             
             
