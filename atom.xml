@@ -5,9 +5,9 @@
   <subtitle>叮当猫</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="https://dingdm.club/"/>
+  <link href="https://sprboot.github.io/"/>
   <updated>2024-09-24T04:34:19.248Z</updated>
-  <id>https://dingdm.club/</id>
+  <id>https://sprboot.github.io/</id>
   
   <author>
     <name>dinggc</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>美剧爬虫</title>
-    <link href="https://dingdm.club/2022/04/30/mei-ju-pa-chong/"/>
-    <id>https://dingdm.club/2022/04/30/mei-ju-pa-chong/</id>
+    <link href="https://sprboot.github.io/2022/04/30/mei-ju-pa-chong/"/>
+    <id>https://sprboot.github.io/2022/04/30/mei-ju-pa-chong/</id>
     <published>2022-04-30T10:46:12.000Z</published>
     <updated>2024-09-24T04:34:19.248Z</updated>
     
@@ -35,17 +35,17 @@
     </summary>
     
     
-      <category term="python" scheme="https://dingdm.club/categories/python/"/>
+      <category term="python" scheme="https://sprboot.github.io/categories/python/"/>
     
     
-      <category term="爬虫" scheme="https://dingdm.club/tags/%E7%88%AC%E8%99%AB/"/>
+      <category term="爬虫" scheme="https://sprboot.github.io/tags/%E7%88%AC%E8%99%AB/"/>
     
   </entry>
   
   <entry>
     <title>DSST多尺度论文阅读</title>
-    <link href="https://dingdm.club/2022/04/07/dsst-duo-chi-du-lun-wen-yue-du/"/>
-    <id>https://dingdm.club/2022/04/07/dsst-duo-chi-du-lun-wen-yue-du/</id>
+    <link href="https://sprboot.github.io/2022/04/07/dsst-duo-chi-du-lun-wen-yue-du/"/>
+    <id>https://sprboot.github.io/2022/04/07/dsst-duo-chi-du-lun-wen-yue-du/</id>
     <published>2022-04-07T05:43:12.000Z</published>
     <updated>2022-04-07T05:43:10.000Z</updated>
     
@@ -61,17 +61,17 @@
     </summary>
     
     
-      <category term="图像追踪" scheme="https://dingdm.club/categories/%E5%9B%BE%E5%83%8F%E8%BF%BD%E8%B8%AA/"/>
+      <category term="图像追踪" scheme="https://sprboot.github.io/categories/%E5%9B%BE%E5%83%8F%E8%BF%BD%E8%B8%AA/"/>
     
     
-      <category term="DSST" scheme="https://dingdm.club/tags/DSST/"/>
+      <category term="DSST" scheme="https://sprboot.github.io/tags/DSST/"/>
     
   </entry>
   
   <entry>
     <title>人工智能</title>
-    <link href="https://dingdm.club/2022/04/04/tu-xiang-zhui-zong/"/>
-    <id>https://dingdm.club/2022/04/04/tu-xiang-zhui-zong/</id>
+    <link href="https://sprboot.github.io/2022/04/04/tu-xiang-zhui-zong/"/>
+    <id>https://sprboot.github.io/2022/04/04/tu-xiang-zhui-zong/</id>
     <published>2022-04-04T03:04:12.000Z</published>
     <updated>2022-04-06T11:49:04.000Z</updated>
     
@@ -88,17 +88,17 @@
     </summary>
     
     
-      <category term="图像追踪" scheme="https://dingdm.club/categories/%E5%9B%BE%E5%83%8F%E8%BF%BD%E8%B8%AA/"/>
+      <category term="图像追踪" scheme="https://sprboot.github.io/categories/%E5%9B%BE%E5%83%8F%E8%BF%BD%E8%B8%AA/"/>
     
     
-      <category term="人工智能" scheme="https://dingdm.club/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+      <category term="人工智能" scheme="https://sprboot.github.io/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
     
   </entry>
   
   <entry>
     <title>KCF算法综合</title>
-    <link href="https://dingdm.club/2022/03/26/kcf-suan-fa-zong-he/"/>
-    <id>https://dingdm.club/2022/03/26/kcf-suan-fa-zong-he/</id>
+    <link href="https://sprboot.github.io/2022/03/26/kcf-suan-fa-zong-he/"/>
+    <id>https://sprboot.github.io/2022/03/26/kcf-suan-fa-zong-he/</id>
     <published>2022-03-26T03:04:12.000Z</published>
     <updated>2024-09-24T04:43:55.532Z</updated>
     
@@ -115,17 +115,17 @@
     </summary>
     
     
-      <category term="图像追踪" scheme="https://dingdm.club/categories/%E5%9B%BE%E5%83%8F%E8%BF%BD%E8%B8%AA/"/>
+      <category term="图像追踪" scheme="https://sprboot.github.io/categories/%E5%9B%BE%E5%83%8F%E8%BF%BD%E8%B8%AA/"/>
     
     
-      <category term="KCF" scheme="https://dingdm.club/tags/KCF/"/>
+      <category term="KCF" scheme="https://sprboot.github.io/tags/KCF/"/>
     
   </entry>
   
   <entry>
     <title>kcf源码复现</title>
-    <link href="https://dingdm.club/2022/03/18/kcf-yuan-ma-fu-xian/"/>
-    <id>https://dingdm.club/2022/03/18/kcf-yuan-ma-fu-xian/</id>
+    <link href="https://sprboot.github.io/2022/03/18/kcf-yuan-ma-fu-xian/"/>
+    <id>https://sprboot.github.io/2022/03/18/kcf-yuan-ma-fu-xian/</id>
     <published>2022-03-18T09:34:12.000Z</published>
     <updated>2022-03-26T02:56:52.000Z</updated>
     
@@ -141,17 +141,17 @@
     </summary>
     
     
-      <category term="图像追踪" scheme="https://dingdm.club/categories/%E5%9B%BE%E5%83%8F%E8%BF%BD%E8%B8%AA/"/>
+      <category term="图像追踪" scheme="https://sprboot.github.io/categories/%E5%9B%BE%E5%83%8F%E8%BF%BD%E8%B8%AA/"/>
     
     
-      <category term="KCF" scheme="https://dingdm.club/tags/KCF/"/>
+      <category term="KCF" scheme="https://sprboot.github.io/tags/KCF/"/>
     
   </entry>
   
   <entry>
     <title>agx xavier开发板刷机、环境搭建与算法训练</title>
-    <link href="https://dingdm.club/2022/03/16/agx-xavier-kai-fa-ban-shua-ji-huan-jing-da-jian-yu-suan-fa-xun-lian/"/>
-    <id>https://dingdm.club/2022/03/16/agx-xavier-kai-fa-ban-shua-ji-huan-jing-da-jian-yu-suan-fa-xun-lian/</id>
+    <link href="https://sprboot.github.io/2022/03/16/agx-xavier-kai-fa-ban-shua-ji-huan-jing-da-jian-yu-suan-fa-xun-lian/"/>
+    <id>https://sprboot.github.io/2022/03/16/agx-xavier-kai-fa-ban-shua-ji-huan-jing-da-jian-yu-suan-fa-xun-lian/</id>
     <published>2022-03-16T07:03:12.000Z</published>
     <updated>2024-09-24T04:40:45.571Z</updated>
     
@@ -168,17 +168,17 @@
     </summary>
     
     
-      <category term="开发板" scheme="https://dingdm.club/categories/%E5%BC%80%E5%8F%91%E6%9D%BF/"/>
+      <category term="开发板" scheme="https://sprboot.github.io/categories/%E5%BC%80%E5%8F%91%E6%9D%BF/"/>
     
     
-      <category term="nvdia agx Xavier" scheme="https://dingdm.club/tags/nvdia-agx-Xavier/"/>
+      <category term="nvdia agx Xavier" scheme="https://sprboot.github.io/tags/nvdia-agx-Xavier/"/>
     
   </entry>
   
   <entry>
     <title>KCF源码解析</title>
-    <link href="https://dingdm.club/2022/03/09/kcf-yuan-ma-jie-xi/"/>
-    <id>https://dingdm.club/2022/03/09/kcf-yuan-ma-jie-xi/</id>
+    <link href="https://sprboot.github.io/2022/03/09/kcf-yuan-ma-jie-xi/"/>
+    <id>https://sprboot.github.io/2022/03/09/kcf-yuan-ma-jie-xi/</id>
     <published>2022-03-09T09:40:12.000Z</published>
     <updated>2024-09-24T04:44:49.711Z</updated>
     
@@ -196,17 +196,17 @@
     </summary>
     
     
-      <category term="图像追踪" scheme="https://dingdm.club/categories/%E5%9B%BE%E5%83%8F%E8%BF%BD%E8%B8%AA/"/>
+      <category term="图像追踪" scheme="https://sprboot.github.io/categories/%E5%9B%BE%E5%83%8F%E8%BF%BD%E8%B8%AA/"/>
     
     
-      <category term="KCF" scheme="https://dingdm.club/tags/KCF/"/>
+      <category term="KCF" scheme="https://sprboot.github.io/tags/KCF/"/>
     
   </entry>
   
   <entry>
     <title>KCF算法相关知识</title>
-    <link href="https://dingdm.club/2022/03/07/kcf-suan-fa-xiang-guan-zhi-shi/"/>
-    <id>https://dingdm.club/2022/03/07/kcf-suan-fa-xiang-guan-zhi-shi/</id>
+    <link href="https://sprboot.github.io/2022/03/07/kcf-suan-fa-xiang-guan-zhi-shi/"/>
+    <id>https://sprboot.github.io/2022/03/07/kcf-suan-fa-xiang-guan-zhi-shi/</id>
     <published>2022-03-07T12:12:12.000Z</published>
     <updated>2024-09-24T04:42:35.170Z</updated>
     
@@ -223,17 +223,17 @@
     </summary>
     
     
-      <category term="图像追踪" scheme="https://dingdm.club/categories/%E5%9B%BE%E5%83%8F%E8%BF%BD%E8%B8%AA/"/>
+      <category term="图像追踪" scheme="https://sprboot.github.io/categories/%E5%9B%BE%E5%83%8F%E8%BF%BD%E8%B8%AA/"/>
     
     
-      <category term="KCF" scheme="https://dingdm.club/tags/KCF/"/>
+      <category term="KCF" scheme="https://sprboot.github.io/tags/KCF/"/>
     
   </entry>
   
   <entry>
     <title>Ubuntu20.04安装Hadoop和Hive(PD虚拟机 MAC M1)</title>
-    <link href="https://dingdm.club/2021/12/01/ubuntu20.04-an-zhuang-hadoop-he-hive-pd-xu-ni-ji-mac-m1/"/>
-    <id>https://dingdm.club/2021/12/01/ubuntu20.04-an-zhuang-hadoop-he-hive-pd-xu-ni-ji-mac-m1/</id>
+    <link href="https://sprboot.github.io/2021/12/01/ubuntu20.04-an-zhuang-hadoop-he-hive-pd-xu-ni-ji-mac-m1/"/>
+    <id>https://sprboot.github.io/2021/12/01/ubuntu20.04-an-zhuang-hadoop-he-hive-pd-xu-ni-ji-mac-m1/</id>
     <published>2021-12-01T07:09:30.000Z</published>
     <updated>2024-09-24T04:50:16.791Z</updated>
     
@@ -248,17 +248,17 @@
     </summary>
     
     
-      <category term="大数据" scheme="https://dingdm.club/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+      <category term="大数据" scheme="https://sprboot.github.io/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
     
     
-      <category term="hadoop" scheme="https://dingdm.club/tags/hadoop/"/>
+      <category term="hadoop" scheme="https://sprboot.github.io/tags/hadoop/"/>
     
   </entry>
   
   <entry>
     <title>L0梯度最小化去雨论文代码</title>
-    <link href="https://dingdm.club/2021/11/29/l0-ti-du-zui-xiao-hua-qu-yu-lun-wen-dai-ma/"/>
-    <id>https://dingdm.club/2021/11/29/l0-ti-du-zui-xiao-hua-qu-yu-lun-wen-dai-ma/</id>
+    <link href="https://sprboot.github.io/2021/11/29/l0-ti-du-zui-xiao-hua-qu-yu-lun-wen-dai-ma/"/>
+    <id>https://sprboot.github.io/2021/11/29/l0-ti-du-zui-xiao-hua-qu-yu-lun-wen-dai-ma/</id>
     <published>2021-11-29T13:17:58.000Z</published>
     <updated>2024-09-24T04:45:18.419Z</updated>
     
@@ -272,17 +272,17 @@
     </summary>
     
     
-      <category term="深度学习" scheme="https://dingdm.club/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+      <category term="深度学习" scheme="https://sprboot.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
     
-      <category term="编码" scheme="https://dingdm.club/tags/%E7%BC%96%E7%A0%81/"/>
+      <category term="编码" scheme="https://sprboot.github.io/tags/%E7%BC%96%E7%A0%81/"/>
     
   </entry>
   
   <entry>
     <title>leetcode刷题(11.24)</title>
-    <link href="https://dingdm.club/2021/11/24/leetcode-shua-ti-11.24/"/>
-    <id>https://dingdm.club/2021/11/24/leetcode-shua-ti-11.24/</id>
+    <link href="https://sprboot.github.io/2021/11/24/leetcode-shua-ti-11.24/"/>
+    <id>https://sprboot.github.io/2021/11/24/leetcode-shua-ti-11.24/</id>
     <published>2021-11-24T05:26:30.000Z</published>
     <updated>2024-09-24T04:45:44.314Z</updated>
     
@@ -298,17 +298,17 @@
     </summary>
     
     
-      <category term="算法" scheme="https://dingdm.club/categories/%E7%AE%97%E6%B3%95/"/>
+      <category term="算法" scheme="https://sprboot.github.io/categories/%E7%AE%97%E6%B3%95/"/>
     
     
-      <category term="leetcode" scheme="https://dingdm.club/tags/leetcode/"/>
+      <category term="leetcode" scheme="https://sprboot.github.io/tags/leetcode/"/>
     
   </entry>
   
   <entry>
     <title>FPN网络理论</title>
-    <link href="https://dingdm.club/2021/11/11/fpn-wang-luo-li-lun/"/>
-    <id>https://dingdm.club/2021/11/11/fpn-wang-luo-li-lun/</id>
+    <link href="https://sprboot.github.io/2021/11/11/fpn-wang-luo-li-lun/"/>
+    <id>https://sprboot.github.io/2021/11/11/fpn-wang-luo-li-lun/</id>
     <published>2021-11-11T13:18:30.000Z</published>
     <updated>2024-09-24T04:41:53.420Z</updated>
     
@@ -325,17 +325,17 @@
     </summary>
     
     
-      <category term="深度学习" scheme="https://dingdm.club/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+      <category term="深度学习" scheme="https://sprboot.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
     
-      <category term="论文" scheme="https://dingdm.club/tags/%E8%AE%BA%E6%96%87/"/>
+      <category term="论文" scheme="https://sprboot.github.io/tags/%E8%AE%BA%E6%96%87/"/>
     
   </entry>
   
   <entry>
     <title>ResNet网络理论</title>
-    <link href="https://dingdm.club/2021/11/11/resnet-wang-luo-jie-gou-li-lun/"/>
-    <id>https://dingdm.club/2021/11/11/resnet-wang-luo-jie-gou-li-lun/</id>
+    <link href="https://sprboot.github.io/2021/11/11/resnet-wang-luo-jie-gou-li-lun/"/>
+    <id>https://sprboot.github.io/2021/11/11/resnet-wang-luo-jie-gou-li-lun/</id>
     <published>2021-11-11T09:43:30.000Z</published>
     <updated>2024-09-24T04:48:36.191Z</updated>
     
@@ -352,17 +352,17 @@
     </summary>
     
     
-      <category term="深度学习" scheme="https://dingdm.club/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+      <category term="深度学习" scheme="https://sprboot.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
     
-      <category term="论文" scheme="https://dingdm.club/tags/%E8%AE%BA%E6%96%87/"/>
+      <category term="论文" scheme="https://sprboot.github.io/tags/%E8%AE%BA%E6%96%87/"/>
     
   </entry>
   
   <entry>
     <title>yolo相关理论补充</title>
-    <link href="https://dingdm.club/2021/11/09/yolo-xiang-guan-li-lun/"/>
-    <id>https://dingdm.club/2021/11/09/yolo-xiang-guan-li-lun/</id>
+    <link href="https://sprboot.github.io/2021/11/09/yolo-xiang-guan-li-lun/"/>
+    <id>https://sprboot.github.io/2021/11/09/yolo-xiang-guan-li-lun/</id>
     <published>2021-11-09T13:24:40.000Z</published>
     <updated>2024-09-24T04:51:17.205Z</updated>
     
@@ -380,17 +380,17 @@ FN:没有检测到的GT的数量&lt;/p&gt;
     </summary>
     
     
-      <category term="深度学习" scheme="https://dingdm.club/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+      <category term="深度学习" scheme="https://sprboot.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
     
-      <category term="论文" scheme="https://dingdm.club/tags/%E8%AE%BA%E6%96%87/"/>
+      <category term="论文" scheme="https://sprboot.github.io/tags/%E8%AE%BA%E6%96%87/"/>
     
   </entry>
   
   <entry>
     <title>AUNet论文阅读</title>
-    <link href="https://dingdm.club/2021/10/07/aunet-lun-wen-yue-du/"/>
-    <id>https://dingdm.club/2021/10/07/aunet-lun-wen-yue-du/</id>
+    <link href="https://sprboot.github.io/2021/10/07/aunet-lun-wen-yue-du/"/>
+    <id>https://sprboot.github.io/2021/10/07/aunet-lun-wen-yue-du/</id>
     <published>2021-10-07T12:27:40.000Z</published>
     <updated>2024-09-24T04:41:06.798Z</updated>
     
@@ -407,17 +407,17 @@ FN:没有检测到的GT的数量&lt;/p&gt;
     </summary>
     
     
-      <category term="深度学习" scheme="https://dingdm.club/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+      <category term="深度学习" scheme="https://sprboot.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
     
-      <category term="论文" scheme="https://dingdm.club/tags/%E8%AE%BA%E6%96%87/"/>
+      <category term="论文" scheme="https://sprboot.github.io/tags/%E8%AE%BA%E6%96%87/"/>
     
   </entry>
   
   <entry>
     <title>UNet编码</title>
-    <link href="https://dingdm.club/2021/10/06/unet-bian-ma/"/>
-    <id>https://dingdm.club/2021/10/06/unet-bian-ma/</id>
+    <link href="https://sprboot.github.io/2021/10/06/unet-bian-ma/"/>
+    <id>https://sprboot.github.io/2021/10/06/unet-bian-ma/</id>
     <published>2021-10-06T13:22:30.000Z</published>
     <updated>2024-09-24T04:50:35.467Z</updated>
     
@@ -433,17 +433,17 @@ FN:没有检测到的GT的数量&lt;/p&gt;
     </summary>
     
     
-      <category term="深度学习" scheme="https://dingdm.club/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+      <category term="深度学习" scheme="https://sprboot.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
     
-      <category term="图像分割" scheme="https://dingdm.club/tags/%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2/"/>
+      <category term="图像分割" scheme="https://sprboot.github.io/tags/%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2/"/>
     
   </entry>
   
   <entry>
     <title>U-Net论文阅读</title>
-    <link href="https://dingdm.club/2021/10/05/u-net-lun-wen-yue-du/"/>
-    <id>https://dingdm.club/2021/10/05/u-net-lun-wen-yue-du/</id>
+    <link href="https://sprboot.github.io/2021/10/05/u-net-lun-wen-yue-du/"/>
+    <id>https://sprboot.github.io/2021/10/05/u-net-lun-wen-yue-du/</id>
     <published>2021-10-05T13:26:40.000Z</published>
     <updated>2024-09-24T04:49:58.607Z</updated>
     
@@ -461,17 +461,17 @@ FN:没有检测到的GT的数量&lt;/p&gt;
     </summary>
     
     
-      <category term="深度学习" scheme="https://dingdm.club/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+      <category term="深度学习" scheme="https://sprboot.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
     
-      <category term="论文" scheme="https://dingdm.club/tags/%E8%AE%BA%E6%96%87/"/>
+      <category term="论文" scheme="https://sprboot.github.io/tags/%E8%AE%BA%E6%96%87/"/>
     
   </entry>
   
   <entry>
     <title>论文阅读第二部分</title>
-    <link href="https://dingdm.club/2021/10/01/lun-wen-yue-du-di-er-bu-fen/"/>
-    <id>https://dingdm.club/2021/10/01/lun-wen-yue-du-di-er-bu-fen/</id>
+    <link href="https://sprboot.github.io/2021/10/01/lun-wen-yue-du-di-er-bu-fen/"/>
+    <id>https://sprboot.github.io/2021/10/01/lun-wen-yue-du-di-er-bu-fen/</id>
     <published>2021-10-01T09:47:30.000Z</published>
     <updated>2024-09-24T04:32:31.636Z</updated>
     
@@ -488,17 +488,17 @@ FN:没有检测到的GT的数量&lt;/p&gt;
     </summary>
     
     
-      <category term="深度学习" scheme="https://dingdm.club/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+      <category term="深度学习" scheme="https://sprboot.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
     
-      <category term="论文" scheme="https://dingdm.club/tags/%E8%AE%BA%E6%96%87/"/>
+      <category term="论文" scheme="https://sprboot.github.io/tags/%E8%AE%BA%E6%96%87/"/>
     
   </entry>
   
   <entry>
     <title>论文阅读第一部分</title>
-    <link href="https://dingdm.club/2021/09/29/lun-wen-yue-du-di-yi-bu-fen/"/>
-    <id>https://dingdm.club/2021/09/29/lun-wen-yue-du-di-yi-bu-fen/</id>
+    <link href="https://sprboot.github.io/2021/09/29/lun-wen-yue-du-di-yi-bu-fen/"/>
+    <id>https://sprboot.github.io/2021/09/29/lun-wen-yue-du-di-yi-bu-fen/</id>
     <published>2021-09-29T13:16:30.000Z</published>
     <updated>2024-09-24T04:33:12.219Z</updated>
     
@@ -515,17 +515,17 @@ FN:没有检测到的GT的数量&lt;/p&gt;
     </summary>
     
     
-      <category term="深度学习" scheme="https://dingdm.club/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+      <category term="深度学习" scheme="https://sprboot.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
     
-      <category term="论文" scheme="https://dingdm.club/tags/%E8%AE%BA%E6%96%87/"/>
+      <category term="论文" scheme="https://sprboot.github.io/tags/%E8%AE%BA%E6%96%87/"/>
     
   </entry>
   
   <entry>
     <title>yolov5源码解析一</title>
-    <link href="https://dingdm.club/2021/09/27/yolov5-yuan-ma-jie-xi/"/>
-    <id>https://dingdm.club/2021/09/27/yolov5-yuan-ma-jie-xi/</id>
+    <link href="https://sprboot.github.io/2021/09/27/yolov5-yuan-ma-jie-xi/"/>
+    <id>https://sprboot.github.io/2021/09/27/yolov5-yuan-ma-jie-xi/</id>
     <published>2021-09-27T08:36:40.000Z</published>
     <updated>2024-09-24T04:51:41.944Z</updated>
     
@@ -541,10 +541,10 @@ FN:没有检测到的GT的数量&lt;/p&gt;
     </summary>
     
     
-      <category term="深度学习" scheme="https://dingdm.club/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+      <category term="深度学习" scheme="https://sprboot.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
     
-      <category term="算法" scheme="https://dingdm.club/tags/%E7%AE%97%E6%B3%95/"/>
+      <category term="算法" scheme="https://sprboot.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
