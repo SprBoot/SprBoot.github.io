@@ -486,7 +486,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    4 分
                 </div>
                 
 
@@ -520,9 +520,9 @@ catkin_make
 <pre class=" language-language-bash"><code class="language-language-bash">roscd usb_cam
 sudo vi usb_cam-test.launch
 </code></pre>
-<pre class=" language-language-python"><code class="language-language-python"><param name="video_device" value="/dev/video0" />        
-<param name="image_width" value="1280" />    
-<param name="image_height" value="720" />  
+<pre class=" language-language-python"><code class="language-language-python">param name="video_device" value="/dev/video0"      
+param name="image_width" value="1280" 
+param name="image_height" value="720" 
 </code></pre>
 <p>大象机械臂内置的系统没有交换内存，所以比较卡。</p>
 <pre class=" language-language-bash"><code class="language-language-bash">roslaunch usb_cam usb_cam-test.launch
@@ -570,10 +570,10 @@ sudo swapon /swapfile
 <pre class=" language-language-bash"><code class="language-language-bash">roslaunch mycobot_280pi slider_control.launch
 </code></pre>
 <p>运行上述命令后发现机械臂不随软件调试变化，这里修改一下slider_control代码即可，修改如下。</p>
-<pre class=" language-language-python"><code class="language-language-python">	<!-- <node name="control_slider" pkg="mycobot_280pi" type="slider_control.py"> 
-		<param name="port" type="string" value="$(arg port)" />
-		<param name="baud" type="int" value="$(arg baud)" />
-	</node> -->
+<pre class=" language-language-python"><code class="language-language-python">node name="control_slider" pkg="mycobot_280pi" type="slider_control.py">
+		param name="port" type="string" value="$(arg port)"
+		param name="baud" type="int" value="$(arg baud)"
+node
 </code></pre>
 <p>将上述代码取消注释，配置你自己的机械臂 port和baud参数即可。</p>
 <p>启动后软件如下图所示</p>
