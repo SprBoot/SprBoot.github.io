@@ -525,7 +525,7 @@ conn = pymysql.Connect(host='127.0.0.1',
 cursor = conn.cursor(pymysql.cursors.DictCursor)
 # 插入数据语句
 query = """SELECT arknights.life,
-        arknights.attack,arknights.defense,arknights.resistance,arknights.profession FROM arknights WHERE id &lt; 978"""
+        arknights.attack,arknights.defense,arknights.resistance,arknights.profession FROM arknights WHERE id < 978"""
 cursor.execute(query)
 list = cursor.fetchall()
 # 计算重装和其他数目
@@ -570,7 +570,7 @@ print(gd.calε(list,μStarO,oCount))
 # 计算高斯分布并计算准确率
 # 测试数据中的数据为7,预测应该有的数据为19,正确率为36.84210526315789%
 queryTest = """SELECT arknights.initial,arknights.perfect,arknights.life,
-        arknights.attack,arknights.defense,arknights.resistance,arknights.profession FROM arknights WHERE id &gt; 977"""
+        arknights.attack,arknights.defense,arknights.resistance,arknights.profession FROM arknights WHERE id > 977"""
 cursor.execute(queryTest)
 test = cursor.fetchall()
 # print(gd.calcResult(μStarZ,εStarZ,μStarO,εStarO,pZ,pO,test))
@@ -607,7 +607,7 @@ def getData(src):
     cursor = conn.cursor()
     # 插入数据语句
     query = """insert into arknights (initial,perfect,life,attack,defense,resistance,username,profession) values (%s,%s,%s,%s,%s,%s,%s,%s)"""
-    html = requests.get(src).content    # requests.get(src)返回的是状态码<response [200]="">，加上.content以字节形式（二进制返回数据。   和前端一样，分为get post等
+    html = requests.get(src).content    # requests.get(src)返回的是状态码<Response [200]>，加上.content以字节形式（二进制返回数据。   和前端一样，分为get post等
     soup = bs(html,'lxml')   # lxml解析器解析字节形式的数据，得到完整的类似页面的html代码结构的数据
     introductions = soup.find_all("tr", class_="divsort")
     for introduction in introductions:
@@ -674,7 +674,7 @@ def calcResult(μStarZ,εStarZ,μStarO,εStarO,pZ,pO,test):
       result = (resultZ * pZ) / (resultZ * pZ + resultO + pO)
       if(item['profession'] == '重装'):
         sum = sum + 1
-      if(result &gt; 0.5):
+      if(result > 0.5):
         right = right + 1
     return '测试数据中的数据为{0},预测应该有的数据为{1},正确率为{2}{3}'.format(sum,right,sum / right * 100,'%')
 
@@ -708,7 +708,7 @@ def OneMult(list1,list2):
 
 def calcSame(list,p):
     return np.multiply(list,np.array([[p,p,p,p],[p,p,p,p],[p,p,p,p],[p,p,p,p]]))
-</response></code></pre>
+</code></pre>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -1381,7 +1381,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">109.9k</span>&nbsp;字
+                class="white-color">120.3k</span>&nbsp;字
             
             
             

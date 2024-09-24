@@ -505,7 +505,7 @@
 <p>使用USB接口相机标定时需要先使用标定板标定获取相机内参等信息，realsense相机自带标定信息。相机标定完成后在机械臂末端固定相机后使用aruco和机械臂位姿进行手眼标定。</p>
 <h4 id="相机标定">相机标定</h4>
 <p>大象机械臂内置了ROS1和ROS2环境，usb_cam默认安装编译完成，如果不是自带的话，ROS环境的安装可以使用鱼香的一键安装。</p>
-<pre class=" language-language-bash"><code class="language-language-bash">wget http://fishros.com/install -O fishros &amp;&amp; . fishros
+<pre class=" language-language-bash"><code class="language-language-bash">wget http://fishros.com/install -O fishros && . fishros
 </code></pre>
 <p>usb_cam安装如下所示。</p>
 <pre class=" language-language-bash"><code class="language-language-bash">cd ~/catkin_ws/src
@@ -520,22 +520,22 @@ catkin_make
 <pre class=" language-language-bash"><code class="language-language-bash">roscd usb_cam
 sudo vi usb_cam-test.launch
 </code></pre>
-<pre class=" language-language-xml"><code class="language-language-xml"><launch>  
-    <node name="usb_cam" pkg="usb_cam" type="usb_cam_node" output="screen">    
+<pre class=" language-language-python"><code class="language-language-python"><launch>  
+    <node name="usb_cam" pkg="usb_cam" type="usb_cam_node" output="screen" >    
         <!-- modify the video device to your device -->    
-        <param name="video_device" value="/dev/video0">    
+        <param name="video_device" value="/dev/video0" />    
         <!-- modify the size of your device -->    
-        <param name="image_width" value="1280">    
-        <param name="image_height" value="720">   
-        <param name="pixel_format" value="yuyv">    
-        <param name="camera_frame_id" value="usb_cam">    
-        <param name="io_method" value="mmap">  
+        <param name="image_width" value="1280" />    
+        <param name="image_height" value="720" />   
+        <param name="pixel_format" value="yuyv" />    
+        <param name="camera_frame_id" value="usb_cam" />    
+        <param name="io_method" value="mmap"/>  
     </node>  
     
     <node name="image_view" pkg="image_view" type="image_view" respawn="false">  
-        <remap from="image" to="/usb_cam/image_raw">    
-        <param name="autosize" value="true"> 
-    </remap></node>
+        <remap from="image" to="/usb_cam/image_raw"/>    
+        <param name="autosize" value="true" /> 
+    </node>
 </launch>
 </code></pre>
 <p>大象机械臂内置的系统没有交换内存，所以比较卡。</p>
@@ -558,14 +558,14 @@ sudo swapon /swapfile
 <pre class=" language-language-bash"><code class="language-language-bash">echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
 </code></pre>
 <p>重新查看交换空间大小如下所示：</p>
-<p><img src="https://raw.githubusercontent.com/SprBoot/hexo_image/refs/heads/master/free.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/free.png" alt=""></p>
 <p>相机启动后，安装ROS标定程序进行标定</p>
 <pre class=" language-language-bash"><code class="language-language-bash">sudo apt-get install ros-ros版本名称-camera-calibration
 </code></pre>
 <pre class=" language-language-bash"><code class="language-language-bash">rosrun camera_calibration cameracalibrator.py --size 7x10 --square 0.09 image:=/usb_cam/image_raw camera:=/head_camera --no-serive-check
 </code></pre>
 <p>启动后的标定换面如下所示</p>
-<p><img src="https://raw.githubusercontent.com/SprBoot/hexo_image/refs/heads/master/cali.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/cali.png" alt=""></p>
 <p>x不会打的话可以复制，size为你打印棋盘格的尺寸，这里需要实际尺寸减1，因为计算的是角点，square为格子的尺寸，单位为米，棋盘格的打印<a href="https://calib.io/pages/camera-calibration-pattern-generator" target="_blank" rel="noopener">地址</a>。</p>
 <p>移动你的棋盘格，棋盘正向，斜向在相机视野内移动，距离相机的距离变动，倾斜棋盘格移动直到X，Y，Size，Skew变绿，CALIBRATE按钮亮起可以进行标定，后续COMMIT保存即可。</p>
 <h4 id="RealSense相机标定">RealSense相机标定</h4>
@@ -573,7 +573,7 @@ sudo swapon /swapfile
 <p>上文已经增加了交换空间，这里根据官方文档编译的时候可以使用合适的 -j2 或 -j4 参数编译。</p>
 <h4 id="手眼标定-2">手眼标定</h4>
 <p>这里手眼标定使用的是<a href="https://chev.me/arucogen/" target="_blank" rel="noopener">Aruco标定板</a>，这里需要选择Original ArUco。</p>
-<p><img src="https://raw.githubusercontent.com/SprBoot/hexo_image/refs/heads/master/aruco.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/aruco.png" alt=""></p>
 <p>手眼标定程序使用的是<a href="https://gitee.com/ohhuo/handeye-calib" target="_blank" rel="noopener">鱼香的ROS标定程序</a>，使用的是在线标定。</p>
 <p>这里根据作者的文档编译使用即可。</p>
 <p>因为我这里使用的是大象机械臂，所以说一下大象机械臂的位姿订阅。</p>
@@ -584,24 +584,24 @@ sudo swapon /swapfile
 <pre class=" language-language-bash"><code class="language-language-bash">roslaunch mycobot_280pi slider_control.launch
 </code></pre>
 <p>运行上述命令后发现机械臂不随软件调试变化，这里修改一下slider_control代码即可，修改如下。</p>
-<pre class=" language-language-xml"><code class="language-language-xml">	<!-- <node name="control_slider" pkg="mycobot_280pi" type="slider_control.py"> 
+<pre class=" language-language-python"><code class="language-language-python">	<!-- <node name="control_slider" pkg="mycobot_280pi" type="slider_control.py"> 
 		<param name="port" type="string" value="$(arg port)" />
 		<param name="baud" type="int" value="$(arg baud)" />
 	</node> -->
 </code></pre>
 <p>将上述代码取消注释，配置你自己的机械臂 port和baud参数即可。</p>
-<pre class=" language-language-xml"><code class="language-language-xml"><launch>
+<pre class=" language-language-python"><code class="language-language-python"><launch>
 	<!-- <arg name="port" default="/dev/ttyAMA0" />
 	<arg name="baud" default="1000000" /> -->
 	<!-- Load file model ，加载文件模型-->	
-	<arg name="model" default="$(find mycobot_description)/urdf/mycobot_280_pi/mycobot_280_pi.urdf">
-	<arg name="rvizconfig" default="$(find mycobot_280pi)/config/mycobot.rviz">
-	<arg name="gui" default="true">
+	<arg name="model" default="$(find mycobot_description)/urdf/mycobot_280_pi/mycobot_280_pi.urdf"/>
+	<arg name="rvizconfig" default="$(find mycobot_280pi)/config/mycobot.rviz" />
+	<arg name="gui" default="true" />
 
-	<param name="robot_description" command="$(find xacro)/xacro --inorder $(arg model)">
+	<param name="robot_description" command="$(find xacro)/xacro --inorder $(arg model)" />
 
 	<!-- Combinejoin values to TF，将值合并到TF -->
-	<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher">
+	<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
 	<node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui"> 
 		<!-- <param name="use_gui" value="$(arg gui)" />	 -->
 		<!-- <rosparam param="source_list" subst_value="true">["joint_states"]</rosparam> -->
@@ -612,11 +612,11 @@ sudo swapon /swapfile
 		<param name="baud" type="int" value="$(arg baud)" />
 	</node> -->
 	<!-- Show in Rviz ，显示在Rviz-->
-	<node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true">
-</node></node></arg></arg></arg></launch>
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true" />
+</launch>
 </code></pre>
 <p>启动后软件如下图所示</p>
-<p><img src="https://raw.githubusercontent.com/SprBoot/hexo_image/refs/heads/master/mycobot.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/mycobot.png" alt=""></p>
 <p>机械臂的位姿订阅话题为joint_states，可以使用rostopic echo查看对应话题的相关信息。</p>
 <p>运行handeye手眼标定程序标定即可。</p>
 <script>
@@ -1291,7 +1291,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">109.9k</span>&nbsp;字
+                class="white-color">120.3k</span>&nbsp;字
             
             
             

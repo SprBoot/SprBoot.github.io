@@ -479,14 +479,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.1k
+                    2.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    16 分
+                    11 分
                 </div>
                 
 
@@ -517,7 +517,7 @@ time.sleep(1)
 util.singleClick('./startMission.jpg', "./start.jpg","Qt5QWindowIcon", "明日方舟 - MuMu模拟器",'startMission.jpg')
 second = util.getStep("Qt5QWindowIcon", "明日方舟 - MuMu模拟器", "./single.jpg","./start.jpg")
 initial = 2
-while initial &lt;= number:
+while initial <= number:
     time.sleep(second + random.uniform(1.2,2.8))
     util.turn("Qt5QWindowIcon", "明日方舟 - MuMu模拟器","./single.jpg","./start.jpg")
     initial = initial + 1
@@ -641,7 +641,7 @@ def getStep(cls,name,single,start):
     startTime = time.time()
     while(flag):
         similarity = img(cls,name)
-        if(similarity &gt; 0.95):
+        if(similarity > 0.95):
             total = time.time() - startTime
             time.sleep(4 + random.uniform(0.2,1.8))
             pyautogui.click(left + random.uniform(120,250), bot - random.uniform(120,250))
@@ -661,7 +661,7 @@ def turn(cls,name,single,start):
     flag = True
     while(flag):
         similarity = img(cls, name)
-        if (similarity &gt; 0.95):
+        if (similarity > 0.95):
             time.sleep(4 + random.uniform(0.2,1.8))
             pyautogui.click(left + random.uniform(120,250), bot - random.uniform(120,250))
             time.sleep(4 + random.uniform(0.2,1.8))
@@ -696,24 +696,24 @@ while 1 == 1:
             twostarzhong = win32.img("Qt5QWindowIcon", "碧蓝航线 - MuMu模拟器", "./2starzhong.jpg")
             path = "./1stargold.jpg"
             tu = '金子船'
-            if(onestargold &gt; 0.4):
+            if(onestargold > 0.4):
                 path = "./1stargold.jpg"
-            elif(onestarqing &gt; 0.4):
+            elif(onestarqing > 0.4):
                 path = "./1starqing.jpg"
                 tu = '1星轻'
-            elif(onestarzhong &gt; 0.4):
+            elif(onestarzhong > 0.4):
                 path = "./1starzhong.jpg"
                 tu = '1星重'
-            elif(twostarqing &gt; 0.4):
+            elif(twostarqing > 0.4):
                 path = "./2starqing.jpg"
                 tu = '2星轻'
-            elif (twostarzhong &gt; 0.4):
+            elif (twostarzhong > 0.4):
                 path = "./2starzhong.jpg"
                 tu = '2星重'
             wei = True
             while wei:
                 tuo = win32.img("Qt5QWindowIcon", "碧蓝航线 - MuMu模拟器", "./info.jpg")
-                if tuo &gt; 0.8:
+                if tuo > 0.8:
                     time.sleep(1)
                     win32.singleClick('./current.jpg', "./sure.jpg", "Qt5QWindowIcon",
                                       "碧蓝航线 - MuMu模拟器", 'current.jpg')
@@ -722,13 +722,13 @@ while 1 == 1:
             win32.singleClick('./current.jpg', path, "Qt5QWindowIcon", "碧蓝航线 - MuMu模拟器", 'current.jpg')
             print('选择了{}'.format(tu))
             temp = win32.img("Qt5QWindowIcon", "碧蓝航线 - MuMu模拟器", "./chu.jpg")
-            if (temp &gt; 0.8):
+            if (temp > 0.8):
                 print('到达图准备出击')
                 flag = True
                 win32.singleClick('./current.jpg', "./chu.jpg", "Qt5QWindowIcon", "碧蓝航线 - MuMu模拟器", 'current.jpg')
                 while (flag):
                     max = win32.img("Qt5QWindowIcon", "碧蓝航线 - MuMu模拟器", "./win.jpg")
-                    if (max &gt; 0.85):
+                    if (max > 0.85):
                         print('出击成功')
                         initial = initial + 1
                         time.sleep(1)
@@ -740,14 +740,14 @@ while 1 == 1:
                             srFlag = True
                             while (srFlag):
                                 sr = win32.img("Qt5QWindowIcon", "碧蓝航线 - MuMu模拟器", "./sr.jpg")
-                                if (sr &gt; 0.8):
+                                if (sr > 0.8):
                                     time.sleep(1)
                                     win32.click("Qt5QWindowIcon", "碧蓝航线 - MuMu模拟器")
                                 else:
                                     srFlag = False
                             time.sleep(2)
                             con = win32.img("Qt5QWindowIcon", "碧蓝航线 - MuMu模拟器", "./confirm.jpg")
-                            if(con &gt; 0.9):
+                            if(con > 0.9):
                                 win32.singleClick('./current.jpg', "./confirm.jpg", "Qt5QWindowIcon", "碧蓝航线 - MuMu模拟器",
                                                   'current.jpg')
                                 time.sleep(5)
@@ -755,24 +755,24 @@ while 1 == 1:
                                 if (initial == 6):
                                     boss = False
                                     tempFlag = False
-                                if (iboss &gt; 0.95):
+                                if (iboss > 0.95):
                                     tempFlag = False
                                     boss = False
                                 confirmFlag = False
                                 flag = False
             danger = win32.img("Qt5QWindowIcon", "碧蓝航线 - MuMu模拟器", "./guibi.jpg")
-            if (danger &gt; 0.95):
+            if (danger > 0.95):
                 win32.singleClick('./current.jpg', './guibi.jpg', "Qt5QWindowIcon", "碧蓝航线 - MuMu模拟器", 'current.jpg')
                 print('规避成功')
                 time.sleep(3)
                 chu = win32.img("Qt5QWindowIcon", "碧蓝航线 - MuMu模拟器", "./chu.jpg")
-                if (chu &gt; 0.95):
+                if (chu > 0.95):
                     print('规避失败，过图')
                     win32.singleClick('./current.jpg', "./chu.jpg", "Qt5QWindowIcon", "碧蓝航线 - MuMu模拟器", 'current.jpg')
                     dangerFlag = True
                     while (dangerFlag):
                         max = win32.img("Qt5QWindowIcon", "碧蓝航线 - MuMu模拟器", "./win.jpg")
-                        if (max &gt; 0.85):
+                        if (max > 0.85):
                             time.sleep(1)
                             win32.click("Qt5QWindowIcon", "碧蓝航线 - MuMu模拟器")
                             time.sleep(3)
@@ -782,20 +782,20 @@ while 1 == 1:
                                 srFlag = True
                                 while (srFlag):
                                     sr = win32.img("Qt5QWindowIcon", "碧蓝航线 - MuMu模拟器", "./sr.jpg")
-                                    if (sr &gt; 0.8):
+                                    if (sr > 0.8):
                                         time.sleep(1)
                                         win32.click("Qt5QWindowIcon", "碧蓝航线 - MuMu模拟器")
                                     else:
                                         srFlag = False
                                 time.sleep(2)
                                 con = win32.img("Qt5QWindowIcon", "碧蓝航线 - MuMu模拟器", "./confirm.jpg")
-                                if (con &gt; 0.9):
+                                if (con > 0.9):
                                     win32.singleClick('./current.jpg', "./confirm.jpg", "Qt5QWindowIcon",
                                                       "碧蓝航线 - MuMu模拟器",
                                                       'current.jpg')
                                     time.sleep(5)
                                     iboss = win32.img("Qt5QWindowIcon", "碧蓝航线 - MuMu模拟器", "./boss.jpg")
-                                    if (iboss &gt; 0.95):
+                                    if (iboss > 0.95):
                                         tempFlag = False
                                         boss = False
                                     if (initial == 6):
@@ -807,12 +807,12 @@ while 1 == 1:
     wen = True
     while(wen):
         number = win32.img("Qt5QWindowIcon", "碧蓝航线 - MuMu模拟器", "./wenhao.jpg")
-        if(number &lt; 0.6):
+        if(number < 0.6):
             print('物资采集完成')
             wei = True
             while (wei):
                 tuo = win32.img("Qt5QWindowIcon", "碧蓝航线 - MuMu模拟器", "./info.jpg")
-                if (tuo &gt; 0.8):
+                if (tuo > 0.8):
                     time.sleep(1)
                     win32.singleClick('./current.jpg', "./sure.jpg", "Qt5QWindowIcon",
                                       "碧蓝航线 - MuMu模拟器", 'current.jpg')
@@ -821,14 +821,14 @@ while 1 == 1:
             win32.singleClick('./current.jpg', "./boss.jpg", "Qt5QWindowIcon", "碧蓝航线 - MuMu模拟器", 'current.jpg')
             print('boss图')
             temp = win32.img("Qt5QWindowIcon", "碧蓝航线 - MuMu模拟器", "./chuji.jpg")
-            if (temp &gt; 0.8):
+            if (temp > 0.8):
                 print('到达boss')
                 tflag = True
                 win32.singleClick('./current.jpg', "./chu.jpg", "Qt5QWindowIcon", "碧蓝航线 - MuMu模拟器",
                                   'current.jpg')
                 while (tflag):
                     max = win32.img("Qt5QWindowIcon", "碧蓝航线 - MuMu模拟器", "./win.jpg")
-                    if (max &gt; 0.85):
+                    if (max > 0.85):
                         print('boss出击成功')
                         time.sleep(1)
                         win32.click("Qt5QWindowIcon", "碧蓝航线 - MuMu模拟器")
@@ -839,14 +839,14 @@ while 1 == 1:
                             srFlag = True
                             while (srFlag):
                                 sr = win32.img("Qt5QWindowIcon", "碧蓝航线 - MuMu模拟器", "./sr.jpg")
-                                if (sr &gt; 0.8):
+                                if (sr > 0.8):
                                     time.sleep(1)
                                     win32.click("Qt5QWindowIcon", "碧蓝航线 - MuMu模拟器")
                                 else:
                                     srFlag = False
                             time.sleep(2)
                             con = win32.img("Qt5QWindowIcon", "碧蓝航线 - MuMu模拟器", "./confirm.jpg")
-                            if (con &gt; 0.9):
+                            if (con > 0.9):
                                 win32.singleClick('./current.jpg', "./confirm.jpg", "Qt5QWindowIcon",
                                                   "碧蓝航线 - MuMu模拟器",
                                                   'current.jpg')
@@ -859,19 +859,19 @@ while 1 == 1:
             wenFlag = True
             while(wenFlag):
                 danger = win32.img("Qt5QWindowIcon", "碧蓝航线 - MuMu模拟器", "./guibi.jpg")
-                if (danger &gt; 0.95):
+                if (danger > 0.95):
                     win32.singleClick('./current.jpg', './guibi.jpg', "Qt5QWindowIcon", "碧蓝航线 - MuMu模拟器", 'current.jpg')
                     print('规避成功')
                     time.sleep(3)
                     chu = win32.img("Qt5QWindowIcon", "碧蓝航线 - MuMu模拟器", "./chu.jpg")
-                    if (chu &gt; 0.95):
+                    if (chu > 0.95):
                         print('规避失败，过图')
                         win32.singleClick('./current.jpg', "./chu.jpg", "Qt5QWindowIcon", "碧蓝航线 - MuMu模拟器",
                                           'current.jpg')
                         dangerFlag = True
                         while (dangerFlag):
                             max = win32.img("Qt5QWindowIcon", "碧蓝航线 - MuMu模拟器", "./win.jpg")
-                            if (max &gt; 0.85):
+                            if (max > 0.85):
                                 time.sleep(1)
                                 win32.click("Qt5QWindowIcon", "碧蓝航线 - MuMu模拟器")
                                 time.sleep(3)
@@ -881,31 +881,31 @@ while 1 == 1:
                                     srFlag = True
                                     while (srFlag):
                                         sr = win32.img("Qt5QWindowIcon", "碧蓝航线 - MuMu模拟器", "./sr.jpg")
-                                        if (sr &gt; 0.8):
+                                        if (sr > 0.8):
                                             time.sleep(1)
                                             win32.click("Qt5QWindowIcon", "碧蓝航线 - MuMu模拟器")
                                         else:
                                             srFlag = False
                                     time.sleep(2)
                                     con = win32.img("Qt5QWindowIcon", "碧蓝航线 - MuMu模拟器", "./confirm.jpg")
-                                    if (con &gt; 0.9):
+                                    if (con > 0.9):
                                         win32.singleClick('./current.jpg', "./confirm.jpg", "Qt5QWindowIcon",
                                                           "碧蓝航线 - MuMu模拟器",
                                                           'current.jpg')
                                         time.sleep(5)
                                         iboss = win32.img("Qt5QWindowIcon", "碧蓝航线 - MuMu模拟器", "./boss.jpg")
-                                        if (iboss &gt; 0.95):
+                                        if (iboss > 0.95):
                                             tempFlag = False
                                             boss = False
                                         confirmFlag = False
                                         dangerFlag = False
                 win32.singleClick('./current.jpg', './wenhao.jpg', "Qt5QWindowIcon", "碧蓝航线 - MuMu模拟器", 'current.jpg')
                 error = win32.img("Qt5QWindowIcon", "碧蓝航线 - MuMu模拟器", "./error.jpg")
-                if (error &gt; 0.6):
+                if (error > 0.6):
                     wei = True
                     while (wei):
                         tuo = win32.img("Qt5QWindowIcon", "碧蓝航线 - MuMu模拟器", "./info.jpg")
-                        if (tuo &gt; 0.8):
+                        if (tuo > 0.8):
                             time.sleep(1)
                             win32.singleClick('./current.jpg', "./sure.jpg", "Qt5QWindowIcon",
                                               "碧蓝航线 - MuMu模拟器", 'current.jpg')
@@ -914,14 +914,14 @@ while 1 == 1:
                     win32.singleClick('./current.jpg', "./boss.jpg", "Qt5QWindowIcon", "碧蓝航线 - MuMu模拟器", 'current.jpg')
                     print('boss图')
                     temp = win32.img("Qt5QWindowIcon", "碧蓝航线 - MuMu模拟器", "./chu.jpg")
-                    if (temp &gt; 0.8):
+                    if (temp > 0.8):
                         print('到达boss')
                         tflag = True
                         win32.singleClick('./current.jpg', "./chu.jpg", "Qt5QWindowIcon", "碧蓝航线 - MuMu模拟器",
                                           'current.jpg')
                         while (tflag):
                             max = win32.img("Qt5QWindowIcon", "碧蓝航线 - MuMu模拟器", "./win.jpg")
-                            if (max &gt; 0.85):
+                            if (max > 0.85):
                                 print('boss出击成功')
                                 time.sleep(1)
                                 win32.click("Qt5QWindowIcon", "碧蓝航线 - MuMu模拟器")
@@ -932,14 +932,14 @@ while 1 == 1:
                                     srFlag = True
                                     while (srFlag):
                                         sr = win32.img("Qt5QWindowIcon", "碧蓝航线 - MuMu模拟器", "./sr.jpg")
-                                        if (sr &gt; 0.8):
+                                        if (sr > 0.8):
                                             time.sleep(1)
                                             win32.click("Qt5QWindowIcon", "碧蓝航线 - MuMu模拟器")
                                         else:
                                             srFlag = False
                                     time.sleep(2)
                                     con = win32.img("Qt5QWindowIcon", "碧蓝航线 - MuMu模拟器", "./confirm.jpg")
-                                    if (con &gt; 0.9):
+                                    if (con > 0.9):
                                         win32.singleClick('./current.jpg', "./confirm.jpg", "Qt5QWindowIcon",
                                                           "碧蓝航线 - MuMu模拟器",
                                                           'current.jpg')
@@ -951,13 +951,13 @@ while 1 == 1:
                 time.sleep(2)
                 win32.click("Qt5QWindowIcon", "碧蓝航线 - MuMu模拟器")
                 test = win32.img("Qt5QWindowIcon", "碧蓝航线 - MuMu模拟器", "./wenhao.jpg")
-                if (test &lt; 0.5):
+                if (test < 0.5):
                     win32.click("Qt5QWindowIcon", "碧蓝航线 - MuMu模拟器")
                     time.sleep(1)
                     wei = True
                     while (wei):
                         tuo = win32.img("Qt5QWindowIcon", "碧蓝航线 - MuMu模拟器", "./info.jpg")
-                        if (tuo &gt; 0.8):
+                        if (tuo > 0.8):
                             time.sleep(1)
                             win32.singleClick('./current.jpg', "./sure.jpg", "Qt5QWindowIcon",
                                               "碧蓝航线 - MuMu模拟器", 'current.jpg')
@@ -966,14 +966,14 @@ while 1 == 1:
                     win32.singleClick('./current.jpg', "./boss.jpg", "Qt5QWindowIcon", "碧蓝航线 - MuMu模拟器", 'current.jpg')
                     print('boss图')
                     temp = win32.img("Qt5QWindowIcon", "碧蓝航线 - MuMu模拟器", "./chu.jpg")
-                    if (temp &gt; 0.8):
+                    if (temp > 0.8):
                         print('到达boss')
                         tflag = True
                         win32.singleClick('./current.jpg', "./chu.jpg", "Qt5QWindowIcon", "碧蓝航线 - MuMu模拟器",
                                           'current.jpg')
                         while (tflag):
                             max = win32.img("Qt5QWindowIcon", "碧蓝航线 - MuMu模拟器", "./win.jpg")
-                            if (max &gt; 0.8):
+                            if (max > 0.8):
                                 print('boss出击成功')
                                 time.sleep(1)
                                 win32.click("Qt5QWindowIcon", "碧蓝航线 - MuMu模拟器")
@@ -984,14 +984,14 @@ while 1 == 1:
                                     srFlag = True
                                     while (srFlag):
                                         sr = win32.img("Qt5QWindowIcon", "碧蓝航线 - MuMu模拟器", "./sr.jpg")
-                                        if (sr &gt; 0.8):
+                                        if (sr > 0.8):
                                             time.sleep(1)
                                             win32.click("Qt5QWindowIcon", "碧蓝航线 - MuMu模拟器")
                                         else:
                                             srFlag = False
                                     time.sleep(2)
                                     con = win32.img("Qt5QWindowIcon", "碧蓝航线 - MuMu模拟器", "./confirm.jpg")
-                                    if (con &gt; 0.9):
+                                    if (con > 0.9):
                                         win32.singleClick('./current.jpg', "./confirm.jpg", "Qt5QWindowIcon",
                                                           "碧蓝航线 - MuMu模拟器",
                                                           'current.jpg')
@@ -1447,22 +1447,23 @@ while 1 == 1:
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/06/14/lun-wen-yue-du-yi/">
+                <a href="/2021/06/14/shen-du-xue-xi-bi-ji-si/">
                     <div class="card-image">
                         
                         
-                        <img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/3.jpg" class="responsive-img" alt="论文阅读一">
+                        <img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/16.jpg" class="responsive-img" alt="深度学习笔记四">
                         
-                        <span class="card-title">论文阅读一</span>
+                        <span class="card-title">深度学习笔记四</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Learning a Deep ConvNet for Multi-label Classification with Partial Labels论文阅读
-知识储备
-Partial Multi-Label Learning
-在多分类标记中
+                            深度学习笔记四
+Deep Learning
+深度学习的network
+
+神经元的权重和偏差可以视为矩阵运算。即得到激活函数(activation function)。将激活函数进行sigmoid得到最终结果。将上方的网络用该种形式进行计算即
                         
                     </div>
                     <div class="publish-info">
@@ -1473,8 +1474,8 @@ Partial Multi-Label Learning
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" class="post-category">
-                                    论文阅读
+                            <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    深度学习
                                 </a>
                             
                             
@@ -1484,8 +1485,8 @@ Partial Multi-Label Learning
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%81%8F%E6%A0%87%E8%AE%B0%E5%AD%A6%E4%B9%A0/">
-                        <span class="chip bg-color">偏标记学习</span>
+                    <a href="/tags/%E7%A5%9E%E7%BB%8F%E5%85%83%E7%BD%91%E7%BB%9C/">
+                        <span class="chip bg-color">神经元网络</span>
                     </a>
                     
                 </div>
@@ -1673,7 +1674,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">109.9k</span>&nbsp;字
+                class="white-color">120.3k</span>&nbsp;字
             
             
             

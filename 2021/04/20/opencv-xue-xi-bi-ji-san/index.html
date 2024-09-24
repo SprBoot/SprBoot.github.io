@@ -546,7 +546,7 @@ gray = np.float32(gray)
 # 最后一个参数在0.04到0.05之间
 dst = cv.cornerHarris(gray, 2, 3, 0.04)
 # 设置阈值，将角点绘制出来，阈值根据图像进行选择
-img[dst &gt; 0.001 * dst.max()] = [0, 0, 255]
+img[dst > 0.001 * dst.max()] = [0, 0, 255]
 # 图像显示
 plt.figure(figsize=(10, 8), dpi=100)
 plt.imshow(img[:, :, ::-1]), plt.title('harris')
@@ -1370,7 +1370,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">109.9k</span>&nbsp;字
+                class="white-color">120.3k</span>&nbsp;字
             
             
             

@@ -479,14 +479,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.2k
+                    949
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    7 分
+                    5 分
                 </div>
                 
 
@@ -559,19 +559,19 @@ def getSubWindow(image,roi,type):
     return cv2.copyMakeBorder(new_image,border[1],border[3],border[0],border[2],type)
 
 def transformValue(roi,image_size):
-    if(roi[0] + roi[2] &gt; image_size[0] + image_size[2]):
+    if(roi[0] + roi[2] > image_size[0] + image_size[2]):
         roi[2] = image_size[0] + image_size[2] - roi[0]
-    if(roi[1] + roi[3] &gt; image_size[1] + image_size[3]):
+    if(roi[1] + roi[3] > image_size[1] + image_size[3]):
         roi[3] = image_size[1] + image_size[3] - roi[1]
-    if(roi[0] &lt; image_size[0]):
+    if(roi[0] < image_size[0]):
         roi[2] -= (image_size[0] - roi[0])
         roi[0] = image_size[0]
-    if(roi[1] &lt; image_size[1]):
+    if(roi[1] < image_size[1]):
         roi[3] -= (image_size[1] - roi[1])
         roi[1] = image_size[1]
-    if(roi[2] &lt; 0):
+    if(roi[2] < 0):
         roi[2] = 0
-    if(roi[3] &lt; 0):
+    if(roi[3] < 0):
         roi[3] = 0
     return roi
 
@@ -630,7 +630,7 @@ def gaussianCorrelation(size_patch,features,_features):
         d = (np.sum(features * features) + np.sum(_features * _features) - 2.0 * c) / (
                     size_patch[0] * size_patch[1] * size_patch[2])
 
-    d = d * (d &gt;= 0)
+    d = d * (d >= 0)
     d = np.exp(-d / (sigma * sigma))
 
     return d
@@ -651,13 +651,13 @@ def complexDivision(a, b):
     return res
 
 def update(roi,features,image,alphaf,gaussian,window_size):
-    if (roi[0] + roi[2] &lt;= 0):
+    if (roi[0] + roi[2] <= 0):
         roi[0] = -roi[2] + 1
-    if (roi[1] + roi[3] &lt;= 0):
+    if (roi[1] + roi[3] <= 0):
         roi[1] = -roi[2] + 1
-    if (roi[0] &gt;= image.shape[1] - 1):
+    if (roi[0] >= image.shape[1] - 1):
         roi[0] = image.shape[1] - 2
-    if (roi[1] &gt;= image.shape[0] - 1):
+    if (roi[1] >= image.shape[0] - 1):
         roi[1] = image.shape[0] - 2
     cx = roi[0] + roi[2] / 2.
     cy = roi[1] + roi[3] / 2.
@@ -665,13 +665,13 @@ def update(roi,features,image,alphaf,gaussian,window_size):
     loc, peak_value = detect(features,new_frame_featuresMap,size_patch,alphaf)
     roi[0] = cx - roi[2] / 2.0 + loc[0] * cell_size
     roi[1] = cy - roi[3] / 2.0 + loc[1] * cell_size
-    if (roi[0] &gt;= image.shape[1] - 1):
+    if (roi[0] >= image.shape[1] - 1):
         roi[0] = image.shape[1] - 1
-    if (roi[1] &gt;= image.shape[0] - 1):
+    if (roi[1] >= image.shape[0] - 1):
         roi[1] = image.shape[0] - 1
-    if (roi[0] + roi[2] &lt;= 0):
+    if (roi[0] + roi[2] <= 0):
         roi[0] = -roi[2] + 2
-    if (roi[1] + roi[3] &lt;= 0):
+    if (roi[1] + roi[3] <= 0):
         roi[1] = -roi[3] + 2
     new_frame_featuresMap,size_patch,window_size = getFeatures(roi,image,False,window_size)
     alphaf,features,gaussian = train(new_frame_featuresMap,size_patch,gaussian,alphaf,0.012)
@@ -682,9 +682,9 @@ def detect(features, new_frame_features,size_patch,alphaf):
     res = fftd(complexMultiplication(alphaf, fftd(k)), True)[:,:,0]
     _, pv, _, pi = cv2.minMaxLoc(res)
     p = [float(pi[0]), float(pi[1])]
-    if(pi[0] &gt; 0 and pi[0] &lt; res.shape[1] - 1):
+    if(pi[0] > 0 and pi[0] < res.shape[1] - 1):
         p[0] += subPixelPeak(res[pi[1], pi[0] - 1], pv, res[pi[1], pi[0] + 1])
-    if(pi[1] &gt; 0 and pi[1] &lt; res.shape[0] - 1):
+    if(pi[1] > 0 and pi[1] < res.shape[0] - 1):
         p[1] += subPixelPeak(res[pi[1] - 1, pi[0]], pv, res[pi[1] + 1, pi[0]])
     p[0] -= res.shape[1] / 2.
     p[1] -= res.shape[0] / 2.
@@ -698,7 +698,7 @@ def complexMultiplication(a, b):
 
 def subPixelPeak(left, center, right):
     divisor = 2 * center - right - left  # float
-    return (0 if abs(divisor) &lt; 1e-3 else 0.5 * (right - left) / divisor)
+    return (0 if abs(divisor) < 1e-3 else 0.5 * (right - left) / divisor)
 </code></pre>
 <script>
         document.querySelectorAll('.github-emoji')
@@ -1374,7 +1374,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">109.9k</span>&nbsp;字
+                class="white-color">120.3k</span>&nbsp;字
             
             
             
