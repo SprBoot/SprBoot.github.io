@@ -542,7 +542,7 @@ public class CorsConfig {
 <p>bootstrap配置文件的加载要优于application，且里面配置的属性不能被覆盖。使用spring Cloud config 配置中心时，这时需要在bootstrap 配置文件中添加连接到配置中心的配置属性来加载外部配置中心的配置信息。</p>
 <h3 id="Spring-boot的异常处理">Spring boot的异常处理</h3>
 <h4 id="Spring-Boot类BasicErrorController">Spring Boot类BasicErrorController</h4>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/20190608165028699.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/20190608165028699.png" alt=""></p>
 <p>这是一个基础全局错误controller,Spring Boot自带的，看到这个RequestMapping地址，这是一个相当于三元写法，如果你在配置文件配置了server.error.path的话，就会使用你配置的异常处理地址，如果没有就会使用你配置的error.path路径地址，如果还是没有，默认使用/error来作为发生异常的处理地址。</p>
 <p>默认的类在你的请求返回文本或者json数据的时候，当发生错误的话，如果你在配置文件里面配置了模板引擎并且有error的页面，这个类就会返回你的error页面。返回的数据通过getErrorAttributes方法封装你的路径，状态，信息，时间戳等信息。</p>
 <p>可以通过自定义一个bean来实现ErrorController来屏蔽默认的异常处理。如果不想全部屏蔽，可以自定义一个bean来继承BasicErrorController接口来使用部分功能，并自定义自己的错误映射地址。</p>
@@ -1891,7 +1891,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">119.3k</span>&nbsp;字
+                class="white-color">120.3k</span>&nbsp;字
             
             
             

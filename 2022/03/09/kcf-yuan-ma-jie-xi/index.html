@@ -522,12 +522,12 @@
 <p>srcX=dstX* (srcWidth/dstWidth)+0.5*(srcWidth/dstWidth-1)</p>
 <p>我们在原始的浮点坐标上加上了0.5*<em>(srcWidth/dstWidth-1)这样一个控制因子，这项的符号可正可负，与srcWidth/dstWidth的比值也就是当前插值是扩大还是缩小图像有关，假设源图像是3</em>3，中心点坐标（1，1）目标图像是9**9，中心点坐标（4，4），我们在进行插值映射的时候，尽可能希望均匀的用到源图像的像素信息，最直观的就是（4,4）映射到（1,1）现在直接计算srcX=4**3/9=1.3333！=1，也就是我们在插值的时候所利用的像素集中在图像的右下方，而不是均匀分布整个图像。</p>
 <h4 id="高斯核函数">高斯核函数</h4>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/WX20220309-111917.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/WX20220309-111917.png" alt=""></p>
 <p>σ控制高斯核函数的局部作用范围。当 x 和x′的欧式距离处于某一个区间范围内的时候，假设固定 x′， k(x,x′) 随x的变化而变化的相当显著。</p>
 <p>σ=1</p>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/WX20220309-112058.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/WX20220309-112058.png" alt=""></p>
 <p>σ=5</p>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/WX20220309-112108.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/WX20220309-112108.png" alt=""></p>
 <h4 id="hog特征提取">hog特征提取</h4>
 <p>在HOG特征描述符中，梯度方向的分布，也就是梯度方向的直方图被视作特征。图像的梯度(x和y导数)非常有用，因为边缘和拐角(强度突变的区域)周围的梯度幅度很大，并且边缘和拐角比平坦区域包含更多关于物体形状的信息。</p>
 <p>在每个像素处，梯度有一个大小和一个方向。x方向梯度图会强化垂直边缘特征，y方向梯度图会强化水平边缘特征。这就使得有用的特征（轮廓）得到保留，无关不重要的信息被去除。</p>
@@ -1400,7 +1400,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">119.3k</span>&nbsp;字
+                class="white-color">120.3k</span>&nbsp;字
             
             
             

@@ -514,7 +514,7 @@
 <p>网络的潜力还没有完全被挖掘。交叉分解的工作中已经证实feature maps常常折叠为一个小的子集。从这个看法来说，不是每一个feature map都有必要进行下一层的卷积。根据这种现象，我们设计了一种改良型的网络架构来解决这个问题。</p>
 <p><strong>网络架构</strong></p>
 <p>作者提出了一种如图3所示的由块组成的完全开发网络即FE-Net。在该块中，只有feature maps的子集被用来计算，其余的直接传播到下一层卷积来确保信息流动。如下公式：</p>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/yiwei8" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/yiwei8" alt=""></p>
 <p>I和O分别表示输入和输出的feature maps，箭头表示通道拆分，或符合表示通道的合并。在训练中，I1参加计算并且f(I1)的输出被重写回I1的初始内存位置的计算模式可以非常高效的实现。剩下的I2不需要任何的操作。随着卷积层的深度增加，我们可以在计算中混合更多的feature maps。通过这种方式，每一个输入的feature map在最后都可以参与优化，并且可以获得用于预测的多尺度feature maps。我们在实验的5.4中证明了它的有效性。</p>
 <p><strong>基础计算单元</strong></p>
 <p>在论文中，如图四所示。我们采用了倒瓶颈的方式作为基础计算单元来构建我们高效的网络。没有具体的说明，它们的扩充速率默认设置为6，意味着总是使用第一个1*1卷积核将输入通道扩展为6倍。为了结合残差学习的优势，对于图三中每一个计算块，除了最后一个我们主要使用了图四b来作为基础运算单元。对于每个计算块的最后一个计算单元，我们使用图四a来为下一个计算块改变通道数量。图四c用于空间下采样。</p>
@@ -546,35 +546,35 @@
 <p>我们同时使用了深度可卷积来训练网络来分解SSL和改进的网络之间的优越性。如表6所示，在SSL和基于DW网络的正确率差距随着训练时间的显著增大是差距很小的，这进一步验证了SSL和FE-Net的优越性。</p>
 <h5 id="图片及表格">图片及表格</h5>
 <h6 id="图1">图1</h6>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/tu1" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/tu1" alt=""></p>
 <h6 id="图2">图2</h6>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/tu2" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/tu2" alt=""></p>
 <h6 id="图3">图3</h6>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/tu3" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/tu3" alt=""></p>
 <h6 id="图4">图4</h6>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/tu4" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/tu4" alt=""></p>
 <h6 id="图5">图5</h6>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/tu5" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/tu5" alt=""></p>
 <h6 id="图6">图6</h6>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/tu6" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/tu6" alt=""></p>
 <h6 id="图7">图7</h6>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/tu7" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/tu7" alt=""></p>
 <h6 id="表1">表1</h6>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/biao1" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/biao1" alt=""></p>
 <h6 id="表2">表2</h6>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/biao2" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/biao2" alt=""></p>
 <h6 id="表3">表3</h6>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/biao3" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/biao3" alt=""></p>
 <h6 id="表4">表4</h6>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/biao4" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/biao4" alt=""></p>
 <h6 id="表5">表5</h6>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/biao5" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/biao5" alt=""></p>
 <h6 id="表6">表6</h6>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/biao6" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/biao6" alt=""></p>
 <h6 id="表7">表7</h6>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/biao7" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/biao7" alt=""></p>
 <h6 id="表8">表8</h6>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/biao8" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/biao8" alt=""></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -1247,7 +1247,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">119.3k</span>&nbsp;字
+                class="white-color">120.3k</span>&nbsp;字
             
             
             

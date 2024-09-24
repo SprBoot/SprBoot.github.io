@@ -503,7 +503,7 @@
             <div id="articleContent">
                 <h3 id="Ubuntu20-04安装Hadoop和Hive-PD虚拟机-MAC-M1">Ubuntu20.04安装Hadoop和Hive(PD虚拟机 MAC M1)</h3>
 <p>对于本文中的markdown中的代码标签解析错误问题，可以通过下载该笔记的pdf文件进行直接复制即可，只需修改所在的路径。</p>
-<p><a href="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/Ubuntu20.04%E5%AE%89%E8%A3%85Hadoop%E5%92%8CHive%28PD%E8%99%9A%E6%8B%9F%E6%9C%BA%20MAC%20M1%29.pdf" target="_blank" rel="noopener">pdf文件下载链接</a></p>
+<p><a href="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/Ubuntu20.04%E5%AE%89%E8%A3%85Hadoop%E5%92%8CHive%28PD%E8%99%9A%E6%8B%9F%E6%9C%BA%20MAC%20M1%29.pdf" target="_blank" rel="noopener">pdf文件下载链接</a></p>
 <h3 id="Ubuntu20-04安装mysql">Ubuntu20.04安装mysql</h3>
 <h4 id="安装mysql">安装mysql</h4>
 <pre class=" language-language-shell"><code class="language-language-shell">#更新源
@@ -511,7 +511,7 @@ sudo apt-get update
 #安装mysql服务
 sudo apt-get install mysql-server
 </code></pre>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/mysql1.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/mysql1.png" alt=""></p>
 <h4 id="配置mysql">配置mysql</h4>
 <pre class=" language-language-shell"><code class="language-language-shell">sudo mysql_secure_installation
 </code></pre>
@@ -544,18 +544,18 @@ Reload privilege tables now? (Press y|Y for Yes, any other key for No) : Y (选�
 <pre class=" language-language-shell"><code class="language-language-shell">sudo nano /etc/mysql/mysql.conf.d/mysqld.cnf #找到bind-address 修改值为 0.0.0.0
 sudo /etc/init.d/mysql restart #重启mysql
 </code></pre>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/mysql2.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/mysql2.png" alt=""></p>
 <p><strong>刷新权限</strong></p>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/mysql3.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/mysql3.png" alt=""></p>
 <h4 id="远程连接-navicat">远程连接(navicat)</h4>
 <p>ip地址为10.211.55.4</p>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/mysql4.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/mysql4.png" alt=""></p>
 <h3 id="ubuntu20-04安装Hadoop">ubuntu20.04安装Hadoop</h3>
 <h4 id="安装jdk1-8">安装jdk1.8</h4>
 <p><a href="https://www.oracle.com/java/technologies/javase-downloads.html" target="_blank" rel="noopener">官方链接</a></p>
 <pre class=" language-language-shell"><code class="language-language-shell">mkdir dingdm                                        #创建dingdm文件夹
 </code></pre>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/jdk1.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/jdk1.png" alt=""></p>
 <p>上传jdk文件到pd虚拟机</p>
 <pre class=" language-language-shell"><code class="language-language-shell">sudo tar zxvf jdk-8u311-linux-aarch64.tar.gz  -C /dingdm  #/解压到/dingdm目录下
 mv  jdk1.8.0_311 java                          #重命名为java
@@ -572,7 +572,7 @@ export PATH=${JAVA_HOME}/bin:$PATH
 <h4 id="安装hadoop">安装hadoop</h4>
 <p><a href="https://archive.apache.org/dist/hadoop/common/" target="_blank" rel="noopener">官方链接</a></p>
 <p>上传hadoop文件到pd虚拟机</p>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/hadoop1.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/hadoop1.png" alt=""></p>
 <h5 id="配置环境变量">配置环境变量</h5>
 <pre class=" language-language-shell"><code class="language-language-shell">sudo tar -zxvf  hadoop-3.2.0.tar.gz                   #解压
 sudo mv  hadoop-3.2.0    hadoop                      #重命名为hadoop，可改可不改，如果修改下边的名字也要对应
@@ -627,11 +627,11 @@ hdfs namenode -format
 start-dfs.sh
 jps
 </code></pre>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/hadoop2.png" alt=""></p>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/hadoop3.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/hadoop2.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/hadoop3.png" alt=""></p>
 <h3 id="ubuntu20-04安装Hive">ubuntu20.04安装Hive</h3>
 <h4 id="文件上传">文件上传</h4>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/hive1.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/hive1.png" alt=""></p>
 <h4 id="配置环境变量-2">配置环境变量</h4>
 <pre class=" language-language-shell"><code class="language-language-shell">export HIVE_HOME=/dingdm/hive
 export PATH=$PATH:$HIVE_HOME/bin
@@ -701,13 +701,13 @@ sudo chmod -R 777 /tmp/hive
 export HIVE_CONF_DIR=/dingdm/hive/conf
 </code></pre>
 <p>拷贝jdbc的包到/dingdm/hive/lib目录下</p>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/hive2.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/hive2.png" alt=""></p>
 <p>在dingdm/hive/bin目录下启动hive</p>
 <pre class=" language-language-shell"><code class="language-language-shell">schematool -dbType mysql -initSchema
 schematool -dbType mysql -info
 hive
 </code></pre>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/hive3.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/hive3.png" alt=""></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -1380,7 +1380,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">119.3k</span>&nbsp;字
+                class="white-color">120.3k</span>&nbsp;字
             
             
             

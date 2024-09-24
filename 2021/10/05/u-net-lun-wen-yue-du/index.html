@@ -522,13 +522,13 @@
 <h5 id="训练">训练</h5>
 <p>通过Caffe框架并使用SGD来训练网络，使用输入图像和对应的输出分割map。由于是为扩展的卷积，因此输出的图像的固定边界宽度比输入的小。为了最小化系统消耗和最大化GPU显存的使用，我们为大的batch选择大的输入tile因此减少了单张图片的batch。我们使用了0.99的高动量，所以先前训练的大量的样本决定了当前优化步骤的更新。</p>
 <p>能量函数是通过最后的feature map使用sofxmax函数计算得到的，以及使用交叉熵计算feature map。softmax函数定义如下：</p>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/unet1" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/unet1" alt=""></p>
 <p>ak(x)表示像素x位置对应的特征通道k的激活，K表示分类的数量以及pk(x)是k对x的分类结果，pk(x)约等于1表示最大激活ak(x)，约等于0表示其他情况。交叉熵对每个位置的pl(x)(X)进行惩罚，公式为</p>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/unet2" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/unet2" alt=""></p>
 <p>l属于1,k是每个像素的真实标签，w是用来让在训练中的一些元素更加重要的权重map。</p>
 <p>我们为每一个真实标签分割预计算权重map来补偿训练集中某个类的像素频率，并强迫网络学习我们在细胞接触之间引入的小分离边界。</p>
 <p>小分离边界是通过形态学操作进行计算的，然后通过以下公式计算权重图。</p>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/unet4" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/unet4" alt=""></p>
 <p>wc是平衡类型频率的权重map，d1表示到边界距离最近的细胞，d2表示第边界巨鹿第二近的细胞。在我们的实验中，我们将参数设为10和约5个像素。</p>
 <p>在深度网络中拥有很多卷积层和通过网络的不同路径，好的权重初始化特别重要。否则，即使网络中的某部分没有发挥作用，但仍进行了多余的激活。理想情况下，初始权重应该被调整为使网络中的每个feature map都有近似单元方差。我们架构中的网络通过以固定偏差根号下2/N的高斯分布中移动初始权重来实现的，N表示一个神经元输入点的数量。对于一个3*3卷积和64个feature channels来说，前一层的N为9*64 = 576。</p>
 <h6 id="3-1-数据增强">3.1 数据增强</h6>
@@ -542,17 +542,17 @@
 <p>u-net架构在不同的生物医学分割应用中实现了非常好的性能。 由于可以进行弹性形变的数据增强，它只需要很少的注释图像，并且在NVidia Titan GPU上的训练时间只需要10个小时。 我们提供完整的基于Caffe 实现和训练好的网络。 我们相信，u-net架构可以轻松应用于更多的任务。</p>
 <h5 id="附加文件">附加文件</h5>
 <h6 id="图1">图1</h6>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/unettu1" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/unettu1" alt=""></p>
 <h6 id="图2">图2</h6>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/unettu2" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/unettu2" alt=""></p>
 <h6 id="图3">图3</h6>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/unettu3" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/unettu3" alt=""></p>
 <h6 id="图四">图四</h6>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/unettu4" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/unettu4" alt=""></p>
 <h6 id="表1">表1</h6>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/unetbiao1" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/unetbiao1" alt=""></p>
 <h6 id="表2">表2</h6>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/unetbiao2" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/unetbiao2" alt=""></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -1225,7 +1225,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">119.3k</span>&nbsp;字
+                class="white-color">120.3k</span>&nbsp;字
             
             
             

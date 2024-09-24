@@ -511,40 +511,40 @@ recall:查全率，TP/(TP+FN)，真实目标中，模型预测正确的目标比
 P-R曲线:precision-recall曲线</p>
 <p>mAP:各类AP的平均值</p>
 <h4 id="yolo-v1">yolo v1</h4>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/yolo%20v.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/yolo%20v.png" alt=""></p>
 <p>1.将一幅图像分成S*S个网格，如果某个object的中心落在这个网格中，则这个网络就负责预测这个object。</p>
 <p>2.每个网格要预测B个bounding box，每个bounding box除了要预测位置之外，还要附带预测一个confidence值。每个网格还要预测C个类别的分数。</p>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/yolo%20v1%20art.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/yolo%20v1%20art.png" alt=""></p>
 <p>在yolo v1的架构中，每一个网格进行预测时要预测两个bounding box，即两对位置参数和两对confidence，以及数据集设定的分类数量。即一共30个参数。</p>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/yolov1%20in.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/yolov1%20in.png" alt=""></p>
 <p>yolo v1的网络架构中，前面的部分都是正常的卷积，需要注意的是由于是端到端的训练，在最后的全连接层输出4096维的向量之后，需要进行reshape最终输出7*7*30的tensor，而其中对应的某一列的结构在上图中已经说明。</p>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/yolo%20v1%20loss.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/yolo%20v1%20loss.png" alt=""></p>
 <p>在yolo的边界损失函数中，对于高和宽两个属性值，对于相同的偏移，小物体的检测框与大物体的检测框的误差是不一样的，对于小物体来说，iou更小，因此应该对这两个参数进行开方，使用幂函数进行loss损失计算。其他的损失都是使用误差平方和进行计算。</p>
 <h4 id="yolo-v3">yolo v3</h4>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/yolo%20v3%20ar.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/yolo%20v3%20ar.png" alt=""></p>
 <p>残差模块和主分支上的输出进行相加。每个框起来的就是一个残差。</p>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/anchor.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/anchor.png" alt=""></p>
 <p>对于yolo v3的tensor的参数为85个，四个预测的位置参数，一个confidence和COCO数据集的80个分类。</p>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/yolo%20v3%20xia.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/yolo%20v3%20xia.png" alt=""></p>
 <p>在yolov3中进行输出预测时，对于特征图的拼接和FPN的维度拼接不同，yolov3中的拼接是深度的拼接。预测输出时使用的为1*1卷积，而不是卷积归一和激活。</p>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/yolov3%20mu.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/yolov3%20mu.png" alt=""></p>
 <p>yolov3在进行目标边界框检测时使用了sigmoid函数来固定预测坐标的位置在单元格之内。</p>
 <p>置信度损失</p>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/yolo%20v3%20zhi.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/yolo%20v3%20zhi.png" alt=""></p>
 <p>置信度损失使用的是二元交叉熵损失，oi为预测目标边界框与真实目标边界框的IOU，c为预测值，Ci hat为c通过sigmod函数得到的预测置信度，N为正负样本的总和。</p>
 <p>类别损失</p>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/yolo%20v3%20lei.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/yolo%20v3%20lei.png" alt=""></p>
 <p>其中Oij为预测目标边界框i中是否存在第j类目标，Cij为预测值，Cij hat为Cij通过Sigmod函数得到的目标概率，Npos为正样本个数。</p>
 <p>定位损失</p>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/yolo%20v3%20ding.png" alt=""></p>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/yolov3%20can.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/yolo%20v3%20ding.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/yolov3%20can.png" alt=""></p>
 <p>定位损失中的g hat值由真实标签的中心点位置减去上图边界框检测图中的单元格的左上角左边求的。对应的gw和gh hat由预测的公式反向计算得到。</p>
 <h4 id="SPP">SPP</h4>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/yolov3%20spp.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/yolov3%20spp.png" alt=""></p>
 <p>DIOU</p>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/diou.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/diou.png" alt=""></p>
 <p>上述损失函数中，<code>b，bgt</code>分别代表了anchor框和目标框的中心点，且<code>p</code>代表的是计算两个中心点间的欧式距离。<code>c</code>代表的是能够同时覆盖anchor和目标框的最小矩形的对角线距离。因此DIoU中对anchor框和目标框之间的归一化距离进行了建模。</p>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/dioupp.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/dioupp.png" alt=""></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -1216,7 +1216,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">119.3k</span>&nbsp;字
+                class="white-color">120.3k</span>&nbsp;字
             
             
             

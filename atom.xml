@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://sprboot.github.io/"/>
-  <updated>2024-09-24T04:34:19.248Z</updated>
+  <updated>2024-09-24T08:18:54.730Z</updated>
   <id>https://sprboot.github.io/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>大象机械臂Mycobot_280Pi眼在手上标定</title>
+    <link href="https://sprboot.github.io/2024/09/24/da-xiang-ji-jie-bi-yan-zai-shou-shang-biao-ding/"/>
+    <id>https://sprboot.github.io/2024/09/24/da-xiang-ji-jie-bi-yan-zai-shou-shang-biao-ding/</id>
+    <published>2024-09-24T07:45:22.000Z</published>
+    <updated>2024-09-24T08:18:54.730Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;手眼标定&quot;&gt;手眼标定&lt;/h3&gt;
+&lt;p&gt;使用USB接口相机标定时需要先使用标定板标定获取相机内参等信息，realsense相机自带标定信息。相机标定完成后在机械臂末端固定相机后使用aruco和机械臂位姿进行手眼标定。&lt;/p&gt;
+&lt;h4 id=&quot;相机标定&quot;&gt;相机标定&lt;/
+      
+    
+    </summary>
+    
+    
+      <category term="手眼标定" scheme="https://sprboot.github.io/categories/%E6%89%8B%E7%9C%BC%E6%A0%87%E5%AE%9A/"/>
+    
+    
+      <category term="眼在手上" scheme="https://sprboot.github.io/tags/%E7%9C%BC%E5%9C%A8%E6%89%8B%E4%B8%8A/"/>
+    
+  </entry>
+  
+  <entry>
     <title>美剧爬虫</title>
     <link href="https://sprboot.github.io/2022/04/30/mei-ju-pa-chong/"/>
     <id>https://sprboot.github.io/2022/04/30/mei-ju-pa-chong/</id>
     <published>2022-04-30T10:46:12.000Z</published>
-    <updated>2024-09-24T04:34:19.248Z</updated>
+    <updated>2024-09-24T08:25:34.019Z</updated>
     
     <summary type="html">
     
@@ -100,7 +126,7 @@
     <link href="https://sprboot.github.io/2022/03/26/kcf-suan-fa-zong-he/"/>
     <id>https://sprboot.github.io/2022/03/26/kcf-suan-fa-zong-he/</id>
     <published>2022-03-26T03:04:12.000Z</published>
-    <updated>2024-09-24T04:43:55.532Z</updated>
+    <updated>2024-09-24T08:30:19.442Z</updated>
     
     <summary type="html">
     
@@ -109,7 +135,7 @@
         &lt;h3 id=&quot;KCF算法综合&quot;&gt;KCF算法综合&lt;/h3&gt;
 &lt;h4 id=&quot;实现效果&quot;&gt;实现效果&lt;/h4&gt;
 &lt;video id=&quot;video&quot; controls=&quot;&quot; preload=&quot;none&quot;&gt;
-    &lt;source id=&quot;mp4&quot; src=&quot;https://github
+    &lt;source id=&quot;mp4&quot; src=&quot;https://raw.gi
       
     
     </summary>
@@ -153,7 +179,7 @@
     <link href="https://sprboot.github.io/2022/03/16/agx-xavier-kai-fa-ban-shua-ji-huan-jing-da-jian-yu-suan-fa-xun-lian/"/>
     <id>https://sprboot.github.io/2022/03/16/agx-xavier-kai-fa-ban-shua-ji-huan-jing-da-jian-yu-suan-fa-xun-lian/</id>
     <published>2022-03-16T07:03:12.000Z</published>
-    <updated>2024-09-24T04:40:45.571Z</updated>
+    <updated>2024-09-24T08:28:26.743Z</updated>
     
     <summary type="html">
     
@@ -180,7 +206,7 @@
     <link href="https://sprboot.github.io/2022/03/09/kcf-yuan-ma-jie-xi/"/>
     <id>https://sprboot.github.io/2022/03/09/kcf-yuan-ma-jie-xi/</id>
     <published>2022-03-09T09:40:12.000Z</published>
-    <updated>2024-09-24T04:44:49.711Z</updated>
+    <updated>2024-09-24T08:30:49.201Z</updated>
     
     <summary type="html">
     
@@ -208,7 +234,7 @@
     <link href="https://sprboot.github.io/2022/03/07/kcf-suan-fa-xiang-guan-zhi-shi/"/>
     <id>https://sprboot.github.io/2022/03/07/kcf-suan-fa-xiang-guan-zhi-shi/</id>
     <published>2022-03-07T12:12:12.000Z</published>
-    <updated>2024-09-24T04:42:35.170Z</updated>
+    <updated>2024-09-24T08:29:43.197Z</updated>
     
     <summary type="html">
     
@@ -217,7 +243,7 @@
         &lt;h3 id=&quot;KCF算法相关知识&quot;&gt;KCF算法相关知识&lt;/h3&gt;
 &lt;h4 id=&quot;相关滤波&quot;&gt;相关滤波&lt;/h4&gt;
 &lt;p&gt;互相关与子相关&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://media.githubusercontent.com/media/SprBoot/hexo
+&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/SprBoot/image/refs/h
       
     
     </summary>
@@ -235,7 +261,7 @@
     <link href="https://sprboot.github.io/2021/12/01/ubuntu20.04-an-zhuang-hadoop-he-hive-pd-xu-ni-ji-mac-m1/"/>
     <id>https://sprboot.github.io/2021/12/01/ubuntu20.04-an-zhuang-hadoop-he-hive-pd-xu-ni-ji-mac-m1/</id>
     <published>2021-12-01T07:09:30.000Z</published>
-    <updated>2024-09-24T04:50:16.791Z</updated>
+    <updated>2024-09-24T08:35:21.012Z</updated>
     
     <summary type="html">
     
@@ -260,7 +286,7 @@
     <link href="https://sprboot.github.io/2021/11/29/l0-ti-du-zui-xiao-hua-qu-yu-lun-wen-dai-ma/"/>
     <id>https://sprboot.github.io/2021/11/29/l0-ti-du-zui-xiao-hua-qu-yu-lun-wen-dai-ma/</id>
     <published>2021-11-29T13:17:58.000Z</published>
-    <updated>2024-09-24T04:45:18.419Z</updated>
+    <updated>2024-09-24T08:31:13.641Z</updated>
     
     <summary type="html">
     
@@ -284,7 +310,7 @@
     <link href="https://sprboot.github.io/2021/11/24/leetcode-shua-ti-11.24/"/>
     <id>https://sprboot.github.io/2021/11/24/leetcode-shua-ti-11.24/</id>
     <published>2021-11-24T05:26:30.000Z</published>
-    <updated>2024-09-24T04:45:44.314Z</updated>
+    <updated>2024-09-24T08:31:32.231Z</updated>
     
     <summary type="html">
     
@@ -310,7 +336,7 @@
     <link href="https://sprboot.github.io/2021/11/11/fpn-wang-luo-li-lun/"/>
     <id>https://sprboot.github.io/2021/11/11/fpn-wang-luo-li-lun/</id>
     <published>2021-11-11T13:18:30.000Z</published>
-    <updated>2024-09-24T04:41:53.420Z</updated>
+    <updated>2024-09-24T08:29:10.936Z</updated>
     
     <summary type="html">
     
@@ -337,7 +363,7 @@
     <link href="https://sprboot.github.io/2021/11/11/resnet-wang-luo-jie-gou-li-lun/"/>
     <id>https://sprboot.github.io/2021/11/11/resnet-wang-luo-jie-gou-li-lun/</id>
     <published>2021-11-11T09:43:30.000Z</published>
-    <updated>2024-09-24T04:48:36.191Z</updated>
+    <updated>2024-09-24T08:33:40.086Z</updated>
     
     <summary type="html">
     
@@ -364,7 +390,7 @@
     <link href="https://sprboot.github.io/2021/11/09/yolo-xiang-guan-li-lun/"/>
     <id>https://sprboot.github.io/2021/11/09/yolo-xiang-guan-li-lun/</id>
     <published>2021-11-09T13:24:40.000Z</published>
-    <updated>2024-09-24T04:51:17.205Z</updated>
+    <updated>2024-09-24T08:36:20.412Z</updated>
     
     <summary type="html">
     
@@ -392,7 +418,7 @@ FN:没有检测到的GT的数量&lt;/p&gt;
     <link href="https://sprboot.github.io/2021/10/07/aunet-lun-wen-yue-du/"/>
     <id>https://sprboot.github.io/2021/10/07/aunet-lun-wen-yue-du/</id>
     <published>2021-10-07T12:27:40.000Z</published>
-    <updated>2024-09-24T04:41:06.798Z</updated>
+    <updated>2024-09-24T08:28:43.093Z</updated>
     
     <summary type="html">
     
@@ -419,7 +445,7 @@ FN:没有检测到的GT的数量&lt;/p&gt;
     <link href="https://sprboot.github.io/2021/10/06/unet-bian-ma/"/>
     <id>https://sprboot.github.io/2021/10/06/unet-bian-ma/</id>
     <published>2021-10-06T13:22:30.000Z</published>
-    <updated>2024-09-24T04:50:35.467Z</updated>
+    <updated>2024-09-24T08:35:41.625Z</updated>
     
     <summary type="html">
     
@@ -427,7 +453,7 @@ FN:没有检测到的GT的数量&lt;/p&gt;
       
         &lt;h3 id=&quot;UNet编码&quot;&gt;UNet编码&lt;/h3&gt;
 &lt;h5 id=&quot;UNet模型图&quot;&gt;UNet模型图&lt;/h5&gt;
-&lt;p&gt;&lt;img src=&quot;https://media.githubusercontent.com/media/SprBoot/hexo_image/master/u
+&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/unett
       
     
     </summary>
@@ -445,7 +471,7 @@ FN:没有检测到的GT的数量&lt;/p&gt;
     <link href="https://sprboot.github.io/2021/10/05/u-net-lun-wen-yue-du/"/>
     <id>https://sprboot.github.io/2021/10/05/u-net-lun-wen-yue-du/</id>
     <published>2021-10-05T13:26:40.000Z</published>
-    <updated>2024-09-24T04:49:58.607Z</updated>
+    <updated>2024-09-24T08:34:56.005Z</updated>
     
     <summary type="html">
     
@@ -473,7 +499,7 @@ FN:没有检测到的GT的数量&lt;/p&gt;
     <link href="https://sprboot.github.io/2021/10/01/lun-wen-yue-du-di-er-bu-fen/"/>
     <id>https://sprboot.github.io/2021/10/01/lun-wen-yue-du-di-er-bu-fen/</id>
     <published>2021-10-01T09:47:30.000Z</published>
-    <updated>2024-09-24T04:32:31.636Z</updated>
+    <updated>2024-09-24T08:24:42.226Z</updated>
     
     <summary type="html">
     
@@ -500,7 +526,7 @@ FN:没有检测到的GT的数量&lt;/p&gt;
     <link href="https://sprboot.github.io/2021/09/29/lun-wen-yue-du-di-yi-bu-fen/"/>
     <id>https://sprboot.github.io/2021/09/29/lun-wen-yue-du-di-yi-bu-fen/</id>
     <published>2021-09-29T13:16:30.000Z</published>
-    <updated>2024-09-24T04:33:12.219Z</updated>
+    <updated>2024-09-24T08:24:57.658Z</updated>
     
     <summary type="html">
     
@@ -519,32 +545,6 @@ FN:没有检测到的GT的数量&lt;/p&gt;
     
     
       <category term="论文" scheme="https://sprboot.github.io/tags/%E8%AE%BA%E6%96%87/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>yolov5源码解析一</title>
-    <link href="https://sprboot.github.io/2021/09/27/yolov5-yuan-ma-jie-xi/"/>
-    <id>https://sprboot.github.io/2021/09/27/yolov5-yuan-ma-jie-xi/</id>
-    <published>2021-09-27T08:36:40.000Z</published>
-    <updated>2024-09-24T04:51:41.944Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;yolov5源码解析一&quot;&gt;yolov5源码解析一&lt;/h3&gt;
-&lt;h5 id=&quot;yolov5模型&quot;&gt;yolov5模型&lt;/h5&gt;
-&lt;p&gt;&lt;img src=&quot;https://media.githubusercontent.com/media/SprBoot/hexo_im
-      
-    
-    </summary>
-    
-    
-      <category term="深度学习" scheme="https://sprboot.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="算法" scheme="https://sprboot.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   

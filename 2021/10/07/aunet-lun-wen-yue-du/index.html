@@ -508,7 +508,7 @@
 <p>PAM：通过RPN的粗糙前景指导背景分割的分支。</p>
 <p>MAM：将Mask进行上采样恢复到feature map大小，之后采用PAM的操作。</p>
 <p>代码实现后面在写。不管是什么，我小机灵先放一张模型图在这就完事了。</p>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/AUNettu2" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/AUNettu2" alt=""></p>
 <h5 id="相关知识">相关知识</h5>
 <h6 id="注意力机制">注意力机制</h6>
 <p>attention机制可以它认为是一种资源分配的机制，可以理解为对于原本平均分配的资源根据attention对象的重要程度重新分配资源，重要的单位就多分一点，不重要或者不好的单位就少分一点，在深度神经网络的结构设计中，attention所要分配的资源基本上就是权重了</p>
@@ -552,20 +552,20 @@
 <h6 id="注意力引导模型">注意力引导模型</h6>
 <p><strong>PAM</strong></p>
 <p>在传统的两阶段的检测框架中，RPN被用来进行二元标签分类和边界坐标的预测。这意味着RPN features包括只从背景分支的事物注释中获得的丰富背景信息。因此，我们提出了一种新的方法在前景元素和背景语义之间建立互补关系，被称为PAM。如图3所示，我们利用从RPN分支中获得的语境信息来进行注意力操作。我们给出了该过程的细节。给定一个从第i个RPN分支尺度输入的feature map Pi，在sigmoid激活前前景的权重map Mi如下表示：</p>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/AUNet1" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/AUNet1" alt=""></p>
 <p>f函数表示卷积操作，参数表示ReLU激活函数，Mi表示生成的前景权重map，Wi,1和Wi,2表示卷积参数。</p>
 <p>为了加强背景的语义信息，我们将注意力权重map表示为1-sigmoid(Mi)。然后，第i个尺度的激活的feature map S’i表示如下：</p>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/AUNet2" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/AUNet2" alt=""></p>
 <p>⊗和⊕分别表示元素累乘和累加，Si,j表示第j层的分割feature map Si</p>
 <p>受同行启发，设计一种简单的背景重新加权方法用来在注意力操作后对无用的背景的层进行权重减少。重新加权feature mapS’'i如下表示：</p>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/AUNet3" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/AUNet3" alt=""></p>
 <p>G和GN表示全局平均池化和群体范数。Ni表示重新加权操作，Wi,3表示卷积参数，S’i,k表示S’i中的第k个像素通道。</p>
 <p>基于 PAM 的上述公式，我们通过注意力操作和背景重加权函数突出共享feature map中的背景区域。它还通过在反向传播期间增强激活的前景区域的权重来方便前景事物的学习。</p>
 <p><strong>MAM</strong></p>
 <p>随着PAM引入语境信息，背景分支被鼓励更多地关注事物的区域。然而，从RPN分支中预测的粗糙的区域缺少足够的线索来对背景进行精确的陈述。和RPN feature不同，从前景分支生成的m×m固定形状掩码可以编码更精细的前景布局。因此我们提出了MAM来进一步模拟这种关系，我们提出了一种新的RoIUpsample层。RoIUpsample层设计的和RoIAlign的过程反转比较相似，如图四所示。在RoIUpsample层中，m×m的掩膜第一次被重塑为和RoIs一样的形状。然后我们利用设计的逆双线性插值计算每个掩码箱中四个规则采样位置的输出特征值，然后将最终结果累加生成掩码feature map。为了满足双线性插值的要求，其中接近点被赋予更多的权重，对于逆双线性插值表示如下：</p>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/AUNet4" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/AUNet4" alt=""></p>
 <p>R(pj,k)表示在逆双线性插值之后点Pj,k的结果，R(pg)输入掩码对应值的四分之一，并且规范化的权重valuex和valuey定义如下：</p>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/AUNet5" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/AUNet5" alt=""></p>
 <p>其中xp和yp分别表示两个轴上网格点pg和生成的p1,1之间的距离，如图4b所示，注意到公式5和6，也可以使用前向双线性插值从生成的 W’×H’ feature map还原m×m掩码。</p>
 <p>然后，根据RoIs的尺寸将生成的feature map分配到四个不同的尺度，这与FPN中的相似。生成的前景feature map是通过以下操作实现的。</p>
 <p><strong>注意力操作</strong></p>
@@ -574,7 +574,7 @@
 <p>作者在本节给出了在训练和推理阶段的相关实现细节。</p>
 <h6 id="训练">训练</h6>
 <p>像在3.2中已经详细阐述的一样，所以提出的方法在统一的框架中都进行了训练。整个网络在训练阶段通过连接的loss函数进行优化，损失函数如下所示：</p>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/AUNet6" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/AUNet6" alt=""></p>
 <p>其中的LRPN，LRCNN，LMASK和LSeg分别代表了RPN，RCNN，实例分割和语义分割的损失函数。具体来说，超参数被用来平衡训练过程，λ1到λ4在COCO数据集上被设为1，1，1，0.3，在Cityspaces数据集上被设为1，0.75，1，1。</p>
 <p>在细节上，我们采用了ResNet-FPN作为我们的主干网络。前景分支的超参数来自Mask R-CNN。主干网络在ImageNet数据集上进行了预训练，剩下的参数来自于参考的另一篇论文。作为标准训练，使用8个GPU来训练所有模型。对于基于ResNet-50和ResNet-101的网络，每个小批量处理的GPU有2个图像，其他每个GPU有1个图像。网络通过使用4e-5的权重衰减和0.9的动量进行迭代的优化。主干网络中的批量归一化是固定的，并且在我们的最终结果中将组归一化添加到所有分支中。对于COCO数据集，在前十三次迭代的学习率为0.02并在第十五次和第十八次的时候将学习率除10。输入的图像在训练时进行水平翻转并重塑短边为600个像素。多尺度测试在最后的结果中被采用。对于Cityspaces数据集来说，初始学习率设置为0.01并在第68次和第88次迭代后分别除10。在将每个图像随机翻转和缩放0.5到2.0倍之后，我们从16个随机512×1024图像裁剪构建mini-batch用于训练。</p>
 <h6 id="推理">推理</h6>
@@ -583,25 +583,25 @@
 <p>作者在COCO和Cityspaces数据集上进行实验并和同行算法相比。简言之就是吹。所以略。</p>
 <h5 id="附加文件">附加文件</h5>
 <h6 id="图1">图1</h6>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/AUNettu1" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/AUNettu1" alt=""></p>
 <h6 id="图2">图2</h6>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/AUNettu2" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/AUNettu2" alt=""></p>
 <h6 id="图3">图3</h6>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/AUNettu3" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/AUNettu3" alt=""></p>
 <h6 id="图4">图4</h6>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/AUNettu4" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/AUNettu4" alt=""></p>
 <h6 id="图5">图5</h6>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/AUNettu5" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/AUNettu5" alt=""></p>
 <h6 id="图6">图6</h6>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/AUNettu6" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/AUNettu6" alt=""></p>
 <h6 id="图7">图7</h6>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/AUNettu7" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/AUNettu7" alt=""></p>
 <h6 id="表1">表1</h6>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/AUNetbiao1" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/AUNetbiao1" alt=""></p>
 <h6 id="表2">表2</h6>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/AUNetbiao2" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/AUNetbiao2" alt=""></p>
 <h6 id="表3">表3</h6>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/AUNetbiao3" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/AUNetbiao3" alt=""></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -1276,7 +1276,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">119.3k</span>&nbsp;字
+                class="white-color">120.3k</span>&nbsp;字
             
             
             

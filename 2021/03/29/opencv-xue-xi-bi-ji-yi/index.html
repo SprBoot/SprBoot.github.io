@@ -529,7 +529,7 @@ var2：要加载的图像的代理对象<br>
 注意：在调用显示图像的API后，要调用cv.waitKey(var)给图像绘制留下时间，否则窗口会出现无响应情况，并且图像无法显示出来。</p>
 <p>plt.imshow(img,<a href="http://camp=plt.cm" target="_blank" rel="noopener">camp=plt.cm</a>.) cmap即colormaps,图谱 plt.cm是matplotlib库中内置的色彩映射函数 <a href="http://plt.cm" target="_blank" rel="noopener">plt.cm</a>.[色彩](’[数据集]’)即对[数据集]应用[色彩]<br>
 plt.show()<br>
-<img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/%E6%88%AA%E5%B1%8F2021-03-29%20%E4%B8%8A%E5%8D%8810.36.35.png" alt=""><br>
+<img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/%E6%88%AA%E5%B1%8F2021-03-29%20%E4%B8%8A%E5%8D%8810.36.35.png" alt=""><br>
 及其他色彩表</p>
 <h5 id="保存图像">保存图像</h5>
 <p>cv.imwrite(var1,var2)<br>
@@ -545,7 +545,7 @@ img = cv.imread('/Users/dinggongcheng/Downloads/me.JPG', 0)
 plt.imshow(img, cmap=plt.cm.gray)
 plt.show()
 </code></pre>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/%E6%88%AA%E5%B1%8F2021-03-29%20%E4%B8%8A%E5%8D%8810.42.37.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/%E6%88%AA%E5%B1%8F2021-03-29%20%E4%B8%8A%E5%8D%8810.42.37.png" alt=""></p>
 <h4 id="绘制几何图形">绘制几何图形</h4>
 <h5 id="绘制直线">绘制直线</h5>
 <p>cv.line(img,start,end,color,thickness)<br>
@@ -590,7 +590,7 @@ plt.imshow(img[:, :, ::-1])
 plt.title('匹配结果'), plt.xticks([]), plt.yticks([])
 plt.show()
 </code></pre>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/%E6%88%AA%E5%B1%8F2021-03-29%20%E4%B8%8A%E5%8D%8811.02.51.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/%E6%88%AA%E5%B1%8F2021-03-29%20%E4%B8%8A%E5%8D%8811.02.51.png" alt=""></p>
 <h4 id="获取并修改图像中的像素点">获取并修改图像中的像素点</h4>
 <p>可以通过行和列的坐标值获取该像素点的像素值。对于BGR图像，它返回一个蓝，绿，红值的数组。对于灰度图像，仅返回相应的强度值。使用相同的方法对像素值进行修改。</p>
 <pre class=" language-language-python"><code class="language-language-python">img = np.zeros((256, 256, 3), np.uint8)
@@ -673,8 +673,8 @@ plt.imshow(img3[:, :, ::-1])
 plt.imshow(img4[:, :, ::-1])
 plt.show()
 </code></pre>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/%E6%88%AA%E5%B1%8F2021-03-29%20%E4%B8%8B%E5%8D%881.23.37.png" alt="cv相加"></p>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/%E6%88%AA%E5%B1%8F2021-03-29%20%E4%B8%8B%E5%8D%881.24.06.png" alt="直接相加"></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/%E6%88%AA%E5%B1%8F2021-03-29%20%E4%B8%8B%E5%8D%881.23.37.png" alt="cv相加"></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/%E6%88%AA%E5%B1%8F2021-03-29%20%E4%B8%8B%E5%8D%881.24.06.png" alt="直接相加"></p>
 <h5 id="图像的混合">图像的混合</h5>
 <p>通过加法实现，但是不同的是两幅图像的权重不同，这就会给人一种混合或者透明的感觉。图像混合的计算公式如下：<br>
 g(x) = (1-a)f0(x) + af1(x)<br>
@@ -748,7 +748,7 @@ axes[2].imshow(res1[:, :, ::-1])
 axes[2].set_title("fx small")
 plt.show()
 </code></pre>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/%E6%88%AA%E5%B1%8F2021-03-29%20%E4%B8%8B%E5%8D%881.53.24.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/%E6%88%AA%E5%B1%8F2021-03-29%20%E4%B8%8B%E5%8D%881.53.24.png" alt=""></p>
 <h5 id="图像平移">图像平移</h5>
 <p>图像平移将图像按照指定方向和距离，移动到相应的位置。<br>
 cv.warpAffine(img,M,dsize)<br>
@@ -777,7 +777,7 @@ axes[1].imshow(img[:, :, ::-1])
 axes[1].set_title("from")
 plt.show()
 </code></pre>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/%E6%88%AA%E5%B1%8F2021-03-29%20%E4%B8%8B%E5%8D%882.07.55.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/%E6%88%AA%E5%B1%8F2021-03-29%20%E4%B8%8B%E5%8D%882.07.55.png" alt=""></p>
 <h5 id="图像旋转">图像旋转</h5>
 <p>图像旋转是指图像按照某个位置转动一定角度的过程，旋转中图像仍保持原始尺寸。图像旋转后图像的水平对称轴，垂直对称轴及中心坐标原点都可能发生变换。因此需要对图像旋转中的坐标进行相应转换。<br>
 在OpenCV中图像旋转首先根据旋转角度和旋转中心获取旋转矩阵，然后根据旋转矩阵进行变换，即可实现任意角度和任意中心的旋转效果。<br>
@@ -808,7 +808,7 @@ axes[1].imshow(img[:, :, ::-1])
 axes[1].set_title("from")
 plt.show()
 </code></pre>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/%E6%88%AA%E5%B1%8F2021-03-29%20%E4%B8%8B%E5%8D%882.25.20.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/%E6%88%AA%E5%B1%8F2021-03-29%20%E4%B8%8B%E5%8D%882.25.20.png" alt=""></p>
 <h5 id="仿射变换">仿射变换</h5>
 <p>图像的仿射变换涉及到图像的形状位置角度的变化，是深度学习预处理中常用到的功能，仿射变换主要是对图像的缩放，旋转，翻转和平移等操作的组合。<br>
 需要注意的是，对于图像而言，宽度方向是x，高度方向是y，坐标的顺序和图像像素对应下标一致。所以原点的位置不是左下角而是右上角，y的方向也不是向上，而是向下。<br>
@@ -838,7 +838,7 @@ axes[1].imshow(img[:, :, ::-1])
 axes[1].set_title("from")
 plt.show()
 </code></pre>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/%E6%88%AA%E5%B1%8F2021-03-29%20%E4%B8%8B%E5%8D%882.38.35.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/%E6%88%AA%E5%B1%8F2021-03-29%20%E4%B8%8B%E5%8D%882.38.35.png" alt=""></p>
 <h5 id="透射变换">透射变换</h5>
 <p>透射变换是视角变换的结果，是指利用透视中心，像点，目标点三点共线的条件，按透视旋转定律使承影面绕迹线旋转某一角度，破坏原有的投影光线束，仍能保持承影面上投影几何图形不变的变换。<br>
 在OpenCV中，我们要找到四个点，其中任意三个不共线，然后获取变换矩阵T，在进行透射变换。通过函数cv.getPerspectiveTransform找到其变换矩阵，将cv.warpPerspective应用于此3*3变换矩阵。</p>
@@ -866,7 +866,7 @@ axes[1].imshow(img[:, :, ::-1])
 axes[1].set_title("from")
 plt.show()
 </code></pre>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/%E6%88%AA%E5%B1%8F2021-03-29%20%E4%B8%8B%E5%8D%882.53.23.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/%E6%88%AA%E5%B1%8F2021-03-29%20%E4%B8%8B%E5%8D%882.53.23.png" alt=""></p>
 <h5 id="图像金字塔">图像金字塔</h5>
 <p>图像金字塔是图像多尺度表达的一种，最主要用于图像的分割，是一种以多分辨率来解释图像的有效但概念简单的结构。<br>
 图像金字塔用于机器视觉和图像压缩，一幅图像的金字塔是一系列以金字塔形状排列的分辨率逐步降低且来源于同一张原始图的图像集合。其通过梯次向下采样获得，直到达到某个终止条件才停止采样。<br>
@@ -890,7 +890,7 @@ axes[1].imshow(down_img[:, :, ::-1])
 axes[1].set_title("Down")
 plt.show()
 </code></pre>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/%E6%88%AA%E5%B1%8F2021-03-29%20%E4%B8%8B%E5%8D%883.04.56.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/%E6%88%AA%E5%B1%8F2021-03-29%20%E4%B8%8B%E5%8D%883.04.56.png" alt=""></p>
 <h4 id="形态学操作">形态学操作</h4>
 <h5 id="连通性">连通性</h5>
 <p>连通性是描述区域和边界的重要概念，两个像素联通的两个必要条件是：<br>
@@ -932,7 +932,7 @@ axes[1].imshow(dilate[:, :, ::-1])
 axes[1].set_title("dilate")
 plt.show()
 </code></pre>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/%E6%88%AA%E5%B1%8F2021-03-29%20%E4%B8%8B%E5%8D%883.34.21.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/%E6%88%AA%E5%B1%8F2021-03-29%20%E4%B8%8B%E5%8D%883.34.21.png" alt=""></p>
 <h5 id="开闭运算">开闭运算</h5>
 <p>开运算和闭运算是将腐蚀和膨胀按照一定的次序进行处理。但这两者并不是可逆的，即先开后闭并不难得到原来的图像。<br>
 开运算是先腐蚀后膨胀，其作用是分离物体，消除小区域。消除噪点，去除小的干扰块，而不影响原来的图像。<br>
@@ -1008,7 +1008,7 @@ plt.subplot(122), plt.imshow(blur[:, :, ::-1]), plt.title('blur')
 plt.xticks([]), plt.yticks([])
 plt.show()
 </code></pre>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/%E6%88%AA%E5%B1%8F2021-03-29%20%E4%B8%8B%E5%8D%884.16.32.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/%E6%88%AA%E5%B1%8F2021-03-29%20%E4%B8%8B%E5%8D%884.16.32.png" alt=""></p>
 <h6 id="高斯滤波">高斯滤波</h6>
 <p>cv.GaussianBlur(src,ksize,sigmaX,sigmaY,borderType)<br>
 src：输入图像<br>
@@ -1034,7 +1034,7 @@ plt.subplot(122), plt.imshow(gauss[:, :, ::-1]), plt.title('gauss')
 plt.xticks([]), plt.yticks([])
 plt.show()
 </code></pre>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/%E6%88%AA%E5%B1%8F2021-03-29%20%E4%B8%8B%E5%8D%884.26.06.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/%E6%88%AA%E5%B1%8F2021-03-29%20%E4%B8%8B%E5%8D%884.26.06.png" alt=""></p>
 <h6 id="中值滤波">中值滤波</h6>
 <p>中值滤波是一种典型的非线性滤波技术，基本思想适用像素点领域灰度值的中值来代替该像素点的灰度值。中值滤波对椒盐噪声来说尤其有用，因为它不依赖于领域内那些与典型值差别很大的值。<br>
 cv.medianBlur(src,ksize)<br>
@@ -1058,7 +1058,7 @@ plt.subplot(122), plt.imshow(media[:, :, ::-1]), plt.title('media')
 plt.xticks([]), plt.yticks([])
 plt.show()
 </code></pre>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/%E6%88%AA%E5%B1%8F2021-03-29%20%E4%B8%8B%E5%8D%884.30.18.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/%E6%88%AA%E5%B1%8F2021-03-29%20%E4%B8%8B%E5%8D%884.30.18.png" alt=""></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -1728,7 +1728,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">119.3k</span>&nbsp;字
+                class="white-color">120.3k</span>&nbsp;字
             
             
             

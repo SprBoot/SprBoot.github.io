@@ -537,16 +537,16 @@ sudo apt-get upgrade
 <p>安装步骤</p>
 <p>下面的图为tx2，来源于网络，实际配置的板子为agx xavier。</p>
 <p><strong>step1</strong></p>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/step01.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/step01.png" alt=""></p>
 <p><strong>注意</strong></p>
 <p>hardware configuration中的host machine是为自己当前的主机安装环境，这里可以根据自己的需要进行选择。后面的target hardware一定要连接到自己的开发板。使用的是厂家提供的原装线，并且type-c的口一定要连接靠近电源按钮的那个接口。</p>
 <p>如果还是连接不到，在保证开发板通电且关机的情况下，按住开机按钮和开机旁边的按钮两秒钟，看到电源灯亮起的时候松开。这个时候电脑会弹出连接的选项，这里要将开发板连接到你的虚拟机而不是你的电脑。</p>
 <p>jetpack版本的话我最初安装的是4.5，后来在配环境的时候看到4.5有bug，因此在线升级成了4.6。你可以在该步骤直接选择或者以后根据情况在板子的系统中自行升级。</p>
 <p><strong>step2</strong></p>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/step02.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/step02.png" alt=""></p>
 <p><strong>注意</strong></p>
 <p>该步骤的除了镜像是烧进系统之外，下面的开发环境配置是需要开发板和主机在一个局域网内的，你可以将电脑和局域网连接到一个路由器。我这里没有网线所以就没有安装，是在开发板系统装完之后在系统中安装的。安装步骤在本文的后面。推荐该步骤找根网线将环境安装完整。</p>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/step03.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/step03.png" alt=""></p>
 <p><strong>注意</strong></p>
 <p>在系统镜像下载完成并安装完成之后，第三步会跳出该见面配置环境信息，同时连接开发板的显示屏亮屏进行开发板系统的安装，系统的安装按照步骤进行即可。环境的安装需要配置开发板的局域网ip和信息，之后进行安装即可。</p>
 <h4 id="环境搭建">环境搭建</h4>
@@ -615,16 +615,16 @@ sudo apt dist-upgrade
 <h5 id="pytorch安装">pytorch安装</h5>
 <p><strong>注意</strong></p>
 <p>这里的torch和torchvision版本一定要对应，且版本要满足你的算法运行环境。我这里安装的版本为1.8.0的torch和0.9.0的torchvision。</p>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/torch-torchvision.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/torch-torchvision.png" alt=""></p>
 <p>1.9.0以上的torch对torchvision对应的时候在训练yolov5的时候有bug，所以使用了1.8.0。</p>
 <p>而且只有1.8.0才能使用torch.fx，所以我这里也不能使用1.7.0，shit！所以一定要注意算法要求。</p>
 <p><strong>安装</strong></p>
 <p>torch与jetpack版本的对应关系</p>
 <p><a href="https://elinux.org/Jetson_Zoo#PyTorch_.28Caffe2.29" target="_blank" rel="noopener">https://elinux.org/Jetson_Zoo#PyTorch_.28Caffe2.29</a></p>
 <p>由于开发板只能使用官网提供的whl安装，但是去官网下载需要科学上网，因此我提供下载地址。</p>
-<p><a href="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/torch-1.6.0-cp36-cp36m-linux_aarch64.whl" target="_blank" rel="noopener">torch-1.6.0-cp36-cp36m-linux_aarch64.whl</a></p>
-<p><a href="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/torch-1.7.0-cp36-cp36m-linux_aarch64.whl" target="_blank" rel="noopener">torch-1.7.0-cp36-cp36m-linux_aarch64.whl</a></p>
-<p><a href="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/torch-1.8.0-cp36-cp36m-linux_aarch64.whl" target="_blank" rel="noopener">torch-1.8.0-cp36-cp36m-linux_aarch64.whl</a></p>
+<p><a href="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/torch-1.6.0-cp36-cp36m-linux_aarch64.whl" target="_blank" rel="noopener">torch-1.6.0-cp36-cp36m-linux_aarch64.whl</a></p>
+<p><a href="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/torch-1.7.0-cp36-cp36m-linux_aarch64.whl" target="_blank" rel="noopener">torch-1.7.0-cp36-cp36m-linux_aarch64.whl</a></p>
+<p><a href="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/torch-1.8.0-cp36-cp36m-linux_aarch64.whl" target="_blank" rel="noopener">torch-1.8.0-cp36-cp36m-linux_aarch64.whl</a></p>
 <p>下载完成后</p>
 <pre class=" language-language-shell"><code class="language-language-shell">sudo pip install torch-1.8.0-cp36-cp36m-linux_aarch64.whl
 </code></pre>
@@ -632,8 +632,8 @@ sudo apt dist-upgrade
 <pre class=" language-language-shell"><code class="language-language-shell">sudo apt-get install libjpeg-dev zlib1g-dev libpython3-dev libavcodec-dev libavformat-dev libswscale-dev
 </code></pre>
 <p>由于pip无法下载所有版本，因此torch对应的相关版本需要自行下载github地址进行编译，我这里提供部分版本。</p>
-<p><a href="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/vision-0.8.0.tar.gz" target="_blank" rel="noopener">0.8.0</a></p>
-<p><a href="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/detect.tar.gz" target="_blank" rel="noopener">0.9.0</a></p>
+<p><a href="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/vision-0.8.0.tar.gz" target="_blank" rel="noopener">0.8.0</a></p>
+<p><a href="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/detect.tar.gz" target="_blank" rel="noopener">0.9.0</a></p>
 <p>如果报错fatal error: libavcodec/avcodec.h(建议编译前修改以下内容)</p>
 <p>更改torchvision的setup.py源码，找到<strong>if has ffmpeg</strong> 改为<strong>if False</strong>即可</p>
 <pre class=" language-language-shell"><code class="language-language-shell">cd vision
@@ -649,9 +649,9 @@ sudo python setup.py install
 <p>这里根据你的需求或者requirements.txt文件进行安装即可。</p>
 <h4 id="算法训练">算法训练</h4>
 <h5 id="训练过程">训练过程</h5>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/trainyolov5.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/trainyolov5.png" alt=""></p>
 <h5 id="检测效果">检测效果</h5>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/masktestyolov5.jpeg" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/masktestyolov5.jpeg" alt=""></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -1328,7 +1328,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">119.3k</span>&nbsp;字
+                class="white-color">120.3k</span>&nbsp;字
             
             
             

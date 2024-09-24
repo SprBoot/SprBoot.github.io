@@ -504,29 +504,29 @@
                 <h3 id="深度学习笔记四">深度学习笔记四</h3>
 <h4 id="Deep-Learning">Deep Learning</h4>
 <h5 id="深度学习的network">深度学习的network</h5>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/dee.jpg" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/dee.jpg" alt=""></p>
 <p>神经元的权重和偏差可以视为矩阵运算。即得到激活函数(activation function)。将激活函数进行sigmoid得到最终结果。将上方的网络用该种形式进行计算即为</p>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/dee2.jpg" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/dee2.jpg" alt=""></p>
 <p>通过矩阵运行交由GPU加快运算过程。</p>
 <h5 id="神经元网络的选取">神经元网络的选取</h5>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/cry.jpg" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/cry.jpg" alt=""></p>
 <p>通过神经元网络计算得到的输入矩阵和根据图像得到的target矩阵进行交叉熵计算结果，调整参数使得最后计算得到的交叉熵最小以确定最优的神经元网络函数。</p>
 <p>通过不同组的数据进行训练得到所有的交叉熵进行累加，使用gradient descent获取w与b。</p>
 <h5 id="gradient-descent">gradient descent</h5>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/grad.jpg" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/grad.jpg" alt=""></p>
 <h4 id="Backpropagation">Backpropagation</h4>
 <p>帮助计算gradient descent中的参数的偏微分。</p>
 <h5 id="chain-rule">chain rule</h5>
 <p>即复合函数的微分过程。</p>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/we.jpg" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/we.jpg" alt=""></p>
 <p>C为最后的交叉熵。</p>
 <p>z对于w求偏微分，z对于哪一个w求微分，得到的即为w对应的输入数据。</p>
 <p>C对于z求偏微分。</p>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/Cw.jpg" alt=""></p>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/ch.jpg" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/Cw.jpg" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/ch.jpg" alt=""></p>
 <h5 id="Backward-pass">Backward pass</h5>
 <p>以未知的两项作为输入，得出的最终结果为输出。</p>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/fa2.jpg" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/fa2.jpg" alt=""></p>
 <p>具体的放大倍率即为对应z的sigmoid的求导。反求通过已知的C即可快速计算。</p>
 <h4 id="Recipe-OF-Deep-Learning">Recipe OF Deep Learning</h4>
 <p>对于得到神经元网络应先应用于训练数据判断是否合适，防止直接运用于测试数据出现的非过拟合现象。</p>
@@ -537,34 +537,34 @@
 <h6 id="ReLU">ReLU</h6>
 <p>更改激活函数，当输入小于0时，输出为0，当输入大于0时，输出等于输入。</p>
 <p>当神经元的输出为0时，不会影响整个神经元网络，可以直接去掉。而输入等于输出不会产生递减问题。</p>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/rejy.jpg" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/rejy.jpg" alt=""></p>
 <h6 id="maxout">maxout</h6>
 <p>每层神经元的输出为分组中的最大值。</p>
 <p>maxout也可以使用ReLU，即某个参数始终为0，其他参数为线性函数，即选取最大时满足ReLU。</p>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/bax.jpg" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/bax.jpg" alt=""></p>
 <h6 id="Maxout-training">Maxout training</h6>
 <p>选取的最大值为最终的输出值，最终简化神经元网络。</p>
 <h5 id="Adaptive-Learning-Rate">Adaptive Learning Rate</h5>
 <p>使用adagrad</p>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/adagrad.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/adagrad.png" alt=""></p>
 <h6 id="RMSProp">RMSProp</h6>
 <p>防止在某个变量变化的过程中出现的变化较小和变化较大同时存在的情况。</p>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/TRB.jpg" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/TRB.jpg" alt=""></p>
 <h6 id="Momentum">Momentum</h6>
 <p>利用惯性继续向前移动。</p>
 <p>使用V记录移动距离。</p>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/MVE.jpg" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/MVE.jpg" alt=""></p>
 <h6 id="Adam">Adam</h6>
 <p>RMSProp + Momentum</p>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/adam.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/adam.png" alt=""></p>
 <h5 id="Early-Stopping">Early Stopping</h5>
 <p>在error上升前停住，即一个if判断即可。</p>
 <h5 id="Regularization">Regularization</h5>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/reg.jpg" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/reg.jpg" alt=""></p>
 <h5 id="DropOut">DropOut</h5>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/st1.jpg" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/st1.jpg" alt=""></p>
 <p>在新的神经元网络上进行训练。表现的结果可能变差。</p>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/sy2.jpg" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/sy2.jpg" alt=""></p>
 <p>训练时使用所有的神经元，而在测试时需要去掉不合理的神经元。</p>
 <p>训练数据时使用dropout，而测试时不需要dropout，因此对于所有的输入没有dropout，需要使用(1-p)%。</p>
 <p>在训练时对于每组不同的数据会得到较多的神经元网络，而在测试时对于测试数据应用于所有的神经元网络不现实，因此采用了(1-p)%的方式进行计算，而得到的结果与前种方式得到的结果是相似的。</p>
@@ -1241,7 +1241,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">119.3k</span>&nbsp;字
+                class="white-color">120.3k</span>&nbsp;字
             
             
             

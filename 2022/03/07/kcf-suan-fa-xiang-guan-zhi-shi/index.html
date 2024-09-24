@@ -504,7 +504,7 @@
                 <h3 id="KCF算法相关知识">KCF算法相关知识</h3>
 <h4 id="相关滤波">相关滤波</h4>
 <p>互相关与子相关</p>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/WX20220307-201016.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/WX20220307-201016.png" alt=""></p>
 <p>图像追踪</p>
 <p>输入第一帧，选定追踪区域提取特征，训练得到相关滤波器。对与之后的每一帧，裁剪之前的预测区域，进行特征提取，加窗函数进行FFT变换，然后与相关滤波器相乘，结果做IFFT，最大响应点所在的区域即为要追踪目标的位置，使用新位置进行新的相关滤波器的训练在进行预测。</p>
 <h4 id="岭回归">岭回归</h4>
@@ -529,17 +529,17 @@
 <p>使用逆傅立叶变换将处理完成的频域图转换为图像。</p>
 <h4 id="循环矩阵">循环矩阵</h4>
 <p>取数域a1-an，则循环矩阵为</p>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/WX20220308-150152.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/WX20220308-150152.png" alt=""></p>
 <p>即除第一行元素之外，其他行都是由第一行元素进行循环移位得到的。</p>
 <h4 id="循环移位">循环移位</h4>
 <p>对于输入图像来说，其实际是二维的，但在公式中对于输入 x 的定义往往是一个一维列向量。应理解为将图像逐元素由二维拉为一维，得到循环矩阵的第一行，之后再进行一维的循环移位得到循环矩阵。需要注意的是，<strong>实际中图像的循环移位并不是真正存在的，只是一种假设。有了这个假设，才能利用循环矩阵的性质，将相关操作转换为频域的卷积操作</strong>，以达到减少计算量，提升跟踪速度的效果。</p>
 <h4 id="核函数">核函数</h4>
 <p><strong>核函数是二元函数，输入是映射之前的两个向量，其输出等价于两个向量映射之后的内积。</strong></p>
 <p>即将低维映射高维，然而高维的复杂计算可以通过低维的简单计算来获取。</p>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/WX20220308-151343.png" alt=""></p>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/WX20220308-151419.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/WX20220308-151343.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/WX20220308-151419.png" alt=""></p>
 <h4 id="标量积">标量积</h4>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/1046925-20200204093255306-1956874066.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/1046925-20200204093255306-1956874066.png" alt=""></p>
 <p>向量 𝑟 对 𝑠 作投影，得到 𝑟𝑐𝑜𝑠𝛽，再将投影的大小 |𝑟|𝑐𝑜𝑠𝛽 和 𝑠 向量的大小 |𝑠| 相乘（可以交换，不管哪个向量对另一个向量作投影结果都是相同的）。</p>
 <h4 id="核技巧">核技巧</h4>
 <p>在当前唯独下的线性不可分的数据通过映射到高维度的空间时可以会变得线性可分。然后低维转到高维之后可能会面临维度灾难问题(即计算量)和每个点的转换问题。</p>
@@ -554,16 +554,16 @@
 <p><a href="https://zhuanlan.zhihu.com/p/24318554" target="_blank" rel="noopener">参考链接</a></p>
 <p><strong>窗函数的时频域特征</strong></p>
 <p>加窗实质是用一个所谓的窗函数与原始的时域信号作乘积的过程（当然加窗也可以在频域进行，但时域更为普遍），使得相乘后的信号似乎更好地满足傅立叶变换的周期性要求。如下图所示，原始的信号是不满足FFT变换的周期性要求的，变换后存在泄漏，如果施加一个窗函数，会在一定程度上减少泄漏。为了减少泄漏，用一个窗函数与原始周期信号相乘，得到加窗后的信号为周期信号，从而满足FFT变换的周期性要求。</p>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/v2-e795a8994ccab653d0ef26fcdfcf97da_720w.jpeg" alt=""></p>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/v2-78d2244634e77047feeffacc7cb7aa80_720w.jpeg" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/v2-e795a8994ccab653d0ef26fcdfcf97da_720w.jpeg" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/v2-78d2244634e77047feeffacc7cb7aa80_720w.jpeg" alt=""></p>
 <p>原始周期信号×窗函数</p>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/v2-c7b8d090f913fa85f4c1903fa1ad839c_720w.jpeg" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/v2-c7b8d090f913fa85f4c1903fa1ad839c_720w.jpeg" alt=""></p>
 <p>各种窗函数频谱特征的主要差别在于：主瓣宽度（也称为有效噪声带宽，ENBW）、幅值失真度、最高旁瓣高度和旁瓣衰减速率等参数。加窗的主要想法是用比较光滑的窗函数代替截取信号样本的矩形窗函数，也就是对截断后的时域信号进行特定的不等计权，使被截断后的时域波形两端突变变得平滑些，以此压低谱窗的旁瓣。因为旁瓣泄露量最大，旁瓣小了泄露也相应减少了。不同的窗函数具有不同的频谱特征，下表列出了一些常用窗函数的特征。</p>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/v2-2e03a289e32c75ef80696fbb50e62a69_720w.jpeg" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/v2-2e03a289e32c75ef80696fbb50e62a69_720w.jpeg" alt=""></p>
 <p>主瓣宽度主要影响信号能量分布和频率分辨能力。频率的实际分辨能力为有效噪声带宽乘以频率分辨率，因此，主瓣越宽，有效噪声带宽越宽，在频率分辨率相同的情况下，频率的分辨能力越差。如下图所示，红色为平顶窗（3.77∆f），黑色为汉宁窗（1.5∆f），蓝色为信号频率，可以明显地看出，主瓣越窄，频率分辨越准确。对于窗函数宽的主瓣而言，如果有邻近的小峰值频率，则越难辨别出来。</p>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/v2-242a1e689b0eba71ea56f24d330a9651_720w.jpeg" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/v2-242a1e689b0eba71ea56f24d330a9651_720w.jpeg" alt=""></p>
 <p>旁瓣高低及其衰减率影响能量泄漏程度（频谱拖尾效应）。旁瓣越高，说明能量泄漏越严重，衰减越慢，频谱拖尾越严重。对50.5Hz（频率分辨率为1Hz）的信号分别施加矩形窗（红色）、汉宁窗（绿色）和平顶窗（蓝色），用对数显示幅值，加窗后的结果如下图所示。从图中可以看出，矩形窗的频谱拖尾更严重。</p>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/v2-cd978cb28377a6ad101b1d5d19db0209_720w.jpeg" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/v2-cd978cb28377a6ad101b1d5d19db0209_720w.jpeg" alt=""></p>
 <p>相对而言，如果旁瓣能量较小，高度趋于零，使得信号能量相对集中于主瓣，则较为接近真实的频谱。不同的窗函数对信号频谱的影响是不一样的，这主要是因为不同的窗函数，产生泄漏的大小不一样，频率分辨能力也不一样。</p>
 <p>加窗函数时，应使窗函数频谱的主瓣宽度应尽量窄，以获得高的频率分辨能力；旁瓣衰减应尽量大，以减少频谱拖尾，但通常都不能同时满足这两个要求。各种窗的差别主要在于集中于主瓣的能量和分散在所有旁瓣的能量之比。</p>
 <p>窗的选择取决于分析的目标和被分析信号的类型。一般说，有效噪声频带越宽，频率分辨能力越差，越难于分清有相同幅值的邻近频率。选择性（即分辨出强分量频率邻近的弱分量的能力）的提高与旁瓣的衰减率有关。通常，有效噪声带宽窄的窗，其旁瓣的衰减率较低，因此窗的选择是在二者中取折衷。</p>
@@ -1258,7 +1258,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">119.3k</span>&nbsp;字
+                class="white-color">120.3k</span>&nbsp;字
             
             
             

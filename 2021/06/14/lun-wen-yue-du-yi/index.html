@@ -516,7 +516,7 @@
 <h5 id="GNN">GNN</h5>
 <p>图神经网络是一种直接作用于图结构上的神经网络。GNN的一个典型应用是节点分类,本质上，图中的每个节点都与一个标签相关联，我们希望预测未标记节点的标签。</p>
 <p>在节点分类问题中，每个节点v都可以用其特征x_v表示并且与已标记的标签t_v相关联。给定部分标记的图G，目标是利用这些标记的节点来预测未标记的节点标签。它通过学习得到每个节点的d维向量（状态）表示为h_v，同时包含其相邻节点的信息。</p>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/GNN.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/GNN.png" alt=""></p>
 <h4 id="论文的研究步骤或过程情况">论文的研究步骤或过程情况</h4>
 <p>目前imageNet的单标签注释忽略了图像固有的多标签性质，所以导致目前的较为先进的分类器在imageNet上的表现不佳。而MS COCO和Open Images提供复杂的图片可以满足作者的需求，因此作者选择了这两个数据集。</p>
 <p>在收集多标签注释上的难度是要大于单标签注释的，因此作者选择使用偏标记学习，通过众包平台收集偏标记标签是比较容易和扩展的。作者选择了两种策略来提升图片分类的表现，设计更好的模型架构和通过大量的标签数据进行学习。在收集多标签注释时由于难度大，因此作者使用了网络监督的方式自动生成标签，而这种方式生成的标签由于噪音和不详细的影响，会导致比较差的分类表现。因此需要对噪音进行学习。</p>
@@ -526,18 +526,18 @@
 <h4 id="算法内容">算法内容</h4>
 <h5 id="符号说明">符号说明</h5>
 <p>C：分类的数量	N：训练样本的数量</p>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/D.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/D.png" alt=""></p>
 <p>I (i)为第i张图片，y (i) = [y (i) 1 , . . . , y (i) C ] 为第i张图片的C个分类</p>
 <p>y (i) c = 1 (resp. −1 and 0) 1为确定，-1为丢失，0为未知</p>
 <p>[y (1); . . . ; y (N) ] 为训练集的标签矩阵</p>
 <p>fw为权重，x (i) = [x (i) 1 , . . . , x (i) C ] = fw(I (i) )为未sigmoid之前的第i张图片的输出</p>
 <h5 id="Binary-cross-entropy-for-partial-labels">Binary cross-entropy for partial labels</h5>
 <p>为了与类别数量无关，BCE 损失由类别数量归一化，导致了反向传播的梯度较小，通过对已知标签比例的标准化，作者提出了一种部分BCE损失。</p>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/parBCE.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/parBCE.png" alt=""></p>
 <p>py ∈ [0, 1]是y中已知标签的比例，实例独立于已知标签数量，当图像标签的比例不固定时比较有用。</p>
 <p>正规化函数g设计</p>
 <p>通过标签比例标准化部分BCE的Loss函数，当全部标签显示时，为了使部分BCE和BCE的变现相同，作者提出了g函数</p>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/G.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/G.png" alt=""></p>
 <p>通过给定 γ 值和给定比例的权重，可以找到对应的α 和β满足约束。γ 控制关于标签比例的归一化行为，对应的每个参数说明在后文。</p>
 <h4 id="后续的阅读和编码在系统性学习玩GNN后进行。">后续的阅读和编码在系统性学习玩GNN后进行。</h4>
 <script>
@@ -1211,7 +1211,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">119.3k</span>&nbsp;字
+                class="white-color">120.3k</span>&nbsp;字
             
             
             

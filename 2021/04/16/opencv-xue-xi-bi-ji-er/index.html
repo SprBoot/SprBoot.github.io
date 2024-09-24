@@ -508,7 +508,7 @@
 <p>图像直方图适用以表示数字图像中亮度分布的直方图，标绘了图像中每个亮度值的像素个数。这种直方图中，横坐标的左侧为较暗的区域，而右侧为较亮的区域。因此一张较暗图片的直方图中的数据多集中于左侧和中间部分，而整体明亮，只有少量阴影的图像则相反。</p>
 <p>注意：直方图是根据灰度图进行绘制的，而不是彩色图像。</p>
 <p>绘制原理：将图像的信息(灰度值 0-255)，已知数字的范围包含256个值，于是可以按一定规律将这个范围分割成子区域(bins)。</p>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/huidu.PNG" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/huidu.PNG" alt=""></p>
 <p>dims：需要统计的特征数目。图中dims = 1，因为仅仅统计了灰度值。<br>
 bins：每个特征空间子区段的数目，可译为直条或组距，在图中，bins = 16。<br>
 range：要统计特征的取值范围。图中range = [0，255]。</p>
@@ -521,7 +521,7 @@ channels：如果输入图像是灰度图，他的值就是[0]；如果是彩色
 mask：掩膜图像，要统计整幅图像的直方图就把它设为None，但是如果想统计图像的某一部分的直方图的话，你就需要制作一个掩膜图像并使用它。<br>
 hitSize：bin的数目。也应该用中括号括起来，即[256]。<br>
 ranges：像素值范围，通常为[0，256]</p>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/pythondemo.jpeg" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/pythondemo.jpeg" alt=""></p>
 <pre class=" language-language-python"><code class="language-language-python">import numpy as np
 import cv2 as cv
 from matplotlib import pyplot as plt
@@ -536,7 +536,7 @@ plt.plot(histr)
 plt.grid()
 plt.show()
 </code></pre>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/4161.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/4161.png" alt=""></p>
 <h5 id="掩膜的应用">掩膜的应用</h5>
 <p>掩膜是用选定的图像，图形或物体，对要处理的图像进行遮挡，来控制图像处理的区域。</p>
 <p>在数字图像处理中，我们通常使用二维矩阵数组进行掩膜，掩膜是由0和1组成一个二进制图像，利用该掩膜图像要处理的图像进行掩膜，其中1值的区域被处理，0值区域被屏蔽，不会处理。</p>
@@ -573,7 +573,7 @@ axes[1, 1].grid()
 axes[1, 1].set_title("gray")
 plt.show()
 </code></pre>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/4162.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/4162.png" alt=""></p>
 <h5 id="直方图均衡化">直方图均衡化</h5>
 <p>如果一幅图像中的大多数像素点的像素值都集中在某一个小的灰度值范围之内，一幅图像整体很亮，那所有的像素值的取值个数应该都会很高。所以应该把它的直方图做一个横向拉伸，就可以扩大图像像素值的分布范围，提高图像的对比度，这就是直方图均衡化要做的事情。</p>
 <p>直方图均衡化是把原始图像的灰度直方图从比较密集的某个灰度区间变成在更广泛灰度范围内的分布。直方图均衡化就是对图像进行非线形拉伸，重新分配图像像素值，使一定灰度范围内的像素数量大致相同。</p>
@@ -599,7 +599,7 @@ axes[0, 1].imshow(dst, cmap=plt.cm.gray)
 axes[0, 1].set_title("equalize")
 plt.show()
 </code></pre>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/4163.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/4163.png" alt=""></p>
 <h5 id="自适应的直方图均衡化">自适应的直方图均衡化</h5>
 <p>上述的直方图均衡，我们考虑的是图像的全局对比度。的确在进行完直方图均衡化后，图片背景的对比度被改变了，但在某个局部太暗，丢失了很多信息，所以在很多情况下，这样做的效果并不好。为了解决这个问题，需要使用自适应的直方图均衡化。此时，整幅图像会被分成很多小块，这些小块被称为“tiles”(在OpenCV中tiles的大小默认为8*8)。如果有噪声的话，噪声会被放大。为了避免这种情况的出现要使用对比度限制。对于每个小块来说，如果直方图中的bin超过对比度的上限的话，就把其中的像素点均匀分散到其他bins中，然后在进行直方图均衡化。</p>
 <p>最后为了去除每一个小块之间的边界，在使用双线性差值，对每一小块进行拼接。</p>
@@ -625,20 +625,20 @@ axes[0, 1].imshow(cl1, cmap=plt.cm.gray)
 axes[0, 1].set_title("clahe")
 plt.show()
 </code></pre>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/4164.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/4164.png" alt=""></p>
 <h5 id="边缘检测">边缘检测</h5>
 <p>原理：</p>
 <p>边缘检测是图像处理和计算机视觉中的基本问题，边缘检测的目的是标识数字图像中亮度变化明显的点。图像属性中的显著变化通常反映了属性的重要事件和变化。</p>
 <p>图像边缘检测大幅度的减少了数据量，并且剔除了可以认为不相关的信息，保留了图像重要的结构属性。有许多方法用于边缘检测，它们的绝大部分可以划分为两类：基于搜索和基于零穿越。</p>
 <p>基于搜索：通过寻找图像一阶导数中的最大值来检测边界，然后利用计算结果估计边缘的局部方向，通常采用梯度的方向，并利用此方向找到局部最大梯度模的最大值，代表算法是Sobel算子和Scharr算子。<br>
-<img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/sousuo.PNG" alt=""></p>
+<img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/sousuo.PNG" alt=""></p>
 <p>基于零穿越：通过寻找图像二阶导数零穿越来寻找边界，代表算法是Laplacian算子<br>
-<img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/lapu.PNG" alt=""></p>
+<img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/lapu.PNG" alt=""></p>
 <h5 id="Sobel检测算子">Sobel检测算子</h5>
 <p>Sobel检测算法比较简单，实际应用中效率比canny边缘检测效率要高，但是边缘不如Canny检测的准确，但是很多实际应用的场合，sobel边缘却是首选，Sobel算子是高斯平滑与微分操作的结合体，所以其抗噪声能力很强，用途较多。尤其是效率要求较高，而对纹理不太关心的时候。</p>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/sobel.PNG" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/sobel.PNG" alt=""></p>
 <p>注意：当内核大小为3时，以上Sobel内核可能产生比较明显的误差，为解决这一问题，我们使用Scharr函数，但该函数仅作用于大小为3的内核。该函数的运算与Sobel函数一样快，但结果却更加精确。</p>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/schar.PNG" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/schar.PNG" alt=""></p>
 <p>Sobel API：</p>
 <pre class=" language-language-python"><code class="language-language-python">Sobel_x_or_y = cv2.Sobel(src,ddepth,dx,dy,dst,ksize,scale,delta,borderType)
 </code></pre>
@@ -675,9 +675,9 @@ plt.subplot(122), plt.imshow(result, cmap=plt.cm.gray), plt.title("result")
 plt.xticks([]), plt.yticks([])
 plt.show()
 </code></pre>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/4165.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/4165.png" alt=""></p>
 <h5 id="Laplacian算子">Laplacian算子</h5>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/lp.PNG" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/lp.PNG" alt=""></p>
 <p>API：</p>
 <pre class=" language-language-python"><code class="language-language-python">laplacian = cv2.Laplacian(src,ddepth,dst,ksize,scale,delta,borderType)
 </code></pre>
@@ -701,7 +701,7 @@ plt.subplot(122), plt.imshow(Scale_abs, cmap=plt.cm.gray), plt.title("laplacian"
 plt.xticks([]), plt.yticks([])
 plt.show()
 </code></pre>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/4166.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/4166.png" alt=""></p>
 <h5 id="Canny边缘检测">Canny边缘检测</h5>
 <p>canny边缘检测算法是一种非常流行的边缘检测算法，被认为是最优的边缘检测算法。</p>
 <p>原理：</p>
@@ -711,10 +711,10 @@ plt.show()
 对平滑后的图像使用Sobel算子计算水平方向和竖直方向的一阶导数，根据得到的这两幅梯度图找到边界的梯度和方向。如果某个像素点是边缘，则其梯度方向总是与边缘垂直。梯度方向被归为四类：垂直、水平、和两个对角线方向。<br>
 第三步：非极大值抑制<br>
 在获得梯度的方向和大小之后，对整幅图像进行扫描，去除非边界上的点。对每一个像素进行检查，看这个点的梯度是不是周围具有相同梯度方向的点中最大的。<br>
-<img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/cann.PNG" alt=""></p>
+<img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/cann.PNG" alt=""></p>
 <p>A点位于图像的边缘，在其梯度变化方向，选择像素点B和C，用来检验A点的梯度是否为极大值，若为极大值，则进行保留，否则A点被抑制，最终的结果是具有细边的二进制图像。<br>
 第四步：滞后阈值<br>
-<img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/yu.PNG" alt=""></p>
+<img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/yu.PNG" alt=""></p>
 <p>现在要确定真正的边界。我们设置两个阈值：minVal和maxVal。当图像的灰度梯度高于maxVal时被认为是真的边界，低于minVal的边界会被抛弃。如果介于两者之间的话，就要看这个点是否与某个被确定为真正的边界点相连，如果是就认为它也是边界点，如果不是就抛弃。</p>
 <p>API：</p>
 <pre class=" language-language-python"><code class="language-language-python">canny = cv2.Canny(image,threshold1,threshold2)
@@ -740,7 +740,7 @@ plt.subplot(122), plt.imshow(canny, cmap=plt.cm.gray), plt.title("canny")
 plt.xticks([]), plt.yticks([])
 plt.show()
 </code></pre>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/4167.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/4167.png" alt=""></p>
 <h5 id="模板匹配和霍夫变换">模板匹配和霍夫变换</h5>
 <p>模板匹配</p>
 <p>原理：</p>
@@ -784,15 +784,15 @@ plt.imshow(img[:, :, ::-1])
 plt.title("result"), plt.xticks([]), plt.yticks([])
 plt.show()
 </code></pre>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/4168.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/4168.png" alt=""></p>
 <p>扩展：模板匹配不适用尺度变换，视角变幻后的图像，这时我们就要使用关键点匹配算法，比较经典的关键点检测算法包括SIFT和SURF等，主要的思路是首先通过关键点检测算法获取模板和测试图片中的关键点；然后使用关键点匹配算法处理即可，这些关键点可以很好的处理尺度变化、视角变换、旋转变换、光照变换等，具有很好的不变性。</p>
 <h5 id="霍夫变换">霍夫变换</h5>
 <p>原理：</p>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/hu.PNG" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/hu.PNG" alt=""></p>
 <p>变换后的空间我们叫做霍夫空间。即：笛卡尔坐标系中的一条直线，对应于霍夫空间中的一个点。反过来，同样成立，霍夫空间中的一条线，对应笛卡尔坐标中的一个点。</p>
 <p>如果在笛卡尔坐标系的点共线，那么这些点在霍夫空间中对应直线交于一点。</p>
 <p>如果不止存在一条直线时，我们选择尽可能多的直线汇成的点。当点的横坐标相同时，将笛卡尔坐标系转换为极坐标，在极坐标下是一样的，极坐标中的点对应于霍夫空间的线，这时的霍夫空间不再是参数(k,q)的空间，而是极坐标的空间，分别为原点到直线的垂直距离和直线的垂线与横轴顺时针方向的夹角，垂直线的角度为0度，水平线的角度是180度。</p>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/ji.PNG" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/ji.PNG" alt=""></p>
 <p>我们只要求得霍夫空间中的交点的位置，即可得到原坐标系下的直线。</p>
 <p>实现流程：</p>
 <p>假设有一个大小为100*100的图片，使用霍夫变换检测图中的直线，则步骤如下：</p>
@@ -834,7 +834,7 @@ plt.imshow(img[:, :, ::-1])
 plt.title("houghlines"), plt.xticks([]), plt.yticks([])
 plt.show()
 </code></pre>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/4169.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/4169.png" alt=""></p>
 <h5 id="霍夫圆检测">霍夫圆检测</h5>
 <p>原理：</p>
 <p>圆的表示是(x-a)²+(y-b)²=r²，其中a和b表示圆心坐标，r表示圆半径，因此标准的霍夫圆检测就是在这三个参数组成的三位空间累加器上进行圆形检测，此时效率就会很低，所以OpenCV中使用霍夫梯度法进行圆形的检测。</p>
@@ -875,7 +875,7 @@ plt.imshow(plants[:, :, ::-1])
 plt.title("houghCircle"), plt.xticks([]), plt.yticks([])
 plt.show()
 </code></pre>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/41610.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/41610.png" alt=""></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -1545,7 +1545,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">119.3k</span>&nbsp;字
+                class="white-color">120.3k</span>&nbsp;字
             
             
             

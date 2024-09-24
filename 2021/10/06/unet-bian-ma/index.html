@@ -503,7 +503,7 @@
             <div id="articleContent">
                 <h3 id="UNet编码">UNet编码</h3>
 <h5 id="UNet模型图">UNet模型图</h5>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/unettu1" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/unettu1" alt=""></p>
 <h5 id="3-3卷积">3*3卷积</h5>
 <pre class=" language-language-python"><code class="language-language-python">class DoubleConvWithThreeKernnel(torch.nn.Module):
     def __init__(self,in_channel,out_channel):
@@ -663,9 +663,9 @@
             optimizer.step()
 </code></pre>
 <h5 id="数据集">数据集</h5>
-<p><a href="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/data.zip" target="_blank" rel="noopener">https://media.githubusercontent.com/media/SprBoot/hexo_image/master/data.zip</a></p>
+<p><a href="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/data.zip" target="_blank" rel="noopener">https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/data.zip</a></p>
 <h5 id="训练过程及最优模型">训练过程及最优模型</h5>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/rununet.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/rununet.png" alt=""></p>
 <h5 id="测试">测试</h5>
 <pre class=" language-language-python"><code class="language-language-python">    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     model = UNet(1,1)
@@ -693,7 +693,7 @@
         cv2.imwrite(save_res_path, pred)
 </code></pre>
 <h5 id="测试结果">测试结果</h5>
-<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/trainresult.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/trainresult.png" alt=""></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -1367,7 +1367,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">119.3k</span>&nbsp;字
+                class="white-color">120.3k</span>&nbsp;字
             
             
             
