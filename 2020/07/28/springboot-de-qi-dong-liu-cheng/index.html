@@ -323,7 +323,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('http://dingdm.online/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://media.githubusercontent.com/media/SprBoot/hexo_image/master/0.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -506,7 +506,7 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h3 id="spring-boot的启动流程图">spring boot的启动流程图</h3>
-<p><img src="http://dingdm.online/qidongliucheng.png" alt="启动流程图" title="启动流程图"><br>
+<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/qidongliucheng.png" alt="启动流程图" title="启动流程图"><br>
 <strong>springboot的流程启动主要为三个部分</strong></p>
 <ul>
 <li>SpringApplication的初始化，配置基础的环境变量，构造器，监听器等。</li>
@@ -604,11 +604,11 @@ public @interface SpringBootApplication {
 </table>
 <h3 id="springboot启动">springboot启动</h3>
 <p><strong>执行主函数main方法</strong><br>
-<img src="http://dingdm.online/main.png" alt="main函数" title="main函数"><br>
+<img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/main.png" alt="main函数" title="main函数"><br>
 <strong>创建SpringApplication对象对象，并运行SpringApplication对象的run方法</strong><br>
-<img src="http://dingdm.online/chuangjianduixiang.png" alt="创建对象" title="创建对象"><br>
+<img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/chuangjianduixiang.png" alt="创建对象" title="创建对象"><br>
 <strong>加载接口</strong><br>
-<img src="http://dingdm.online/jiazaijiekou.png" alt="加载接口" title="加载接口"></p>
+<img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/jiazaijiekou.png" alt="加载接口" title="加载接口"></p>
 <pre class=" language-language-java"><code class="language-language-java">        this.primarySources = new LinkedHashSet(Arrays.asList(primarySources));
         this.webApplicationType = this.deduceWebApplicationType();
        // 扫描当前路径下META-INF/spring.factories文件的，加载ApplicationContextInitializer接口实例 
@@ -627,7 +627,7 @@ org.springframework.context.ApplicationListener=\
 org.admin.starter.test.listener.StarterApplicationListener
 </code></pre>
 <p><strong>实现run方法</strong><br>
-<img src="http://dingdm.online/run.png" alt="run方法" title="run方法"></p>
+<img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/run.png" alt="run方法" title="run方法"></p>
 <pre class=" language-language-java"><code class="language-language-java">public ConfigurableApplicationContext run(String... args) {
         // 计时器
 		StopWatch stopWatch = new StopWatch();
@@ -682,9 +682,9 @@ org.admin.starter.test.listener.StarterApplicationListener
 	}
 </code></pre>
 <p><strong>根据项目类型创建上下文，并且注入几个核心组件类。</strong><br>
-<img src="http://dingdm.online/chuangjianshangxiawen.png" alt="创建上下文" title="创建上下文"><br>
+<img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/chuangjianshangxiawen.png" alt="创建上下文" title="创建上下文"><br>
 <strong>refreshContext(context)方法启动spring的代码加载了bean，还启动了内置web容器</strong><br>
-<img src="http://dingdm.online/jiazaibean.png" alt="加载bean" title="加载bean"></p>
+<img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/jiazaibean.png" alt="加载bean" title="加载bean"></p>
 <pre class=" language-language-java"><code class="language-language-java">public void refresh() throws BeansException, IllegalStateException {
         synchronized(this.startupShutdownMonitor) {
             this.prepareRefresh();
@@ -717,21 +717,21 @@ org.admin.starter.test.listener.StarterApplicationListener
     }
 </code></pre>
 <p><strong>onRefresh钩子方法</strong><br>
-<img src="http://dingdm.online/gouzi.png" alt=""><br>
+<img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/gouzi.png" alt=""><br>
 钩子方法，它会钩到它子类重写onRefresh()方法。所以去看子类里面的onRefresh()<br>
-<img src="http://dingdm.online/zileishixian.png" alt="子类实现" title="子类实现"><br>
+<img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/zileishixian.png" alt="子类实现" title="子类实现"><br>
 <strong>内置容器</strong><br>
-<img src="http://dingdm.online/neizhirongqi.png" alt="内置容器" title="内置容器"><br>
-<img src="http://dingdm.online/neizhirongqi2.png" alt="内置容器" title="内置容器"><br>
+<img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/neizhirongqi.png" alt="内置容器" title="内置容器"><br>
+<img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/neizhirongqi2.png" alt="内置容器" title="内置容器"><br>
 <strong>容器选择</strong><br>
-<img src="http://dingdm.online/rongqixuanze.png" alt="容器选择" title="容器选择"><br>
-<strong>tomcat容器</strong><img src="http://dingdm.online/tomcat.png" alt="tomcat" title="tomcat"></p>
+<img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/rongqixuanze.png" alt="容器选择" title="容器选择"><br>
+<strong>tomcat容器</strong><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/tomcat.png" alt="tomcat" title="tomcat"></p>
 <h3 id="springboot的自动化配置">springboot的自动化配置</h3>
-<p><img src="http://dingdm.online/zidonghua.png" alt="自动化配置" title="自动化配置"><br>
+<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/zidonghua.png" alt="自动化配置" title="自动化配置"><br>
 <strong>该配置模块的主要使用到了SpringFactoriesLoader，即Spring工厂加载器，该对象提供了loadFactoryNames方法，入参为factoryClass和classLoader，即需要传入上图中的工厂类名称和对应的类加载器，方法会根据指定的classLoader，加载该类加器搜索路径下的指定文件，即spring.factories文件，传入的工厂类为接口，而文件中对应的类则是接口的实现类，或最终作为实现类，所以文件中一般为如下图这种一对多的类名集合，获取到这些实现类的类名后，loadFactoryNames方法返回类名集合，方法调用方得到这些集合后，再通过反射获取这些类的类对象、构造方法，最终生成实例。</strong><br>
-<img src="http://dingdm.online/jiekoupeizhi.png" alt="接口配置" title="接口配置"><br>
+<img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/jiekoupeizhi.png" alt="接口配置" title="接口配置"><br>
 <strong>EnableAutoConfiguration最终实现了ImportSelector(选择器)和BeanClassLoaderAware(bean类加载器中间件)，重点关注一下AutoConfigurationImportSelector的selectImports方法</strong><br>
-<img src="http://dingdm.online/leixinxiliebiao.png" alt="类信息列表" title="类信息列表"><br>
+<img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/leixinxiliebiao.png" alt="类信息列表" title="类信息列表"><br>
 <strong>该方法在springboot启动流程——bean实例化前被执行，返回要实例化的类信息列表。我们知道，如果获取到类信息，spring自然可以通过类加载器将类加载到jvm中，现在我们已经通过spring-boot的starter依赖方式依赖了我们需要的组件，那么这些组建的类信息在select方法中也是可以被获取到的</strong><br>
 <strong>方法中的getCandidateConfigurations方法，通过方法注释了解到，其返回一个自动配置类的类名列表，方法调用了loadFactoryNames方法</strong></p>
 <pre class=" language-language-java"><code class="language-language-java">    protected List<String> getCandidateConfigurations(AnnotationMetadata metadata, AnnotationAttributes attributes) {
@@ -741,7 +741,7 @@ org.admin.starter.test.listener.StarterApplicationListener
     }
 </code></pre>
 <p><strong>自动配置器会根据传入的factoryClass.getName()到项目系统路径下所有的spring.factories文件中找到相应的key，从而加载里面的类</strong><br>
-<img src="http://dingdm.online/jiazailei.png" alt="加载类" title="加载类"></p>
+<img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/jiazailei.png" alt="加载类" title="加载类"></p>
 <pre class=" language-language-java"><code class="language-language-java">private static Map<String, List<String>> loadSpringFactories(@Nullable ClassLoader classLoader) {
         MultiValueMap<String, String> result = (MultiValueMap)cache.get(classLoader);
         if (result != null) {
@@ -773,7 +773,7 @@ org.admin.starter.test.listener.StarterApplicationListener
     }
 </code></pre>
 <p><strong>自动配置</strong><br>
-<img src="http://dingdm.online/zidongpeizhi2.png" alt="自动配置" title="自动配置"></p>
+<img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/zidongpeizhi2.png" alt="自动配置" title="自动配置"></p>
 <pre class=" language-language-java"><code class="language-language-java">@Configuration
 @ConditionalOnClass({EnableAspectJAutoProxy.class, Aspect.class, Advice.class, AnnotatedElement.class})
 @ConditionalOnProperty(
@@ -1220,7 +1220,7 @@ public class AopAutoConfiguration {
                     <div class="card-image">
                         
                         
-                        <img src="http://dingdm.online/7.jpg" class="responsive-img" alt="记一次服务器部署内容">
+                        <img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/7.jpg" class="responsive-img" alt="记一次服务器部署内容">
                         
                         <span class="card-title">记一次服务器部署内容</span>
                     </div>
@@ -1280,7 +1280,7 @@ public class AopAutoConfiguration {
                     <div class="card-image">
                         
                         
-                        <img src="http://dingdm.online/9.jpg" class="responsive-img" alt="计算机网络">
+                        <img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/9.jpg" class="responsive-img" alt="计算机网络">
                         
                         <span class="card-title">计算机网络</span>
                     </div>

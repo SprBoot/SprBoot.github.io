@@ -323,7 +323,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('http://dingdm.online/3.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://media.githubusercontent.com/media/SprBoot/hexo_image/master/3.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -524,7 +524,7 @@ Explainable AI：可解释AI</p>
 获取多个数据通过表格，折线等多种形式进行分析。<br>
 定义Loss function L：衡量参数的好坏<br>
 通过对应的估测误差的函数来计算所有已有样本根据不同function计算的Loss值。</p>
-<p><img src="http://dingdm.online/ss.png" alt=""></p>
+<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/ss.png" alt=""></p>
 <p>Step3:Best Function<br>
 根据Loss值获取最好的function。<br>
 gradient descent：处理function找到最优值<br>
@@ -569,40 +569,40 @@ Regularization：<br>
 N-fold Cross Validation：将训练数据分为三份，以组合的形式(两份训练，一份验证)训练模型函数得到f*，再在全部的训练数据中进行测试。</p>
 <h4 id="Gradient-Descent">Gradient Descent</h4>
 <p>表达式：</p>
-<p><img src="http://dingdm.online/grad.png" alt=""></p>
+<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/grad.png" alt=""></p>
 <h4 id="tuning-your-learning-rate">tuning your learning rate</h4>
 <p>可视化参数的变化对loss的影响，当折线平稳下降时，rate较小，而折现下降平稳之后，则rate较大，当折线开始上升则rate错误。<br>
 learning rate会随着参数的更新越来越小。每一个不同的参数都应该有不同的learning rate。</p>
-<p><img src="http://dingdm.online/desct.png" alt=""></p>
+<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/desct.png" alt=""></p>
 <p>Adagrad：选取一个数值为参数之前的均方根进行更新</p>
-<p><img src="http://dingdm.online/Adagrad.png" alt=""></p>
+<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/Adagrad.png" alt=""></p>
 <p>g为偏微分。</p>
 <p>推荐使用Adam。</p>
 <p>Adagrad会使用除值来弥补反差。当进行跨参数时，分子和一次微分成正比，分母和二次微分成反比。</p>
-<p><img src="http://dingdm.online/er.png" alt=""></p>
+<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/er.png" alt=""></p>
 <p>对于跨参数而言，参考如图即可得知，在a位置的一次微分较小，二次微分也较小。而对于c的位置一次微分较大，同时二次微分也较大。Adagrad就是通过分母预估二次微分的值。</p>
 <h4 id="Stochastic-Gradient-Descent">Stochastic Gradient Descent</h4>
 <p>计算单个样本的Loss和单个Gradient</p>
-<p><img src="http://dingdm.online/sss.png" alt=""></p>
-<p><img src="http://dingdm.online/sgrad.png" alt=""></p>
+<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/sss.png" alt=""></p>
+<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/sgrad.png" alt=""></p>
 <p>每个样本更新一次参数，计算较快。</p>
 <h4 id="Feature-Scaling">Feature Scaling</h4>
 <p>当输入时考虑多个特征，且多个特征的规模相差较大时，可以rescaling将多个特征的规模调整到基本一致。<br>
 当多特征的选值相差较大时，会发现较大的特征值变更时对于loss的变化是较大的，而特征值小变化较小。所以小的特征值方向上比较平滑，而特征值大方向上的比较陡峭。这个时候参数的update寻找f*时是比较难的，消耗的时间较长。<br>
 而对特征进行rescaling之后，正圆形的参数更新是比较方便的。</p>
 <p>rescaling的方法</p>
-<p><img src="http://dingdm.online/resc.png" alt=""></p>
+<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/resc.png" alt=""></p>
 <h4 id="Gradient-Descent背后原理">Gradient Descent背后原理</h4>
 <p>在使用gradient descent的时候，随着每次参数的更新，loss的值可能增大也可能也减小。</p>
 <p>泰勒公式：有</p>
-<p><img src="http://dingdm.online/tai.png" alt="img"></p>
+<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/tai.png" alt="img"></p>
 <p>这是在对函数进行局部线性化处理时常用的公式之一。从几何上看，它是用切线近似代替曲线。<br>
 <strong>让近似多项式函数在x=x0处的y值, 一阶导, 二阶导 …n阶导的值 = 原始函数在x=x0处的y值, 一阶导, 二阶导 …n阶导</strong><br>
 泰勒公式几何意义，一看就懂。<a href="https://www.zhihu.com/question/21149770" target="_blank" rel="noopener">https://www.zhihu.com/question/21149770</a><br>
 多维也是如此。</p>
-<p><img src="http://dingdm.online/sasa.png" alt=""></p>
+<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/sasa.png" alt=""></p>
 <p>而对于gradient descent来说，给定一个初始点和范围，可以使用泰勒公式计算最小的loss；而计算最小值的计算公式即为gradient。而learning rate设置时即要保证使用到的泰勒公式要成立，即x-x0的高阶导为无穷小量时。</p>
-<p><img src="http://dingdm.online/tr.png" alt=""></p>
+<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/tr.png" alt=""></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -998,7 +998,7 @@ learning rate会随着参数的更新越来越小。每一个不同的参数都�
                     <div class="card-image">
                         
                         
-                        <img src="http://dingdm.online/7.jpg" class="responsive-img" alt="OpenCV学习笔记二">
+                        <img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/7.jpg" class="responsive-img" alt="OpenCV学习笔记二">
                         
                         <span class="card-title">OpenCV学习笔记二</span>
                     </div>
@@ -1050,7 +1050,7 @@ learning rate会随着参数的更新越来越小。每一个不同的参数都�
                     <div class="card-image">
                         
                         
-                        <img src="http://dingdm.online/16.jpg" class="responsive-img" alt="记一次查漏补缺一">
+                        <img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/16.jpg" class="responsive-img" alt="记一次查漏补缺一">
                         
                         <span class="card-title">记一次查漏补缺一</span>
                     </div>

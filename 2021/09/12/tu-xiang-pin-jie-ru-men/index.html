@@ -323,7 +323,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('http://dingdm.online/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://media.githubusercontent.com/media/SprBoot/hexo_image/master/1.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -513,7 +513,7 @@
 <p>对于二阶泰勒公式的二阶求导，可以近似为一个二次型函数。中间的矩阵为黑塞矩阵。根据二次型矩阵的等高线图可以看出，特征值较大的地方变化速度快，而特征值较小的地方变化速度慢。</p>
 <p>可以使用黑塞矩阵来进行图像灰度图的特征点检测。特征值较大的地方像素图像变化明显，而特征值小的地方像素图像变化慢。surf即利用了黑塞来检测突变点和突变线。</p>
 <h6 id="盒式滤波器">盒式滤波器</h6>
-<p><img src="https://dingdm.online/heshi.png" alt=""></p>
+<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/heshi.png" alt=""></p>
 <p>1、给定一张图像，宽高为（M,N），确定待求矩形模板的宽高(m,n)，如图紫色矩形。图中每个黑色方块代表一个像素，红色方块是假想像素。</p>
 <p>2、开辟一段大小为M的数组，记为buff, 用来存储计算过程的中间变量，用红色方块表示</p>
 <p>3、将矩形模板（紫色）从左上角（0，0）开始，逐像素向右滑动，到达行末时，矩形移动到下一行的开头（0，1），如此反复，每移动到一个新位置时，计算矩形内的像素和，保存在数组A中。以(0,0)位置为例进行说明：首先将绿色矩形内的每一列像素求和，结果放在buff内（红色方块），再对蓝色矩形内的像素求和，结果即为紫色特征矩形内的像素和，把它存放到数组A中，如此便完成了第一次求和运算。</p>
@@ -547,7 +547,7 @@
 <p>KNN算法的三要素：k值的选取，距离度量的方式和分类决策规则。</p>
 <p>k值的选择，没有一个固定的经验，一般根据样本的分布，选择一个较小的值，可以通过交叉验证选择一个合适的k值。</p>
 <p>使用欧式距离计算领域内与当前点的距离，并递增排序</p>
-<p><img src="https://dingdm.online/oushi.png" alt=""></p>
+<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/oushi.png" alt=""></p>
 <h6 id="knn的优化算法kd树和kd球">knn的优化算法kd树和kd球</h6>
 <p>kd树</p>
 <p>比如我们有二维样本6个，{(2,3)，(5,4)，(9,6)，(4,7)，(8,1)，(7,2)}，构建kd树的具体步骤为：</p>
@@ -572,13 +572,13 @@
 （3）对P中剩余的数据点，计算每个点与模型M的距离，距离超过阈值的则认定为局外点，不超过阈值的认定为局内点，并记录该模型M所对应的局内点的值m；<br>
 迭代k次以后，选择m最大的模型M作为拟合的结果。<br>
 因为在实际应用中N的值通常会很大，那么从其中任选n个数据点的组合就会很大，如果对所有组合都进行上面的操作运算量就会很大，因此对于k的选择就很重要。通常情况下，只要保证模型估计需要的n个点都是点的概率足够高即可。因此设w为N个数据中局内点的比例，z为进行k次选取后，至少有一次选取的n个点都是局内点的概率。则有</p>
-<p><img src="https://dingdm.online/gailvone.png" alt=""></p>
+<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/gailvone.png" alt=""></p>
 <p>其中1−w^n表示一次选取不都是局内点的概率，(1−w^n)^k表示k次选取中没有一次都是局内点的概率。<br>
 则有</p>
-<p><img src="https://dingdm.online/gailvone.png" alt=""></p>
+<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/gailvone.png" alt=""></p>
 <p>这里 zz一般要求满足大于95%即可。</p>
 <p>通过四对匹配点还原H矩阵。</p>
-<p><img src="https://dingdm.online/hm.png" alt=""></p>
+<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/hm.png" alt=""></p>
 <pre class=" language-language-python"><code class="language-language-python">    # 挑出好的匹配点
     for m, n in knn_matchers:
         if m.distance < 0.5 * n.distance:
@@ -1050,7 +1050,7 @@ cv2.waitKey(0)
                     <div class="card-image">
                         
                         
-                        <img src="http://dingdm.online/23.jpg" class="responsive-img" alt="个人类库工具文档(持续更新)">
+                        <img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/23.jpg" class="responsive-img" alt="个人类库工具文档(持续更新)">
                         
                         <span class="card-title">个人类库工具文档(持续更新)</span>
                     </div>
@@ -1117,7 +1117,7 @@ MultipartFile文件类
                     <div class="card-image">
                         
                         
-                        <img src="http://dingdm.online/16.jpg" class="responsive-img" alt="基于云服务器的远程连接搭建">
+                        <img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/16.jpg" class="responsive-img" alt="基于云服务器的远程连接搭建">
                         
                         <span class="card-title">基于云服务器的远程连接搭建</span>
                     </div>

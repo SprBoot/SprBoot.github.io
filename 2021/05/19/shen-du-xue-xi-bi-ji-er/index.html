@@ -323,7 +323,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('http://dingdm.online/7.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://media.githubusercontent.com/media/SprBoot/hexo_image/master/7.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -507,41 +507,41 @@
 Off-line：pour all into the model(全输入)</p>
 <p>SGD：选取初始位置，计算gradient，根据结果向更低的loss方向走，迭代计算最低的loss值</p>
 <p>SGDM：计算移动的距离加v，v0 = 0。较为稳定。</p>
-<p><img src="http://dingdm.online/step.png" alt=""></p>
+<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/step.png" alt=""></p>
 <p>使用v的作用防止θ计算的结果为0，不再移动和有更低的点防止不再向前移动。</p>
 <p>Adagrad：</p>
-<p><img src="http://dingdm.online/adagrad.png" alt=""></p>
+<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/adagrad.png" alt=""></p>
 <p>分母为之前计算的所有gradient的平方和，即走的比较急的时候gradient比较大，走的时候使用较小的learning rate，而走的比较小的时候使用较大的learning rate。</p>
 <p>RMSProp：</p>
-<p><img src="http://dingdm.online/rmsprop.png" alt=""></p>
+<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/rmsprop.png" alt=""></p>
 <p>在adagrad中如果gradient较大，那么计算的分母较小，下降很慢，而rmsprop保证不会因过大的gradient而下降过慢。而为了防止不再移动和向前移动的问题，可以结合SGDM使用，即Adam。</p>
 <p>Adam：训练较快。</p>
-<p><img src="http://dingdm.online/adam.png" alt=""></p>
+<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/adam.png" alt=""></p>
 <p>SWATS：begin with Adam，end with SGDM</p>
 <p>Towards improving Adam：AMSGrad 只考虑了learning rate较大的情况</p>
 <p>当gradient未突变或gradient一直较小时，移动的距离很慢，移动方向不定，直到gradient突变，才会确定方向。vt =  max(vt-1,vt)，选取最大的gradient即可(记住过去较大的gradient)。也会走回头路。</p>
 <p>Towards improving Adam：AdaBound</p>
-<p><img src="http://dingdm.online/adabound.png" alt=""></p>
+<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/adabound.png" alt=""></p>
 <p>Towards improving SGDM：LR range test，Cyclical LR，SGDR，One-cycle LR</p>
 <p>Adam with warm-up：RAdam</p>
 <p>即在方向不确定即vt不确定时，移动的距离短，当vt确定平缓时，移动的距离大。使用rt来判断方向情况。rt与gradient无关。先SGDM在Radam。</p>
-<p><img src="http://dingdm.online/radam1.png" alt=""></p>
-<p><img src="http://dingdm.online/radam2.png" alt=""></p>
+<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/radam1.png" alt=""></p>
+<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/radam2.png" alt=""></p>
 <p>Lookahead：universal wrapper for all optimizers 每k步回退检查</p>
-<p><img src="http://dingdm.online/look.png" alt=""></p>
+<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/look.png" alt=""></p>
 <p>Look into the future：NAG</p>
-<p><img src="http://dingdm.online/nag.png" alt=""></p>
+<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/nag.png" alt=""></p>
 <p>Nadam：预测</p>
-<p><img src="http://dingdm.online/nadam.png" alt=""></p>
+<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/nadam.png" alt=""></p>
 <p>Adamw and SGDW：</p>
-<p><img src="http://dingdm.online/w.png" alt=""></p>
+<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/w.png" alt=""></p>
 <h4 id="Classification：Probabilistic-Generative-Model">Classification：Probabilistic Generative Model</h4>
 <p>案例：对于明日方舟干员属性预测分类</p>
 <p>Training data for Classification：夕之前的干员</p>
 <h5 id="Ideal-Alternatives">Ideal Alternatives</h5>
 <p>function：对于训练得到的g函数进行预测，g(x) &gt; 0 输出class1，反之输出class2<br>
 Loss function：</p>
-<p><img src="http://dingdm.online/loss.png" alt=""></p>
+<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/loss.png" alt=""></p>
 <p>Find the best function</p>
 <h5 id="Generative-model">Generative model</h5>
 <p>概率问题，即输入的值为从预测结果中提取的概率。对于二元分类，即训练每个单元的概率和从单元中提取输入值x的概率。</p>
@@ -549,19 +549,19 @@ Loss function：</p>
 <p>从训练数据中训练得到高斯分布的μ和ε。根据输入的特征x通过高斯计算得出机率。</p>
 <h5 id="Maximum-Likelihood">Maximum Likelihood</h5>
 <p>根据给定的μ和ε在训练数据上计算高斯分布的最大可能性。</p>
-<p><img src="http://dingdm.online/likelihood.png" alt=""></p>
+<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/likelihood.png" alt=""></p>
 <p>找出最合适的μ和ε。</p>
-<p><img src="http://dingdm.online/maxium.png" alt=""></p>
-<p><img src="http://dingdm.online/gailv.png" alt=""></p>
+<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/maxium.png" alt=""></p>
+<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/gailv.png" alt=""></p>
 <p>根据概率公式以及求的的高斯分布进行计算。</p>
 <h5 id="优化">优化</h5>
 <p>不同的高斯分布选用同样的ε，因为当特征较多时，计算的结果较大，容易产生过拟合。</p>
 <p>Loss function</p>
-<p><img src="http://dingdm.online/newLoss.png" alt=""></p>
+<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/newLoss.png" alt=""></p>
 <h5 id="选用同样的ε呈现线性分界的数学原理">选用同样的ε呈现线性分界的数学原理</h5>
-<p><img src="http://dingdm.online/math1.png" alt=""></p>
-<p><img src="http://dingdm.online/math2.png" alt=""></p>
-<p><img src="http://dingdm.online/math3.png" alt=""></p>
+<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/math1.png" alt=""></p>
+<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/math2.png" alt=""></p>
+<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/math3.png" alt=""></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -957,7 +957,7 @@ Loss function：</p>
                     <div class="card-image">
                         
                         
-                        <img src="http://dingdm.online/13.jpg" class="responsive-img" alt="深度学习第二次编码">
+                        <img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/13.jpg" class="responsive-img" alt="深度学习第二次编码">
                         
                         <span class="card-title">深度学习第二次编码</span>
                     </div>
@@ -1013,7 +1013,7 @@ import data as gd
                     <div class="card-image">
                         
                         
-                        <img src="http://dingdm.online/5.jpg" class="responsive-img" alt="深度学习第一次学习编码">
+                        <img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/5.jpg" class="responsive-img" alt="深度学习第一次学习编码">
                         
                         <span class="card-title">深度学习第一次学习编码</span>
                     </div>

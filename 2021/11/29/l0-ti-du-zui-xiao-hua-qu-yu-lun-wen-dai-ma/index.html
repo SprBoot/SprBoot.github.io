@@ -323,7 +323,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('http://dingdm.online/4.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://media.githubusercontent.com/media/SprBoot/hexo_image/master/4.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -503,7 +503,7 @@
             <div id="articleContent">
                 <h3 id="Rain-Removal-From-Still-Images-Using-L0-Gradient-Minimization-Technique论文代码">Rain Removal From Still Images Using L0 Gradient Minimization Technique论文代码</h3>
 <h4 id="原图像">原图像</h4>
-<p><img src="http://dingdm.online/f1.png" alt=""></p>
+<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/f1.png" alt=""></p>
 <h4 id="find-rain">find_rain</h4>
 <pre class=" language-language-matlab"><code class="language-language-matlab">function [No_Of_RainPixels OnlyRainImage] = find_rain(I)
 % 三通道彩色图转换为灰度二值图
@@ -541,18 +541,18 @@ OnlyRainImage = imregionalmax(Iobrcbr);
  No_Of_RainPixels = cc.NumObjects;
 </code></pre>
 <h5 id="图片腐蚀">图片腐蚀</h5>
-<p><img src="http://dingdm.online/kai.png" alt=""></p>
+<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/kai.png" alt=""></p>
 <h5 id="图片膨胀">图片膨胀</h5>
-<p><img src="http://dingdm.online/peng.png" alt=""></p>
+<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/peng.png" alt=""></p>
 <h5 id="图像闭运算">图像闭运算</h5>
-<p><img src="http://dingdm.online/bi.png" alt=""></p>
+<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/bi.png" alt=""></p>
 <h5 id="区域最大值的二值图像即雨滴图像">区域最大值的二值图像即雨滴图像</h5>
-<p><img src="http://dingdm.online/iyd.png" alt=""></p>
+<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/iyd.png" alt=""></p>
 <h4 id="train">train</h4>
 <h5 id="Lab色彩空间">Lab色彩空间</h5>
 <p>Lab是一种不常用的色彩空间。它是在1931年国际照明委员会（CIE）制定的颜色度量国际标准的基础上建立起来的。1976年，经修改后被正式命名为CIELab。它是一种设备无关的颜色系统，也是一种基于生理特征的颜色系统。这也就意味着，它是用数字化的方法来描述人的视觉感应。Lab颜色空间中的L分量用于表示像素的亮度，取值范围是[0,100],表示从纯黑到纯白；a表示从红色到绿色的范围，取值范围是[127,-128]；b表示从黄色到蓝色的范围，取值范围是[127,-128]。</p>
 <h5 id="峰值信噪比">峰值信噪比</h5>
-<p><img src="http://dingdm.online/fengzhi.png" alt=""></p>
+<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/fengzhi.png" alt=""></p>
 <p>MSE表示当前图像X和参考图像Y的均方误差（Mean Square Error），H、W分别为图像的高度和宽度；n为每像素的比特数，一般取8，即像素灰阶数为256. PSNR的单位是dB，数值越大表示失真越小。</p>
 <pre class=" language-language-matlab"><code class="language-language-matlab">I = imread(['/Users/dinggongcheng/Documents/MATLAB/2/','02.png']);
 I_Large = imresize(I,[650,950]);
@@ -612,28 +612,28 @@ Removed = 1-Remove;
 R= Removed*100;
 </code></pre>
 <h5 id="对比度增强图片">对比度增强图片</h5>
-<p><img src="http://dingdm.online/duibidu.png" alt=""></p>
+<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/duibidu.png" alt=""></p>
 <h5 id="L0范数平滑后的对比度图像">L0范数平滑后的对比度图像</h5>
-<p><img src="http://dingdm.online/L.png" alt=""></p>
+<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/L.png" alt=""></p>
 <h5 id="缩放100比例亮度并在Lab色彩空间更新亮度维度后找到区域最大值的二值图像">缩放100比例亮度并在Lab色彩空间更新亮度维度后找到区域最大值的二值图像</h5>
-<p><img src="http://dingdm.online/f3.png" alt=""></p>
+<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/f3.png" alt=""></p>
 <h5 id="去雨图像">去雨图像</h5>
-<p><img src="http://dingdm.online/f4.png" alt=""></p>
+<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/f4.png" alt=""></p>
 <h5 id="PSNR">PSNR</h5>
-<p><img src="http://dingdm.online/psnr.png" alt=""></p>
+<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/psnr.png" alt=""></p>
 <h4 id="其他测试图">其他测试图</h4>
 <h5 id="1-原图">1 原图</h5>
-<p><img src="http://dingdm.online/01y.png" alt=""></p>
+<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/01y.png" alt=""></p>
 <h5 id="1-去雨">1 去雨</h5>
-<p><img src="http://dingdm.online/01q.png" alt=""></p>
+<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/01q.png" alt=""></p>
 <h5 id="1-PSNR">1 PSNR</h5>
-<p><img src="http://dingdm.online/01p.png" alt=""></p>
+<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/01p.png" alt=""></p>
 <h5 id="2-原图">2 原图</h5>
-<p><img src="http://dingdm.online/03y.png" alt=""></p>
+<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/03y.png" alt=""></p>
 <h5 id="2-去雨">2 去雨</h5>
-<p><img src="http://dingdm.online/03q.png" alt=""></p>
+<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/03q.png" alt=""></p>
 <h5 id="2-PSNR">2 PSNR</h5>
-<p><img src="http://dingdm.online/03p.png" alt=""></p>
+<p><img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/03p.png" alt=""></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -1029,7 +1029,7 @@ R= Removed*100;
                     <div class="card-image">
                         
                         
-                        <img src="http://dingdm.online/11.jpg" class="responsive-img" alt="Ubuntu20.04安装Hadoop和Hive(PD虚拟机 MAC M1)">
+                        <img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/11.jpg" class="responsive-img" alt="Ubuntu20.04安装Hadoop和Hive(PD虚拟机 MAC M1)">
                         
                         <span class="card-title">Ubuntu20.04安装Hadoop和Hive(PD虚拟机 MAC M1)</span>
                     </div>
@@ -1081,7 +1081,7 @@ Ubuntu20.
                     <div class="card-image">
                         
                         
-                        <img src="http://dingdm.online/5.jpg" class="responsive-img" alt="leetcode刷题(11.24)">
+                        <img src="https://media.githubusercontent.com/media/SprBoot/hexo_image/master/5.jpg" class="responsive-img" alt="leetcode刷题(11.24)">
                         
                         <span class="card-title">leetcode刷题(11.24)</span>
                     </div>
