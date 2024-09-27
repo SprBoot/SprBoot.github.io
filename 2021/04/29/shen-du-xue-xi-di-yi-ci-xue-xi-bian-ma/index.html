@@ -543,7 +543,7 @@
     print("b的学习率{}".format(((stepB/ma.sqrt(len(listB))) / ma.sqrt(stB / len(listB)))))
     number = number + 1
     print("----------------------------------------------递归次数{}".format(number))
-    if loss &lt; oldLoss:
+    if loss < oldLoss:
       calLoss(list, (w - ((step / ma.sqrt(len(listW))) / ma.sqrt(stW / len(listW))) * resultW),
         (b - ((stepB / ma.sqrt(len(listB))) / ma.sqrt(stB / len(listB))) * resultB), list2, listW, listB, step,stepB,loss,number)
 </code></pre>
@@ -590,7 +590,7 @@
     print(w2 - ((step2 / ma.sqrt(len(listW2))) / ma.sqrt(stW2 / len(listW2))))
     number = number + 1
     print("----------------------------------------------递归次数{}".format(number))
-    if loss &lt; oldLoss:
+    if loss < oldLoss:
       calSecondLoss(list, (w1 - ((step / ma.sqrt(len(listW1))) / ma.sqrt(stW1 / len(listW1))) * resultW1),(w2 - ((step2 / ma.sqrt(len(listW2))) / ma.sqrt(stW2 / len(listW2))) * resultW2),
         (b - ((stepB / ma.sqrt(len(listB))) / ma.sqrt(stB / len(listB))) * resultB), list2, listW1,listW2, listB,step,step2,stepB,loss,number)
 </code></pre>
@@ -635,7 +635,7 @@
     print("b的学习率{}".format(((stepB/ma.sqrt(len(listB))) / ma.sqrt(stB / len(listB)))))
     number = number + 1
     print("----------------------------------------------递归次数{}".format(number))
-    if loss &lt; oldLoss:
+    if loss < oldLoss:
       calSecondLossWithExtraParam(list, (w1 - ((step / ma.sqrt(len(listW1))) / ma.sqrt(stW1 / len(listW1))) * resultW1),(w2 - ((step2 / ma.sqrt(len(listW2))) / ma.sqrt(stW2 / len(listW2))) * resultW2),
         (b - ((stepB / ma.sqrt(len(listB))) / ma.sqrt(stB / len(listB))) * resultB),1, list2, listW1,listW2, listB,step,step2,stepB,loss,number)
 </code></pre>
@@ -1352,7 +1352,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">110k</span>&nbsp;字
+                class="white-color">123.9k</span>&nbsp;字
             
             
             

@@ -491,7 +491,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.3k
+                    3.2k
                 </div>
                 
 
@@ -547,21 +547,21 @@ Activiti组件使用Mybatis和数据库进行交互，完全契合当前的智�
 <h3 id="前端代码">前端代码</h3>
 <pre class=" language-language-html"><code class="language-language-html">**配置**
 <!-- 开发环境 -->
-  &lt;% if (process.env.VUE_APP_NODE_ENV === 'dev') { %&gt;
+  <% if (process.env.VUE_APP_NODE_ENV === 'dev') { %>
     <script>window.SITE_CONFIG['apiURL'] = 'http://127.0.0.1:8081/wisdom';</script>
-  &lt;% } %&gt;
+  <% } %>
   <!-- 集成测试环境 -->
-  &lt;% if (process.env.VUE_APP_NODE_ENV === 'prod:sit') { %&gt;
+  <% if (process.env.VUE_APP_NODE_ENV === 'prod:sit') { %>
     <script>window.SITE_CONFIG['apiURL'] = 'http://47.100.126.191:8081/wisdom';</script>
-  &lt;% } %&gt;
+  <% } %>
   <!-- 验收测试环境 -->
-  &lt;% if (process.env.VUE_APP_NODE_ENV === 'prod:uat') { %&gt;
+  <% if (process.env.VUE_APP_NODE_ENV === 'prod:uat') { %>
     <script>window.SITE_CONFIG['apiURL'] = 'http://47.100.126.191:8081/wisdom';</script>
-  &lt;% } %&gt;
+  <% } %>
   <!-- 生产环境 -->
-  &lt;% if (process.env.VUE_APP_NODE_ENV === 'prod') { %&gt;
+  <% if (process.env.VUE_APP_NODE_ENV === 'prod') { %>
     <script>window.SITE_CONFIG['apiURL'] = 'http://47.100.126.191:8081/wisdom';</script>
-  &lt;% } %&gt;
+  <% } %>
 </code></pre>
 <p><strong>数据接口</strong></p>
 <pre class=" language-language-javascript"><code class="language-language-javascript">export default {
@@ -612,7 +612,7 @@ Activiti组件使用Mybatis和数据库进行交互，完全契合当前的智�
             ...this.dataForm
           }
         }
-      ).then(({ data: res }) =&gt; {
+      ).then(({ data: res }) => {
         this.dataListLoading = false
         if (res.code !== 0) {
           this.dataList = []
@@ -621,7 +621,7 @@ Activiti组件使用Mybatis和数据库进行交互，完全契合当前的智�
         }
         this.dataList = this.mixinViewModuleOptions.getDataListIsPage ? res.data.list : res.data
         this.total = this.mixinViewModuleOptions.getDataListIsPage ? res.data.total : 0
-      }).catch(() =&gt; {
+      }).catch(() => {
         this.dataListLoading = false
       })
     },
@@ -654,14 +654,14 @@ Activiti组件使用Mybatis和数据库进行交互，完全契合当前的智�
     // 新增 / 修改
     addOrUpdateHandle (id) {
       this.addOrUpdateVisible = true
-      this.$nextTick(() =&gt; {
+      this.$nextTick(() => {
         this.$refs.addOrUpdate.dataForm.id = id
         this.$refs.addOrUpdate.init()
       })
     },
     // 删除
     deleteHandle (id) {
-      if (this.mixinViewModuleOptions.deleteIsBatch &amp;&amp; !id &amp;&amp; this.dataListSelections.length &lt;= 0) {
+      if (this.mixinViewModuleOptions.deleteIsBatch && !id && this.dataListSelections.length <= 0) {
         return this.$message({
           message: this.$t('prompt.deleteBatch'),
           type: 'warning',
@@ -672,13 +672,13 @@ Activiti组件使用Mybatis和数据库进行交互，完全契合当前的智�
         confirmButtonText: this.$t('confirm'),
         cancelButtonText: this.$t('cancel'),
         type: 'warning'
-      }).then(() =&gt; {
+      }).then(() => {
         this.$http.delete(
           `${this.mixinViewModuleOptions.deleteURL}${this.mixinViewModuleOptions.deleteIsBatch ? '' : '/' + id}`,
           this.mixinViewModuleOptions.deleteIsBatch ? {
-            'data': id ? [id] : this.dataListSelections.map(item =&gt; item[this.mixinViewModuleOptions.deleteIsBatchKey])
+            'data': id ? [id] : this.dataListSelections.map(item => item[this.mixinViewModuleOptions.deleteIsBatchKey])
           } : {}
-        ).then(({ data: res }) =&gt; {
+        ).then(({ data: res }) => {
           if (res.code !== 0) {
             return this.$message.error(res.msg)
           }
@@ -686,12 +686,12 @@ Activiti组件使用Mybatis和数据库进行交互，完全契合当前的智�
             message: this.$t('prompt.success'),
             type: 'success',
             duration: 500,
-            onClose: () =&gt; {
+            onClose: () => {
               this.getDataList()
             }
           })
-        }).catch(() =&gt; {})
-      }).catch(() =&gt; {})
+        }).catch(() => {})
+      }).catch(() => {})
     },
     // 导出
     exportHandle () {
@@ -735,7 +735,7 @@ Activiti组件使用Mybatis和数据库进行交互，完全契合当前的智�
   mutations: {
     // 重置vuex本地储存状态
     resetStore (state) {
-      Object.keys(state).forEach((key) =&gt; {
+      Object.keys(state).forEach((key) => {
         state[key] = cloneDeep(window.SITE_CONFIG['storeState'][key])
       })
     }
@@ -869,7 +869,7 @@ public class Oauth2Realm extends AuthorizingRealm {
         UserDetail user = (UserDetail)principals.getPrimaryPrincipal();
 
         //用户权限列表
-        Set<string> permsSet = shiroService.getUserPermissions(user);
+        Set<String> permsSet = shiroService.getUserPermissions(user);
 
         SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
         info.setStringPermissions(permsSet);
@@ -886,7 +886,7 @@ public class Oauth2Realm extends AuthorizingRealm {
         //根据accessToken，查询用户信息
         SysUserTokenEntity tokenEntity = shiroService.getByToken(accessToken);
         //token失效
-        if(tokenEntity == null || tokenEntity.getExpireDate().getTime() &lt; System.currentTimeMillis()){
+        if(tokenEntity == null || tokenEntity.getExpireDate().getTime() < System.currentTimeMillis()){
             throw new IncorrectCredentialsException(MessageUtils.getMessage(ErrorCode.TOKEN_INVALID));
         }
 
@@ -897,7 +897,7 @@ public class Oauth2Realm extends AuthorizingRealm {
         UserDetail userDetail = ConvertUtils.sourceToTarget(userEntity, UserDetail.class);
 
         //获取用户对应的部门数据权限
-        List<long> deptIdList = shiroService.getDataScopeList(userDetail.getId());
+        List<Long> deptIdList = shiroService.getDataScopeList(userDetail.getId());
         userDetail.setDeptIdList(deptIdList);
 
         //账号锁定
@@ -910,7 +910,7 @@ public class Oauth2Realm extends AuthorizingRealm {
     }
 
 }
-</long></string></code></pre>
+</code></pre>
 <p><strong>token生成</strong></p>
 <pre class=" language-language-java"><code class="language-language-java">public class TokenGenerator {
 
@@ -926,8 +926,8 @@ public class Oauth2Realm extends AuthorizingRealm {
         }
         StringBuilder r = new StringBuilder(data.length*2);
         for ( byte b : data) {
-            r.append(HEX_CODE[(b &gt;&gt; 4) &amp; 0xF]);
-            r.append(HEX_CODE[(b &amp; 0xF)]);
+            r.append(HEX_CODE[(b >> 4) & 0xF]);
+            r.append(HEX_CODE[(b & 0xF)]);
         }
         return r.toString();
     }
@@ -954,8 +954,8 @@ public class Oauth2Realm extends AuthorizingRealm {
         HttpServletRequest request = requestAttributes.getRequest();
         WebApplicationContext webApplicationContext = WebApplicationContextUtils.getWebApplicationContext(request.getServletContext());
         SysUserService userService = webApplicationContext.getBean(SysUserService.class);
-        List<string> strings = new ArrayList<string>();
-        List<sysuserdto> list = userService.getUserByRole(RoleEnum.LEADER.value());
+        List<String> strings = new ArrayList<String>();
+        List<SysUserDTO> list = userService.getUserByRole(RoleEnum.LEADER.value());
         for (SysUserDTO user : list) {
             strings.add(user.getUsername());
         }
@@ -963,7 +963,7 @@ public class Oauth2Realm extends AuthorizingRealm {
         ApprovalTbService approvalTbService = webApplicationContext.getBean(ApprovalTbService.class);
         ApprovalTbDTO approvalTbDTO = (ApprovalTbDTO) delegateTask.getVariable(ActivitiEnum.APPROVAL.value());
         approvalTbService.updateType(RoleEnum.LEADERNAME.value(),approvalTbDTO.getId());
-        if(list.size() &gt; 0){
+        if(list.size() > 0){
             Long dealId = (Long) delegateTask.getVariable(ActivitiEnum.DEALID.value());
             UtilService utilService = webApplicationContext.getBean(UtilService.class);
             utilService.updateDeal(dealId,list);
@@ -971,7 +971,7 @@ public class Oauth2Realm extends AuthorizingRealm {
     }
 }
 
-</sysuserdto></string></string></code></pre>
+</code></pre>
 <p><strong>定时任务</strong></p>
 <pre class=" language-language-java"><code class="language-language-java">@Component("downTask")
 public class DownTask implements ITask{
@@ -981,8 +981,8 @@ public class DownTask implements ITask{
 
 	@Override
 	public void run(String params){
-		List<activitydto> allActivity = activityService.getAllActivity(ActivityEnum.DOWN.value());
-		if(allActivity.size() &gt; 0){
+		List<ActivityDTO> allActivity = activityService.getAllActivity(ActivityEnum.DOWN.value());
+		if(allActivity.size() > 0){
 			for(ActivityDTO activityDTO : allActivity){
 				activityService.changeState(activityDTO.getId());
 				logger.debug(activityDTO.getId() + "资源已释放！");
@@ -990,7 +990,7 @@ public class DownTask implements ITask{
 		}
 	}
 }
-</activitydto></code></pre>
+</code></pre>
 <h3 id="企业项目淮安智慧谷OA相关文件">企业项目淮安智慧谷OA相关文件</h3>
 <h4 id="文档文件">文档文件</h4>
 <p><a href="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/%E6%99%BA%E6%85%A7%E8%B0%B7OA-%E5%8E%9F%E5%A7%8B%E9%9C%80%E6%B1%8220200110.doc" target="_blank" rel="noopener">智慧谷OA-原始需求20200110.doc</a></p>
@@ -1704,7 +1704,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">110k</span>&nbsp;字
+                class="white-color">123.9k</span>&nbsp;字
             
             
             

@@ -479,7 +479,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1k
+                    1.1k
                 </div>
                 
 
@@ -505,7 +505,7 @@
 <p>使用USB接口相机标定时需要先使用标定板标定获取相机内参等信息，realsense相机自带标定信息。相机标定完成后在机械臂末端固定相机后使用aruco和机械臂位姿进行手眼标定。</p>
 <h4 id="相机标定">相机标定</h4>
 <p>大象机械臂内置了ROS1和ROS2环境，usb_cam默认安装编译完成，如果不是自带的话，ROS环境的安装可以使用鱼香的一键安装。</p>
-<pre class=" language-language-bash"><code class="language-language-bash">wget http://fishros.com/install -O fishros &amp;&amp; . fishros
+<pre class=" language-language-bash"><code class="language-language-bash">wget http://fishros.com/install -O fishros && . fishros
 </code></pre>
 <p>usb_cam安装如下所示。</p>
 <pre class=" language-language-bash"><code class="language-language-bash">cd ~/catkin_ws/src
@@ -570,7 +570,7 @@ sudo swapon /swapfile
 <pre class=" language-language-bash"><code class="language-language-bash">roslaunch mycobot_280pi slider_control.launch
 </code></pre>
 <p>运行上述命令后发现机械臂不随软件调试变化，这里修改一下slider_control代码即可，修改如下。</p>
-<pre class=" language-language-python"><code class="language-language-python">node name="control_slider" pkg="mycobot_280pi" type="slider_control.py"&gt;
+<pre class=" language-language-python"><code class="language-language-python">node name="control_slider" pkg="mycobot_280pi" type="slider_control.py">
 		param name="port" type="string" value="$(arg port)"
 		param name="baud" type="int" value="$(arg baud)"
 node
@@ -578,7 +578,7 @@ node
 <p>将上述代码取消注释，配置你自己的机械臂 port和baud参数即可。</p>
 <p>启动后软件如下图所示</p>
 <p><img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/mycobot.png" alt=""></p>
-<p>机械臂的位姿订阅话题为joint_states，可以使用rostopic echo查看对应话题的相关信息。</p>
+<p>机械臂的位姿订阅话题为tf获取，配置你自己的机械臂节点名称即可，可以使用rostopic echo查看对应话题的相关信息。</p>
 <p>运行handeye手眼标定程序标定即可。</p>
 <script>
         document.querySelectorAll('.github-emoji')
@@ -967,51 +967,52 @@ node
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2024/09/24/da-xiang-ji-jie-bi-yan-zai-shou-shang-biao-ding/">
+                <a href="/2024/09/27/glm-duo-mo-tai-da-mo-xing-bu-shu-ji-diao-yong/">
                     <div class="card-image">
                         
                         
-                        <img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/23.jpg" class="responsive-img" alt="大象机械臂Mycobot_280Pi眼在手上标定">
+                        <img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/22.jpg" class="responsive-img" alt="GLM多模态大模型部署及调用">
                         
-                        <span class="card-title">大象机械臂Mycobot_280Pi眼在手上标定</span>
+                        <span class="card-title">GLM多模态大模型部署及调用</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            手眼标定
-使用USB接口相机标定时需要先使用标定板标定获取相机内参等信息，realsense相机自带标定信息。相机标定完成后在机械臂末端固定相机后使用aruco和机械臂位姿进行手眼标定。
-相机标定
-大象机械臂内置了ROS1和ROS2环境，u
+                            GLM大模态大模型部署
+基本API调用函数来自官方
+服务器端
+from fastapi import FastAPI
+from pydantic import BaseModel
+import uvicorn
+import requests
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2024-09-24
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2024-09-27
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%89%8B%E7%9C%BC%E6%A0%87%E5%AE%9A/" class="post-category">
-                                    手眼标定
+                            <a href="/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B/" class="post-category">
+                                    大模型
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%9C%BC%E5%9C%A8%E6%89%8B%E4%B8%8A/">
-                        <span class="chip bg-color">眼在手上</span>
+                    <a href="/tags/%E5%A4%9A%E6%A8%A1%E6%80%81/">
+                        <span class="chip bg-color">多模态</span>
                     </a>
                     
                 </div>
@@ -1252,7 +1253,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">110k</span>&nbsp;字
+                class="white-color">123.9k</span>&nbsp;字
             
             
             

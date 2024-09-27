@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://sprboot.github.io/"/>
-  <updated>2024-09-24T09:03:35.646Z</updated>
+  <updated>2024-09-27T07:43:05.047Z</updated>
   <id>https://sprboot.github.io/</id>
   
   <author>
@@ -17,11 +17,38 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>GLM多模态大模型部署及调用</title>
+    <link href="https://sprboot.github.io/2024/09/27/glm-duo-mo-tai-da-mo-xing-bu-shu-ji-diao-yong/"/>
+    <id>https://sprboot.github.io/2024/09/27/glm-duo-mo-tai-da-mo-xing-bu-shu-ji-diao-yong/</id>
+    <published>2024-09-27T10:12:22.000Z</published>
+    <updated>2024-09-27T07:43:05.047Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;GLM大模态大模型部署&quot;&gt;GLM大模态大模型部署&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;基本API调用函数来自官方&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;服务器端&lt;/p&gt;
+&lt;pre class=&quot; language-language-python&quot;&gt;&lt;code class=&quot;
+      
+    
+    </summary>
+    
+    
+      <category term="大模型" scheme="https://sprboot.github.io/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B/"/>
+    
+    
+      <category term="多模态" scheme="https://sprboot.github.io/tags/%E5%A4%9A%E6%A8%A1%E6%80%81/"/>
+    
+  </entry>
+  
+  <entry>
     <title>大象机械臂Mycobot_280Pi眼在手上标定</title>
     <link href="https://sprboot.github.io/2024/09/24/da-xiang-ji-jie-bi-yan-zai-shou-shang-biao-ding/"/>
     <id>https://sprboot.github.io/2024/09/24/da-xiang-ji-jie-bi-yan-zai-shou-shang-biao-ding/</id>
     <published>2024-09-24T10:45:22.000Z</published>
-    <updated>2024-09-24T09:03:35.646Z</updated>
+    <updated>2024-09-27T07:28:12.661Z</updated>
     
     <summary type="html">
     
@@ -509,33 +536,6 @@ FN:没有检测到的GT的数量&lt;/p&gt;
 &lt;h4 id=&quot;相关知识&quot;&gt;相关知识&lt;/h4&gt;
 &lt;h5 id=&quot;残差学习&quot;&gt;残差学习&lt;/h5&gt;
 &lt;p&gt;对于传统的CNN网络，简单的增加网络的深度，容易&lt;strong&gt;导致梯度消失和爆炸&lt;/strong&gt;。针对梯度消失
-      
-    
-    </summary>
-    
-    
-      <category term="深度学习" scheme="https://sprboot.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="论文" scheme="https://sprboot.github.io/tags/%E8%AE%BA%E6%96%87/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>论文阅读第一部分</title>
-    <link href="https://sprboot.github.io/2021/09/29/lun-wen-yue-du-di-yi-bu-fen/"/>
-    <id>https://sprboot.github.io/2021/09/29/lun-wen-yue-du-di-yi-bu-fen/</id>
-    <published>2021-09-29T13:16:30.000Z</published>
-    <updated>2024-09-24T08:24:57.658Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;论文阅读第一部分&quot;&gt;论文阅读第一部分&lt;/h3&gt;
-&lt;h5 id=&quot;使用一些移位操作来设计更加高效的图片分类卷积神经网络&quot;&gt;使用一些移位操作来设计更加高效的图片分类卷积神经网络&lt;/h5&gt;
-&lt;h5 id=&quot;深度学习模型及相关术语&quot;&gt;深度学习模型及相关术语&lt;/h5&gt;
-&lt;h
       
     
     </summary>

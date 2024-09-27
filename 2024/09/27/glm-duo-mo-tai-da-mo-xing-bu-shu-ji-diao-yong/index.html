@@ -1,0 +1,1901 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="GLM多模态大模型部署及调用, dingdm">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>GLM多模态大模型部署及调用 | dingdm</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js"></script>
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="dingdm" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">dingdm</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/SprBoot" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/SprBoot" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+<style type="text/css">
+  #weather-float-he {
+    position: absolute;
+    z-index: 9999;
+    padding: 0px;
+    top: 8px;
+    left: 8px;
+  }
+</style>
+
+<script type="text/javascript">
+  WIDGET = {
+    FID: '1tFpFZ5Mtj'
+  }
+</script>
+<!-- <script type="text/javascript" src="https://apip.weatherdt.com/float/static/js/r.js?v=1111"></script> -->
+
+<script type="text/javascript">
+  //只在桌面版网页启用特效
+  var windowWidth = $(window).width();
+  if (windowWidth > 768) {
+    document.write('<script type="text/javascript" src="https://apip.weatherdt.com/float/static/js/r.js?v=1111"><\/script>');
+  }
+</script>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/22.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">GLM多模态大模型部署及调用</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E5%A4%9A%E6%A8%A1%E6%80%81/">
+                                <span class="chip bg-color">多模态</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B/" class="post-category">
+                                大模型
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2024-09-27
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    3.6k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    19 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h3 id="GLM大模态大模型部署">GLM大模态大模型部署</h3>
+<p><strong>基本API调用函数来自官方</strong></p>
+<p>服务器端</p>
+<pre class=" language-language-python"><code class="language-language-python">from fastapi import FastAPI
+from pydantic import BaseModel
+import uvicorn
+import requests
+from io import BytesIO
+from modelscope import snapshot_download
+from transformers import AutoTokenizer, AutoModelForCausalLM
+import torch
+from PIL import Image
+import base64
+import cv2
+import numpy as np
+import io
+
+model_dir = '/home/dgc/glm-4v-9b'
+device = "cuda:0"
+tokenizer = AutoTokenizer.from_pretrained(model_dir, trust_remote_code=True)
+glm4_vl = AutoModelForCausalLM.from_pretrained(model_dir, device_map=device, trust_remote_code=True,
+                                               torch_dtype=torch.float16).eval()
+# 创建FastAPI应用实例
+app = FastAPI()
+# 定义请求体模型，与OpenAI API兼容
+class ChatCompletionRequest(BaseModel):
+    model: str
+    messages: list
+    max_tokens: int = 50
+    temperature: float = 1.0
+# 文本生成函数
+def generate_text(model: str, messages: list, max_tokens: int, temperature: float):
+    query = messages[0]["content"][0]["text"]
+    image_base64 = messages[0]["content"][1]["image_base64"]["base64"]
+    image = Image.open(BytesIO(base64.b64decode(image_base64)))
+    inputs = tokenizer.apply_chat_template([{"role": "user", "image": image, "content": query}],
+                                           add_generation_prompt=True, tokenize=True, return_tensors="pt",
+                                           return_dict=True)
+    inputs = inputs.to(device)
+    gen_kwargs = {"max_length": 2500, "do_sample": True, "top_k": 1}
+    with torch.no_grad():
+        outputs = glm4_vl.generate(**inputs, **gen_kwargs)
+        outputs = outputs[:, inputs['input_ids'].shape[1]:]
+        print(tokenizer.decode(outputs[0]))
+    return tokenizer.decode(outputs[0])
+# 定义路由和处理函数，与OpenAI API兼容
+@app.post("/v1/chat/completions")
+async def create_chat_completion(request: ChatCompletionRequest):
+    # 调用自定义的文本生成函数
+    response = generate_text(request.model, request.messages, request.max_tokens, request.temperature)
+    return {"choices": [{"message": {"content": response}}], "model": request.model}
+# 启动FastAPI应用
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=8000)
+
+</code></pre>
+<p>客户端</p>
+<pre class=" language-language-python"><code class="language-language-python">import requests
+import json
+import cv2
+from PIL import Image
+import subprocess
+import base64
+# 定义请求的URL
+url = "http://ipaddress:8000/v1/chat/completions"
+# 本地将图片信息转换为base64编码上传
+image_url = './circle.png'
+f = open(image_url, 'rb')  # 二进制方式打开图文件
+image = base64.b64encode(f.read())
+# 定义请求体
+data = {
+    "model": "glm-4v",
+    "messages": [{"role": "user", "content": [{"type": "text", "text": "Now you are a robotic arm. The get_names_on_table() function is used to get the names of all objects on the table and returns a collection. The variable is defined as nams. The get_box_postion() function obtains the positions where all objects on the table need to move. The variable is defined as position, which is fixed. The get_location_by_name(name) function gets the current location of each object. The move_tool(xyz) function is used to move the robotic arm. The grasp() function is used to grasp objects. The ungrasp() function is used to drop objects. Analyze the picture and design the plan method to move the objects on the desktop to the same position on the other side according to the provided function. Please only provide the python code implementation of the plan method without outputting relevant comments."}, {"type": "image_base64",
+                                                                                      "image_base64": {
+                                                                                          "base64": image.decode('utf-8')}}]}],
+    "max_tokens": 1024,
+    "temperature": 0.5
+}
+# 将字典转换为JSON格式
+headers = {'Content-Type': 'application/json'}
+data_json = json.dumps(data)
+# 发送POST请求
+response = requests.post(url, data=data_json, headers=headers)
+llm_generated_func = None
+# 检查响应状态码
+if response.status_code == 200:
+    # 如果响应成功，打印响应内容
+    # print(response.json()['choices'][0]['message']['content'].replace('<|endoftext|>',''))
+    llm_generated_func = response.json()['choices'][0]['message']['content'].replace('<|endoftext|>','')
+else:
+    # 如果响应失败，打印错误信息
+    print(f"Error: {response.status_code}, {response.text}")
+</code></pre>
+<p>同时贴一下初期用面阵相机和<a href="https://github.com/OpenRobotLab/EmbodiedScan" target="_blank" rel="noopener">EmbodiedScan</a>做仿真的代码，后来没写完就直接用机械臂了，留存一下吧。</p>
+<pre class=" language-language-python"><code class="language-language-python">from pypylon import pylon
+import cv2
+import numpy as np
+import re
+import subprocess
+import base64
+import json
+import requests
+import os
+import warnings
+from argparse import ArgumentParser
+from copy import deepcopy
+from pathlib import Path
+from typing import Optional, Union
+
+import numpy as np
+import torch
+from mmengine.config import Config
+from mmengine.dataset import Compose, pseudo_collate
+from mmengine.registry import init_default_scope
+from mmengine.runner import load_checkpoint
+from scipy.spatial.transform import Rotation as R
+from embodiedscan.registry import DATASETS, MODELS
+from embodiedscan.structures import get_box_type
+
+def init_model(config: Union[str, Path, Config],
+               checkpoint: Optional[str] = None,
+               device: str = 'cuda:0',
+               cfg_options: Optional[dict] = None):
+    """Initialize a model from config file, which could be a 3D detector or a
+    3D segmentor.
+
+    Args:
+        config (str, :obj:`Path`, or :obj:`mmengine.Config`): Config file path,
+            :obj:`Path`, or the config object.
+        checkpoint (str, optional): Checkpoint path. If left as None, the model
+            will not load any weights.
+        device (str): Device to use.
+        cfg_options (dict, optional): Options to override some settings in
+            the used config.
+
+    Returns:
+        nn.Module: The constructed detector.
+    """
+    if isinstance(config, (str, Path)):
+        config = Config.fromfile(config)
+    elif not isinstance(config, Config):
+        raise TypeError('config must be a filename or Config object, '
+                        f'but got {type(config)}')
+    if cfg_options is not None:
+        config.merge_from_dict(cfg_options)
+
+    config.model.train_cfg = None
+    init_default_scope(config.get('default_scope', 'mmdet3d'))
+    model = MODELS.build(config.model)
+
+    if checkpoint is not None:
+        checkpoint = load_checkpoint(model, checkpoint, map_location='cpu')
+        # save the dataset_meta in the model for convenience
+        model.dataset_meta = checkpoint['meta']['dataset_meta']
+
+        test_dataset_cfg = deepcopy(config.test_dataloader.dataset)
+        # lazy init. We only need the metainfo.
+        test_dataset_cfg['lazy_init'] = True
+        metainfo = DATASETS.build(test_dataset_cfg).metainfo
+        cfg_palette = metainfo.get('palette', None)
+        if cfg_palette is not None:
+            model.dataset_meta['palette'] = cfg_palette
+        else:
+            if 'palette' not in model.dataset_meta:
+                warnings.warn(
+                    'palette does not exist, random is used by default. '
+                    'You can also set the palette to customize.')
+                model.dataset_meta['palette'] = 'random'
+
+    model.cfg = config  # save the config in the model for convenience
+    if device != 'cpu':
+        torch.cuda.set_device(device)
+    else:
+        warnings.warn('Don\'t suggest using CPU device. '
+                      'Some functions are not supported for now.')
+
+    model.to(device)
+    model.eval()
+    return model
+
+
+def nms_filter(pred_results, iou_thr=0.15, score_thr=0.075, topk_per_class=10):
+    """Non-Maximum Suppression for 3D Euler boxes. Additionally, only the top-k
+    boxes will be kept for each category to avoid redundant boxes in the
+    visualization.
+
+    Args:
+        pred_results (mmengine.structures.instance_data.InstanceData):
+            Results predicted by the model
+        iou_thr (float): IoU thresholds for NMS. Defaults to 0.15.
+        score_thr (float): Score thresholds.
+            Instances with scores below thresholds will not be kept.
+            Defaults to 0.075.
+        topk_per_class (int): Number of instances kept per category.
+
+    Returns:
+        boxes (numpy.ndarray[float]): filtered instances, shape (N,9)
+        labels (numpy.ndarray[int]): filtered labels, shape (N,)
+    """
+    boxes = pred_results.bboxes_3d
+    boxes_tensor = boxes.tensor.cpu().numpy()
+    iou = boxes.overlaps(boxes, boxes, eps=1e-5)
+    score = pred_results.scores_3d.cpu().numpy()
+    label = pred_results.labels_3d.cpu().numpy()
+    selected_per_class = dict()
+
+    n = boxes_tensor.shape[0]
+    idx = list(range(n))
+    idx.sort(key=lambda x: score[x], reverse=True)
+    selected_idx = []
+    for i in idx:
+        if selected_per_class.get(label[i], 0) >= topk_per_class:
+            continue
+        if score[i] < score_thr:
+            continue
+        bo = False
+        for j in selected_idx:
+            if iou[i][j] > iou_thr:
+                bo = True
+                break
+        if not bo:
+            selected_idx.append(i)
+            if label[i] not in selected_per_class:
+                selected_per_class[label[i]] = 1
+            else:
+                selected_per_class[label[i]] += 1
+
+    return boxes_tensor[selected_idx], label[selected_idx]
+
+# 摄像头采集图像
+def get_camera_image(image_path):
+    nodeFile = 'acA2500-14gc_22225910.pfs'
+    tlf = pylon.TlFactory.GetInstance()
+    tl = tlf.CreateTl('BaslerGigE')
+    cam_info = tl.CreateDeviceInfo()
+    camera = pylon.InstantCamera(tlf.CreateDevice(cam_info))
+    camera.Open()
+    # Print the model name of the camera.
+    print("Using device ", camera.GetDeviceInfo().GetModelName())
+    # load pfs
+    pylon.FeaturePersistence.Load(nodeFile, camera.GetNodeMap(), True)
+    # print(camera.CameraContext())
+    camera.Width.SetValue(1800)  # (1920)
+    camera.Height.SetValue(1800)  # (1080)
+    # 设置中心点
+    camera.CenterX.SetValue(True)
+    camera.CenterY.SetValue(True)
+    camera.LightSourceSelector.SetValue('Daylight6500K')
+    a = camera.LightSourceSelector.GetValue()
+    camera.BalanceWhiteAuto.SetValue('Off')
+    # camera.BalanceWhiteAuto.SetValue('Once')
+    b = camera.BalanceWhiteAuto.GetValue()
+    camera.BalanceWhiteReset.Execute()
+    camera.BalanceRatioSelector.SetValue('Red')
+    camera.BalanceRatioRaw.SetValue(90)
+    c = camera.BalanceRatioRaw.GetValue()
+    camera.BalanceRatioSelector.SetValue('Green')
+    camera.BalanceRatioRaw.SetValue(59)
+    d = camera.BalanceRatioRaw.GetValue()
+    # print(a,b,c,d)
+    camera.StartGrabbing(pylon.GrabStrategy_LatestImageOnly)
+    converter = pylon.ImageFormatConverter()
+    # converting to opencv bgr format
+    converter.OutputPixelFormat = pylon.PixelType_BGR8packed
+    converter.OutputBitAlignment = pylon.OutputBitAlignment_MsbAligned
+    img_original = None
+    try:
+        # Create an instant camera object with the camera device found first.
+        camera.StopGrabbing()
+        aaaa = True
+        while aaaa:
+            # Wait for an image and then retrieve it. A timeout of 5000 ms is used.
+            # grabResult = camera.RetrieveResult(5000, pylon.TimeoutHandling_ThrowException)
+            grabResult = camera.GrabOne(1000)
+            if grabResult.GrabSucceeded():
+                # Access the image data
+                image = converter.Convert(grabResult)
+                img_original = image.GetArray()
+                cv2.imwrite(image_path, img_original)
+                aaaa = False
+            grabResult.Release()
+        camera.Close()
+    except Exception as e:
+        # Error handling.
+        print("An exception occurred.")
+
+# 获取相机标定的外参信息
+def parse_vectors_from_txt(file_path, rvecs_name="rvecs", tvecs_name="tvecs"):
+    rvecs = []
+    tvecs = []
+    current_list = None
+
+    with open(file_path, "r") as file:
+        lines = file.readlines()
+
+    # 解析数据
+    for line in lines:
+        line = line.strip()
+        if line.startswith(rvecs_name + ":"):
+            current_list = rvecs
+        elif line.startswith(tvecs_name + ":"):
+            current_list = tvecs
+        elif line and current_list is not None:
+            # 将当前行的数据解析为float并存储到current_list中
+            values = np.array([float(x) for x in re.split(r',\s*', line)]).reshape(-1, 1)
+            current_list.append(values)
+
+    return tuple(rvecs), tuple(tvecs)
+
+# 相机内参矫正
+def parse_data_from_txt(file_path, mtx_name="mtx", dist_name="dist"):
+    mtx = None
+    dist = None
+
+    with open(file_path, "r") as file:
+        data = file.read()
+
+    # 使用正则表达式匹配 'mtx' 和 'dist' 部分的内容
+    mtx_match = re.search(rf"{mtx_name}:\s*\[\[(.*?)\]\]", data, re.DOTALL)
+    dist_match = re.search(rf"{dist_name}:\s*\[\[(.*?)\]\]", data, re.DOTALL)
+
+    if mtx_match:
+        # 将匹配到的 'mtx' 数据字符串转换为 numpy 数组
+        mtx_str = mtx_match.group(1).replace("\n", "")
+        mtx = np.array([[float(num) for num in row.split()] for row in mtx_str.split('] [')])
+
+    if dist_match:
+        # 将匹配到的 'dist' 数据字符串转换为 numpy 数组
+        dist_str = dist_match.group(1).replace("\n", "")
+        dist = np.array([[float(num) for num in dist_str.split()]])
+
+    return mtx, dist
+
+# 机器人基座位姿获取参数
+def robot(pose_csv_path,rvecs, tvecs, img_point_length):
+    # 机器人末端在基座标系下的位姿
+    tool_pose = np.loadtxt(pose_csv_path, delimiter=',')
+    R_tool = []
+    t_tool = []
+    for i in range(int(img_point_length)):
+        R_tool.append(tool_pose[0:3, 4 * i:4 * i + 3])
+        t_tool.append(tool_pose[0:3, 4 * i + 3])
+
+    R, t = cv2.calibrateHandEye(R_tool, t_tool, rvecs, tvecs, cv2.CALIB_HAND_EYE_TSAI)
+    T_tool_camera = np.hstack((R, t))
+    T_tool_camera = np.vstack((T_tool_camera, np.array([0, 0, 0, 1])))
+    with open("t_tool_camera.txt", "w") as file:
+        # 写入参数到txt文件
+        file.write(f"T_tool_camera:{T_tool_camera}\n")
+    return T_tool_camera
+
+# 相机矫正，生成转换参数
+def distortion(image_path, robot_path, img_point_length):
+    # 获取相机标定内参数
+    mtx,dist = parse_data_from_txt('./distortion_correction.txt')
+    # 获取路径下的所有图片
+    image_files = [f for f in os.listdir(image_path) if os.path.isfile(os.path.join(image_path, f))]
+    # 遍历文件，读取并处理图片
+    for image_file in image_files:
+        # 获取文件的完整路径
+        image = os.path.join(image_path, image_file)
+        # 去畸变
+        img = cv2.imread(image)
+        h, w = img.shape[:2]
+        newcameramtx, roi = cv2.getOptimalNewCameraMatrix(mtx, dist, (w, h), 0, (w, h))  # 自由比例参数
+        dst = cv2.undistort(img, mtx, dist, None, newcameramtx)
+        cv2.imwrite(image,dst)
+
+# 调用大模型进行场景理解
+def glm(server_url, image_path, prompt):
+    # 本地将图片信息转换为base64编码上传
+    f = open(image_path, 'rb')  # 二进制方式打开图文件
+    image = base64.b64encode(f.read())
+
+    # 定义请求体
+    data = {
+        "model": "glm-4v",
+        "messages": [{"role": "user", "content": [{"type": "text",
+                                                   "text": prompt},
+                                                  {"type": "image_base64",
+                                                   "image_base64": {
+                                                       "base64": image.decode('utf-8')}}]}],
+        "max_tokens": 1024,
+        "temperature": 0.5
+    }
+    # 将字典转换为JSON格式
+    headers = {'Content-Type': 'application/json'}
+    data_json = json.dumps(data)
+    # 发送POST请求
+    response = requests.post(server_url, data=data_json, headers=headers)
+    llm_generated_func = None
+    # 检查响应状态码
+    if response.status_code == 200:
+        # 如果响应成功，打印响应内容
+        # print(response.json()['choices'][0]['message']['content'].replace('<|endoftext|>',''))
+        llm_generated_func = response.json()['choices'][0]['message']['content'].replace('<|endoftext|>', '')
+    else:
+        # 如果响应失败，打印错误信息
+        print(f"Error: {response.status_code}, {response.text}")
+    return llm_generated_func.replace("```python", "").replace("```", "").strip()
+
+# 调用机器人执行
+def robot_controller(llm_generated_func):
+    execute = "/media/gongcheng/17dd821e-3aa1-471c-bb84-d9ba1098040a/workspace/EmbodiedScan/manipulate/tasks/exec_llm_code.py"
+    subprocess.run(['python', execute,llm_generated_func])
+
+# 获取3d算法检测的目标框信息
+def get_detection_box(args):
+    # 1.这里调用votenet算法进行点云检测并返回json文件结果
+    # 2.直接调用EmbodiedScan算法获取检测目标的坐标信息
+    # json_path = votenet(image_path)
+    # 解析3d点云的检测结果，分析并获取有价值的检测信息
+    # with open('000017.json', 'r') as fcc_file:
+    #     jess_dict = json.load(fcc_file)
+    # scores = jess_dict.get('scores_3d', [])
+    # labels = jess_dict.get('labels_3d', [])
+    # boxes = jess_dict.get('bboxes_3d', [])
+    # detections_box = []
+    # for index,score in enumerate(scores):
+    #     if score > 0.5:
+    #         detections_box.append([labels[index], score, boxes[index]])
+    # build the model
+    model = init_model(args.config, args.checkpoint, device=args.device)
+    cfg = model.cfg
+    # build the data pipeline
+    test_pipeline = deepcopy(cfg.test_dataloader.dataset.pipeline)
+    test_pipeline = Compose(test_pipeline)
+    # read demo data and construct model input
+    # 这里需要传入第一个参数，poses.txt为3d相机采集图像时存储的每一帧图片的位姿信息
+    with open(os.path.join(args.image_path, 'poses.txt'), 'r') as f:
+        poses = f.readlines()
+
+    # 第二个参数对齐矩阵，用于对齐相机采集到的所有图片中的坐标信息
+    # 相机固定是，对齐矩阵为单位阵
+    axis_align_matrix = np.loadtxt(
+        os.path.join(args.image_path, 'axis_align_matrix.txt'))
+    # 第三个参数，相机的内参
+    intrinsic = np.loadtxt(os.path.join(args.image_path, 'intrinsic.txt'))
+    intrinsic = intrinsic.astype(np.float32)
+    box_type = get_box_type('Euler-Depth')
+    info = dict(
+        axis_align_matrix=axis_align_matrix,
+        images=[],
+        img_path=[],
+        depth_img_path=[],
+        depth2img=dict(extrinsic=[],
+                       intrinsic=intrinsic,
+                       origin=np.array([.0, .0, .5]).astype(np.float32)),
+        depth_cam2img=intrinsic,
+        depth_shift=1000.0,
+        cam2img=intrinsic,
+        box_type_3d=box_type[0],
+        box_mode_3d=box_type[1],
+        ann_info=dict(  # empty annotation
+            gt_bboxes_3d=np.zeros((0, 9), dtype=np.float32),
+            gt_labels_3d=np.zeros((0,), dtype=np.int64),
+            visible_instance_masks=[[] for i in range(len(poses))],
+            gt_occupancy=np.zeros((0, 4), dtype=np.int64),
+            visible_occupancy_masks=[[] for i in range(len(poses))]))
+    n_frames = len(poses)
+    data = []
+    # 这里现有的设备D415无法采集每帧图片的位姿信息
+    # 将相机固定你进行标定，获取rvecs和tvecs，计算cam2global，这里也只检测单张图片
+    for i in range(1, n_frames):
+        # timestamp, x, y, z, qx, qy, qz, qw = poses[i].split()
+        # x, y, z, qx, qy, qz, qw = float(x), float(y), float(z), float(
+        #     qx), float(qy), float(qz), float(qw)
+        # # 四元数计算旋转矩阵
+        # rot_matrix = R.from_quat([qx, qy, qz, qw]).as_matrix()
+        # transform_matrix = np.identity(4)
+        # transform_matrix[:3, :3] = rot_matrix @ [[0, 0, 1], [-1, 0, 0],
+        #                                          [0, -1, 0]]
+        # # 每一帧图片，相机到全局坐标系的转换矩阵
+        # transform_matrix[:3, 3] = [x, y, z]  # CAM to NOT ALIGNED GLOBAL
+
+        # transform_matrix为固定值
+        timestamp = '0'
+        transform_matrix =  [[ 0.4378604, 0.79993325, 0.41034749, -1.24956107],
+                             [-0.84100497, 0.52577555, -0.12755664, -0.88529569],
+                             [-0.31778747, -0.28925228, 0.90296412, 1.21551931],
+                             [ 0., 0., 0., 1.]]
+
+        image_ann = dict(img_path=os.path.join(args.image_path, 'rgb',
+                                               timestamp + '.jpg'),
+                         depth_path=os.path.join(args.image_path, 'depth',
+                                                 timestamp + '.png'),
+                         cam2global=transform_matrix,
+                         cam2img=intrinsic)
+        info['images'].append(image_ann)
+        info['img_path'].append(
+            os.path.join(args.image_path, 'rgb', timestamp + '.jpg'))
+        info['depth_img_path'].append(
+            os.path.join(args.image_path, 'depth', timestamp + '.png'))
+        # 对齐矩阵到世界坐标系进行固定坐标
+        align_global2cam = np.linalg.inv(axis_align_matrix @ transform_matrix)
+        info['depth2img']['extrinsic'].append(
+            align_global2cam.astype(np.float32))
+
+    info_ = test_pipeline(info)
+    data.append(info_)
+    collate_data = pseudo_collate(data)
+    # forward the model
+    with torch.no_grad():
+        results = model.test_step(collate_data)
+    # remove model from GPU to free memory
+    del model
+    torch.cuda.empty_cache()
+    filtered_results = []
+    for i in range(len(results)):
+        boxes, labels = nms_filter(results[i].pred_instances_3d)
+        filtered_results.append((boxes, labels))
+    # 3D检测算法返回的检测框信息已经为世界坐标系坐标
+    # 获取相机的标定参数后使用机器人位姿参数获取转换参数
+    rvecs,tvecs = parse_vectors_from_txt(robot_path)
+    # 根据机器人的运动情况，将机器人位姿参数分为三种
+    # 1.机械臂固定，位姿参数确定，直接获取存为txt，减少运行时间
+    # 2.机器人移动，位姿实时变化
+    # 3.机器人移动，机器人的基坐标以某个固定坐标为基准，位姿不变
+    t_tool_camera = robot(robot_path, rvecs, tvecs, img_point_length)
+    # 返回机器人可以识别的坐标信息,这里返回的结果多了一个维度，及机器人可以识别的坐标
+    detections_box = get_object_position(filtered_results)
+    return detections_box
+
+# 转换为机器人可以识别的坐标
+def get_object_position(box_position):
+    outputBase = []
+    # 将3D检测算法的目标坐标信息通过机器人位姿进行转换为机器人可以理解的坐标
+    for position in box_position:
+        matrixBase2Camera = np.dot('RobotToolPose.csv', 't_tool_camera')
+        matrixCamera2Base = np.linalg.inv(matrixBase2Camera)
+        zc = position[0][2] # z
+        u = position[0][0]    # x
+        v = position[0][1]    # y
+        # 直接变换
+        outputBase2 = np.dot(np.linalg.inv(matrixCamera2Base[0:3, 0:3]), zc * np.dot(np.linalg.inv('mtx'),np.array([u, v, 1]).reshape(3,1)) - matrixCamera2Base[:3,3].reshape(3, 1))
+        position.append(outputBase2)
+        outputBase.append(position)
+    return outputBase
+
+if __name__ == '__main__':
+    parser = ArgumentParser()
+    parser.add_argument('config', help='Config file')
+    parser.add_argument('checkpoint', help='Checkpoint file')
+    parser.add_argument('--device',
+                        default='cuda:0',
+                        help='Device used for inference')
+    parser.add_argument('image_path', help='images save path')
+    parser.add_argument('server_url', help='llm server url', default='http://ipaddress:8000/v1/chat/completions')
+    parser.add_argument('--robot_path',
+                        type=str,
+                        required=True,
+                        help='RobotToolPose.csv')
+    parser.add_argument('--prompt', type=str, required=True)
+    args = parser.parse_args()
+    # 调取摄像头采集图片并存储
+    image_path = "./circle.png"
+    robot_path = "./RobotToolPose.csv"
+    img_point_length = 12
+    server_url = "http://ipaddress:8000/v1/chat/completions"
+    prompt = "Now you are a robotic arm. The get_names_on_table() function is used to get the names of all objects on the table and returns a collection. The variable is defined as nams. The get_box_postion() function obtains the positions where all objects on the table need to move. The variable is defined as position, which is fixed. The get_location_by_name(name) function gets the current location of each object. The move_tool(xyz) function is used to move the robotic arm. The grasp() function is used to grasp objects. The ungrasp() function is used to drop objects. Analyze the picture and design the plan method to move the objects on the desktop to the same position on the other side according to the provided function. Please only provide the python code implementation of the plan method without outputting relevant comments."
+    # 这里参数传入图片的保存地址，该函数应保存3D相机采集的RGB图片，点云深度信息，相机的每帧图片的位姿信息
+    get_camera_image(args.image_path)
+    # 相机标定，内参保存为txt文件，该值固定不变，对路径下的所有图片进行图像矫正
+    distortion(args.image_path)
+    # 相机标定结束后使用2D/3D目标检测算法检测目标信息
+    box_position = get_detection_box(args)
+    # 向大模型中传入图像与prompt
+    llm_generated_func = glm(args.server_url, args.image_path, args.prompt)
+    # 得到大模型返回的运动控制指令调用机器人执行指令
+    # 不了解调用接口，可以将运动指令和检测到的目标坐标信息同步传入
+    robot_controller(llm_generated_func)
+</code></pre>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">dinggc</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://sprboot.github.io/2024/09/27/glm-duo-mo-tai-da-mo-xing-bu-shu-ji-diao-yong/">https://sprboot.github.io/2024/09/27/glm-duo-mo-tai-da-mo-xing-bu-shu-ji-diao-yong/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">dinggc</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E5%A4%9A%E6%A8%A1%E6%80%81/">
+                                    <span class="chip bg-color">多模态</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: '5N8HyHczGHoLDfBUWqk9wNit-gzGzoHsz',
+        appKey: 'c8NcfVMIaTBAkuBaLeBETFrF',
+        notify: 'false' === 'true',
+        verify: 'false' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'mm',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: 'just go go'
+    });
+</script>
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2024/09/27/glm-duo-mo-tai-da-mo-xing-bu-shu-ji-diao-yong/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/22.jpg" class="responsive-img" alt="GLM多模态大模型部署及调用">
+                        
+                        <span class="card-title">GLM多模态大模型部署及调用</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            GLM大模态大模型部署
+基本API调用函数来自官方
+服务器端
+from fastapi import FastAPI
+from pydantic import BaseModel
+import uvicorn
+import requests
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-09-27
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B/" class="post-category">
+                                    大模型
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%A4%9A%E6%A8%A1%E6%80%81/">
+                        <span class="chip bg-color">多模态</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2024/09/24/da-xiang-ji-jie-bi-yan-zai-shou-shang-biao-ding/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/23.jpg" class="responsive-img" alt="大象机械臂Mycobot_280Pi眼在手上标定">
+                        
+                        <span class="card-title">大象机械臂Mycobot_280Pi眼在手上标定</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            手眼标定
+使用USB接口相机标定时需要先使用标定板标定获取相机内参等信息，realsense相机自带标定信息。相机标定完成后在机械臂末端固定相机后使用aruco和机械臂位姿进行手眼标定。
+相机标定
+大象机械臂内置了ROS1和ROS2环境，u
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-09-24
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%89%8B%E7%9C%BC%E6%A0%87%E5%AE%9A/" class="post-category">
+                                    手眼标定
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%9C%BC%E5%9C%A8%E6%89%8B%E4%B8%8A/">
+                        <span class="chip bg-color">眼在手上</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: dingdm<br />'
+            + '文章作者: dinggc<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">2019</span>
+            <a href="/about" target="_blank">dinggc</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">123.9k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+            <span id="icp"><img src="/medias/icp.png" style="vertical-align: text-bottom;" />
+                <a href="https://beian.miit.gov.cn/" target="_blank">苏ICP备18014752号</a>
+            </span>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/SprBoot" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:88665291@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=88665291" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 88665291" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/search.xml", 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+    
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.7'
+        zIndex="-1" count="99"
+        src="/libs/background/canvas-nest.js"></script>
+    
+
+    
+    
+    <script type="text/javascript" size="150" alpha='0.6'
+        zIndex="-1" src="/libs/background/ribbon-refresh.min.js" async="async"></script>
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
