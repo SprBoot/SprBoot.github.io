@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://sprboot.github.io/"/>
-  <updated>2024-09-27T07:43:05.047Z</updated>
+  <updated>2024-11-11T05:36:29.555Z</updated>
   <id>https://sprboot.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>aloha遥操作数据采集源代码</title>
+    <link href="https://sprboot.github.io/2024/11/10/aloha-yao-cao-zuo-shu-ju-cai-ji/"/>
+    <id>https://sprboot.github.io/2024/11/10/aloha-yao-cao-zuo-shu-ju-cai-ji/</id>
+    <published>2024-11-10T07:23:10.000Z</published>
+    <updated>2024-11-11T05:36:29.555Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;aloha遥操作数据采集源代码&quot;&gt;aloha遥操作数据采集源代码&lt;/h3&gt;
+&lt;p&gt;1.ROS订阅话题的更改&lt;/p&gt;
+&lt;p&gt;2.无关参数的省略&lt;/p&gt;
+&lt;p&gt;3.回调函数参数赋值的方式&lt;/p&gt;
+&lt;h4 id=&quot;record-episodes-py&quot;&gt;record_e
+      
+    
+    </summary>
+    
+    
+      <category term="具身智能" scheme="https://sprboot.github.io/categories/%E5%85%B7%E8%BA%AB%E6%99%BA%E8%83%BD/"/>
+    
+    
+      <category term="遥操作" scheme="https://sprboot.github.io/tags/%E9%81%A5%E6%93%8D%E4%BD%9C/"/>
+    
+  </entry>
   
   <entry>
     <title>GLM多模态大模型部署及调用</title>
@@ -509,33 +537,6 @@ FN:没有检测到的GT的数量&lt;/p&gt;
 &lt;h6 id=&quot;局部感知&quot;&gt;局部感知&lt;/h6&gt;
 &lt;p&gt;网络部分连通，每个神经元只与上一层的部分神经元相连，只感知局部，而不是整幅图像。&lt;/p&gt;
 &lt;h5 id=&quot;摘要
-      
-    
-    </summary>
-    
-    
-      <category term="深度学习" scheme="https://sprboot.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="论文" scheme="https://sprboot.github.io/tags/%E8%AE%BA%E6%96%87/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>论文阅读第二部分</title>
-    <link href="https://sprboot.github.io/2021/10/01/lun-wen-yue-du-di-er-bu-fen/"/>
-    <id>https://sprboot.github.io/2021/10/01/lun-wen-yue-du-di-er-bu-fen/</id>
-    <published>2021-10-01T09:47:30.000Z</published>
-    <updated>2024-09-24T08:24:42.226Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;论文阅读第二部分&quot;&gt;论文阅读第二部分&lt;/h3&gt;
-&lt;h4 id=&quot;相关知识&quot;&gt;相关知识&lt;/h4&gt;
-&lt;h5 id=&quot;残差学习&quot;&gt;残差学习&lt;/h5&gt;
-&lt;p&gt;对于传统的CNN网络，简单的增加网络的深度，容易&lt;strong&gt;导致梯度消失和爆炸&lt;/strong&gt;。针对梯度消失
       
     
     </summary>
