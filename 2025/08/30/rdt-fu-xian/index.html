@@ -1,0 +1,2254 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="RDT复现, dingdm">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>RDT复现 | dingdm</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js"></script>
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="dingdm" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">dingdm</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/SprBoot" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/SprBoot" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+<style type="text/css">
+  #weather-float-he {
+    position: absolute;
+    z-index: 9999;
+    padding: 0px;
+    top: 8px;
+    left: 8px;
+  }
+</style>
+
+<script type="text/javascript">
+  WIDGET = {
+    FID: '1tFpFZ5Mtj'
+  }
+</script>
+<!-- <script type="text/javascript" src="https://apip.weatherdt.com/float/static/js/r.js?v=1111"></script> -->
+
+<script type="text/javascript">
+  //只在桌面版网页启用特效
+  var windowWidth = $(window).width();
+  if (windowWidth > 768) {
+    document.write('<script type="text/javascript" src="https://apip.weatherdt.com/float/static/js/r.js?v=1111"><\/script>');
+  }
+</script>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/21.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">RDT复现</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E5%85%B7%E8%BA%AB%E6%99%BA%E8%83%BD/">
+                                <span class="chip bg-color">具身智能</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" class="post-category">
+                                人工智能
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2025-08-30
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    5.2k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    24 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h3 id="RDT复现">RDT复现</h3>
+<ul>
+<li>
+<p>RDT论文</p>
+<p><a href="https://arxiv.org/pdf/2410.07864" target="_blank" rel="noopener">2410.07864v1.pdf</a></p>
+</li>
+<li>
+<p>RDT仓库</p>
+<p><a href="https://github.com/thu-ml/RoboticsDiffusionTransformer.git" target="_blank" rel="noopener">GitHub - thu-ml/RoboticsDiffusionTransformer: RDT-1B: a Diffusion Foundation Model for Bimanual Manipulation</a></p>
+</li>
+<li>
+<p>RDT算法解析</p>
+<ul>
+<li>
+<p>模型的obs</p>
+<p>形式上，给定一个语言指令，策略在时间时接收到一个观测，然后它生成一个动作来控制两个机器人手臂，以实现语言指令指定的目标</p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/main/RDT_image.png" alt="image.png"></p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/main/RDT_image%201.png" alt="image.png"></p>
+<p>大小为T的RGB观测历史，Zt是机器人的低维本体感知，c是控制频率</p>
+<p>动作at，通常是期望本体感知Zt的一个子集</p>
+</li>
+</ul>
+<p>将扩散模型应用于机器人任务面临独特的挑战，一个是机器人数据的不稳定性、一个是机器人数据的非线性特征，而这也是如果用扩散模型作为RDT架构所需要解决的两大问题</p>
+<p>图像和视频数据虽然是高维的，但通常表现出一定程度的时间和空间连续性，<strong>机器人物理量的特征是其非线性动态</strong></p>
+<p><strong>作者倾向于一次性预测一系列动作，即一个动作块，以促进时间一致性，并通过减少任务中的决策次数来缓解错误累积</strong></p>
+<ul>
+<li>
+<p>解决数据异构性问题，且兼容多个模态的输入</p>
+<p>他们使用适配器将每种模态的token维度对齐到2048，且所有多模态编码器的适配器均使用GeLU激活</p>
+<ul>
+<li>
+<p>第一种输入模态</p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/main/RDT_image%202.png" alt="image.png"></p>
+<p>低维输入是表示机器人物理量的低维向量，包括本体感知、动作块和控制频率，为了对它们进行编码，使用「<em>带有傅里叶特征（Tancik等人，2020））</em>」的MLP，可以有效捕捉低维空间中的高频变化</p>
+<p><strong>首先</strong>，将本体感知，和噪声动作块嵌入到统一的动作空间。该空间用于统一不同机器人中本体感知和噪声动作块的表示</p>
+<p>通过根据其物理意义将原始动作向量的每个元素填充到统一动作空间向量的相应位置，将机器人的动作空间嵌入到这个统一空间中，剩余的位置则进行填充</p>
+<p>为了将各种机器人的动作嵌入到一个包含所有主要物理量的统一空间中，先将这个统一动作空间的维度是128</p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/main/RDT_image%203.png" alt="image.png"></p>
+<p><strong>然后</strong>，由于它们具有相似的物理意义，它们通过一个共享的MLP被编码到token空间中。这种连续编码可以避免离散编码所导致的精度损失</p>
+<p>对于<strong>频率</strong>「<em>之所以将控制频率输入模型，如论文附录D最后所述，是为了在解决数据集中不同控制频率带来的挑战时，使模型在做出决策时能够考虑到这种变化</em>」，<strong>以及扩散时间步</strong>，作者<strong>分别通过两个MLP将它们编码到token空间中</strong></p>
+<p><strong>之后</strong>，所有这些在长度方向上被拼接在一起，最后得到的长度为本体感知噪音块+统一空间+控制频率+时间步</p>
+<p><strong>最后</strong>，添加位置嵌入以区分不同的模态并注入中的时间信息</p>
+<p><em><strong>在预处理上，通过统一物理量的单位，而非归一化处理</strong></em></p>
+<p><em><strong>采用6D表示法（Zhou et al., 2019）来解决EEF旋转中的万向节锁问题</strong></em></p>
+</li>
+<li>
+<p>第二种输入模态</p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/main/RDT_image%204.png" alt="image.png"></p>
+<p><strong>图像输入</strong>是高维的(图像token空间维度为1152，RDT的token空间维度为2048)，包含丰富的空间和语义信息，为了提取紧凑的表示，作者使用了一个图像-文本对齐的预训练视觉编码器：SigLIP</p>
+<p>具体而言，使用冻结的 SigLIP (Zhai et al., 2023) 对 RGB 图像进行编码，并利用额外的 MLP 将输出投射到token空间，为了增强模型根据视角和时间步区分图像的能力，作者将传统的正弦位置嵌入扩展到多维网格</p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/main/RDT_image%205.png" alt="image.png"></p>
+<p>这里，Ncam 代表相机的数量，在他们的配置中设置为三个，Npatch 表示每幅图像被 ViT 基于图像编码器划分的补丁数量，D 表示嵌入维度</p>
+<p>在预处理上，他们采用固定长度的图像输入策略。为所有机器人固定图像输入顺序和格式，共有三个视图：一个静态外部视图，一个右手腕视图和一个左手腕视图，这被认为足以满足大多数双手任务的要求</p>
+<p>当输入模型时，每张图像被填充成一个正方形并调整为384×384的大小，保持其原始纵横比，此外，选择T=2(<strong>相当于图像历史大小</strong>)，因为两帧的历史长度对于大多数情况来说已经足够，在效率和性能之间达到了平衡</p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/main/RDT_image%206.png" alt="image.png"></p>
+</li>
+<li>
+<p>第三种输入</p>
+<p><strong>语言输入</strong>(语言token的空间维度为4096)的长度各异且高度抽象，由于其复杂性和模糊性，带来了集成挑战，为了对其进行编码，作者使用了基于Transformer的预训练语言模型T5-XXL(Raffel等，2020)，且作者还在训练过程中固定其权重以节省GPU内存</p>
+<p>具体而言，语言指令由一个冻结的T5-XXL(Raffel等，2020)进行编码，并使用一个MLP将输出投射到词元空间。在计算语言词元的注意力时，作者应用语言注意力掩码以掩盖在批处理过程中附加的填充词元</p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/main/RDT_image%207.png" alt="image.png"></p>
+<p>在预处理上，会针对这部分对原始文本进行简单清理，例如去除非法字符和多余空格，将句子开头大写，并在句末添加句号，且保留文本为可变长度</p>
+<p><strong>模型可能会学习到一种捷径：只关注外部视图而忽略腕部视图，从而失去感知深度的能力为了解决这个问题，作者在编码过程中以一定的概率比如10%——随机独立地屏蔽每个多模态输入，以防止模型过度依赖特定的输入</strong></p>
+</li>
+</ul>
+</li>
+<li>
+<p>再解决架构问题：修改网络结构DiT(解决不稳定性和非线性特征)</p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/main/RDT_image%208.png" alt="image.png"></p>
+<p>DiT结合了视觉 transformer 和 diffusion 模型的优点，即DiT = DDPM + ViT，相当于之前一般更多是DDPM + CNN，将扩散过程中的U-Net 换成ViT(2D图像生成，带文本条件融合)</p>
+<ul>
+<li>
+<p>第一个修改，QKNorm和RMSNorm，解决机器人数据不稳定的问题</p>
+<p><strong>由于传感器失灵等原因，机器人数据中往往会出现极端值。这种极端值可能导致梯度不稳定和数值溢出等问题。研究者采用更加先进的 QKNorm 和 RMSNorm 来进行缓解</strong></p>
+<p>输入机器人物理量的不稳定数值范围可能导致梯度不稳定和数值溢出等问题，尤其是在训练大型基础模型时。为了解决这个问题，作者添加了<strong>QKNorm</strong>（Henry等,2020）以避免计算注意力时的数值不稳定</p>
+<p><img src="https://raw.githubusercontent.com/SprBoot/image/main/RDT_image%209.png" alt="image.png"></p>
+<p>原始DiT中的LayerNorm的中心化操作可能导致token偏移和注意力偏移，从而破坏时间序列的对称性，因此，他们用没有中心化操作的<strong>RMSNorm</strong>（Zhang &amp; Sennrich,2019）替换了LayerNorm。图4a显示，如果没有这种修改，大规模预训练往往会非常不稳定，甚至爆炸</p>
+</li>
+<li>
+<p>第二个修改，MLP解码器，解决机器人数据的非线性特征</p>
+<p>为了提高对非线性机器人动作的逼近能力，作者用非线性MLP解码器替换了最终的线性解码器，将其作为从潜在空间回到物理空间的投影</p>
+</li>
+<li>
+<p>第三个修改，交替条件注入(即Alternating Condition Injection，简称ACI)：图像和语言token，而非同时注入两者</p>
+<p>作者采用交叉注意力来适应不同长度的条件，避免在进一步压缩中信息丢失</p>
+<p>由于图像token通常比文本token多，同时注入两种模态往往会掩盖与文本相关的信息「<em><strong>说白了，图像的维度通常远高于文本的维度。同时将这两种模态注入到主干网络中时，往往图像会淹没文本</strong></em>」，从而削弱模型的指令遵循能力</p>
+<p>作者在连续层的交叉注意力中策略性地交替注入图像和文本token，而不是在每一层中同时注入这两种token</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>为了将一个特定的机器人动作嵌入128维的统一动作空间，作者需要填充不可用的动作元素。通常的做法是用0值或特定值进行填充。但“0”实际上具有物理意义。例如，速度为“0”通常表示相对于地面静止。这可能会让模型感到困惑：“0”是代表静止还是填充值？</p>
+<p>为了解决这个问题，他们将动作和本体感受与一个0-1向量连接，指示每个维度在编码到token空间之前是否被填充，最终形成一个256维的向量。这可以补充缺失的可用性信息并消除混淆</p>
+<p>进行图像增强，包括颜色抖动和图像损坏，并在输入本体感受中添加高斯噪声，信噪比（SNR）为40dB，利用数据增强技术来解决过拟合</p>
+</li>
+<li>
+<p>RDT代码阅读</p>
+<p><a href="https://raw.githubusercontent.com/SprBoot/image/main/RDT_RoboticsDiffusionTransformer-main.zip" target="_blank" rel="noopener">RoboticsDiffusionTransformer-main.zip</a></p>
+</li>
+<li>
+<p>RDT代码复现</p>
+<ul>
+<li>
+<p>复现bug及错误记录</p>
+<p><code>pip install flash-attn --no-build-isolation</code></p>
+<p>安装<code>flash-attn</code>报错提示只支持cuda11.7以上的版本，自身安装的cuda为11.8，这里需要再bashrc中配置一下自己安装的最新的cuda版本环境变量即可。</p>
+<pre class=" language-language-bash"><code class="language-language-bash">export PATH=/usr/local/cuda-11.8/bin:$PATH
+export LD_LIBRARY_PATH=/usr/local/cuda-11.8/lib64:$LD_LIBRARY_PATH
+
+# source ./bashrc
+</code></pre>
+<p>RuntimeError: [1] is setting up NCCL communicator and retrieving ncclUniqueId from [0] via c10d key-value store by key ‘0’, but store-&gt;get(‘0’) got error: Connection reset by peer. This may indicate a possible application crash on rank 0 or a network set up issue.</p>
+<pre class=" language-language-bash"><code class="language-language-bash"># 查看自己的网卡
+ifconfig
+</code></pre>
+<p>这里需要再finetune中修改</p>
+<p>export NCCL_SOCKET_IFNAME=[前面得到的网卡名]</p>
+<p>Error catched when processing sample from pick: ‘NoneType’ object has no attribute 'shape’</p>
+<p>直接从hdf5中读取图像的话不需要对图象在进行编码操作</p>
+<pre class=" language-language-python"><code class="language-language-python">imgs.append(cv2.imdecode(np.frombuffer(img, np.uint8), cv2.IMREAD_COLOR))
+直接替换为
+imgs.append(img)
+</code></pre>
+</li>
+<li>
+<p>RDT复现流程</p>
+<p>相机的图像输入顺序[ext_{t-1}, right_wrist_{t-1}, left_wrist_{t-1}, ext_{t}, right_wrist_{t}, left_wrist_{t}]</p>
+<p>这里推荐在采集数据的时候将相机的顺序写死，防止模型输入时在对顺序进行转换</p>
+<p>软链接语言和图像模型</p>
+<pre class=" language-language-bash"><code class="language-language-bash"># Under the root directory of this repo
+mkdir -p google
+# Link the downloaded encoders to this repo
+ln -s /home/jack/workspace/t5-v1_1-xxl google/t5-v1_1-xxl
+ln -s /home/jack/workspace/siglip-so400m-patch14-384 google/siglip-so400m-patch14-384
+</code></pre>
+<p>微调自己的模型</p>
+<p>软链接自己的数据集</p>
+<pre class=" language-language-bash"><code class="language-language-bash"># Under the root directory of this repo
+cd data
+mkdir -p datasets
+# Link the downloaded dataset to this repo
+ln -s /home/jack/workspace/clothes_data datasets/clothes_data
+</code></pre>
+<p>在dataset_control_freq.json文件中添加自己的数据集并设定控制频率</p>
+<pre class=" language-language-json"><code class="language-language-json">"clothes_data": 50
+</code></pre>
+<p>在微调配置文件中配置自己的数据集</p>
+<p>configs/finetune_datasets.json和configs/finetune_sample_weights.json</p>
+<pre class=" language-language-json"><code class="language-language-json">[
+    "clothes_data"
+]
+</code></pre>
+<p>重写HDF5VLADataset数据集类</p>
+<p>parse_hdf5_file和parse_hdf5_file_state_only函数都要重写</p>
+<pre class=" language-language-python"><code class="language-language-python"># 重写数据集路径和数据集名称
+HDF5_DIR = "data/datasets/clothes_data/rdt_data/put_the_coffee_cup"
+self.DATASET_NAME = "put_the_coffee_cup"
+</code></pre>
+<pre class=" language-language-python"><code class="language-language-python"># 重写关节数据，夹爪不需要归一化
+qpos = qpos / np.array(
+     [[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]] 
+)
+target_qpos = f['action'][step_id:step_id+self.CHUNK_SIZE] / np.array(
+     [[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]] 
+)
+STATE_VEC_IDX_MAPPING[f"left_arm_joint_{i}_pos"] for i in range(7)
+STATE_VEC_IDX_MAPPING[f"right_arm_joint_{i}_pos"] for i in range(7)
+</code></pre>
+<p>预先计算语言嵌入</p>
+<pre class=" language-language-python"><code class="language-language-python"># Modify the TARGET_DIR to your dataset path
+TARGET_DIR = "data/datasets/clothes_data/"
+</code></pre>
+<p>下载预训练模型并设置路径</p>
+<pre class=" language-language-bash"><code class="language-language-bash">--pretrained_model_name_or_path="robotics-diffusion-transformer/rdt-1b"
+</code></pre>
+</li>
+<li>
+<p>RDT实机评估</p>
+<p>启动参数暂不设置<code>use_actions_interpolation</code>，插值存在问题</p>
+<ul>
+<li>
+<p>语言预嵌入</p>
+<pre class=" language-language-bash"><code class="language-language-bash">python -m scripts.encode_lang
+</code></pre>
+</li>
+<li>
+<p>基于Mobile Aloha的评估代码修改</p>
+<pre class=" language-language-python"><code class="language-language-python">#!/home/lin/software/miniconda3/envs/aloha/bin/python
+# -- coding: UTF-8
+"""
+#!/usr/bin/python3
+"""
+
+import argparse
+import sys
+import threading
+import time
+import yaml
+from collections import deque
+
+import numpy as np
+import rospy
+import torch
+from cv_bridge import CvBridge
+from geometry_msgs.msg import Twist
+from nav_msgs.msg import Odometry
+from PIL import Image as PImage
+from sensor_msgs.msg import Image, JointState
+from std_msgs.msg import Header, Float64, Float64MultiArray
+import cv2
+
+from scripts.agilex_model import create_model
+
+# sys.path.append("./")
+
+CAMERA_NAMES = ['cam_high', 'cam_right_wrist', 'cam_left_wrist']
+
+observation_window = None
+
+lang_embeddings = None
+
+# debug
+preload_images = None
+
+# Initialize the model
+def make_policy(args):
+    with open(args.config_path, "r") as fp:
+        config = yaml.safe_load(fp)
+    args.config = config
+    
+    # pretrained_text_encoder_name_or_path = "google/t5-v1_1-xxl"
+    pretrained_vision_encoder_name_or_path = "google/siglip-so400m-patch14-384"
+    model = create_model(
+        args=args.config, 
+        dtype=torch.bfloat16,
+        pretrained=args.pretrained_model_name_or_path,
+        # pretrained_text_encoder_name_or_path=pretrained_text_encoder_name_or_path,
+        pretrained_vision_encoder_name_or_path=pretrained_vision_encoder_name_or_path,
+        control_frequency=args.ctrl_freq,
+    )
+
+    return model
+
+def set_seed(seed):
+    torch.manual_seed(seed)
+    np.random.seed(seed)
+
+# Interpolate the actions to make the robot move smoothly
+def interpolate_action(args, prev_action, cur_action):
+    steps = np.concatenate((np.array(args.arm_steps_length), np.array(args.arm_steps_length)), axis=0)
+    diff = np.abs(cur_action - prev_action)
+    step = np.ceil(diff / steps).astype(int)
+    step = np.max(step)
+    if step <= 1:
+        return cur_action[np.newaxis, :]
+    new_actions = np.linspace(prev_action, cur_action, step + 1)
+    return new_actions[1:]
+
+def get_config(args):
+    config = {
+        'episode_len': args.max_publish_step,
+        'state_dim': 16,
+        'chunk_size': args.chunk_size,
+        'camera_names': CAMERA_NAMES,
+    }
+    return config
+
+# Get the observation from the ROS topic
+def get_ros_observation(args,ros_operator):
+    rate = rospy.Rate(args.publish_rate)
+    print_flag = True
+
+    while True and not rospy.is_shutdown():
+        result = ros_operator.get_frame()
+        if not result:
+            if print_flag:
+                print("syn fail when get_ros_observation")
+                print_flag = False
+            rate.sleep()
+            continue
+        print_flag = True
+        (img_front, img_left, img_right, img_front_depth, img_left_depth, img_right_depth,
+         puppet_arm_left, puppet_arm_right, robot_base) = result
+        # print(f"sync success when get_ros_observation")
+        return (img_front, img_left, img_right,
+         puppet_arm_left, puppet_arm_right)
+
+# Update the observation window buffer
+def update_observation_window(args, config, ros_operator):
+    # JPEG transformation
+    # Align with training
+    def jpeg_mapping(img):
+        img = cv2.imencode('.jpg', img)[1].tobytes()
+        img = cv2.imdecode(np.frombuffer(img, np.uint8), cv2.IMREAD_COLOR)
+        return img
+    
+    global observation_window
+    if observation_window is None:
+        observation_window = deque(maxlen=2)
+    
+        # Append the first dummy image
+        observation_window.append(
+            {
+                'qpos': None,
+                'images':
+                    {
+                        config["camera_names"][0]: None,
+                        config["camera_names"][1]: None,
+                        config["camera_names"][2]: None,
+                    },
+            }
+        )
+        
+    img_front, img_left, img_right, puppet_arm_left, puppet_arm_right = get_ros_observation(args,ros_operator)
+    img_front = jpeg_mapping(img_front)
+    img_left = jpeg_mapping(img_left)
+    img_right = jpeg_mapping(img_right)
+    qpos = np.concatenate(
+            (np.array(puppet_arm_left), np.array(puppet_arm_right)), axis=0)
+    qpos = torch.from_numpy(qpos).float().cuda()
+    observation_window.append(
+        {
+            'qpos': qpos,
+            'images':
+                {
+                    config["camera_names"][0]: img_front,
+                    config["camera_names"][1]: img_right,
+                    config["camera_names"][2]: img_left,
+                },
+        }
+    )
+
+# RDT inference
+def inference_fn(args, config, policy, t):
+    global observation_window
+    global lang_embeddings
+    
+    # print(f"Start inference_thread_fn: t={t}")
+    while True and not rospy.is_shutdown():
+        time1 = time.time()     
+
+        # fetch images in sequence [front, right, left]
+        image_arrs = [
+            observation_window[-2]['images'][config['camera_names'][0]],
+            observation_window[-2]['images'][config['camera_names'][1]],
+            observation_window[-2]['images'][config['camera_names'][2]],
+            
+            observation_window[-1]['images'][config['camera_names'][0]],
+            observation_window[-1]['images'][config['camera_names'][1]],
+            observation_window[-1]['images'][config['camera_names'][2]]
+        ]
+        
+        # fetch debug images in sequence [front, right, left]
+        # image_arrs = [
+        #     preload_images[config['camera_names'][0]][max(t - 1, 0)],
+        #     preload_images[config['camera_names'][2]][max(t - 1, 0)],
+        #     preload_images[config['camera_names'][1]][max(t - 1, 0)],
+        #     preload_images[config['camera_names'][0]][t],
+        #     preload_images[config['camera_names'][2]][t],
+        #     preload_images[config['camera_names'][1]][t]
+        # ]
+        # # encode the images
+        # for i in range(len(image_arrs)):
+        #     image_arrs[i] = cv2.imdecode(np.frombuffer(image_arrs[i], np.uint8), cv2.IMREAD_COLOR)
+        # proprio = torch.from_numpy(preload_images['qpos'][t]).float().cuda()
+        
+        images = [PImage.fromarray(arr) if arr is not None else None
+                  for arr in image_arrs]
+        
+        # for i, pos in enumerate(['f', 'r', 'l'] * 2):
+        #     images[i].save(f'{t}-{i}-{pos}.png')
+        
+        # get last qpos in shape [14, ]
+        proprio = observation_window[-1]['qpos']
+        # unsqueeze to [1, 14]
+        proprio = proprio.unsqueeze(0)
+        
+        # actions shaped as [1, 64, 14] in format [left, right]
+        actions = policy.step(
+            proprio=proprio,
+            images=images,
+            text_embeds=lang_embeddings 
+        ).squeeze(0).cpu().numpy()
+        # print(f"inference_actions: {actions.squeeze()}")
+        print(f"Model inference time: {time.time() - time1} s")
+        # print(f"Finish inference_thread_fn: t={t}")
+        return actions
+
+# Main loop for the manipulation task
+def model_inference(args, config, ros_operator):
+    global lang_embeddings
+    
+    # Load rdt model
+    policy = make_policy(args)
+    
+    lang_dict = torch.load(args.lang_embeddings_path)
+    print(f"Running with instruction: \"{lang_dict['instruction']}\" from \"{lang_dict['name']}\"")
+    lang_embeddings = lang_dict["embeddings"]
+    
+    max_publish_step = config['episode_len']
+    chunk_size = config['chunk_size']
+
+    # Initialize position of the puppet arm
+    # 机器人的初始位置通过VR设置
+    # left0 = [-0.00133514404296875, 0.00209808349609375, 0.01583099365234375, -0.032616615295410156, -0.00286102294921875, 0.00095367431640625, 3.557830810546875]
+    # right0 = [-0.00133514404296875, 0.00438690185546875, 0.034523963928222656, -0.053597450256347656, -0.00476837158203125, -0.00209808349609375, 3.557830810546875]
+    # left1 = [-0.00133514404296875, 0.00209808349609375, 0.01583099365234375, -0.032616615295410156, -0.00286102294921875, 0.00095367431640625, -0.3393220901489258]
+    # right1 = [-0.00133514404296875, 0.00247955322265625, 0.01583099365234375, -0.032616615295410156, -0.00286102294921875, 0.00095367431640625, -0.3397035598754883]
+    # ros_operator.puppet_arm_publish_continuous(left0, right0)
+    input("Press enter to continue")
+    # ros_operator.puppet_arm_publish_continuous(left1, right1)
+    # Initialize the previous action to be the initial robot state
+    # 16
+    pre_action = np.zeros(config['state_dim'])
+    # 这里的初始化也不需要了
+    # pre_action[:14] = np.array(
+    #     [-0.00133514404296875, 0.00209808349609375, 0.01583099365234375, -0.032616615295410156, -0.00286102294921875, 0.00095367431640625, -0.3393220901489258] +
+    #     [-0.00133514404296875, 0.00247955322265625, 0.01583099365234375, -0.032616615295410156, -0.00286102294921875, 0.00095367431640625, -0.3397035598754883]
+    # )
+    action = None
+    # Inference loop
+    with torch.inference_mode():
+        while True and not rospy.is_shutdown():
+            # The current time step
+            t = 0
+            rate = rospy.Rate(args.publish_rate)
+    
+            action_buffer = np.zeros([chunk_size, config['state_dim']])
+            
+            while t < max_publish_step and not rospy.is_shutdown():
+                # Update observation window
+                update_observation_window(args, config, ros_operator)
+                
+                # When coming to the end of the action chunk
+                if t % chunk_size == 0:
+                    # Start inference
+                    action_buffer = inference_fn(args, config, policy, t).copy()
+                
+                raw_action = action_buffer[t % chunk_size]
+                action = raw_action
+                # Interpolate the original action sequence
+                if args.use_actions_interpolation:
+                    # print(f"Time {t}, pre {pre_action}, act {action}")
+                    interp_actions = interpolate_action(args, pre_action, action)
+                else:
+                    interp_actions = action[np.newaxis, :]
+                # Execute the interpolated actions one by one
+                for act in interp_actions:
+                    left_action = act[:8]
+                    right_action = act[8:16]
+                    if not args.disable_puppet_arm:
+                        ros_operator.puppet_arm_publish(left_action, right_action)  # puppet_arm_publish_continuous_thread
+                    # 这里是基座轮子，暂不使用
+                    if args.use_robot_base:
+                        vel_action = act[14:16]
+                        ros_operator.robot_base_publish(vel_action)
+                    rate.sleep()
+                    # print(f"doing action: {act}")
+                t += 1
+                
+                print("Published Step", t)
+                pre_action = action.copy()
+
+# ROS operator class
+class RosOperator:
+    def __init__(self, args):
+        self.robot_base_deque = None
+        self.puppet_arm_right_deque = None
+        self.puppet_gripper_right_deque = None
+        self.puppet_arm_left_deque = None
+        self.puppet_gripper_left_deque = None
+        self.img_front_deque = None
+        self.img_right_deque = None
+        self.img_left_deque = None
+        self.img_front_depth_deque = None
+        self.img_right_depth_deque = None
+        self.img_left_depth_deque = None
+        self.bridge = None
+        self.puppet_arm_left_publisher = None
+        self.puppet_arm_right_publisher = None
+        self.robot_base_publisher = None
+        self.puppet_arm_publish_thread = None
+        self.puppet_arm_publish_lock = None
+        self.args = args
+        self.init()
+        self.init_ros()
+
+    def init(self):
+        self.bridge = CvBridge()
+        self.img_left_deque = deque()
+        self.img_right_deque = deque()
+        self.img_front_deque = deque()
+        self.img_left_depth_deque = deque()
+        self.img_right_depth_deque = deque()
+        self.img_front_depth_deque = deque()
+        self.puppet_arm_left_deque = deque()
+        self.puppet_gripper_left_deque = deque()
+        self.puppet_arm_right_deque = deque()
+        self.puppet_gripper_right_deque = deque()
+        self.robot_base_deque = deque()
+        self.puppet_arm_publish_lock = threading.Lock()
+        self.puppet_arm_publish_lock.acquire()
+
+    def puppet_arm_publish(self, left, right):
+        # 这里传过来的为左右臂关节和夹爪的值，这里要进行处理，通过两个ros话题进行发布
+        # joint_state_msg = JointState()
+        # joint_state_msg.header = Header()
+        # joint_state_msg.header.stamp = rospy.Time.now()  # Set timestep
+        # joint_state_msg.name = ['joint0', 'joint1', 'joint2', 'joint3', 'joint4', 'joint5', 'joint6']  # 设置关节名称
+        # joint_state_msg.position = left
+        action_left = Float64MultiArray()
+        gripper_left = Float64()
+        action_right = Float64MultiArray()
+        gripper_right = Float64()
+        action_left.data = left[:7]
+        self.puppet_arm_left_publisher.publish(action_left)
+        gripper_left.data = left[-1]
+        self.puppet_gripper_left_publisher.publish(gripper_left)
+        action_right.data = right[:7]
+        self.puppet_arm_right_publisher.publish(action_right)
+        gripper_right.data = right[-1]
+        self.puppet_gripper_right_publisher.publish(gripper_right)
+
+    def robot_base_publish(self, vel):
+        vel_msg = Twist()
+        vel_msg.linear.x = vel[0]
+        vel_msg.linear.y = 0
+        vel_msg.linear.z = 0
+        vel_msg.angular.x = 0
+        vel_msg.angular.y = 0
+        vel_msg.angular.z = vel[1]
+        self.robot_base_publisher.publish(vel_msg)
+
+    def puppet_arm_publish_continuous(self, left, right):
+        rate = rospy.Rate(self.args.publish_rate)
+        left_arm = None
+        right_arm = None
+        while True and not rospy.is_shutdown():
+            if len(self.puppet_arm_left_deque) != 0:
+                left_arm = list(self.puppet_arm_left_deque[-1].position)
+            if len(self.puppet_arm_right_deque) != 0:
+                right_arm = list(self.puppet_arm_right_deque[-1].position)
+            if left_arm is None or right_arm is None:
+                rate.sleep()
+                continue
+            else:
+                break
+        left_symbol = [1 if left[i] - left_arm[i] > 0 else -1 for i in range(len(left))]
+        right_symbol = [1 if right[i] - right_arm[i] > 0 else -1 for i in range(len(right))]
+        flag = True
+        step = 0
+        while flag and not rospy.is_shutdown():
+            if self.puppet_arm_publish_lock.acquire(False):
+                return
+            left_diff = [abs(left[i] - left_arm[i]) for i in range(len(left))]
+            right_diff = [abs(right[i] - right_arm[i]) for i in range(len(right))]
+            flag = False
+            for i in range(len(left)):
+                if left_diff[i] < self.args.arm_steps_length[i]:
+                    left_arm[i] = left[i]
+                else:
+                    left_arm[i] += left_symbol[i] * self.args.arm_steps_length[i]
+                    flag = True
+            for i in range(len(right)):
+                if right_diff[i] < self.args.arm_steps_length[i]:
+                    right_arm[i] = right[i]
+                else:
+                    right_arm[i] += right_symbol[i] * self.args.arm_steps_length[i]
+                    flag = True
+            joint_state_msg = JointState()
+            joint_state_msg.header = Header()
+            joint_state_msg.header.stamp = rospy.Time.now()  # Set the timestep
+            joint_state_msg.name = ['joint0', 'joint1', 'joint2', 'joint3', 'joint4', 'joint5', 'joint6']  # 设置关节名称
+            joint_state_msg.position = left_arm
+            self.puppet_arm_left_publisher.publish(joint_state_msg)
+            joint_state_msg.position = right_arm
+            self.puppet_arm_right_publisher.publish(joint_state_msg)
+            step += 1
+            print("puppet_arm_publish_continuous:", step)
+            rate.sleep()
+
+    def puppet_arm_publish_linear(self, left, right):
+        num_step = 100
+        rate = rospy.Rate(200)
+
+        left_arm = None
+        right_arm = None
+
+        while True and not rospy.is_shutdown():
+            if len(self.puppet_arm_left_deque) != 0:
+                left_arm = list(self.puppet_arm_left_deque[-1].position)
+            if len(self.puppet_arm_right_deque) != 0:
+                right_arm = list(self.puppet_arm_right_deque[-1].position)
+            if left_arm is None or right_arm is None:
+                rate.sleep()
+                continue
+            else:
+                break
+
+        traj_left_list = np.linspace(left_arm, left, num_step)
+        traj_right_list = np.linspace(right_arm, right, num_step)
+
+        for i in range(len(traj_left_list)):
+            traj_left = traj_left_list[i]
+            traj_right = traj_right_list[i]
+            traj_left[-1] = left[-1]
+            traj_right[-1] = right[-1]
+            joint_state_msg = JointState()
+            joint_state_msg.header = Header()
+            joint_state_msg.header.stamp = rospy.Time.now()  # 设置时间戳
+            joint_state_msg.name = ['joint0', 'joint1', 'joint2', 'joint3', 'joint4', 'joint5', 'joint6']  # 设置关节名称
+            joint_state_msg.position = traj_left
+            self.puppet_arm_left_publisher.publish(joint_state_msg)
+            joint_state_msg.position = traj_right
+            self.puppet_arm_right_publisher.publish(joint_state_msg)
+            rate.sleep()
+
+    def puppet_arm_publish_continuous_thread(self, left, right):
+        if self.puppet_arm_publish_thread is not None:
+            self.puppet_arm_publish_lock.release()
+            self.puppet_arm_publish_thread.join()
+            self.puppet_arm_publish_lock.acquire(False)
+            self.puppet_arm_publish_thread = None
+        self.puppet_arm_publish_thread = threading.Thread(target=self.puppet_arm_publish_continuous, args=(left, right))
+        self.puppet_arm_publish_thread.start()
+
+    def get_frame(self):
+        if len(self.img_left_deque) == 0 or len(self.img_right_deque) == 0 or len(self.img_front_deque) == 0 or \
+                (self.args.use_depth_image and (len(self.img_left_depth_deque) == 0 or len(self.img_right_depth_deque) == 0 or len(self.img_front_depth_deque) == 0)):
+            return False
+        if self.args.use_depth_image:
+            frame_time = min([self.img_left_deque[-1].header.stamp.to_sec(), self.img_right_deque[-1].header.stamp.to_sec(), self.img_front_deque[-1].header.stamp.to_sec(),
+                              self.img_left_depth_deque[-1].header.stamp.to_sec(), self.img_right_depth_deque[-1].header.stamp.to_sec(), self.img_front_depth_deque[-1].header.stamp.to_sec()])
+        else:
+            frame_time = min([self.img_left_deque[-1].header.stamp.to_sec(), self.img_right_deque[-1].header.stamp.to_sec(), self.img_front_deque[-1].header.stamp.to_sec()])
+
+        # if len(self.img_left_deque) == 0 or self.img_left_deque[-1].header.stamp.to_sec() < frame_time:
+        #     return False
+        # if len(self.img_right_deque) == 0 or self.img_right_deque[-1].header.stamp.to_sec() < frame_time:
+        #     return False
+        # if len(self.img_front_deque) == 0 or self.img_front_deque[-1].header.stamp.to_sec() < frame_time:
+        #     return False
+        # if len(self.puppet_arm_left_deque) == 0 or self.puppet_arm_left_deque[-1].header.stamp.to_sec() < frame_time:
+        #     return False
+        # if len(self.puppet_arm_right_deque) == 0 or self.puppet_arm_right_deque[-1].header.stamp.to_sec() < frame_time:
+        #     return False
+        # if self.args.use_depth_image and (len(self.img_left_depth_deque) == 0 or self.img_left_depth_deque[-1].header.stamp.to_sec() < frame_time):
+        #     return False
+        # if self.args.use_depth_image and (len(self.img_right_depth_deque) == 0 or self.img_right_depth_deque[-1].header.stamp.to_sec() < frame_time):
+        #     return False
+        # if self.args.use_depth_image and (len(self.img_front_depth_deque) == 0 or self.img_front_depth_deque[-1].header.stamp.to_sec() < frame_time):
+        #     return False
+        # if self.args.use_robot_base and (len(self.robot_base_deque) == 0 or self.robot_base_deque[-1].header.stamp.to_sec() < frame_time):
+        #     return False
+
+        while self.img_left_deque[0].header.stamp.to_sec() < frame_time:
+            self.img_left_deque.popleft()
+        img_left = self.bridge.imgmsg_to_cv2(self.img_left_deque.popleft(), 'passthrough')
+
+        while self.img_right_deque[0].header.stamp.to_sec() < frame_time:
+            self.img_right_deque.popleft()
+        img_right = self.bridge.imgmsg_to_cv2(self.img_right_deque.popleft(), 'passthrough')
+
+        while self.img_front_deque[0].header.stamp.to_sec() < frame_time:
+            self.img_front_deque.popleft()
+        img_front = self.bridge.imgmsg_to_cv2(self.img_front_deque.popleft(), 'passthrough')
+
+        # while self.puppet_arm_left_deque[0].header.stamp.to_sec() < frame_time:
+        #     self.puppet_arm_left_deque.popleft()
+        puppet_arm_left = self.puppet_arm_left_deque.popleft()
+        # while self.puppet_arm_right_deque[0].header.stamp.to_sec() < frame_time:
+        #     self.puppet_arm_right_deque.popleft()
+        puppet_arm_right = self.puppet_arm_right_deque.popleft()
+
+        # 这里需要对机械臂进行夹爪的参数拼接
+
+        puppet_gripper_left = self.puppet_gripper_left_deque.popleft()
+        puppet_gripper_right = self.puppet_gripper_right_deque.popleft()
+
+        puppet_arm_left = puppet_arm_left + (puppet_gripper_left, )
+        puppet_arm_right = puppet_arm_right + (puppet_gripper_right, )
+
+        img_left_depth = None
+        if self.args.use_depth_image:
+            while self.img_left_depth_deque[0].header.stamp.to_sec() < frame_time:
+                self.img_left_depth_deque.popleft()
+            img_left_depth = self.bridge.imgmsg_to_cv2(self.img_left_depth_deque.popleft(), 'passthrough')
+
+        img_right_depth = None
+        if self.args.use_depth_image:
+            while self.img_right_depth_deque[0].header.stamp.to_sec() < frame_time:
+                self.img_right_depth_deque.popleft()
+            img_right_depth = self.bridge.imgmsg_to_cv2(self.img_right_depth_deque.popleft(), 'passthrough')
+
+        img_front_depth = None
+        if self.args.use_depth_image:
+            while self.img_front_depth_deque[0].header.stamp.to_sec() < frame_time:
+                self.img_front_depth_deque.popleft()
+            img_front_depth = self.bridge.imgmsg_to_cv2(self.img_front_depth_deque.popleft(), 'passthrough')
+
+        robot_base = None
+        if self.args.use_robot_base:
+            while self.robot_base_deque[0].header.stamp.to_sec() < frame_time:
+                self.robot_base_deque.popleft()
+            robot_base = self.robot_base_deque.popleft()
+
+        return (img_front, img_left, img_right, img_front_depth, img_left_depth, img_right_depth,
+                puppet_arm_left, puppet_arm_right, robot_base)
+
+    def img_left_callback(self, msg):
+        if len(self.img_left_deque) >= 2000:
+            self.img_left_deque.popleft()
+        self.img_left_deque.append(msg)
+
+    def img_right_callback(self, msg):
+        if len(self.img_right_deque) >= 2000:
+            self.img_right_deque.popleft()
+        self.img_right_deque.append(msg)
+
+    def img_front_callback(self, msg):
+        if len(self.img_front_deque) >= 2000:
+            self.img_front_deque.popleft()
+        self.img_front_deque.append(msg)
+
+    def img_left_depth_callback(self, msg):
+        if len(self.img_left_depth_deque) >= 2000:
+            self.img_left_depth_deque.popleft()
+        self.img_left_depth_deque.append(msg)
+
+    def img_right_depth_callback(self, msg):
+        if len(self.img_right_depth_deque) >= 2000:
+            self.img_right_depth_deque.popleft()
+        self.img_right_depth_deque.append(msg)
+
+    def img_front_depth_callback(self, msg):
+        if len(self.img_front_depth_deque) >= 2000:
+            self.img_front_depth_deque.popleft()
+        self.img_front_depth_deque.append(msg)
+
+    def puppet_arm_callback(self, msg):
+        if len(self.puppet_arm_left_deque) >= 2000:
+            self.puppet_arm_left_deque.popleft()
+        self.puppet_arm_left_deque.append(msg.position[:7])
+        if len(self.puppet_arm_right_deque) >= 2000:
+            self.puppet_arm_right_deque.popleft()
+        self.puppet_arm_right_deque.append(msg.position[7:])
+
+    def puppet_gripper_left_callback(self, msg):
+        if len(self.puppet_gripper_left_deque) >= 2000:
+            self.puppet_gripper_left_deque.popleft()
+        self.puppet_gripper_left_deque.append(msg.data)
+
+    def puppet_gripper_right_callback(self, msg):
+        if len(self.puppet_gripper_right_deque) >= 2000:
+            self.puppet_gripper_right_deque.popleft()
+        self.puppet_gripper_right_deque.append(msg.data)
+    # def puppet_arm_left_callback(self, msg):
+    #     if len(self.puppet_arm_left_deque) >= 2000:
+    #         self.puppet_arm_left_deque.popleft()
+    #     self.puppet_arm_left_deque.append(msg)
+    #
+    # def puppet_arm_right_callback(self, msg):
+    #     if len(self.puppet_arm_right_deque) >= 2000:
+    #         self.puppet_arm_right_deque.popleft()
+    #     self.puppet_arm_right_deque.append(msg)
+
+    def robot_base_callback(self, msg):
+        if len(self.robot_base_deque) >= 2000:
+            self.robot_base_deque.popleft()
+        self.robot_base_deque.append(msg)
+
+    def init_ros(self):
+        rospy.init_node('joint_state_publisher', anonymous=True)
+        rospy.Subscriber(self.args.img_left_topic, Image, self.img_left_callback, queue_size=1000, tcp_nodelay=True)
+        rospy.Subscriber(self.args.img_right_topic, Image, self.img_right_callback, queue_size=1000, tcp_nodelay=True)
+        rospy.Subscriber(self.args.img_front_topic, Image, self.img_front_callback, queue_size=1000, tcp_nodelay=True)
+        if self.args.use_depth_image:
+            rospy.Subscriber(self.args.img_left_depth_topic, Image, self.img_left_depth_callback, queue_size=1000, tcp_nodelay=True)
+            rospy.Subscriber(self.args.img_right_depth_topic, Image, self.img_right_depth_callback, queue_size=1000, tcp_nodelay=True)
+            rospy.Subscriber(self.args.img_front_depth_topic, Image, self.img_front_depth_callback, queue_size=1000, tcp_nodelay=True)
+        # 由于我们的机器人是直接从joint_states话题中获取数据的，因此需要对这里进行修改
+        # 同时这里需要对puppet_arm_left_callback和puppet_arm_right_callback整合为一个函数
+        rospy.Subscriber(self.args.puppet_arm_topic, JointState, self.puppet_arm_callback, queue_size=1000, tcp_nodelay=True)
+        # 订阅两个夹爪
+        rospy.Subscriber('/inspire_gripper/leftget_copen_read_50hz', Float64, self.puppet_gripper_left_callback, queue_size=1000, tcp_nodelay=True)
+        rospy.Subscriber('/inspire_gripper/rightget_copen_read_50hz', Float64, self.puppet_gripper_right_callback, queue_size=1000, tcp_nodelay=True)
+        # rospy.Subscriber(self.args.puppet_arm_right_topic, JointState, self.puppet_arm_right_callback, queue_size=1000, tcp_nodelay=True)
+        # rospy.Subscriber(self.args.robot_base_topic, Odometry, self.robot_base_callback, queue_size=1000, tcp_nodelay=True)
+        # 发布话题配置
+        self.puppet_arm_left_publisher = rospy.Publisher(self.args.puppet_arm_left_cmd_topic, Float64MultiArray, queue_size=10)
+        self.puppet_arm_right_publisher = rospy.Publisher(self.args.puppet_arm_right_cmd_topic, Float64MultiArray, queue_size=10)
+        self.puppet_gripper_left_publisher = rospy.Publisher(self.args.puppet_gripper_left_cmd_topic, Float64, queue_size=10)
+        self.puppet_gripper_right_publisher = rospy.Publisher(self.args.puppet_gripper_right_cmd_topic, Float64, queue_size=10)
+        self.robot_base_publisher = rospy.Publisher(self.args.robot_base_cmd_topic, Twist, queue_size=10)
+
+def get_arguments():
+    # 这里配置我们机器人的各个话题订阅
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--max_publish_step', action='store', type=int, 
+                        help='Maximum number of action publishing steps', default=10000, required=False)
+    parser.add_argument('--seed', action='store', type=int, 
+                        help='Random seed', default=None, required=False)
+
+    parser.add_argument('--img_front_topic', action='store', type=str, help='img_front_topic',
+                        default='/cam_high/color/image_raw', required=False)
+    parser.add_argument('--img_left_topic', action='store', type=str, help='img_left_topic',
+                        default='/cam_left_wrist/color/image_raw', required=False)
+    parser.add_argument('--img_right_topic', action='store', type=str, help='img_right_topic',
+                        default='/cam_right_wrist/color/image_raw', required=False)
+    
+    parser.add_argument('--img_front_depth_topic', action='store', type=str, help='img_front_depth_topic',
+                        default='/cam_high/depth/image_raw', required=False)
+    parser.add_argument('--img_left_depth_topic', action='store', type=str, help='img_left_depth_topic',
+                        default='/cam_left_wrist/depth/image_raw', required=False)
+    parser.add_argument('--img_right_depth_topic', action='store', type=str, help='img_right_depth_topic',
+                        default='/cam_right_wrist/depth/image_raw', required=False)
+    # cmd为发布的话题
+    parser.add_argument('--puppet_arm_left_cmd_topic', action='store', type=str, help='puppet_arm_left_cmd_topic',
+                        default='left_arm_controller_position/command', required=False)
+    parser.add_argument('--puppet_arm_right_cmd_topic', action='store', type=str, help='puppet_arm_right_cmd_topic',
+                        default='right_arm_controller_position/command', required=False)
+    parser.add_argument('--puppet_gripper_left_cmd_topic', action='store', type=str, help='puppet_gripper_left_cmd_topic',
+                        default='inspire_gripper/leftset_copen_50hz', required=False)
+    parser.add_argument('--puppet_gripper_right_cmd_topic', action='store', type=str, help='puppet_gripper_right_cmd_topic',
+                        default='inspire_gripper/rightset_copen_50hz', required=False)
+    # 无cmd的为订阅的话题，其中左臂右臂的关节参数从joint_states中直接获取
+    # parser.add_argument('--puppet_arm_left_topic', action='store', type=str, help='puppet_arm_left_topic',
+    #                     default='left_arm_controller_position/command', required=False)
+    parser.add_argument('--puppet_arm_topic', action='store', type=str, help='puppet_arm_topic',
+                        default='/joint_states', required=False)
+    # 这里是夹爪的订阅话题
+    parser.add_argument('--puppet_gripper_left_topic', action='store', type=str, help='puppet_gripper_left_topic',
+                        default='/inspire_gripper/leftget_copen_read_50hz', required=False)
+    parser.add_argument('--puppet_gripper_right_topic', action='store', type=str, help='puppet_gripper_right_topic',
+                        default='/inspire_gripper/rightget_copen_read_50hz', required=False)
+    
+    parser.add_argument('--robot_base_topic', action='store', type=str, help='robot_base_topic',
+                        default='/odom_raw', required=False)
+    parser.add_argument('--robot_base_cmd_topic', action='store', type=str, help='robot_base_topic',
+                        default='/cmd_vel', required=False)
+    parser.add_argument('--use_robot_base', action='store_true', 
+                        help='Whether to use the robot base to move around',
+                        default=False, required=False)
+    parser.add_argument('--publish_rate', action='store', type=int, 
+                        help='The rate at which to publish the actions',
+                        default=30, required=False)
+    parser.add_argument('--ctrl_freq', action='store', type=int, 
+                        help='The control frequency of the robot',
+                        default=1, required=False)
+    
+    parser.add_argument('--chunk_size', action='store', type=int, 
+                        help='Action chunk size',
+                        default=64, required=False)
+    parser.add_argument('--arm_steps_length', action='store', type=float, 
+                        help='The maximum change allowed for each joint per timestep',
+                        default=[0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.2], required=False)
+
+    parser.add_argument('--use_actions_interpolation', action='store_true',
+                        help='Whether to interpolate the actions if the difference is too large',
+                        default=False, required=False)
+    parser.add_argument('--use_depth_image', action='store_true', 
+                        help='Whether to use depth images',
+                        default=False, required=False)
+    
+    parser.add_argument('--disable_puppet_arm', action='store_true',
+                        help='Whether to disable the puppet arm. This is useful for safely debugging',default=False)
+    
+    parser.add_argument('--config_path', type=str, default="configs/base.yaml", 
+                        help='Path to the config file')
+    # parser.add_argument('--cfg_scale', type=float, default=2.0,
+    #                     help='the scaling factor used to modify the magnitude of the control features during denoising')
+    parser.add_argument('--pretrained_model_name_or_path', type=str, required=True, help='Name or path to the pretrained model')
+    
+    parser.add_argument('--lang_embeddings_path', type=str, required=True, 
+                        help='Path to the pre-encoded language instruction embeddings')
+    
+    args = parser.parse_args()
+    return args
+
+def main():
+    args = get_arguments()
+    ros_operator = RosOperator(args)
+    if args.seed is not None:
+        set_seed(args.seed)
+    config = get_config(args)
+    model_inference(args, config, ros_operator)
+
+if __name__ == '__main__':
+    main()
+
+</code></pre>
+</li>
+<li>
+<p>agilex_model的代码修改</p>
+<p>AGILEX_STATE_INDICES维度设置</p>
+<pre class=" language-language-python"><code class="language-language-python">AGILEX_STATE_INDICES = [
+    STATE_VEC_IDX_MAPPING[f"left_arm_joint_{i}_pos"] for i in range(7)
+] + [
+    STATE_VEC_IDX_MAPPING["left_gripper_open"]
+] + [
+    STATE_VEC_IDX_MAPPING[f"right_arm_joint_{i}_pos"] for i in range(7)
+] + [
+    STATE_VEC_IDX_MAPPING[f"right_gripper_open"]
+]
+</code></pre>
+<p>joint维度设置(L177,L215)</p>
+<pre class=" language-language-python"><code class="language-language-python">joints = joints / torch.tensor(
+   [[[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]]],
+   device=joints.device, dtype=joints.dtype
+)
+</code></pre>
+<p>python -m scripts.encode_lang</p>
+<p>python -m scripts.agilex_inference --pretrained_model_name_or_path= --lang_embeddings_path=outs/pusht.pt --ctrl_freq=50 --use_actions_interpolation</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">dinggc</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://sprboot.github.io/2025/08/30/rdt-fu-xian/">https://sprboot.github.io/2025/08/30/rdt-fu-xian/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">dinggc</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E5%85%B7%E8%BA%AB%E6%99%BA%E8%83%BD/">
+                                    <span class="chip bg-color">具身智能</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: '5N8HyHczGHoLDfBUWqk9wNit-gzGzoHsz',
+        appKey: 'c8NcfVMIaTBAkuBaLeBETFrF',
+        notify: 'false' === 'true',
+        verify: 'false' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'mm',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: 'just go go'
+    });
+</script>
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2025/08/30/rdt-fu-xian/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/21.jpg" class="responsive-img" alt="RDT复现">
+                        
+                        <span class="card-title">RDT复现</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            RDT复现
+
+
+RDT论文
+2410.07864v1.pdf
+
+
+RDT仓库
+GitHub - thu-ml/RoboticsDiffusionTransformer: RDT-1B: a Diffusion Foundation Mode
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-08-30
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" class="post-category">
+                                    人工智能
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%85%B7%E8%BA%AB%E6%99%BA%E8%83%BD/">
+                        <span class="chip bg-color">具身智能</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2024/11/10/aloha-yao-cao-zuo-shu-ju-cai-ji/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="https://raw.githubusercontent.com/SprBoot/image/refs/heads/main/2.jpg" class="responsive-img" alt="aloha遥操作数据采集源代码">
+                        
+                        <span class="card-title">aloha遥操作数据采集源代码</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            aloha遥操作数据采集源代码
+1.ROS订阅话题的更改
+2.无关参数的省略
+3.回调函数参数赋值的方式
+record_episodes.py
+主动臂构建与位姿初始化
+# 构建机器人两条主动机械臂
+master_bot_left = Int
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-11-10
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%85%B7%E8%BA%AB%E6%99%BA%E8%83%BD/" class="post-category">
+                                    具身智能
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E9%81%A5%E6%93%8D%E4%BD%9C/">
+                        <span class="chip bg-color">遥操作</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: dingdm<br />'
+            + '文章作者: dinggc<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">2019</span>
+            <a href="/about" target="_blank">dinggc</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">132.5k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+            <span id="icp"><img src="/medias/icp.png" style="vertical-align: text-bottom;" />
+                <a href="https://beian.miit.gov.cn/" target="_blank">苏ICP备18014752号</a>
+            </span>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/SprBoot" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:88665291@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=88665291" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 88665291" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/search.xml", 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+    
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.7'
+        zIndex="-1" count="99"
+        src="/libs/background/canvas-nest.js"></script>
+    
+
+    
+    
+    <script type="text/javascript" size="150" alpha='0.6'
+        zIndex="-1" src="/libs/background/ribbon-refresh.min.js" async="async"></script>
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
