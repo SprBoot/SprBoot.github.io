@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://sprboot.github.io/"/>
-  <updated>2025-08-30T05:57:52.396Z</updated>
+  <updated>2025-08-30T06:21:24.525Z</updated>
   <id>https://sprboot.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>树莓派开发板</title>
+    <link href="https://sprboot.github.io/2025/08/30/shu-mei-pai-kai-fa-ban/"/>
+    <id>https://sprboot.github.io/2025/08/30/shu-mei-pai-kai-fa-ban/</id>
+    <published>2025-08-30T06:09:30.000Z</published>
+    <updated>2025-08-30T06:21:24.525Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;树莓派开发板&quot;&gt;树莓派开发板&lt;/h3&gt;
+&lt;p&gt;转发自https://ivonblog.com/posts/redroid-on-raspberry-pi/&lt;/p&gt;
+&lt;p&gt;ReDroid為一款開源雲手機解決方案，讓你將Android系統部署在x86與ARM架構的Li
+      
+    
+    </summary>
+    
+    
+      <category term="人工智能" scheme="https://sprboot.github.io/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+    
+    
+      <category term="嵌入式" scheme="https://sprboot.github.io/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
+    
+  </entry>
   
   <entry>
     <title>RDT复现</title>
@@ -46,8 +72,8 @@
   
   <entry>
     <title>aloha遥操作数据采集源代码</title>
-    <link href="https://sprboot.github.io/2024/11/10/aloha-yao-cao-zuo-shu-ju-cai-ji-fu-ben/"/>
-    <id>https://sprboot.github.io/2024/11/10/aloha-yao-cao-zuo-shu-ju-cai-ji-fu-ben/</id>
+    <link href="https://sprboot.github.io/2024/11/10/aloha-yao-cao-zuo-shu-ju-cai-ji/"/>
+    <id>https://sprboot.github.io/2024/11/10/aloha-yao-cao-zuo-shu-ju-cai-ji/</id>
     <published>2024-11-10T07:23:10.000Z</published>
     <updated>2024-11-11T05:36:29.555Z</updated>
     
@@ -74,8 +100,8 @@
   
   <entry>
     <title>aloha遥操作数据采集源代码</title>
-    <link href="https://sprboot.github.io/2024/11/10/aloha-yao-cao-zuo-shu-ju-cai-ji/"/>
-    <id>https://sprboot.github.io/2024/11/10/aloha-yao-cao-zuo-shu-ju-cai-ji/</id>
+    <link href="https://sprboot.github.io/2024/11/10/aloha-yao-cao-zuo-shu-ju-cai-ji-fu-ben/"/>
+    <id>https://sprboot.github.io/2024/11/10/aloha-yao-cao-zuo-shu-ju-cai-ji-fu-ben/</id>
     <published>2024-11-10T07:23:10.000Z</published>
     <updated>2024-11-11T05:36:29.555Z</updated>
     
@@ -512,33 +538,6 @@
 FP:iou小于等于阈值的检测框数量&lt;br&gt;
 FN:没有检测到的GT的数量&lt;/p&gt;
 &lt;p&gt;precision:查准率，TP/(TP+FP)，预测正确的比例&lt;br&gt;
-      
-    
-    </summary>
-    
-    
-      <category term="深度学习" scheme="https://sprboot.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="论文" scheme="https://sprboot.github.io/tags/%E8%AE%BA%E6%96%87/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>AUNet论文阅读</title>
-    <link href="https://sprboot.github.io/2021/10/07/aunet-lun-wen-yue-du/"/>
-    <id>https://sprboot.github.io/2021/10/07/aunet-lun-wen-yue-du/</id>
-    <published>2021-10-07T12:27:40.000Z</published>
-    <updated>2024-09-24T08:28:43.093Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;AUNet论文阅读&quot;&gt;AUNet论文阅读&lt;/h3&gt;
-&lt;h5 id=&quot;论文理解&quot;&gt;论文理解&lt;/h5&gt;
-&lt;p&gt;作者采用FPN金字塔作为主干网络，对实例和语义分割进行融合，使用了RoIUpsample和PAM，MAM。&lt;/p&gt;
-&lt;p&gt;核心点就是通过前景的语境信息帮助背景
       
     
     </summary>
