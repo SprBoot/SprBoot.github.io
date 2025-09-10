@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://sprboot.github.io/"/>
-  <updated>2025-08-30T06:49:08.011Z</updated>
+  <updated>2025-09-10T09:53:54.575Z</updated>
   <id>https://sprboot.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>UMI数据采集及训练</title>
+    <link href="https://sprboot.github.io/2025/09/10/umi-shu-ju-cai-ji-ji-xun-lian/"/>
+    <id>https://sprboot.github.io/2025/09/10/umi-shu-ju-cai-ji-ji-xun-lian/</id>
+    <published>2025-09-10T10:09:30.000Z</published>
+    <updated>2025-09-10T09:53:54.575Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;UMI数据采集与训练&quot;&gt;UMI数据采集与训练&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;UMI论文阅读&lt;/p&gt;
+&lt;p&gt;UMI论文&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://raw.githubusercontent.com/SprBoot/image/main/2
+      
+    
+    </summary>
+    
+    
+      <category term="人工智能" scheme="https://sprboot.github.io/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+    
+    
+      <category term="具身智能" scheme="https://sprboot.github.io/tags/%E5%85%B7%E8%BA%AB%E6%99%BA%E8%83%BD/"/>
+    
+  </entry>
   
   <entry>
     <title>日常操作工具类库</title>
@@ -511,33 +540,6 @@
 &lt;h4 id=&quot;FPN论文&quot;&gt;FPN论文&lt;/h4&gt;
 &lt;h5 id=&quot;摘要&quot;&gt;摘要&lt;/h5&gt;
 &lt;p&gt;特征金字塔是识别系统中用于检测不同尺度对象的基本组件。但是最近的深度学习对象检测器避免了金字塔表示，部分原因是它们是计算和
-      
-    
-    </summary>
-    
-    
-      <category term="深度学习" scheme="https://sprboot.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="论文" scheme="https://sprboot.github.io/tags/%E8%AE%BA%E6%96%87/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ResNet网络理论</title>
-    <link href="https://sprboot.github.io/2021/11/11/resnet-wang-luo-jie-gou-li-lun/"/>
-    <id>https://sprboot.github.io/2021/11/11/resnet-wang-luo-jie-gou-li-lun/</id>
-    <published>2021-11-11T09:43:30.000Z</published>
-    <updated>2024-09-24T08:33:40.086Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;ResNet网络理论&quot;&gt;ResNet网络理论&lt;/h3&gt;
-&lt;h4 id=&quot;ResNet论文&quot;&gt;ResNet论文&lt;/h4&gt;
-&lt;h5 id=&quot;摘要&quot;&gt;摘要&lt;/h5&gt;
-&lt;p&gt;更深的神经网络更难训练。我们提出了一个残差学习框架，以简化比普通网络更深的网络的训练。我们提供了全
       
     
     </summary>
