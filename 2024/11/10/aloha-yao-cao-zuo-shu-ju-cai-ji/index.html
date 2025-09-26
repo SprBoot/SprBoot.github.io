@@ -563,7 +563,7 @@ opening_ceremony(master_bot_left, master_bot_right, env.puppet_bot_left, env.pup
     while not pressed:
         gripper_pos_left = get_arm_gripper_positions(master_bot_left)
         gripper_pos_right = get_arm_gripper_positions(master_bot_right)
-        if (gripper_pos_left < close_thresh) and (gripper_pos_right < close_thresh):
+        if (gripper_pos_left &lt; close_thresh) and (gripper_pos_right &lt; close_thresh):
             pressed = True
         time.sleep(DT/10)
     # 关闭主动臂的电机
@@ -1471,7 +1471,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">139.4k</span>&nbsp;字
+                class="white-color">130.3k</span>&nbsp;字
             
             
             

@@ -655,8 +655,8 @@ llm_generated_func = None
 # 检查响应状态码
 if response.status_code == 200:
     # 如果响应成功，打印响应内容
-    # print(response.json()['choices'][0]['message']['content'].replace('<|endoftext|>',''))
-    llm_generated_func = response.json()['choices'][0]['message']['content'].replace('<|endoftext|>','')
+    # print(response.json()['choices'][0]['message']['content'].replace('&lt;|endoftext|&gt;',''))
+    llm_generated_func = response.json()['choices'][0]['message']['content'].replace('&lt;|endoftext|&gt;','')
 else:
     # 如果响应失败，打印错误信息
     print(f"Error: {response.status_code}, {response.text}")
@@ -769,7 +769,7 @@ if __name__ == '__main__':
                                                cv2.WINDOW_KEEPRATIO | cv2.WINDOW_GUI_EXPANDED)
             cv2.resizeWindow('detection', 640, 480)
             cv2.imshow('detection', im_array)
-            if cv2.waitKey(1) & 0xFF == ord('q'):
+            if cv2.waitKey(1) &amp; 0xFF == ord('q'):
                 cv2.destroyAllWindows()
                 pipeline.stop()
                 break
@@ -862,10 +862,10 @@ sudo modprobe ashmem_linux
 <pre class=" language-language-bash"><code class="language-language-bash">adb connect 10.118.23.53:5555
 </code></pre>
 <pre class=" language-language-bash"><code class="language-language-bash">cd /home/jack/scrcpy/
-nohup scrcpy -s 10.118.23.53:5555 &
+nohup scrcpy -s 10.118.23.53:5555 &amp;
 </code></pre>
 <pre class=" language-language-bash"><code class="language-language-bash">cd /home/jack/AzurLaneAutoScript/
-nohup podman-compose up &
+nohup podman-compose up &amp;
 </code></pre>
 </li>
 <li>
@@ -991,7 +991,7 @@ ubuntu_24.04_ros2:v1.0 /bin/bash
 <pre class=" language-language-python"><code class="language-language-python">        current_time = time.time()
         if self.prev_time is not None:
             dt = current_time - self.prev_time
-            if dt > 0:
+            if dt &gt; 0:
                 self.frame_rate = 1.0 / dt
                 print(f"Current frame rate: {self.frame_rate:.2f} Hz")
         self.prev_time = current_time
@@ -1688,7 +1688,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">139.4k</span>&nbsp;字
+                class="white-color">130.3k</span>&nbsp;字
             
             
             

@@ -572,7 +572,7 @@
 	padding, kernel, lambda, output_sigma_factor, interp_factor, cell_size, ...
 	features, show_visualization)
 	% 判断框选区域大小，区域较大减小分辨率，并非提取全部细节
-	resize_image = (sqrt(prod(target_sz)) >= 100);
+	resize_image = (sqrt(prod(target_sz)) &gt;= 100);
 	if resize_image,
 		pos = floor(pos / 2);
 		target_sz = floor(target_sz / 2);
@@ -596,7 +596,7 @@
 	for frame = 1:numel(img_files),
 		% 图片读取，并转换为灰度图
 		im = imread([video_path img_files{frame}]);
-		if size(im,3) > 1,
+		if size(im,3) &gt; 1,
 			im = rgb2gray(im);
 		end
 		if resize_image,
@@ -605,7 +605,7 @@
 
 		tic()
     % 第一帧之后的图像追踪处理，可以先看代码下方对第一帧的分类器训练逻辑
-		if frame > 1,
+		if frame &gt; 1,
 			% 在接下来的图像帧中根据设定的检测框和上一帧的追踪位置提取检测区域
 			patch = get_subwindow(im, pos, window_sz);
 			% 对特征区域进行傅立叶变换
@@ -625,10 +625,10 @@
 			% 获取最大响应位置
 			[vert_delta, horiz_delta] = find(response == max(response(:)), 1);
 			% 处理追踪时目标不移动而导致的峰值不在中心的情形
-			if vert_delta > size(zf,1) / 2, 
+			if vert_delta &gt; size(zf,1) / 2, 
 				vert_delta = vert_delta - size(zf,1);
 			end
-			if horiz_delta > size(zf,2) / 2,
+			if horiz_delta &gt; size(zf,2) / 2,
 				horiz_delta = horiz_delta - size(zf,2);
 			end
 			pos = pos + cell_size * [vert_delta - 1, horiz_delta - 1];
@@ -1400,7 +1400,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">139.4k</span>&nbsp;字
+                class="white-color">130.3k</span>&nbsp;字
             
             
             

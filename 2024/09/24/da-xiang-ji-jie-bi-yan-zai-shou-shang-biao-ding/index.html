@@ -505,7 +505,7 @@
 <p>使用USB接口相机标定时需要先使用标定板标定获取相机内参等信息，realsense相机自带标定信息。相机标定完成后在机械臂末端固定相机后使用aruco和机械臂位姿进行手眼标定。</p>
 <h4 id="相机标定">相机标定</h4>
 <p>大象机械臂内置了ROS1和ROS2环境，usb_cam默认安装编译完成，如果不是自带的话，ROS环境的安装可以使用鱼香的一键安装。</p>
-<pre class=" language-language-bash"><code class="language-language-bash">wget http://fishros.com/install -O fishros && . fishros
+<pre class=" language-language-bash"><code class="language-language-bash">wget http://fishros.com/install -O fishros &amp;&amp; . fishros
 </code></pre>
 <p>usb_cam安装如下所示。</p>
 <pre class=" language-language-bash"><code class="language-language-bash">cd ~/catkin_ws/src
@@ -570,7 +570,7 @@ sudo swapon /swapfile
 <pre class=" language-language-bash"><code class="language-language-bash">roslaunch mycobot_280pi slider_control.launch
 </code></pre>
 <p>运行上述命令后发现机械臂不随软件调试变化，这里修改一下slider_control代码即可，修改如下。</p>
-<pre class=" language-language-python"><code class="language-language-python">node name="control_slider" pkg="mycobot_280pi" type="slider_control.py">
+<pre class=" language-language-python"><code class="language-language-python">node name="control_slider" pkg="mycobot_280pi" type="slider_control.py"&gt;
 		param name="port" type="string" value="$(arg port)"
 		param name="baud" type="int" value="$(arg baud)"
 node
@@ -1253,7 +1253,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">139.4k</span>&nbsp;字
+                class="white-color">130.3k</span>&nbsp;字
             
             
             
